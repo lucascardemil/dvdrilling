@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "bootstrap-icons": "^1.11.3",
-        "notyf": "^3.10.0"
+        "notyf": "^3.10.0",
+        "vuejs-datepicker": "^1.6.2"
     }
 }

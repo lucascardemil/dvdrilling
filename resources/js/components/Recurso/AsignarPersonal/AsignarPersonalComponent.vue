@@ -8,18 +8,13 @@
                 </div>
                 <form @submit.prevent="saveAsignarPersonal">
                     <div class="list-group mb-3" v-if="personals.length">
-                        <label class="list-group-item" v-for="personal in filtrarAsignarPersonal" :key="personal.id">
+                        <label class="list-group-item" v-for="personal in filtrarAsignarPersonal" :key="personal.id"
+                            :class="errors_personal ? errors_personal.personal_id ? 'list-group-item-error' : '' : ''">
                             <input class="form-check-input me-1" type="checkbox" :id="'personal-' + personal.id"
                                 :value="personal.id" v-model="selectedPersonals"
                                 @change="handlePersonalsChange(personal.id)">
                             {{ personal.name }} {{ personal.apellido_paterno }} - {{ personal.cargo.name }}
                         </label>
-                        <template v-if="errors_personal">
-                            <div class="alert alert-danger my-0" role="alert"
-                                v-for="personal_id in errors_personal.personal_id">
-                                No hay ninguna personal para asignar
-                            </div>
-                        </template>
                     </div>
                     <div class="mb-3">
                         <select class="form-select" aria-label="Seleccione el proyecto"
@@ -73,7 +68,7 @@
                             <td>
                                 <button type="button" class="btn btn-primary" @click="openEditModal(recurso)"><i
                                         class="bi bi-pencil-square"></i></button>
-                                <button type="button" class="btn btn-danger" @click="openEditModal(recurso)"><i
+                                <button type="button" class="btn btn-danger" @click="openEliminarModal(recurso)"><i
                                         class="bi bi-trash"></i></button>
                             </td>
                         </tr>
@@ -84,21 +79,31 @@
                 </tbody>
             </table>
         </div>
+        <EditAsignarPersonalModal ref="editAsignarPersonalModal" :recurso="selectedRecurso" :proyectos="proyectos"
+            @actualizar-personal="actualizarPersonalRecurso"></EditAsignarPersonalModal>
+        <EliminarPersonalModal ref="eliminarAsignarPersonalModal" :recurso="selectedRecurso"
+            @eliminar-personal="eliminarPersonalRecurso" />
     </div>
 </template>
 
 <script>
-import personalMixin from '../../mixins/personal/personalMixin';
-import proyectoMixin from '../../mixins/proyecto/proyectoMixin';
-import asignarPersonalMixinMixin from '../../mixins/recurso/asignarPersonalMixin';
+import personalMixin from '../../../mixins/personal/personalMixin';
+import asignarPersonalMixin from '../../../mixins/recurso/asignarPersonalMixin';
+import EliminarPersonalModal from './EliminarAsignarPersonalModal.vue';
+import EditAsignarPersonalModal from './EditAsignarPersonalModal.vue';
 
 export default {
-    mixins: [personalMixin, proyectoMixin, asignarPersonalMixinMixin],
+    mixins: [personalMixin, asignarPersonalMixin],
+    props: {
+        proyectos: Array
+    },
     components: {
-
+        EliminarPersonalModal,
+        EditAsignarPersonalModal
     },
     data() {
         return {
+            selectedRecurso: null,
             buscarPersonal: {
                 name: ''
             },
@@ -125,6 +130,18 @@ export default {
         }
     },
     methods: {
+        openEditModal(recurso) {
+            if (recurso) {
+                this.selectedRecurso = { ...recurso };
+                this.$refs.editAsignarPersonalModal.open();
+            }
+        },
+        openEliminarModal(recurso) {
+            if (recurso) {
+                this.selectedRecurso = { ...recurso };
+                this.$refs.eliminarAsignarPersonalModal.open();
+            }
+        },
         handlePersonalsChange(personalId) {
             const index = this.recursos.personal.indexOf(personalId);
             if (index === -1) {
@@ -137,20 +154,45 @@ export default {
             const response = await this.createRecurso(this.recursos);
 
             if (this.errors_personal === null) {
+                // Mostrar notificación de éxito
                 this.$notyf.success(response.message);
+
+                // Limpiar campos de selección
                 this.selectedPersonals = [];
+                this.buscarPersonal.name = '';
+
+                // Añadir nuevo personal asignado
+                this.asignarPersonal.push(...response.recursoPersonal);
+
+                // Filtrar el personal asignado de la lista de personales
+                const personalIds = this.recursos.personal.map(personal => personal);
+                this.personals = this.personals.filter(personal => !personalIds.includes(personal.id));
+
+                // Limpiar datos de recursos
                 this.recursos.proyecto = null;
                 this.recursos.personal = [];
-                this.buscarPersonal.name = '';
-                this.fetchAllAsignarPersonal();
-                this.fetchNombrePersonals();
+            }
+        },
+        eliminarPersonalRecurso(personal_recurso) {
+            if (personal_recurso) {
+                this.personals.push(personal_recurso.deleted_personal);
+                let eliminado = this.asignarPersonal.filter(personal => personal.id !== personal_recurso.id);
+                this.asignarPersonal = eliminado;
+            }
+        },
+        actualizarPersonalRecurso(personal_recurso) {
+            if (personal_recurso) {
+                this.asignarPersonal.forEach(personal => {
+                    if (personal.id === personal_recurso.id) {
+                        personal.proyecto = personal_recurso.proyecto
+                    }
+                });
             }
         }
 
     },
     mounted() {
         this.fetchNombrePersonals();
-        this.fetchProyectosSelect();
         this.fetchAllAsignarPersonal();
     }
 }

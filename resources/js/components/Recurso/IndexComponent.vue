@@ -1,6 +1,7 @@
 <template>
     <div>
-        <ul class="nav nav-tabs mb-5">
+        <h3>Asignar Personal y Asignar Activos</h3>
+        <ul class="nav nav-tabs my-3">
             <li class="nav-item">
                 <a class="nav-link" :class="{ active: activeTab === 'personal' }" @click="showTab('personal')" href="#">
                     Asignar Personal
@@ -12,17 +13,19 @@
                 </a>
             </li>
         </ul>
-        <AsignarPersonalComponent v-if="activeTab === 'personal'"></AsignarPersonalComponent>
-        <AsignarActivosComponent v-if="activeTab === 'activos'"></AsignarActivosComponent>
+        <AsignarPersonalComponent v-if="activeTab === 'personal'" :proyectos="proyectos"></AsignarPersonalComponent>
+        <AsignarActivosComponent v-if="activeTab === 'activos'" :proyectos="proyectos"></AsignarActivosComponent>
     </div>
 </template>
 
 
 <script>
-import AsignarPersonalComponent from './AsignarPersonalComponent.vue';
-import AsignarActivosComponent from './AsignarActivosComponent.vue';
+import AsignarPersonalComponent from './AsignarPersonal/AsignarPersonalComponent.vue';
+import AsignarActivosComponent from './AsignarActivo/AsignarActivosComponent.vue';
+import proyectoMixin from '../../mixins/proyecto/proyectoMixin';
 
 export default {
+    mixins: [proyectoMixin],
     data() {
         return {
             activeTab: 'personal',
@@ -36,6 +39,9 @@ export default {
         showTab(tab) {
             this.activeTab = tab;
         }
+    },
+    mounted() {
+        this.fetchProyectosSelect();
     }
 }
 </script>

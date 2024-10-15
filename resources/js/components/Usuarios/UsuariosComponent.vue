@@ -1,13 +1,9 @@
 <template>
     <div>
-        <div class="d-flex justify-content-between">
-            <div>
-                <h3>Usuarios</h3>
-            </div>
-            <div>
-                <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i
-                        class="bi bi-plus-circle"></i> Agregar Usuario</button>
-            </div>
+        <div class="d-flex justify-content-between mb-3">
+            <h3>Usuarios</h3>
+            <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i class="bi bi-plus-circle"></i>
+                Agregar Usuario</button>
         </div>
         <div class="table-responsive">
             <table class="table">
@@ -39,7 +35,8 @@
                                 </div>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-primary" @click="openEditModal(usuario)"><i class="bi bi-pencil-square"></i> Editar
+                                <button type="button" class="btn btn-primary" @click="openEditModal(usuario)"><i
+                                        class="bi bi-pencil-square"></i> Editar
                                     Rol</button>
                             </td>
                         </tr>

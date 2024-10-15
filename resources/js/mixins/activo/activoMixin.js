@@ -10,6 +10,20 @@ export default {
     },
     methods: {
 
+        async fetchNombreActivos(name = '') {
+            this.loading = true;
+            this.errors = null;
+            try {
+                const response = await axios.get('/api/activos/buscar-nombre/' + name);
+                this.activos = response.data;
+            } catch (error) {
+                this.errors = 'Failed to load activos';
+                console.error('Error fetching activos:', error);
+            } finally {
+                this.loading = false;
+            }
+        },
+
         async fetchActivosSelect() {
             this.loading = true;
             this.errors = null;

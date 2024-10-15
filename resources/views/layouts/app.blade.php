@@ -105,19 +105,24 @@
                                 </a>
                             </li>
                         @endcan
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-file-bar-graph"></i>
-                                Formato Reporte
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="bi bi-list-check"></i>
-                                Matriz Checklist
-                            </a>
-                        </li> --}}
-
+                        @can('reportes')
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('reportes.index') ? 'active' : '' }}"
+                                    aria-current="page" href="{{ route('reportes.index') }}">
+                                    <i class="bi bi-file-bar-graph"></i>
+                                    Reportes
+                                </a>
+                            </li>
+                        @endcan
+                        @can('checklist')
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('checklist.index') ? 'active' : '' }}"
+                                    aria-current="page" href="{{ route('checklist.index') }}">
+                                    <i class="bi bi-list-check"></i>
+                                    Matriz Checklist
+                                </a>
+                            </li>
+                        @endcan
                         @can('roles')
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('roles.index') ? 'active' : '' }}"
@@ -150,7 +155,8 @@
                                  document.getElementById('logout-form').submit();">
                                     <i class="bi bi-door-open"></i> Cerrar Sesion
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
                                     @csrf
                                 </form>
                             </li>

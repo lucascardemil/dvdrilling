@@ -1,13 +1,9 @@
 <template>
     <div>
-        <div class="d-flex justify-content-between">
-            <div>
-                <h3>Roles</h3>
-            </div>
-            <div>
-                <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i
-                        class="bi bi-plus-circle"></i> Agregar Rol</button>
-            </div>
+        <div class="d-flex justify-content-between mb-3">
+            <h3>Roles</h3>
+            <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i class="bi bi-plus-circle"></i>
+                Agregar Rol</button>
         </div>
         <div class="table-responsive">
             <table class="table">
@@ -24,7 +20,8 @@
                             <th scope="row">{{ index + 1 }}</th>
                             <td>{{ role.name }}</td>
                             <td>
-                                <button type="button" class="btn btn-primary" @click="openEditModal(role)"><i class="bi bi-pencil-square"></i> Editar
+                                <button type="button" class="btn btn-primary" @click="openEditModal(role)"><i
+                                        class="bi bi-pencil-square"></i> Editar
                                     Permisos</button>
                             </td>
                         </tr>

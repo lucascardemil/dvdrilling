@@ -126,3 +126,11 @@ body {
         display: block;
     }
 }
+
+.list-group-item-error{
+    border-color: #dc3545 !important;
+}
+
+.dropdown-item:hover{
+    background-color: rgba(0, 0, 0, 0.075) !important;
+}

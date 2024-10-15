@@ -13,7 +13,7 @@
                             <input type="text" class="form-control" id="roleName" v-model="selectedRole.name" required>
                         </div>
                         <div class="mb-3">
-                            <label for="rolePermission" class="form-label">Permisos</label>
+                            <label class="form-label">Permisos</label>
                             <div class="form-check" v-for="permission in permissionsSelected" :key="permission.id">
                                 <input class="form-check-input" type="checkbox" :id="'permission-' + permission.id"
                                     :value="permission.id" @change="handlePermissionChange(permission.id)"

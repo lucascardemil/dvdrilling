@@ -1,6 +1,7 @@
 <template>
     <div>
-        <ul class="nav nav-tabs mb-5">
+        <h3>Personal y Cargos</h3>
+        <ul class="nav nav-tabs my-3">
             <li class="nav-item">
                 <a class="nav-link" :class="{ active: activeTab === 'personal' }" @click="showTab('personal')" href="#">
                     Personal

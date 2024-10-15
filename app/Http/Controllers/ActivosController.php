@@ -23,6 +23,21 @@ class ActivosController extends Controller
         return view('activos.index');
     }
 
+    public function buscar_nombre($name = null)
+    {
+        $query = Activo::with('tipo_activo')
+            ->whereDoesntHave('asignaciones')
+            ->where('status', '=', 1);
+
+        if ($name) {
+            $query->where('name', 'LIKE', '%' . $name . '%');
+        }
+
+        $activos = $query->get();
+
+        return response()->json($activos);
+    }
+
     public function all_select()
     {
         $actividades = Activo::where('status', '=', 1)->get();
