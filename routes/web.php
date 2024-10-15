@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home');
 });
 
 Route::group(['middleware' => 'web'], function () {
@@ -23,7 +23,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-Route::group(['middleware' => ['permission:proyecto']], function () {
+Route::group(['middleware' => ['auth','permission:proyecto']], function () {
     Route::get('/proyecto', [App\Http\Controllers\ProyectoController::class, 'index'])->name('proyecto.index');
     Route::get('/api/proyectos/all', [App\Http\Controllers\ProyectoController::class, 'all']);
     Route::get('/api/proyectos/all-select', [App\Http\Controllers\ProyectoController::class, 'all_select']);
@@ -32,7 +32,7 @@ Route::group(['middleware' => ['permission:proyecto']], function () {
     Route::put('/api/proyectos/update-status/{id}', [App\Http\Controllers\ProyectoController::class, 'update_status']);
 });
 
-Route::group(['middleware' => ['permission:personal']], function () {
+Route::group(['middleware' => ['auth','permission:personal']], function () {
     Route::get('/personal', [App\Http\Controllers\PersonalController::class, 'index'])->name('personal.index');
     Route::get('/api/personals/all', [App\Http\Controllers\PersonalController::class, 'all']);
     Route::get('/api/personals/buscar-nombre/{nombre?}', [App\Http\Controllers\PersonalController::class, 'buscar_nombre']);
@@ -48,7 +48,7 @@ Route::group(['middleware' => ['permission:personal']], function () {
     Route::put('/api/cargos/update-status/{id}', [App\Http\Controllers\CargosController::class, 'update_status']);
 });
 
-Route::group(['middleware' => ['permission:activos']], function () {
+Route::group(['middleware' => ['auth','permission:activos']], function () {
     Route::get('/activos', [App\Http\Controllers\ActivosController::class, 'index'])->name('activos.index');
     Route::get('/api/activos/all', [App\Http\Controllers\ActivosController::class, 'all']);
     Route::get('/api/activos/all-select', [App\Http\Controllers\ActivosController::class, 'all_select']);
@@ -65,7 +65,7 @@ Route::group(['middleware' => ['permission:activos']], function () {
     Route::put('/api/tipo-activos/update-status/{id}', [App\Http\Controllers\TipoActivosController::class, 'update_status']);
 });
 
-Route::group(['middleware' => ['permission:recursos']], function () {
+Route::group(['middleware' => ['auth','permission:recursos']], function () {
     Route::get('/recursos', [App\Http\Controllers\RecursosController::class, 'index'])->name('recursos.index');
 
     Route::get('/api/recursos/all-asignar-personal', [App\Http\Controllers\RecursosController::class, 'all_asignar_personal']);
@@ -79,7 +79,7 @@ Route::group(['middleware' => ['permission:recursos']], function () {
     Route::put('/api/recursos/update-activo/{id}', [App\Http\Controllers\RecursosController::class, 'update_activo']);
 });
 
-Route::group(['middleware' => ['permission:actividades']], function () {
+Route::group(['middleware' => ['auth','permission:actividades']], function () {
     Route::get('/actividades', [App\Http\Controllers\ActividadesController::class, 'index'])->name('actividades.index');
 
     Route::get('/api/actividades/all', [App\Http\Controllers\ActividadesController::class, 'all']);
@@ -89,7 +89,7 @@ Route::group(['middleware' => ['permission:actividades']], function () {
     Route::put('/api/actividades/update-status/{id}', [App\Http\Controllers\ActividadesController::class, 'update_status']);
 });
 
-Route::group(['middleware' => ['permission:reportes']], function () {
+Route::group(['middleware' => ['auth','permission:reportes']], function () {
     Route::get('/reportes', [App\Http\Controllers\ReporteController::class, 'index'])->name('reportes.index');
     Route::get('/api/reportes/all', [App\Http\Controllers\ReporteController::class, 'all']);
     Route::post('/api/reportes/store', [App\Http\Controllers\ReporteController::class, 'store']);
@@ -131,7 +131,7 @@ Route::group(['middleware' => ['permission:reportes']], function () {
 
 });
 
-Route::group(['middleware' => ['permission:checklist']], function () {
+Route::group(['middleware' => ['auth','permission:checklist']], function () {
     Route::get('/checklist', [App\Http\Controllers\ChecklistController::class, 'index'])->name('checklist.index');
 
     Route::get('/api/matrizchecklist/all', [App\Http\Controllers\MatrizChecklistController::class, 'all']);
@@ -156,7 +156,7 @@ Route::group(['middleware' => ['permission:checklist']], function () {
     Route::post('/api/checklist/store_intervencionChecklist', [App\Http\Controllers\IntervencionChecklistController::class, 'store']);
 });
 
-Route::group(['middleware' => ['permission:usuarios']], function () {
+Route::group(['middleware' => ['auth','permission:usuarios']], function () {
     Route::get('/usuarios', [App\Http\Controllers\UsuariosController::class, 'index'])->name('usuarios.index');
     Route::get('/api/usuarios/all', [App\Http\Controllers\UsuariosController::class, 'all']);
     Route::post('/api/usuarios/store', [App\Http\Controllers\UsuariosController::class, 'store']);
@@ -164,7 +164,7 @@ Route::group(['middleware' => ['permission:usuarios']], function () {
     Route::put('/api/usuarios/update-status/{id}', [App\Http\Controllers\UsuariosController::class, 'update_status']);
 });
 
-Route::group(['middleware' => ['permission:roles']], function () {
+Route::group(['middleware' => ['auth','permission:roles']], function () {
     Route::get('/roles', [App\Http\Controllers\RolesController::class, 'index'])->name('roles.index');
     Route::get('/api/roles/all', [App\Http\Controllers\RolesController::class, 'all']);
     Route::post('/api/roles/store', [App\Http\Controllers\RolesController::class, 'store']);
