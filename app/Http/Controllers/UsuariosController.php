@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 
 class UsuariosController extends Controller
 {
@@ -51,7 +52,7 @@ class UsuariosController extends Controller
 
     public function update(Request $request, $id)
     {
-        if($request->rol_id === null){
+        if ($request->rol_id === null) {
             return response()->json(['errors' => 'No selecciono ningun rol'], 201);
         }
 
@@ -68,5 +69,28 @@ class UsuariosController extends Controller
             'status' => $request->status
         ]);
         return response()->json(['message' => 'El estado del usuario se actualizó correctamente', 'user' => $user], 201);
+    }
+
+    public function update_password(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 201);
+        }
+
+        $user = User::findOrFail($id);
+        $user->update([
+            'password' => bcrypt($request->password),
+        ]);
+
+        $email_logeado = Auth::user()->email;
+        $logout = false;
+        if ($email_logeado == $user->email) {
+            $logout = true;
+        }
+        return response()->json(['message' => 'La contraseña se actualizo correctamente', 'logout' => $logout], 201);
     }
 }

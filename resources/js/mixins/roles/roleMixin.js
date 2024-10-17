@@ -13,7 +13,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/roles/all');
+                const response = await axios.get('/roles/all');
                 this.roles = response.data;
             } catch (error) {
                 this.errors = 'Failed to load roles';
@@ -27,7 +27,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.post('/api/roles/store', {
+                const response = await axios.post('/roles/store', {
                     name: data.name
                 });
         
@@ -51,7 +51,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/roles/update/' + data.id, {
+                const response = await axios.put('/roles/update/' + data.id, {
                     name: data.name,
                     permissions: data.permissions
                 });

@@ -196,7 +196,7 @@ export default {
         }
 
     },
-    mounted() {
+    created() {
         this.fetchNombreActivos();
         this.fetchAllAsignarActivo();
     }

@@ -15,7 +15,7 @@ export default {
             this.loading = true;
             this.errors_reporte = null;
             try {
-                const response = await axios.get(`/api/reportes/all`);
+                const response = await axios.get(`/reportes/all`);
                 this.reportes = response.data;
             } catch (error) {
                 this.errors_reporte = 'Failed to load reportes';
@@ -29,7 +29,7 @@ export default {
             this.loading_create = true;
             this.errors_reporte = null;
             try {
-                const response = await axios.post('/api/reportes/store', data);
+                const response = await axios.post('/reportes/store', data);
 
                 // Verifica si la respuesta tiene errores de validación
                 if (response.data.errors) {
@@ -51,7 +51,7 @@ export default {
             this.loading = true;
             this.errors_reporte = null;
             try {
-                const response = await axios.put('/api/reportes/update/' + data.reporte_id, {
+                const response = await axios.put('/reportes/update/' + data.reporte_id, {
                     proyecto_id: data.proyecto_id,
                     sondaje: data.sondaje,
                     fecha: data.fecha,
@@ -87,7 +87,7 @@ export default {
             this.loading = true;
             this.errors_reporte = null;
             try {
-                const response = await axios.put('/api/reportes/update-status/' + data.reporte_id, {
+                const response = await axios.put('/reportes/update-status/' + data.reporte_id, {
                     status: data.status
                 });
 
@@ -109,7 +109,7 @@ export default {
             console.log(reporte);
             try {
                 const response = await axios({
-                    url: '/api/reportes/pdf',  // URL de la API
+                    url: '/reportes/pdf',  // URL de la API
                     method: 'POST',
                     data: { reporte },
                     responseType: 'blob'  // Importante para recibir el archivo como Blob

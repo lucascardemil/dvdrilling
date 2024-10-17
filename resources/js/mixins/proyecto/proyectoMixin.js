@@ -14,7 +14,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/proyectos/all-select');
+                const response = await axios.get('/proyectos/all-select');
                 this.proyectos = response.data;
             } catch (error) {
                 this.errors = 'Failed to load proyectos';
@@ -28,7 +28,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/proyectos/all');
+                const response = await axios.get('/proyectos/all');
                 this.proyectos = response.data;
             } catch (error) {
                 this.errors = 'Failed to load proyectos';
@@ -42,7 +42,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.post('/api/proyectos/store', {
+                const response = await axios.post('/proyectos/store', {
                     name: data.name
                 });
         
@@ -66,7 +66,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/proyectos/update/' + data.proyecto_id, {
+                const response = await axios.put('/proyectos/update/' + data.proyecto_id, {
                     name: data.name
                 });
 
@@ -88,7 +88,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/proyectos/update-status/' + data.proyecto_id, {
+                const response = await axios.put('/proyectos/update-status/' + data.proyecto_id, {
                     status: data.status
                 });
 

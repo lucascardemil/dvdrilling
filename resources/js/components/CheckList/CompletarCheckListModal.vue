@@ -46,7 +46,7 @@
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <span>{{ intervencion.nombre }}</span>
                                             <div>
-                                                <input class="form-check-input" type="checkbox"
+                                                <input class="form-check-input" type="checkbox" :disabled="!completarCheckList.status"
                                                     :id="'intervencion-' + intervencion.id" :value="intervencion.id"
                                                     @change="marcarIntervencion(intervencion)"
                                                     v-model="intervencion.selected">
@@ -56,17 +56,21 @@
                                 </template>
                             </template>
                         </ul>
+
+                        <div class="d-flex justify-content-end mt-3" v-if="completarCheckList.status">
+                            <button type="button" class="btn btn-base-dv"
+                                @click="finalizarCheckList(completarCheckList.id)"
+                                :disabled="loading_checklist_create">
+                                <span v-if="loading_checklist_create">
+                                    <span class="spinner-border spinner-border-sm" role="status"
+                                        aria-hidden="true"></span>
+                                    Cargando...</span>
+                                <span v-else><i class="bi bi-clipboard2-check-fill"></i> Finalizar</span>
+                            </button>
+                        </div>
                     </template>
 
-                    <div class="d-flex justify-content-end mt-3">
-                        <button type="button" class="btn btn-base-dv" @click="finalizarCheckList(completarCheckList.id)"
-                            :disabled="loading_checklist_create">
-                            <span v-if="loading_checklist_create">
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                Cargando...</span>
-                            <span v-else><i class="bi bi-clipboard2-check-fill"></i> Finalizar</span>
-                        </button>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -80,7 +84,8 @@ import checklistMixin from '../../mixins/checklist/checklistMixin';
 export default {
     mixins: [checklistMixin],
     props: {
-        completarCheckList: Object
+        completarCheckList: Object,
+        intervenciones: Array
     },
     data() {
         return {
@@ -89,6 +94,16 @@ export default {
                 intervenciones: []
             },
         };
+    },
+    watch: {
+        intervenciones: {
+            immediate: true,
+            handler(intervenciones) {
+                if (intervenciones) {
+                    this.selectedIntervencion.intervenciones = this.intervenciones
+                }
+            }
+        },
     },
     methods: {
         open() {
@@ -113,10 +128,15 @@ export default {
             if (index === -1) {
                 this.selectedIntervencion.intervenciones.push({
                     categoria_id: intervencion.matriz_categoria_checklist_id,
-                    intervencion_id: intervencion.id
+                    intervencion_id: intervencion.id,
+                    selected: true
                 });
             } else {
-                this.selectedIntervencion.intervenciones.splice(index, 1);
+                this.selectedIntervencion.intervenciones.push({
+                    categoria_id: intervencion.matriz_categoria_checklist_id,
+                    intervencion_id: intervencion.id,
+                    selected: false
+                });
             }
         },
 
@@ -131,8 +151,8 @@ export default {
 
             if (this.errors_intervencion_checklist === null) {
                 this.$notyf.success(response.message);
-                // this.$emit('matrizCategoriaChecklist-creada', response.categoriaMatrizChecklist);
-                // this.newCategoriaChecklist.nombre = '';
+                this.$emit('actualizar-status-checklist', response.checklist);
+                this.close();
             }
         }
     }

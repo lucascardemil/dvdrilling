@@ -15,7 +15,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/recursos/all-asignar-activos');
+                const response = await axios.get('/recursos/all-asignar-activos');
                 this.asignarActivo = response.data;
             } catch (error) {
                 this.errors = 'Failed to load recursos';
@@ -29,7 +29,7 @@ export default {
             this.loading = true;
             this.errors_activo = null;
             try {
-                const response = await axios.post('/api/recursos/store-activo', {
+                const response = await axios.post('/recursos/store-activo', {
                     proyecto_id: data.proyecto,
                     activo_id: data.activo
                 });
@@ -54,7 +54,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/recursos/update-status/' + data.activo_id, {
+                const response = await axios.put('/recursos/update-status/' + data.activo_id, {
                     status: data.status
                 });
 
@@ -77,7 +77,7 @@ export default {
             this.loading = true;
             this.errors_activo = null;
             try {
-                const response = await axios.delete('/api/recursos/delete-activo/' + data.activo_id);
+                const response = await axios.delete('/recursos/delete-activo/' + data.activo_id);
 
                 if (response.data.errors) {
                     this.errors_activo = response.data.errors;
@@ -97,7 +97,7 @@ export default {
             this.loading = true;
             this.errors_activo = null;
             try {
-                const response = await axios.put('/api/recursos/update-activo/' + data.id, {
+                const response = await axios.put('/recursos/update-activo/' + data.id, {
                     proyecto: data.proyecto
                 });
 

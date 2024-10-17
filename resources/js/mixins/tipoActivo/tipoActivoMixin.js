@@ -14,7 +14,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/tipo-activos/all-select');
+                const response = await axios.get('/tipo-activos/all-select');
                 this.tipo_activos = response.data;
             } catch (error) {
                 this.errors = 'Failed to load tipo_activos';
@@ -28,7 +28,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/tipo-activos/all');
+                const response = await axios.get('/tipo-activos/all');
                 this.tipo_activos = response.data;
             } catch (error) {
                 this.errors = 'Failed to load tipo_activos';
@@ -42,7 +42,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.post('/api/tipo-activos/store', {
+                const response = await axios.post('/tipo-activos/store', {
                     name: data.name
                 });
         
@@ -66,7 +66,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/tipo-activos/update/' + data.tipo_activo_id, {
+                const response = await axios.put('/tipo-activos/update/' + data.tipo_activo_id, {
                     name: data.name
                 });
 
@@ -88,7 +88,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/tipo-activos/update-status/' + data.tipo_activo_id, {
+                const response = await axios.put('/tipo-activos/update-status/' + data.tipo_activo_id, {
                     status: data.status
                 });
 

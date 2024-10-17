@@ -13,7 +13,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/personals/buscar-nombre/' + name);
+                const response = await axios.get('/personals/buscar-nombre/' + name);
                 this.personals = response.data;
             } catch (error) {
                 this.errors = 'Failed to load personals';
@@ -28,7 +28,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/personals/all');
+                const response = await axios.get('/personals/all');
                 this.personals = response.data;
             } catch (error) {
                 this.errors = 'Failed to load personals';
@@ -42,7 +42,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.post('/api/personals/store', {
+                const response = await axios.post('/personals/store', {
                     name: data.name,
                     apellido_paterno: data.apellido_paterno,
                     apellido_materno: data.apellido_materno,
@@ -70,7 +70,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/personals/update/' + data.personal_id, {
+                const response = await axios.put('/personals/update/' + data.personal_id, {
                     name: data.name,
                     apellido_paterno: data.apellido_paterno,
                     apellido_materno: data.apellido_materno,
@@ -96,7 +96,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/personals/update-status/' + data.personal_id, {
+                const response = await axios.put('/personals/update-status/' + data.personal_id, {
                     status: data.status
                 });
 

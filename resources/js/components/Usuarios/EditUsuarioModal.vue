@@ -11,7 +11,7 @@
                     <form @submit.prevent="editRoleUsuario">
                         <div class="mb-3">
                             <label for="usuarioRol" class="form-label">Rol</label>
-                            <select class="form-select" aria-label="Seleccione roles" v-model="editUsuario.selectedRol">
+                            <select class="form-select" id="usuarioRol" aria-label="Seleccione roles" v-model="editUsuario.selectedRol">
                                 <option :value="null" disabled>Seleccione un rol</option>
                                 <template v-for="rol in roles">
                                     <option :value="rol.id">{{ rol.name }}</option>
@@ -75,7 +75,7 @@ export default {
             }
         }
     },
-    mounted() {
+    created() {
         this.fetchRoles();
     }
 }

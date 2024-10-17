@@ -14,7 +14,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/cargos/all-select');
+                const response = await axios.get('/cargos/all-select');
                 this.cargos = response.data;
             } catch (error) {
                 this.errors = 'Failed to load cargos';
@@ -28,7 +28,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/cargos/all');
+                const response = await axios.get('/cargos/all');
                 this.cargos = response.data;
             } catch (error) {
                 this.errors = 'Failed to load cargos';
@@ -42,7 +42,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.post('/api/cargos/store', {
+                const response = await axios.post('/cargos/store', {
                     name: data.name
                 });
         
@@ -66,7 +66,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/cargos/update/' + data.cargo_id, {
+                const response = await axios.put('/cargos/update/' + data.cargo_id, {
                     name: data.name
                 });
 
@@ -88,7 +88,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/cargos/update-status/' + data.cargo_id, {
+                const response = await axios.put('/cargos/update-status/' + data.cargo_id, {
                     status: data.status
                 });
 

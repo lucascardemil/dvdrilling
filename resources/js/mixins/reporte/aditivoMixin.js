@@ -14,7 +14,7 @@ export default {
             this.loading = true;
             this.errors_aditivos = null;
             try {
-                const response = await axios.get(`/api/aditivos/all/${id}`);
+                const response = await axios.get(`/aditivos/all/${id}`);
                 this.aditivos = response.data;
             } catch (error) {
                 this.errors_aditivos = 'Failed to load aditivos';
@@ -28,7 +28,7 @@ export default {
             this.loading_create = true;
             this.errors_aditivos = null;
             try {
-                const response = await axios.post('/api/aditivos/store', data);
+                const response = await axios.post('/aditivos/store', data);
 
                 if (response.data.errors) {
                     this.errors_aditivos = response.data.errors;
@@ -48,7 +48,7 @@ export default {
             this.loading = true;
             this.errors_aditivos = null;
             try {
-                const response = await axios.put('/api/aditivos/update/' + data.id, {
+                const response = await axios.put('/aditivos/update/' + data.id, {
                     detalle: data.detalle,
                     cantidad: data.cantidad
                 });
@@ -71,7 +71,7 @@ export default {
             this.loading = true;
             this.errors_aditivos = null;
             try {
-                const response = await axios.delete('/api/aditivos/delete/' + id);
+                const response = await axios.delete('/aditivos/delete/' + id);
 
                 if (response.data.errors) {
                     this.errors_aditivos = response.data.errors;

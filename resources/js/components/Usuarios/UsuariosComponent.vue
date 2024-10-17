@@ -30,11 +30,13 @@
                             <td>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" role="switch"
-                                        id="flexSwitchCheckDefault" v-model="usuario.status"
+                                        :id="'status-' + usuario.id" v-model="usuario.status"
                                         @change="handleEnabledChange(usuario.id, usuario.status)">
                                 </div>
                             </td>
                             <td>
+                                <button type="button" class="btn btn-warning" @click="openEditPasswordModal(usuario)"><i
+                                        class="bi bi-pencil-square"></i> Editar Contraseña</button>
                                 <button type="button" class="btn btn-primary" @click="openEditModal(usuario)"><i
                                         class="bi bi-pencil-square"></i> Editar
                                     Rol</button>
@@ -49,6 +51,7 @@
         </div>
         <CrearUsuarioModal ref="crearUsuarioModal" @usuario-updated="fetchUsuarios" />
         <EditUsuarioModal ref="editUsuarioModal" :usuario="selectedUsuario" @usuario-updated="fetchUsuarios" />
+        <EditPasswordModal ref="editPasswordUsuarioModal" :usuario="selectedUsuario" @usuario-updated="fetchUsuarios" />
     </div>
 </template>
 
@@ -56,12 +59,14 @@
 import usuariosMixin from '../../mixins/usuarios/usuariosMixin';
 import CrearUsuarioModal from './CrearUsuarioModal.vue';
 import EditUsuarioModal from './EditUsuarioModal.vue';
+import EditPasswordModal from './EditPasswordModal.vue';
 
 export default {
     mixins: [usuariosMixin],
     components: {
         CrearUsuarioModal,
-        EditUsuarioModal
+        EditUsuarioModal,
+        EditPasswordModal
     },
     data() {
         return {
@@ -79,6 +84,12 @@ export default {
                 this.$refs.editUsuarioModal.open();
             }
         },
+        openEditPasswordModal(usuario) {
+            if (usuario) {
+                this.selectedUsuario = { ...usuario };
+                this.$refs.editPasswordUsuarioModal.open();
+            }
+        },
         async handleEnabledChange(usuarioId, status) {
             const checkboxStatus = status ? 1 : 0;
             const checkbox = { usuario_id: usuarioId, status: checkboxStatus };
@@ -92,7 +103,7 @@ export default {
         }
 
     },
-    mounted() {
+    created() {
         this.fetchUsuarios();
     }
 }

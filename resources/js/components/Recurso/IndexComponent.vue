@@ -40,7 +40,7 @@ export default {
             this.activeTab = tab;
         }
     },
-    mounted() {
+    created() {
         this.fetchProyectosSelect();
     }
 }

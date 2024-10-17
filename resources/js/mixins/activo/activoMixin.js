@@ -14,7 +14,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/activos/buscar-nombre/' + name);
+                const response = await axios.get('/activos/buscar-nombre/' + name);
                 this.activos = response.data;
             } catch (error) {
                 this.errors = 'Failed to load activos';
@@ -28,7 +28,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/activos/all-select');
+                const response = await axios.get('/activos/all-select');
                 this.activos = response.data;
             } catch (error) {
                 this.errors = 'Failed to load activos';
@@ -42,7 +42,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/activos/all');
+                const response = await axios.get('/activos/all');
                 this.activos = response.data;
             } catch (error) {
                 this.errors = 'Failed to load activos';
@@ -56,7 +56,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.post('/api/activos/store', {
+                const response = await axios.post('/activos/store', {
                     tipo_activo: data.tipo_activo,
                     marca: data.marca,
                     modelo: data.modelo,
@@ -90,7 +90,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/activos/update/' + data.activo_id, {
+                const response = await axios.put('/activos/update/' + data.activo_id, {
                     tipo_activo: data.tipo_activo,
                     marca: data.marca,
                     modelo: data.modelo,
@@ -122,7 +122,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/activos/update-status/' + data.activo_id, {
+                const response = await axios.put('/activos/update-status/' + data.activo_id, {
                     status: data.status
                 });
 
@@ -145,7 +145,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.post('/api/activos/update-imagenes', data, {
+                const response = await axios.post('/activos/update-imagenes', data, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }

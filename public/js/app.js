@@ -5147,7 +5147,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }))();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchActividades();
   }
 });
@@ -5402,7 +5402,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }))();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchActivos();
     this.fetchTipoActivosSelect();
   }
@@ -5835,7 +5835,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }))();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchCargos();
   }
 });
@@ -6010,10 +6010,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
 /* harmony import */ var _mixins_tipoActivo_tipoActivoMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/tipoActivo/tipoActivoMixin */ "./resources/js/mixins/tipoActivo/tipoActivoMixin.js");
 /* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
-/* harmony import */ var _MatrizCheckList_MatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MatrizCheckList/MatrizCheckListModal.vue */ "./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue");
-/* harmony import */ var _MatrizCheckList_ListaMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MatrizCheckList/ListaMatrizCheckListModal.vue */ "./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue");
-/* harmony import */ var _EditCheckListModal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./EditCheckListModal.vue */ "./resources/js/components/CheckList/EditCheckListModal.vue");
-/* harmony import */ var _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CompletarCheckListModal.vue */ "./resources/js/components/CheckList/CompletarCheckListModal.vue");
+/* harmony import */ var _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/usuarios/usuariosMixin */ "./resources/js/mixins/usuarios/usuariosMixin.js");
+/* harmony import */ var _MatrizCheckList_MatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MatrizCheckList/MatrizCheckListModal.vue */ "./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue");
+/* harmony import */ var _MatrizCheckList_ListaMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MatrizCheckList/ListaMatrizCheckListModal.vue */ "./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue");
+/* harmony import */ var _EditCheckListModal_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditCheckListModal.vue */ "./resources/js/components/CheckList/EditCheckListModal.vue");
+/* harmony import */ var _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CompletarCheckListModal.vue */ "./resources/js/components/CheckList/CompletarCheckListModal.vue");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -6025,13 +6026,14 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_tipoActivo_tipoActivoMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_tipoActivo_tipoActivoMixin__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
   components: {
-    MatrizCheckListModal: _MatrizCheckList_MatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    ListaMatrizCheckListModal: _MatrizCheckList_ListaMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    EditCheckListModal: _EditCheckListModal_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    CompletarCheckListModal: _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
+    MatrizCheckListModal: _MatrizCheckList_MatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    ListaMatrizCheckListModal: _MatrizCheckList_ListaMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    EditCheckListModal: _EditCheckListModal_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    CompletarCheckListModal: _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
   },
   data: function data() {
     return {
@@ -6040,7 +6042,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         matriz_checklist_id: 0,
         marca: '',
         modelo: ''
-      }
+      },
+      intervenciones: []
     };
   },
   methods: {
@@ -6071,6 +6074,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                   intervenciones.forEach(function (inter) {
                     if (inter.matriz_intervencion_checklist_id === intervencion.id) {
                       intervencion.selected = true;
+                      _this.intervenciones.push({
+                        categoria_id: intervencion.matriz_categoria_checklist_id,
+                        intervencion_id: intervencion.id,
+                        selected: true
+                      });
                     }
                   });
                 });
@@ -6104,12 +6112,46 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
           }
         }, _callee2);
       }))();
+    },
+    habilitarCheckList: function habilitarCheckList(checklist_id, status) {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var checkboxStatus, checkbox;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              checkboxStatus = status ? 1 : 0;
+              checkbox = {
+                checklist_id: checklist_id,
+                status: checkboxStatus
+              };
+              _context3.prev = 2;
+              _context3.next = 5;
+              return _this3.actualizarStatusChecklist(checkbox);
+            case 5:
+              _context3.next = 10;
+              break;
+            case 7:
+              _context3.prev = 7;
+              _context3.t0 = _context3["catch"](2);
+              console.error('Error actualizando el estado:', _context3.t0);
+            case 10:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3, null, [[2, 7]]);
+      }))();
+    },
+    actualizarStatusChecklistCompleta: function actualizarStatusChecklistCompleta(checklist) {
+      console.log(checklist);
+      this.checklist = checklist;
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchTipoActivosSelect();
     this.fetchMatrizChecklist();
     this.fetchChecklist();
+    this.fetchUserRole();
   }
 });
 
@@ -6137,7 +6179,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   props: {
-    completarCheckList: Object
+    completarCheckList: Object,
+    intervenciones: Array
   },
   data: function data() {
     return {
@@ -6146,6 +6189,16 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         intervenciones: []
       }
     };
+  },
+  watch: {
+    intervenciones: {
+      immediate: true,
+      handler: function handler(intervenciones) {
+        if (intervenciones) {
+          this.selectedIntervencion.intervenciones = this.intervenciones;
+        }
+      }
+    }
   },
   methods: {
     open: function open() {
@@ -6167,10 +6220,15 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       if (index === -1) {
         this.selectedIntervencion.intervenciones.push({
           categoria_id: intervencion.matriz_categoria_checklist_id,
-          intervencion_id: intervencion.id
+          intervencion_id: intervencion.id,
+          selected: true
         });
       } else {
-        this.selectedIntervencion.intervenciones.splice(index, 1);
+        this.selectedIntervencion.intervenciones.push({
+          categoria_id: intervencion.matriz_categoria_checklist_id,
+          intervencion_id: intervencion.id,
+          selected: false
+        });
       }
     },
     finalizarCheckList: function finalizarCheckList(checklist_id) {
@@ -6190,8 +6248,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               }
               if (_this.errors_intervencion_checklist === null) {
                 _this.$notyf.success(response.message);
-                // this.$emit('matrizCategoriaChecklist-creada', response.categoriaMatrizChecklist);
-                // this.newCategoriaChecklist.nombre = '';
+                _this.$emit('actualizar-status-checklist', response.checklist);
+                _this.close();
               }
             case 6:
             case "end":
@@ -7429,7 +7487,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }))();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchPersonals();
     this.fetchCargosSelect();
   }
@@ -7673,7 +7731,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }))();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchProyectos();
   }
 });
@@ -7833,7 +7891,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchNombreActivos();
     this.fetchAllAsignarActivo();
   }
@@ -8166,7 +8224,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchNombrePersonals();
     this.fetchAllAsignarPersonal();
   }
@@ -8379,7 +8437,7 @@ __webpack_require__.r(__webpack_exports__);
       this.activeTab = tab;
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchProyectosSelect();
   }
 });
@@ -10510,7 +10568,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchReportes();
     this.fetchProyectosSelect();
     this.fetchActividadesSelect();
@@ -10692,7 +10750,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       }))();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchPermissions();
   }
 });
@@ -10744,7 +10802,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchRoles();
   }
 });
@@ -10988,7 +11046,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }))();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchTipoActivos();
   }
 });
@@ -11055,6 +11113,101 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 _this.close();
               }
             case 4:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=script&lang=js":
+/*!********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/usuarios/usuariosMixin */ "./resources/js/mixins/usuarios/usuariosMixin.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mixins: [_mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  props: {
+    usuario: Object
+  },
+  data: function data() {
+    return {
+      editUsuario: {
+        usuario_id: 0,
+        password: '',
+        password_confirmation: ''
+      }
+    };
+  },
+  watch: {
+    usuario: {
+      immediate: true,
+      handler: function handler(usuario) {
+        if (usuario) {
+          this.editUsuario.usuario_id = usuario.id;
+        }
+      }
+    }
+  },
+  methods: {
+    open: function open() {
+      this.errors = null;
+      this.editUsuario.password = null;
+      var modalElement = document.getElementById('editPasswordUsuarioModal');
+      var modal = new bootstrap__WEBPACK_IMPORTED_MODULE_0__.Modal(modalElement);
+      modal.show();
+    },
+    close: function close() {
+      var modalElement = document.getElementById('editPasswordUsuarioModal');
+      var modal = bootstrap__WEBPACK_IMPORTED_MODULE_0__.Modal.getInstance(modalElement);
+      if (modal) modal.hide();
+    },
+    editPasswordUsuario: function editPasswordUsuario() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.actualizarPasswordUsuario(_this.editUsuario);
+            case 2:
+              response = _context.sent;
+              if (!(_this.errors === null)) {
+                _context.next = 10;
+                break;
+              }
+              _this.$notyf.success(response.message);
+              _this.close();
+              if (!response.logout) {
+                _context.next = 10;
+                break;
+              }
+              _context.next = 9;
+              return _this.logoutUsuario();
+            case 9:
+              setTimeout(function () {
+                window.location.href = '/login';
+              }, 1000);
+            case 10:
             case "end":
               return _context.stop();
           }
@@ -11139,7 +11292,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       }))();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchRoles();
   }
 });
@@ -11160,6 +11313,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/usuarios/usuariosMixin */ "./resources/js/mixins/usuarios/usuariosMixin.js");
 /* harmony import */ var _CrearUsuarioModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearUsuarioModal.vue */ "./resources/js/components/Usuarios/CrearUsuarioModal.vue");
 /* harmony import */ var _EditUsuarioModal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditUsuarioModal.vue */ "./resources/js/components/Usuarios/EditUsuarioModal.vue");
+/* harmony import */ var _EditPasswordModal_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditPasswordModal.vue */ "./resources/js/components/Usuarios/EditPasswordModal.vue");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -11172,11 +11326,13 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [_mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
   components: {
     CrearUsuarioModal: _CrearUsuarioModal_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    EditUsuarioModal: _EditUsuarioModal_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    EditUsuarioModal: _EditUsuarioModal_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    EditPasswordModal: _EditPasswordModal_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -11192,6 +11348,12 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       if (usuario) {
         this.selectedUsuario = _objectSpread({}, usuario);
         this.$refs.editUsuarioModal.open();
+      }
+    },
+    openEditPasswordModal: function openEditPasswordModal(usuario) {
+      if (usuario) {
+        this.selectedUsuario = _objectSpread({}, usuario);
+        this.$refs.editPasswordUsuarioModal.open();
       }
     },
     handleEnabledChange: function handleEnabledChange(usuarioId, status) {
@@ -11225,7 +11387,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }))();
     }
   },
-  mounted: function mounted() {
+  created: function created() {
     this.fetchUsuarios();
   }
 });
@@ -13366,7 +13528,7 @@ var render = function render() {
     _c = _vm._self._c;
   return _c("div", [_c("div", {
     staticClass: "d-flex justify-content-between mb-3"
-  }, [_c("h3", [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("div", [_c("button", {
+  }, [_c("h3", [_vm._v("Matriz Checklist")]), _vm._v(" "), _vm.userRole && _vm.userRole.name !== "usuario" ? _c("div", [_c("button", {
     staticClass: "btn btn-base-dv",
     attrs: {
       type: "button"
@@ -13390,7 +13552,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "bi bi-plus-circle"
-  }), _vm._v("\n                Crear Matriz Checklist")])])]), _vm._v(" "), _c("div", {
+  }), _vm._v("\n                Crear Matriz Checklist")])]) : _vm._e()]), _vm._v(" "), _c("div", {
     staticClass: "card shadow mb-5"
   }, [_c("div", {
     staticClass: "card-body"
@@ -13572,7 +13734,45 @@ var render = function render() {
   }, [_vm._m(0), _vm._v(" "), _c("tbody", _vm._l(_vm.checklist, function (check, index) {
     return _c("tr", {
       key: check.id
-    }, [_c("th", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.activo.tipo_activo.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.matriz.nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.marca))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.modelo))]), _vm._v(" "), _c("td", [_c("button", {
+    }, [_c("th", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.activo.tipo_activo.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.matriz.nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.marca))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.modelo))]), _vm._v(" "), _vm.userRole && _vm.userRole.name !== "usuario" ? _c("td", [_c("div", {
+      staticClass: "form-check form-switch"
+    }, [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: check.status,
+        expression: "check.status"
+      }],
+      staticClass: "form-check-input",
+      attrs: {
+        type: "checkbox",
+        role: "switch",
+        id: "check-" + check.id
+      },
+      domProps: {
+        checked: Array.isArray(check.status) ? _vm._i(check.status, null) > -1 : check.status
+      },
+      on: {
+        change: [function ($event) {
+          var $$a = check.status,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+          if (Array.isArray($$a)) {
+            var $$v = null,
+              $$i = _vm._i($$a, $$v);
+            if ($$el.checked) {
+              $$i < 0 && _vm.$set(check, "status", $$a.concat([$$v]));
+            } else {
+              $$i > -1 && _vm.$set(check, "status", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.$set(check, "status", $$c);
+          }
+        }, function ($event) {
+          return _vm.habilitarCheckList(check.id, check.status);
+        }]
+      }
+    })])]) : _vm._e(), _vm._v(" "), _c("td", [_c("button", {
       staticClass: "btn btn-base-dv",
       attrs: {
         type: "button"
@@ -13584,7 +13784,7 @@ var render = function render() {
       }
     }, [_c("i", {
       staticClass: "bi bi-ui-checks"
-    })]), _vm._v(" "), _c("button", {
+    })]), _vm._v(" "), _vm.userRole && _vm.userRole.name !== "usuario" ? _c("button", {
       staticClass: "btn btn-warning",
       attrs: {
         type: "button"
@@ -13596,7 +13796,7 @@ var render = function render() {
       }
     }, [_c("i", {
       staticClass: "bi bi-pencil-square"
-    })])])]);
+    })]) : _vm._e()])]);
   }), 0)])]), _vm._v(" "), _c("MatrizCheckListModal", {
     ref: "matrizCheckListModal"
   }), _vm._v(" "), _c("ListaMatrizCheckListModal", {
@@ -13612,14 +13812,18 @@ var render = function render() {
   }), _vm._v(" "), _c("CompletarCheckListModal", {
     ref: "completarCheckListModal",
     attrs: {
-      completarCheckList: _vm.completarChecklist
+      completarCheckList: _vm.completarChecklist,
+      intervenciones: _vm.intervenciones
+    },
+    on: {
+      "actualizar-status-checklist": _vm.actualizarStatusChecklistCompleta
     }
   })], 1);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("th", [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("th", [_vm._v("Marca")]), _vm._v(" "), _c("th", [_vm._v("Modelo")]), _vm._v(" "), _c("th")])]);
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("th", [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("th", [_vm._v("Marca")]), _vm._v(" "), _c("th", [_vm._v("Modelo")]), _vm._v(" "), _c("th", [_vm._v("Habilitar")]), _vm._v(" "), _c("th")])]);
 }];
 render._withStripped = true;
 
@@ -13699,6 +13903,7 @@ var render = function render() {
         staticClass: "form-check-input",
         attrs: {
           type: "checkbox",
+          disabled: !_vm.completarCheckList.status,
           id: "intervencion-" + intervencion.id
         },
         domProps: {
@@ -13727,7 +13932,7 @@ var render = function render() {
         }
       })])])];
     })] : _vm._e()];
-  })], 2)] : _vm._e(), _vm._v(" "), _c("div", {
+  })], 2), _vm._v(" "), _vm.completarCheckList.status ? _c("div", {
     staticClass: "d-flex justify-content-end mt-3"
   }, [_c("button", {
     staticClass: "btn btn-base-dv",
@@ -13746,9 +13951,9 @@ var render = function render() {
       role: "status",
       "aria-hidden": "true"
     }
-  }), _vm._v("\n                            Cargando...")]) : _c("span", [_c("i", {
+  }), _vm._v("\n                                Cargando...")]) : _c("span", [_c("i", {
     staticClass: "bi bi-clipboard2-check-fill"
-  }), _vm._v(" Finalizar")])])])], 2)])])]);
+  }), _vm._v(" Finalizar")])])]) : _vm._e()] : _vm._e()], 2)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -22455,6 +22660,146 @@ render._withStripped = true;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=template&id=796851e9&scoped=true":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=template&id=796851e9&scoped=true ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal fade",
+    attrs: {
+      id: "editPasswordUsuarioModal",
+      tabindex: "-1",
+      "aria-labelledby": "editPasswordUsuarioModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog"
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "modal-body"
+  }, [_c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.editPasswordUsuario.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "editUsuarioPassword"
+    }
+  }, [_vm._v("Contraseña")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.editUsuario.password,
+      expression: "editUsuario.password"
+    }],
+    staticClass: "form-control",
+    "class": _vm.errors ? _vm.errors.password ? "is-invalid" : "" : "",
+    attrs: {
+      type: "password",
+      id: "editUsuarioPassword",
+      required: ""
+    },
+    domProps: {
+      value: _vm.editUsuario.password
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.editUsuario, "password", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "editUsuarioConfirmarPassword"
+    }
+  }, [_vm._v("Confirmar Contraseña")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.editUsuario.password_confirmation,
+      expression: "editUsuario.password_confirmation"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "password",
+      id: "editUsuarioConfirmarPassword",
+      required: ""
+    },
+    domProps: {
+      value: _vm.editUsuario.password_confirmation
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.editUsuario, "password_confirmation", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _vm.errors ? [_c("div", {
+    staticClass: "alert alert-danger",
+    attrs: {
+      role: "alert"
+    }
+  }, [_vm._v("\n                            " + _vm._s(_vm.errors.password[0]) + "\n                        ")])] : _vm._e(), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "submit",
+      disabled: _vm.editUsuario.password == null || _vm.loading
+    }
+  }, [_vm.loading ? _c("span", [_c("span", {
+    staticClass: "spinner-border spinner-border-sm",
+    attrs: {
+      role: "status",
+      "aria-hidden": "true"
+    }
+  }), _vm._v("\n                            Cargando...")]) : _c("span", [_vm._v("Guardar\n                            Cambios")])])], 2)])])])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title",
+    attrs: {
+      id: "editPasswordUsuarioModalLabel"
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-pencil-square"
+  }), _vm._v("\n                    Editar Contraseña")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Usuarios/EditUsuarioModal.vue?vue&type=template&id=54c13850&scoped=true":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Usuarios/EditUsuarioModal.vue?vue&type=template&id=54c13850&scoped=true ***!
@@ -22507,6 +22852,7 @@ var render = function render() {
     }],
     staticClass: "form-select",
     attrs: {
+      id: "usuarioRol",
       "aria-label": "Seleccione roles"
     },
     on: {
@@ -22629,7 +22975,7 @@ var render = function render() {
       attrs: {
         type: "checkbox",
         role: "switch",
-        id: "flexSwitchCheckDefault"
+        id: "status-" + usuario.id
       },
       domProps: {
         checked: Array.isArray(usuario.status) ? _vm._i(usuario.status, null) > -1 : usuario.status
@@ -22655,6 +23001,18 @@ var render = function render() {
         }]
       }
     })])]), _vm._v(" "), _c("td", [_c("button", {
+      staticClass: "btn btn-warning",
+      attrs: {
+        type: "button"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.openEditPasswordModal(usuario);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "bi bi-pencil-square"
+    }), _vm._v(" Editar Contraseña")]), _vm._v(" "), _c("button", {
       staticClass: "btn btn-primary",
       attrs: {
         type: "button"
@@ -22674,6 +23032,14 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("EditUsuarioModal", {
     ref: "editUsuarioModal",
+    attrs: {
+      usuario: _vm.selectedUsuario
+    },
+    on: {
+      "usuario-updated": _vm.fetchUsuarios
+    }
+  }), _vm._v(" "), _c("EditPasswordModal", {
+    ref: "editPasswordUsuarioModal",
     attrs: {
       usuario: _vm.selectedUsuario
     },
@@ -22891,7 +23257,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/actividades/all-select');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/actividades/all-select');
             case 5:
               response = _context.sent;
               _this.actividades = response.data;
@@ -22924,7 +23290,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/actividades/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/actividades/all');
             case 5:
               response = _context2.sent;
               _this2.actividades = response.data;
@@ -22957,7 +23323,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/actividades/store', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/actividades/store', {
                 name: data.name
               });
             case 5:
@@ -22996,7 +23362,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/actividades/update/' + data.actividad_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/actividades/update/' + data.actividad_id, {
                 name: data.name
               });
             case 5:
@@ -23032,7 +23398,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this5.errors = null;
               _context5.prev = 2;
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/actividades/update-status/' + data.actividad_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/actividades/update-status/' + data.actividad_id, {
                 status: data.status
               });
             case 5:
@@ -23102,7 +23468,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 3;
               _context.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/activos/buscar-nombre/' + name);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/activos/buscar-nombre/' + name);
             case 6:
               response = _context.sent;
               _this.activos = response.data;
@@ -23135,7 +23501,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/activos/all-select');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/activos/all-select');
             case 5:
               response = _context2.sent;
               _this2.activos = response.data;
@@ -23168,7 +23534,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/activos/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/activos/all');
             case 5:
               response = _context3.sent;
               _this3.activos = response.data;
@@ -23201,7 +23567,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/activos/store', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/activos/store', {
                 tipo_activo: data.tipo_activo,
                 marca: data.marca,
                 modelo: data.modelo,
@@ -23250,7 +23616,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this5.errors = null;
               _context5.prev = 2;
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/activos/update/' + data.activo_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/activos/update/' + data.activo_id, {
                 tipo_activo: data.tipo_activo,
                 marca: data.marca,
                 modelo: data.modelo,
@@ -23296,7 +23662,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this6.errors = null;
               _context6.prev = 2;
               _context6.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/activos/update-status/' + data.activo_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/activos/update-status/' + data.activo_id, {
                 status: data.status
               });
             case 5:
@@ -23332,7 +23698,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this7.errors = null;
               _context7.prev = 2;
               _context7.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/activos/update-imagenes', data, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/activos/update-imagenes', data, {
                 headers: {
                   'Content-Type': 'multipart/form-data'
                 }
@@ -23402,7 +23768,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/cargos/all-select');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/cargos/all-select');
             case 5:
               response = _context.sent;
               _this.cargos = response.data;
@@ -23435,7 +23801,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/cargos/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/cargos/all');
             case 5:
               response = _context2.sent;
               _this2.cargos = response.data;
@@ -23468,7 +23834,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/cargos/store', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/cargos/store', {
                 name: data.name
               });
             case 5:
@@ -23507,7 +23873,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/cargos/update/' + data.cargo_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/cargos/update/' + data.cargo_id, {
                 name: data.name
               });
             case 5:
@@ -23543,7 +23909,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this5.errors = null;
               _context5.prev = 2;
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/cargos/update-status/' + data.cargo_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/cargos/update-status/' + data.cargo_id, {
                 status: data.status
               });
             case 5:
@@ -23619,7 +23985,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_checklist = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/checklist/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/checklist/all');
             case 5:
               response = _context.sent;
               _this.checklist = response.data;
@@ -23652,7 +24018,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors_intervencion_checklist = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/checklist/intervenciones/' + id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/checklist/intervenciones/' + id);
             case 5:
               response = _context2.sent;
               return _context2.abrupt("return", response.data);
@@ -23683,7 +24049,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors_checklist = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/checklist/store_checklist', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/checklist/store_checklist', {
                 marca: data.marca,
                 modelo: data.modelo,
                 activo_id: data.activo_id,
@@ -23725,9 +24091,10 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors_intervencion_checklist = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/checklist/store_intervencionChecklist', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/checklist/store_intervencionChecklist', {
                 checklist_id: data.checklist_id,
-                intervenciones: data.intervenciones
+                intervenciones: data.intervenciones,
+                selected: data.selected
               });
             case 5:
               response = _context4.sent;
@@ -23752,6 +24119,42 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               return _context4.stop();
           }
         }, _callee4, null, [[2, 10, 14, 17]]);
+      }))();
+    },
+    actualizarStatusChecklist: function actualizarStatusChecklist(data) {
+      var _this5 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+          while (1) switch (_context5.prev = _context5.next) {
+            case 0:
+              _this5.loading_checklist_create = true;
+              _this5.errors_checklist = null;
+              _context5.prev = 2;
+              _context5.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/checklist/update-status/' + data.checklist_id, {
+                status: data.status
+              });
+            case 5:
+              response = _context5.sent;
+              if (response.data.errors) {
+                _this5.errors_checklist = response.data.errors;
+              }
+              return _context5.abrupt("return", response.data);
+            case 10:
+              _context5.prev = 10;
+              _context5.t0 = _context5["catch"](2);
+              _this5.errors_checklist = 'Failed to load checklist';
+              console.error('Error actualizar checklist:', _context5.t0);
+            case 14:
+              _context5.prev = 14;
+              _this5.loading_checklist_create = false;
+              return _context5.finish(14);
+            case 17:
+            case "end":
+              return _context5.stop();
+          }
+        }, _callee5, null, [[2, 10, 14, 17]]);
       }))();
     }
   }
@@ -23803,7 +24206,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_matriz_checklist = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/matrizchecklist/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/matrizchecklist/all');
             case 5:
               response = _context.sent;
               _this.matrizChecklist = response.data;
@@ -23836,7 +24239,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors_matriz_checklist = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/matrizchecklist/store_matrizChecklist', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/matrizchecklist/store_matrizChecklist', {
                 nombre: data.nombre
               });
             case 5:
@@ -23875,7 +24278,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors_categoria_matriz_checklist = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/matrizchecklist/store_categoriaMatrizChecklist', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/matrizchecklist/store_categoriaMatrizChecklist', {
                 matrizChecklist_id: data.matrizChecklist_id,
                 nombre: data.nombre
               });
@@ -23915,7 +24318,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors_intervencion_matriz_checklist = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/matrizchecklist/store_intervencionMatrizChecklist', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/matrizchecklist/store_intervencionMatrizChecklist', {
                 matrizChecklist_categoria_id: data.matrizChecklist_categoria_id,
                 nombre: data.nombre
               });
@@ -23955,7 +24358,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this5.errors_categoria_matriz_checklist = null;
               _context5.prev = 2;
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/matrizchecklist/delete_categoriaMatrizChecklist/' + id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/matrizchecklist/delete_categoriaMatrizChecklist/' + id);
             case 5:
               response = _context5.sent;
               if (response.data.errors) {
@@ -23989,7 +24392,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this6.errors_intervencion_matriz_checklist = null;
               _context6.prev = 2;
               _context6.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/matrizchecklist/delete_intervencionMatrizChecklist/' + id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/matrizchecklist/delete_intervencionMatrizChecklist/' + id);
             case 5:
               response = _context6.sent;
               if (response.data.errors) {
@@ -24023,7 +24426,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this7.errors_intervencion_matriz_checklist = null;
               _context7.prev = 2;
               _context7.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/matrizchecklist/update_matrizChecklist/' + id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/matrizchecklist/update_matrizChecklist/' + id, {
                 status: true
               });
             case 5:
@@ -24059,7 +24462,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this8.errors_matriz_checklist = null;
               _context8.prev = 2;
               _context8.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/matrizchecklist/update-status/' + data.matriz_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/matrizchecklist/update-status/' + data.matriz_id, {
                 status: data.status
               });
             case 5:
@@ -24095,7 +24498,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this9.errors_categoria_matriz_checklist = null;
               _context9.prev = 2;
               _context9.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/matrizchecklist/update_categoriaMatrizChecklist/' + data.id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/matrizchecklist/update_categoriaMatrizChecklist/' + data.id, {
                 nombre: data.nombre
               });
             case 5:
@@ -24131,7 +24534,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this10.errors_intervencion_matriz_checklist = null;
               _context10.prev = 2;
               _context10.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/matrizchecklist/update_intervencionMatrizChecklist/' + data.id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/matrizchecklist/update_intervencionMatrizChecklist/' + data.id, {
                 nombre: data.nombre
               });
             case 5:
@@ -24201,7 +24604,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 3;
               _context.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/personals/buscar-nombre/' + name);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/personals/buscar-nombre/' + name);
             case 6:
               response = _context.sent;
               _this.personals = response.data;
@@ -24234,7 +24637,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/personals/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/personals/all');
             case 5:
               response = _context2.sent;
               _this2.personals = response.data;
@@ -24267,7 +24670,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/personals/store', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/personals/store', {
                 name: data.name,
                 apellido_paterno: data.apellido_paterno,
                 apellido_materno: data.apellido_materno,
@@ -24310,7 +24713,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/personals/update/' + data.personal_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/personals/update/' + data.personal_id, {
                 name: data.name,
                 apellido_paterno: data.apellido_paterno,
                 apellido_materno: data.apellido_materno,
@@ -24350,7 +24753,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this5.errors = null;
               _context5.prev = 2;
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/personals/update-status/' + data.personal_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/personals/update-status/' + data.personal_id, {
                 status: data.status
               });
             case 5:
@@ -24418,7 +24821,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/proyectos/all-select');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/proyectos/all-select');
             case 5:
               response = _context.sent;
               _this.proyectos = response.data;
@@ -24451,7 +24854,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/proyectos/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/proyectos/all');
             case 5:
               response = _context2.sent;
               _this2.proyectos = response.data;
@@ -24484,7 +24887,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/proyectos/store', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/proyectos/store', {
                 name: data.name
               });
             case 5:
@@ -24523,7 +24926,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/proyectos/update/' + data.proyecto_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/proyectos/update/' + data.proyecto_id, {
                 name: data.name
               });
             case 5:
@@ -24559,7 +24962,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this5.errors = null;
               _context5.prev = 2;
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/proyectos/update-status/' + data.proyecto_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/proyectos/update-status/' + data.proyecto_id, {
                 status: data.status
               });
             case 5:
@@ -24629,7 +25032,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/recursos/all-asignar-activos');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/recursos/all-asignar-activos');
             case 5:
               response = _context.sent;
               _this.asignarActivo = response.data;
@@ -24662,7 +25065,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors_activo = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/recursos/store-activo', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/recursos/store-activo', {
                 proyecto_id: data.proyecto,
                 activo_id: data.activo
               });
@@ -24702,7 +25105,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/recursos/update-status/' + data.activo_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/recursos/update-status/' + data.activo_id, {
                 status: data.status
               });
             case 5:
@@ -24738,7 +25141,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors_activo = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/recursos/delete-activo/' + data.activo_id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/recursos/delete-activo/' + data.activo_id);
             case 5:
               response = _context4.sent;
               if (response.data.errors) {
@@ -24772,7 +25175,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this5.errors_activo = null;
               _context5.prev = 2;
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/recursos/update-activo/' + data.id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/recursos/update-activo/' + data.id, {
                 proyecto: data.proyecto
               });
             case 5:
@@ -24842,7 +25245,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/recursos/all-asignar-personal');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/recursos/all-asignar-personal');
             case 5:
               response = _context.sent;
               _this.asignarPersonal = response.data;
@@ -24875,7 +25278,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors_personal = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/recursos/store-personal', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/recursos/store-personal', {
                 proyecto_id: data.proyecto,
                 personal_id: data.personal
               });
@@ -24915,7 +25318,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/recursos/update-status/' + data.personal_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/recursos/update-status/' + data.personal_id, {
                 status: data.status
               });
             case 5:
@@ -24951,7 +25354,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors_personal = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/recursos/delete-personal/' + data.personal_id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/recursos/delete-personal/' + data.personal_id);
             case 5:
               response = _context4.sent;
               if (response.data.errors) {
@@ -24985,7 +25388,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this5.errors_personal = null;
               _context5.prev = 2;
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/recursos/update-personal/' + data.id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/recursos/update-personal/' + data.id, {
                 proyecto: data.proyecto
               });
             case 5:
@@ -25053,7 +25456,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_aditivos = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/aditivos/all/".concat(id));
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/aditivos/all/".concat(id));
             case 5:
               response = _context.sent;
               _this.aditivos = response.data;
@@ -25086,7 +25489,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors_aditivos = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/aditivos/store', data);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/aditivos/store', data);
             case 5:
               response = _context2.sent;
               if (response.data.errors) {
@@ -25120,7 +25523,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors_aditivos = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/aditivos/update/' + data.id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/aditivos/update/' + data.id, {
                 detalle: data.detalle,
                 cantidad: data.cantidad
               });
@@ -25157,7 +25560,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors_aditivos = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/aditivos/delete/' + id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/aditivos/delete/' + id);
             case 5:
               response = _context4.sent;
               if (response.data.errors) {
@@ -25223,7 +25626,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_coronasEscareadores = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/coronasEscareadores/all/".concat(id));
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/coronasEscareadores/all/".concat(id));
             case 5:
               response = _context.sent;
               _this.coronasEscareadores = response.data;
@@ -25256,7 +25659,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors_coronasEscareadores = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/coronasEscareadores/store', data);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/coronasEscareadores/store', data);
             case 5:
               response = _context2.sent;
               if (response.data.errors) {
@@ -25290,7 +25693,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors_coronasEscareadores = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/coronasEscareadores/update/' + data.id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/coronasEscareadores/update/' + data.id, {
                 detalle: data.detalle,
                 desde: data.desde,
                 hasta: data.hasta,
@@ -25330,7 +25733,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors_coronasEscareadores = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/coronasEscareadores/delete/' + id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/coronasEscareadores/delete/' + id);
             case 5:
               response = _context4.sent;
               if (response.data.errors) {
@@ -25396,7 +25799,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_detalleHoras = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/detalleHoras/all/".concat(id));
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/detalleHoras/all/".concat(id));
             case 5:
               response = _context.sent;
               _this.detalleHoras = response.data;
@@ -25429,7 +25832,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors_detalleHoras = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/detalleHoras/store', data);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/detalleHoras/store', data);
             case 5:
               response = _context2.sent;
               if (response.data.errors) {
@@ -25463,7 +25866,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors_detalleHoras = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/detalleHoras/update/' + data.id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/detalleHoras/update/' + data.id, {
                 de: data.de,
                 a: data.a,
                 actividad_id: data.actividad_id,
@@ -25502,7 +25905,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors_detalleHoras = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/detalleHoras/delete/' + id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/detalleHoras/delete/' + id);
             case 5:
               response = _context4.sent;
               if (response.data.errors) {
@@ -25567,7 +25970,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_herramienta = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/herramientas/store', data);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/herramientas/store', data);
             case 5:
               response = _context.sent;
               // Verifica si la respuesta tiene errores de validación
@@ -25635,7 +26038,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_horometro = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/horometros/store', data);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/horometros/store', data);
             case 5:
               response = _context.sent;
               // Verifica si la respuesta tiene errores de validación
@@ -25703,7 +26106,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_observacion = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/observaciones/store', data);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/observaciones/store', data);
             case 5:
               response = _context.sent;
               // Verifica si la respuesta tiene errores de validación
@@ -25772,7 +26175,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_perforaciones = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/perforaciones/all/".concat(id));
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/perforaciones/all/".concat(id));
             case 5:
               response = _context.sent;
               _this.perforaciones = response.data;
@@ -25805,7 +26208,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors_perforaciones = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/perforaciones/store', data);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/perforaciones/store', data);
             case 5:
               response = _context2.sent;
               if (response.data.errors) {
@@ -25839,7 +26242,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors_perforaciones = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/perforaciones/update/' + data.id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/perforaciones/update/' + data.id, {
                 desde: data.desde,
                 hasta: data.hasta,
                 perforado: data.perforado,
@@ -25880,7 +26283,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors_perforaciones = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/api/perforaciones/delete/' + id);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()["delete"]('/perforaciones/delete/' + id);
             case 5:
               response = _context4.sent;
               if (response.data.errors) {
@@ -25947,7 +26350,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors_reporte = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/api/reportes/all");
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get("/reportes/all");
             case 5:
               response = _context.sent;
               _this.reportes = response.data;
@@ -25980,7 +26383,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors_reporte = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/reportes/store', data);
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/reportes/store', data);
             case 5:
               response = _context2.sent;
               // Verifica si la respuesta tiene errores de validación
@@ -26017,7 +26420,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors_reporte = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/reportes/update/' + data.reporte_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/reportes/update/' + data.reporte_id, {
                 proyecto_id: data.proyecto_id,
                 sondaje: data.sondaje,
                 fecha: data.fecha,
@@ -26067,7 +26470,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors_reporte = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/reportes/update-status/' + data.reporte_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/reportes/update-status/' + data.reporte_id, {
                 status: data.status
               });
             case 5:
@@ -26103,7 +26506,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _context5.prev = 1;
               _context5.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_0___default()({
-                url: '/api/reportes/pdf',
+                url: '/reportes/pdf',
                 // URL de la API
                 method: 'POST',
                 data: {
@@ -26179,7 +26582,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.error = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/permissions');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/permissions');
             case 5:
               response = _context.sent;
               _this.permissions = response.data;
@@ -26244,7 +26647,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/roles/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/roles/all');
             case 5:
               response = _context.sent;
               _this.roles = response.data;
@@ -26277,7 +26680,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/roles/store', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/roles/store', {
                 name: data.name
               });
             case 5:
@@ -26316,7 +26719,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/roles/update/' + data.id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/roles/update/' + data.id, {
                 name: data.name,
                 permissions: data.permissions
               });
@@ -26385,7 +26788,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/tipo-activos/all-select');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/tipo-activos/all-select');
             case 5:
               response = _context.sent;
               _this.tipo_activos = response.data;
@@ -26418,7 +26821,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this2.errors = null;
               _context2.prev = 2;
               _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/tipo-activos/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/tipo-activos/all');
             case 5:
               response = _context2.sent;
               _this2.tipo_activos = response.data;
@@ -26451,7 +26854,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/tipo-activos/store', {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/tipo-activos/store', {
                 name: data.name
               });
             case 5:
@@ -26490,7 +26893,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/tipo-activos/update/' + data.tipo_activo_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/tipo-activos/update/' + data.tipo_activo_id, {
                 name: data.name
               });
             case 5:
@@ -26526,7 +26929,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this5.errors = null;
               _context5.prev = 2;
               _context5.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/tipo-activos/update-status/' + data.tipo_activo_id, {
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/tipo-activos/update-status/' + data.tipo_activo_id, {
                 status: data.status
               });
             case 5:
@@ -26579,7 +26982,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     return {
       usuarios: [],
       loading: false,
-      errors: null
+      errors: null,
+      userRole: null
     };
   },
   methods: {
@@ -26594,7 +26998,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this.errors = null;
               _context.prev = 2;
               _context.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/api/usuarios/all');
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/usuarios/all');
             case 5:
               response = _context.sent;
               _this.usuarios = response.data;
@@ -26616,49 +27020,38 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee, null, [[2, 9, 13, 16]]);
       }))();
     },
-    createUsuario: function createUsuario(data) {
+    fetchUserRole: function fetchUserRole() {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var response;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
-              _this2.loading = true;
-              _this2.errors = null;
-              _context2.prev = 2;
-              _context2.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/api/usuarios/store', {
-                name: data.name,
-                email: data.email,
-                password: data.password,
-                password_confirmation: data.password_confirmation
-              });
-            case 5:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().get('/user/role');
+            case 3:
               response = _context2.sent;
-              // Verifica si la respuesta tiene errores de validación
-              if (response.data.errors) {
-                _this2.errors = response.data.errors;
-              }
-
-              // Maneja la respuesta exitosa, si es necesario
-              return _context2.abrupt("return", response.data);
-            case 10:
-              _context2.prev = 10;
-              _context2.t0 = _context2["catch"](2);
-              _this2.errors = 'Failed to load usuario';
-              console.error('Error crear usuario:', _context2.t0);
-            case 14:
-              _context2.prev = 14;
+              _this2.userRole = response.data;
+              _context2.next = 11;
+              break;
+            case 7:
+              _context2.prev = 7;
+              _context2.t0 = _context2["catch"](0);
+              _this2.errors = 'Failed to load usuarios';
+              console.error('Error fetching usuarios:', _context2.t0);
+            case 11:
+              _context2.prev = 11;
               _this2.loading = false;
-              return _context2.finish(14);
-            case 17:
+              return _context2.finish(11);
+            case 14:
             case "end":
               return _context2.stop();
           }
-        }, _callee2, null, [[2, 10, 14, 17]]);
+        }, _callee2, null, [[0, 7, 11, 14]]);
       }))();
     },
-    actualizarUsuario: function actualizarUsuario(data) {
+    createUsuario: function createUsuario(data) {
       var _this3 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
         var response;
@@ -26669,20 +27062,26 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this3.errors = null;
               _context3.prev = 2;
               _context3.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/usuarios/update/' + data.usuario_id, {
-                rol_id: data.rol_id
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/usuarios/store', {
+                name: data.name,
+                email: data.email,
+                password: data.password,
+                password_confirmation: data.password_confirmation
               });
             case 5:
               response = _context3.sent;
+              // Verifica si la respuesta tiene errores de validación
               if (response.data.errors) {
                 _this3.errors = response.data.errors;
               }
+
+              // Maneja la respuesta exitosa, si es necesario
               return _context3.abrupt("return", response.data);
             case 10:
               _context3.prev = 10;
               _context3.t0 = _context3["catch"](2);
               _this3.errors = 'Failed to load usuario';
-              console.error('Error actualizar usuario:', _context3.t0);
+              console.error('Error crear usuario:', _context3.t0);
             case 14:
               _context3.prev = 14;
               _this3.loading = false;
@@ -26694,7 +27093,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee3, null, [[2, 10, 14, 17]]);
       }))();
     },
-    actualizarStatus: function actualizarStatus(data) {
+    actualizarUsuario: function actualizarUsuario(data) {
       var _this4 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
         var response;
@@ -26705,8 +27104,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this4.errors = null;
               _context4.prev = 2;
               _context4.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/api/usuarios/update-status/' + data.usuario_id, {
-                status: data.status
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/usuarios/update/' + data.usuario_id, {
+                rol_id: data.rol_id
               });
             case 5:
               response = _context4.sent;
@@ -26728,6 +27127,106 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               return _context4.stop();
           }
         }, _callee4, null, [[2, 10, 14, 17]]);
+      }))();
+    },
+    actualizarStatus: function actualizarStatus(data) {
+      var _this5 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+          while (1) switch (_context5.prev = _context5.next) {
+            case 0:
+              _this5.loading = true;
+              _this5.errors = null;
+              _context5.prev = 2;
+              _context5.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/usuarios/update-status/' + data.usuario_id, {
+                status: data.status
+              });
+            case 5:
+              response = _context5.sent;
+              if (response.data.errors) {
+                _this5.errors = response.data.errors;
+              }
+              return _context5.abrupt("return", response.data);
+            case 10:
+              _context5.prev = 10;
+              _context5.t0 = _context5["catch"](2);
+              _this5.errors = 'Failed to load usuario';
+              console.error('Error actualizar usuario:', _context5.t0);
+            case 14:
+              _context5.prev = 14;
+              _this5.loading = false;
+              return _context5.finish(14);
+            case 17:
+            case "end":
+              return _context5.stop();
+          }
+        }, _callee5, null, [[2, 10, 14, 17]]);
+      }))();
+    },
+    actualizarPasswordUsuario: function actualizarPasswordUsuario(data) {
+      var _this6 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+          while (1) switch (_context6.prev = _context6.next) {
+            case 0:
+              _this6.loading = true;
+              _this6.errors = null;
+              _context6.prev = 2;
+              _context6.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/usuarios/update-password/' + data.usuario_id, {
+                password: data.password,
+                password_confirmation: data.password_confirmation
+              });
+            case 5:
+              response = _context6.sent;
+              if (response.data.errors) {
+                _this6.errors = response.data.errors;
+              }
+              return _context6.abrupt("return", response.data);
+            case 10:
+              _context6.prev = 10;
+              _context6.t0 = _context6["catch"](2);
+              _this6.errors = 'Failed to load usuario';
+              console.error('Error actualizar usuario:', _context6.t0);
+            case 14:
+              _context6.prev = 14;
+              _this6.loading = false;
+              return _context6.finish(14);
+            case 17:
+            case "end":
+              return _context6.stop();
+          }
+        }, _callee6, null, [[2, 10, 14, 17]]);
+      }))();
+    },
+    logoutUsuario: function logoutUsuario() {
+      var _this7 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+          while (1) switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.prev = 0;
+              _context7.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/logout');
+            case 3:
+              response = _context7.sent;
+              if (response.data.errors) {
+                _this7.errors = response.data.errors;
+              }
+              return _context7.abrupt("return", response.data);
+            case 8:
+              _context7.prev = 8;
+              _context7.t0 = _context7["catch"](0);
+              console.error("Error al cerrar sesión:", _context7.t0);
+            case 11:
+            case "end":
+              return _context7.stop();
+          }
+        }, _callee7, null, [[0, 8]]);
       }))();
     }
   }
@@ -52241,6 +52740,45 @@ component.options.__file = "resources/js/components/Usuarios/CrearUsuarioModal.v
 
 /***/ }),
 
+/***/ "./resources/js/components/Usuarios/EditPasswordModal.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/Usuarios/EditPasswordModal.vue ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditPasswordModal_vue_vue_type_template_id_796851e9_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditPasswordModal.vue?vue&type=template&id=796851e9&scoped=true */ "./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=template&id=796851e9&scoped=true");
+/* harmony import */ var _EditPasswordModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditPasswordModal.vue?vue&type=script&lang=js */ "./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditPasswordModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditPasswordModal_vue_vue_type_template_id_796851e9_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditPasswordModal_vue_vue_type_template_id_796851e9_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "796851e9",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Usuarios/EditPasswordModal.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Usuarios/EditUsuarioModal.vue":
 /*!***************************************************************!*\
   !*** ./resources/js/components/Usuarios/EditUsuarioModal.vue ***!
@@ -53350,6 +53888,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=script&lang=js":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPasswordModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditPasswordModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPasswordModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Usuarios/EditUsuarioModal.vue?vue&type=script&lang=js":
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/Usuarios/EditUsuarioModal.vue?vue&type=script&lang=js ***!
@@ -54448,6 +55002,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearUsuarioModal_vue_vue_type_template_id_00112372_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearUsuarioModal_vue_vue_type_template_id_00112372_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearUsuarioModal.vue?vue&type=template&id=00112372&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Usuarios/CrearUsuarioModal.vue?vue&type=template&id=00112372&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=template&id=796851e9&scoped=true":
+/*!**********************************************************************************************************!*\
+  !*** ./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=template&id=796851e9&scoped=true ***!
+  \**********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPasswordModal_vue_vue_type_template_id_796851e9_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPasswordModal_vue_vue_type_template_id_796851e9_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditPasswordModal_vue_vue_type_template_id_796851e9_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditPasswordModal.vue?vue&type=template&id=796851e9&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Usuarios/EditPasswordModal.vue?vue&type=template&id=796851e9&scoped=true");
 
 
 /***/ }),

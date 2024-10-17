@@ -14,7 +14,7 @@ export default {
             this.loading = true;
             this.errors_detalleHoras = null;
             try {
-                const response = await axios.get(`/api/detalleHoras/all/${id}`);
+                const response = await axios.get(`/detalleHoras/all/${id}`);
                 this.detalleHoras = response.data;
             } catch (error) {
                 this.errors_detalleHoras = 'Failed to load detalleHoras';
@@ -28,7 +28,7 @@ export default {
             this.loading_create = true;
             this.errors_detalleHoras = null;
             try {
-                const response = await axios.post('/api/detalleHoras/store', data);
+                const response = await axios.post('/detalleHoras/store', data);
 
                 if (response.data.errors) {
                     this.errors_detalleHoras = response.data.errors;
@@ -48,7 +48,7 @@ export default {
             this.loading_create = true;
             this.errors_detalleHoras = null;
             try {
-                const response = await axios.put('/api/detalleHoras/update/' + data.id, {
+                const response = await axios.put('/detalleHoras/update/' + data.id, {
                     de: data.de,
                     a: data.a,
                     actividad_id: data.actividad_id,
@@ -73,7 +73,7 @@ export default {
             this.loading = true;
             this.errors_detalleHoras = null;
             try {
-                const response = await axios.delete('/api/detalleHoras/delete/' + id);
+                const response = await axios.delete('/detalleHoras/delete/' + id);
 
                 if (response.data.errors) {
                     this.errors_detalleHoras = response.data.errors;

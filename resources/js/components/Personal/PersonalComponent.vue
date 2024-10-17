@@ -95,7 +95,7 @@ export default {
         }
 
     },
-    mounted() {
+    created() {
         this.fetchPersonals();
         this.fetchCargosSelect();
     }

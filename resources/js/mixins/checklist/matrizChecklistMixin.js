@@ -20,7 +20,7 @@ export default {
             this.loading_matriz = true;
             this.errors_matriz_checklist = null;
             try {
-                const response = await axios.get('/api/matrizchecklist/all');
+                const response = await axios.get('/matrizchecklist/all');
                 this.matrizChecklist = response.data;
             } catch (error) {
                 this.errors_matriz_checklist = 'Failed to load matrizChecklist';
@@ -34,7 +34,7 @@ export default {
             this.loading_matriz_create = true;
             this.errors_matriz_checklist = null;
             try {
-                const response = await axios.post('/api/matrizchecklist/store_matrizChecklist', {
+                const response = await axios.post('/matrizchecklist/store_matrizChecklist', {
                     nombre: data.nombre
                 });
         
@@ -58,7 +58,7 @@ export default {
             this.loading_matriz_create = true;
             this.errors_categoria_matriz_checklist = null;
             try {
-                const response = await axios.post('/api/matrizchecklist/store_categoriaMatrizChecklist', {
+                const response = await axios.post('/matrizchecklist/store_categoriaMatrizChecklist', {
                     matrizChecklist_id: data.matrizChecklist_id,
                     nombre: data.nombre
                 });
@@ -83,7 +83,7 @@ export default {
             this.loading_matriz_create = true;
             this.errors_intervencion_matriz_checklist = null;
             try {
-                const response = await axios.post('/api/matrizchecklist/store_intervencionMatrizChecklist', {
+                const response = await axios.post('/matrizchecklist/store_intervencionMatrizChecklist', {
                     matrizChecklist_categoria_id: data.matrizChecklist_categoria_id,
                     nombre: data.nombre
                 });
@@ -108,7 +108,7 @@ export default {
             this.loading_matriz_delete = true;
             this.errors_categoria_matriz_checklist = null;
             try {
-                const response = await axios.delete('/api/matrizchecklist/delete_categoriaMatrizChecklist/' + id);
+                const response = await axios.delete('/matrizchecklist/delete_categoriaMatrizChecklist/' + id);
 
                 if (response.data.errors) {
                     this.errors_categoria_matriz_checklist = response.data.errors;
@@ -128,7 +128,7 @@ export default {
             this.loading_matriz_delete = true;
             this.errors_intervencion_matriz_checklist = null;
             try {
-                const response = await axios.delete('/api/matrizchecklist/delete_intervencionMatrizChecklist/' + id);
+                const response = await axios.delete('/matrizchecklist/delete_intervencionMatrizChecklist/' + id);
 
                 if (response.data.errors) {
                     this.errors_intervencion_matriz_checklist = response.data.errors;
@@ -148,7 +148,7 @@ export default {
             this.loading_matriz_finish = true;
             this.errors_intervencion_matriz_checklist = null;
             try {
-                const response = await axios.put('/api/matrizchecklist/update_matrizChecklist/' + id, {
+                const response = await axios.put('/matrizchecklist/update_matrizChecklist/' + id, {
                     status: true
                 });
 
@@ -170,7 +170,7 @@ export default {
             this.loading_matriz = true;
             this.errors_matriz_checklist = null;
             try {
-                const response = await axios.put('/api/matrizchecklist/update-status/' + data.matriz_id, {
+                const response = await axios.put('/matrizchecklist/update-status/' + data.matriz_id, {
                     status: data.status
                 });
 
@@ -192,7 +192,7 @@ export default {
             this.loading_matriz_update = true;
             this.errors_categoria_matriz_checklist = null;
             try {
-                const response = await axios.put('/api/matrizchecklist/update_categoriaMatrizChecklist/' + data.id, {
+                const response = await axios.put('/matrizchecklist/update_categoriaMatrizChecklist/' + data.id, {
                     nombre: data.nombre
                 });
 
@@ -214,7 +214,7 @@ export default {
             this.loading_matriz_update = true;
             this.errors_intervencion_matriz_checklist = null;
             try {
-                const response = await axios.put('/api/matrizchecklist/update_intervencionMatrizChecklist/' + data.id, {
+                const response = await axios.put('/matrizchecklist/update_intervencionMatrizChecklist/' + data.id, {
                     nombre: data.nombre
                 });
 

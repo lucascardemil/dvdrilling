@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between mb-3">
             <h3>Matriz Checklist</h3>
 
-            <div>
+            <div v-if="userRole && userRole.name !== 'usuario'">
                 <button type="button" class="btn btn-base-dv" @click="openListaModal()"><i class="bi bi-list-check"></i>
                     Ver Matriz Checklist</button>
                 <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i
@@ -67,7 +67,7 @@
         </div>
 
         <div class="table-responsive">
-            <table class=table>
+            <table class="table">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -75,6 +75,7 @@
                         <th>Matriz Checklist</th>
                         <th>Marca</th>
                         <th>Modelo</th>
+                        <th>Habilitar</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -85,11 +86,17 @@
                         <td>{{ check.matriz.nombre }}</td>
                         <td>{{ check.marca }}</td>
                         <td>{{ check.modelo }}</td>
+                        <td v-if="userRole && userRole.name !== 'usuario'">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" :id="'check-' + check.id"
+                                    v-model="check.status" @change="habilitarCheckList(check.id, check.status)">
+                            </div>
+                        </td>
                         <td>
                             <button type="button" class="btn btn-base-dv" @click="openCompletarCheckListModal(check)"><i
                                     class="bi bi-ui-checks"></i></button>
-                            <button type="button" class="btn btn-warning" @click="openEditarModal(check.matriz)"><i
-                                    class="bi bi-pencil-square"></i></button>
+                            <button type="button" class="btn btn-warning" v-if="userRole && userRole.name !== 'usuario'"
+                                @click="openEditarModal(check.matriz)"><i class="bi bi-pencil-square"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -100,7 +107,8 @@
         <MatrizCheckListModal ref="matrizCheckListModal" />
         <ListaMatrizCheckListModal ref="listaMatrizCheckListModal" :matrizChecklistProps="matrizChecklist" />
         <EditCheckListModal ref="editarCheckListModal" :editMatrizChecklistProps="editChecklist" />
-        <CompletarCheckListModal ref="completarCheckListModal" :completarCheckList="completarChecklist" />
+        <CompletarCheckListModal ref="completarCheckListModal" :completarCheckList="completarChecklist"
+            :intervenciones="intervenciones" @actualizar-status-checklist="actualizarStatusChecklistCompleta"/>
     </div>
 </template>
 
@@ -108,6 +116,7 @@
 import checklistMixin from '../../mixins/checklist/checklistMixin';
 import tipoActivoMixin from '../../mixins/tipoActivo/tipoActivoMixin';
 import matrizChecklistMixin from '../../mixins/checklist/matrizChecklistMixin';
+import usuariosMixin from '../../mixins/usuarios/usuariosMixin';
 
 import MatrizCheckListModal from './MatrizCheckList/MatrizCheckListModal.vue'
 import ListaMatrizCheckListModal from './MatrizCheckList/ListaMatrizCheckListModal.vue';
@@ -115,7 +124,7 @@ import EditCheckListModal from './EditCheckListModal.vue';
 import CompletarCheckListModal from './CompletarCheckListModal.vue';
 
 export default {
-    mixins: [checklistMixin, matrizChecklistMixin, tipoActivoMixin],
+    mixins: [checklistMixin, matrizChecklistMixin, tipoActivoMixin, usuariosMixin],
     components: {
         MatrizCheckListModal,
         ListaMatrizCheckListModal,
@@ -129,8 +138,8 @@ export default {
                 matriz_checklist_id: 0,
                 marca: '',
                 modelo: ''
-            }
-
+            },
+            intervenciones: []
         };
     },
     methods: {
@@ -153,14 +162,13 @@ export default {
                     intervenciones.forEach(inter => {
                         if (inter.matriz_intervencion_checklist_id === intervencion.id) {
                             intervencion.selected = true;
+                            this.intervenciones.push({ categoria_id: intervencion.matriz_categoria_checklist_id, intervencion_id: intervencion.id, selected: true })
                         }
                     });
                 });
             });
 
             this.completarChecklist = matrizChecklist;
-
-            
         },
         async saveChecklist() {
             const response = await this.createChecklist(this.newChecklist);
@@ -169,13 +177,28 @@ export default {
                 this.$notyf.success(response.message);
                 this.checklist.push(response.checklist)
             }
+        },
+        async habilitarCheckList(checklist_id, status) {
+            const checkboxStatus = status ? 1 : 0;
+            const checkbox = { checklist_id: checklist_id, status: checkboxStatus };
+
+            try {
+                await this.actualizarStatusChecklist(checkbox);
+            } catch (error) {
+                console.error('Error actualizando el estado:', error);
+            }
+        },
+        actualizarStatusChecklistCompleta(checklist){
+            console.log(checklist)
+            this.checklist = checklist;
         }
 
     },
-    mounted() {
+    created() {
         this.fetchTipoActivosSelect();
         this.fetchMatrizChecklist();
         this.fetchChecklist();
+        this.fetchUserRole();
     }
 }
 </script>

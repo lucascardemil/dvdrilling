@@ -474,7 +474,7 @@ export default {
         }
 
     },
-    mounted() {
+    created() {
         this.fetchReportes();
         this.fetchProyectosSelect();
         this.fetchActividadesSelect();

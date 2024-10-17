@@ -12,7 +12,7 @@ export default {
             this.loading_create = true;
             this.errors_observacion = null;
             try {
-                const response = await axios.post('/api/observaciones/store', data);
+                const response = await axios.post('/observaciones/store', data);
 
                 // Verifica si la respuesta tiene errores de validación
                 if (response.data.errors) {

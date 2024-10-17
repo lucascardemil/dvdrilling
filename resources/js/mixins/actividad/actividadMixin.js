@@ -14,7 +14,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/actividades/all-select');
+                const response = await axios.get('/actividades/all-select');
                 this.actividades = response.data;
             } catch (error) {
                 this.errors = 'Failed to load actividades';
@@ -28,7 +28,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/actividades/all');
+                const response = await axios.get('/actividades/all');
                 this.actividades = response.data;
             } catch (error) {
                 this.errors = 'Failed to load actividades';
@@ -42,7 +42,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.post('/api/actividades/store', {
+                const response = await axios.post('/actividades/store', {
                     name: data.name
                 });
         
@@ -66,7 +66,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/actividades/update/' + data.actividad_id, {
+                const response = await axios.put('/actividades/update/' + data.actividad_id, {
                     name: data.name
                 });
 
@@ -88,7 +88,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/actividades/update-status/' + data.actividad_id, {
+                const response = await axios.put('/actividades/update-status/' + data.actividad_id, {
                     status: data.status
                 });
 

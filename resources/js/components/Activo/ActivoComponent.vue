@@ -121,7 +121,7 @@ export default {
         }
 
     },
-    mounted() {
+    created() {
         this.fetchActivos();
         this.fetchTipoActivosSelect();
     }

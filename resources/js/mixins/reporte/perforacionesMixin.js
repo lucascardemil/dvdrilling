@@ -14,7 +14,7 @@ export default {
             this.loading = true;
             this.errors_perforaciones = null;
             try {
-                const response = await axios.get(`/api/perforaciones/all/${id}`);
+                const response = await axios.get(`/perforaciones/all/${id}`);
                 this.perforaciones = response.data;
             } catch (error) {
                 this.errors_perforaciones = 'Failed to load perforaciones';
@@ -28,7 +28,7 @@ export default {
             this.loading_create = true;
             this.errors_perforaciones = null;
             try {
-                const response = await axios.post('/api/perforaciones/store', data);
+                const response = await axios.post('/perforaciones/store', data);
 
                 if (response.data.errors) {
                     this.errors_perforaciones = response.data.errors;
@@ -48,7 +48,7 @@ export default {
             this.loading_create = true;
             this.errors_perforaciones = null;
             try {
-                const response = await axios.put('/api/perforaciones/update/' + data.id, {
+                const response = await axios.put('/perforaciones/update/' + data.id, {
                     desde: data.desde,
                     hasta: data.hasta,
                     perforado: data.perforado,
@@ -75,7 +75,7 @@ export default {
             this.loading = true;
             this.errors_perforaciones = null;
             try {
-                const response = await axios.delete('/api/perforaciones/delete/' + id);
+                const response = await axios.delete('/perforaciones/delete/' + id);
 
                 if (response.data.errors) {
                     this.errors_perforaciones = response.data.errors;

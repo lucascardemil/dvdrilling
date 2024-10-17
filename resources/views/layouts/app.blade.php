@@ -39,7 +39,7 @@
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="current-password">
-                            <label for="floatingPassword">Contraseña</label>
+                            <label for="password">Contraseña</label>
                         </div>
 
                         @if ($errors->has('email') || $errors->has('password'))
@@ -82,10 +82,10 @@
                             <div>
                                 <a class="btn btn-primary" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
+                             document.getElementById('logout-form-desktop').submit();">
                                     <i class="bi bi-box-arrow-right"></i> Cerrar Sesion
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form-desktop" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </div>
@@ -190,10 +190,10 @@
                                     <li class="nav-item">
                                         <a class="nav-link" aria-current="page" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
+                                 document.getElementById('logout-form-mobile').submit();">
                                             <i class="bi bi-door-open"></i> Cerrar Sesion
                                         </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        <form id="logout-form-mobile" action="{{ route('logout') }}" method="POST"
                                             class="d-none">
                                             @csrf
                                         </form>

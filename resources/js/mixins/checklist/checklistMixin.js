@@ -22,7 +22,7 @@ export default {
             this.loading_checklist = true;
             this.errors_checklist = null;
             try {
-                const response = await axios.get('/api/checklist/all');
+                const response = await axios.get('/checklist/all');
                 this.checklist = response.data;
             } catch (error) {
                 this.errors_checklist = 'Failed to load checklist';
@@ -36,7 +36,7 @@ export default {
             this.loading_intervenciones = true;
             this.errors_intervencion_checklist = null;
             try {
-                const response = await axios.get('/api/checklist/intervenciones/' + id)
+                const response = await axios.get('/checklist/intervenciones/' + id)
                 return response.data;
             } catch (error) {
                 this.errors_intervencion_checklist = 'Failed to load checklist';
@@ -50,7 +50,7 @@ export default {
             this.loading_checklist_create = true;
             this.errors_checklist = null;
             try {
-                const response = await axios.post('/api/checklist/store_checklist', {
+                const response = await axios.post('/checklist/store_checklist', {
                     marca: data.marca,
                     modelo: data.modelo,
                     activo_id: data.activo_id,
@@ -78,9 +78,10 @@ export default {
             this.loading_checklist_create = true;
             this.errors_intervencion_checklist = null;
             try {
-                const response = await axios.post('/api/checklist/store_intervencionChecklist', {
+                const response = await axios.post('/checklist/store_intervencionChecklist', {
                     checklist_id: data.checklist_id,
-                    intervenciones: data.intervenciones
+                    intervenciones: data.intervenciones,
+                    selected: data.selected
                 });
         
                 // Verifica si la respuesta tiene errores de validación
@@ -98,6 +99,28 @@ export default {
                 this.loading_checklist_create = false;
             }
         },
+
+        async actualizarStatusChecklist(data) {
+            this.loading_checklist_create = true;
+            this.errors_checklist = null;
+            try {
+                const response = await axios.put('/checklist/update-status/' + data.checklist_id, {
+                    status: data.status
+                });
+
+                if (response.data.errors) {
+                    this.errors_checklist = response.data.errors;
+                }
+
+                return response.data;
+
+            } catch (error) {
+                this.errors_checklist = 'Failed to load checklist';
+                console.error('Error actualizar checklist:', error);
+            } finally {
+                this.loading_checklist_create = false;
+            }
+        }
 
         
     }

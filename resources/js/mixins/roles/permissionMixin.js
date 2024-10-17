@@ -13,7 +13,7 @@ export default {
             this.loading = true;
             this.error = null;
             try {
-                const response = await axios.get('/api/permissions');
+                const response = await axios.get('/permissions');
                 this.permissions = response.data;
             } catch (error) {
                 this.error = 'Failed to load permisos';

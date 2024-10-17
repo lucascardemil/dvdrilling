@@ -15,7 +15,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.get('/api/recursos/all-asignar-personal');
+                const response = await axios.get('/recursos/all-asignar-personal');
                 this.asignarPersonal = response.data;
             } catch (error) {
                 this.errors = 'Failed to load recursos';
@@ -29,7 +29,7 @@ export default {
             this.loading = true;
             this.errors_personal = null;
             try {
-                const response = await axios.post('/api/recursos/store-personal', {
+                const response = await axios.post('/recursos/store-personal', {
                     proyecto_id: data.proyecto,
                     personal_id: data.personal
                 });
@@ -54,7 +54,7 @@ export default {
             this.loading = true;
             this.errors = null;
             try {
-                const response = await axios.put('/api/recursos/update-status/' + data.personal_id, {
+                const response = await axios.put('/recursos/update-status/' + data.personal_id, {
                     status: data.status
                 });
 
@@ -77,7 +77,7 @@ export default {
             this.loading = true;
             this.errors_personal = null;
             try {
-                const response = await axios.delete('/api/recursos/delete-personal/' + data.personal_id);
+                const response = await axios.delete('/recursos/delete-personal/' + data.personal_id);
 
                 if (response.data.errors) {
                     this.errors_personal = response.data.errors;
@@ -97,7 +97,7 @@ export default {
             this.loading = true;
             this.errors_personal = null;
             try {
-                const response = await axios.put('/api/recursos/update-personal/' + data.id, {
+                const response = await axios.put('/recursos/update-personal/' + data.id, {
                     proyecto: data.proyecto
                 });
 
