@@ -17,7 +17,10 @@ class CreateChecklistTable extends Migration
             $table->id();
             $table->string('marca');
             $table->string('modelo');
+            $table->integer('horometro');
             $table->integer('status');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('activo_id');
             $table->foreign('activo_id')->references('id')->on('activos');
             $table->unsignedBigInteger('matriz_checklist_id');

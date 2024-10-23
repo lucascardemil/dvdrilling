@@ -18,7 +18,10 @@ class MatrizChecklistController extends Controller
 
     public function all()
     {
-        $matrizChecklist = MatrizChecklist::with('categorias.intervenciones.observaciones')->get();
+        $matrizChecklist = MatrizChecklist::with(['categorias' => function ($query) {
+            $query->where('status', '!=', 0);
+        }, 'categorias.intervenciones'])->get();
+
         return response()->json($matrizChecklist);
     }
 
@@ -36,7 +39,7 @@ class MatrizChecklistController extends Controller
         // Si no existe, creamos un nuevo registro
         $matrizChecklist = MatrizChecklist::create([
             'nombre' => $request->nombre,
-            'status' => false
+            'status' => 1
         ]);
 
         return response()->json(['message' => 'La Matriz Checklist creado exitosamente', 'matrizChecklist' => $matrizChecklist], 201);

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Reporte;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ReporteController extends Controller
 {
@@ -24,12 +25,36 @@ class ReporteController extends Controller
 
     public function all()
     {
-        $reportes = Reporte::with('proyecto', 'horometro', 'corona_escareador', 'aditivo', 'herramienta', 'perforacion', 'detalleHora.actividad', 'observacion')->get();
+        // Verificar si el usuario está autenticado
+        $user = Auth::user();
+
+        if (!$user) {
+            return response()->json(['error' => 'Usuario no autenticado'], 401);
+        }
+
+        // Obtener el rol del usuario autenticado
+        $rol = $user->getRoleNames()->first(); // Asumiendo que usas spatie/laravel-permission
+
+        // Definir las relaciones a cargar con 'with'
+        $relations = ['proyecto', 'horometro', 'corona_escareador', 'aditivo', 'herramienta', 'perforacion', 'detalleHora.actividad', 'observacion'];
+
+        // Si el rol es 'usuario', filtrar por el user_id
+        if ($rol === 'usuario') {
+            $reportes = Reporte::with($relations)->where('user_id', $user->id)->get();
+            return response()->json($reportes);
+        }
+
+        // Para otros roles, devolver todos los reportes
+        $reportes = Reporte::with($relations)->get();
         return response()->json($reportes);
     }
 
+
+
     public function store(Request $request)
     {
+        $user = Auth::user();
+
         $validator = Validator::make($request->all(), [
             'proyecto_id' => 'required|exists:proyectos,id',
             'empresa' => 'required|string|max:255',
@@ -37,13 +62,13 @@ class ReporteController extends Controller
             'fecha' => 'required',
             'sonda' => 'required|string|max:255',
             'turno' => 'required|string|max:255',
-            'horas' => 'required|string|max:255',
+            'horas' => 'required|numeric|min:1|max:9999999999',
             'desde' => 'required|string|max:255',
             'hasta' => 'required|string|max:255',
             'total' => 'required|string|max:255',
-            'metros' => 'required|string|max:255',
-            'inclinacion' => 'required|string|max:255',
-            'rumbo' => 'required|string|max:255',
+            'metros' => 'required|numeric|min:1|max:9999999999',
+            'inclinacion' => 'required|numeric|min:1|max:9999999999',
+            'rumbo' => 'required|numeric|min:1|max:9999999999',
             'programa' => 'required|string|max:255',
             'diametro' => 'required|string|max:255'
         ]);
@@ -56,6 +81,7 @@ class ReporteController extends Controller
         $formattedDate = Carbon::parse($fecha)->format('Y-m-d H:i:s');
 
         $reporte = Reporte::create([
+            'user_id' => $user->id,
             'proyecto_id' => $request->proyecto_id,
             'empresa' => $request->empresa,
             'sondaje' => $request->sondaje,

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Validator;
-use App\Models\MatrizIntervencionChecklist;
+use App\Models\MatrizChecklistIntervencion;
 
-class MatrizIntervencionChecklistController extends Controller
+class MatrizChecklistIntervencionController extends Controller
 {
     use AuthorizesRequests;
 
@@ -28,13 +28,13 @@ class MatrizIntervencionChecklistController extends Controller
         }
 
         // Si no existe, creamos un nuevo registro
-        $intervencionMatrizChecklist = MatrizIntervencionChecklist::create([
+        $intervencionMatrizChecklist = MatrizChecklistIntervencion::create([
             'nombre' => $request->nombre,
-            'status' => false,
-            'matriz_categoria_checklist_id' => $request->matrizChecklist_categoria_id
+            'status' => 1,
+            'matriz_checklist_categoria_id' => $request->matriz_checklist_categoria_id
         ]);
 
-        $intervencion = MatrizIntervencionChecklist::with('categoria')->where('id', $intervencionMatrizChecklist->id)->first();
+        $intervencion = MatrizChecklistIntervencion::with('categoria')->where('id', $intervencionMatrizChecklist->id)->first();
 
         return response()->json(['message' => 'La Intervencion creado exitosamente', 'intervencionMatrizChecklist' => $intervencion], 201);
     }
@@ -42,7 +42,7 @@ class MatrizIntervencionChecklistController extends Controller
     public function update(Request $request, $id)
     {
 
-        $intervencionMatrizChecklist = MatrizIntervencionChecklist::findOrFail($id);
+        $intervencionMatrizChecklist = MatrizChecklistIntervencion::findOrFail($id);
         $intervencionMatrizChecklist->update([
             'nombre' => $request->nombre
         ]);
@@ -52,7 +52,7 @@ class MatrizIntervencionChecklistController extends Controller
 
     public function delete($id)
     {
-        $intervencionMatrizChecklist = MatrizIntervencionChecklist::find($id);
+        $intervencionMatrizChecklist = MatrizChecklistIntervencion::find($id);
 
         if (!$intervencionMatrizChecklist) {
             return response()->json([

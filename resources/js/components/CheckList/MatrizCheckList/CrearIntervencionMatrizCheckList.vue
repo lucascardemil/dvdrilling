@@ -11,8 +11,8 @@
                         <label for="intervencionMatrizChecklistCategoria" class="form-label">Categoria</label>
                         <select class="form-select" aria-label="Seleccione el equipo"
                             id="intervencionMatrizChecklistCategoria"
-                            v-model="newIntervencionMatrizChecklist.matrizChecklist_categoria_id"
-                            :class="errors_intervencion_matriz_checklist ? errors_intervencion_matriz_checklist.matrizChecklist_categoria_id ? 'is-invalid' : '' : ''"
+                            v-model="newIntervencionMatrizChecklist.matriz_checklist_categoria_id"
+                            :class="errors_intervencion_matriz_checklist ? errors_intervencion_matriz_checklist.matriz_checklist_categoria_id ? 'is-invalid' : '' : ''"
                             required>
                             <option :value="null" disabled>Seleccione la Categoria</option>
                             <template v-for="categoria in categorias">
@@ -90,7 +90,7 @@ export default {
     props: {
         matrizChecklist_categorias: Array,
         matrizChecklist_intervenciones: Array,
-        matrizChecklist_id: {
+        matriz_checklist_id: {
             type: Number,
             required: true
         },
@@ -98,7 +98,7 @@ export default {
     data() {
         return {
             newIntervencionMatrizChecklist: {
-                matrizChecklist_categoria_id: null,
+                matriz_checklist_categoria_id: null,
                 nombre: '',
             },
             categorias: this.matrizChecklist_categorias,
@@ -112,7 +112,7 @@ export default {
             if (this.errors_intervencion_matriz_checklist === null) {
                 this.intervenciones.push(response.intervencionMatrizChecklist);
                 this.newIntervencionMatrizChecklist.nombre = '';
-                this.newIntervencionMatrizChecklist.matrizChecklist_categoria_id = null
+                this.newIntervencionMatrizChecklist.matriz_checklist_categoria_id = null
             }
         },
 
@@ -127,7 +127,7 @@ export default {
         },
 
         async finalizarMatrizChecklist() {
-            const response = await this.finalizarCreacionMatrizChecklist(this.matrizChecklist_id);
+            const response = await this.finalizarCreacionMatrizChecklist(this.matriz_checklist_id);
 
             if (this.errors_intervencion_matriz_checklist === null) {
                 this.$notyf.success(response.message);

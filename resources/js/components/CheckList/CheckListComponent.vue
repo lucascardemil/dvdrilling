@@ -75,7 +75,7 @@
                         <th>Matriz Checklist</th>
                         <th>Marca</th>
                         <th>Modelo</th>
-                        <th>Habilitar</th>
+                        <th v-if="userRole && userRole.name !== 'usuario'">Habilitar</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -88,15 +88,16 @@
                         <td>{{ check.modelo }}</td>
                         <td v-if="userRole && userRole.name !== 'usuario'">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch" :id="'check-' + check.id"
-                                    v-model="check.status" @change="habilitarCheckList(check.id, check.status)">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    :id="'check-' + check.id + '_' + index" v-model="check.status"
+                                    @change="habilitarCheckList(check.id, check.status)">
                             </div>
                         </td>
                         <td>
                             <button type="button" class="btn btn-base-dv" @click="openCompletarCheckListModal(check)"><i
                                     class="bi bi-ui-checks"></i></button>
                             <button type="button" class="btn btn-warning" v-if="userRole && userRole.name !== 'usuario'"
-                                @click="openEditarModal(check.matriz)"><i class="bi bi-pencil-square"></i></button>
+                                @click="openEditarModal(check)"><i class="bi bi-pencil-square"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -106,9 +107,9 @@
 
         <MatrizCheckListModal ref="matrizCheckListModal" />
         <ListaMatrizCheckListModal ref="listaMatrizCheckListModal" :matrizChecklistProps="matrizChecklist" />
-        <EditCheckListModal ref="editarCheckListModal" :editMatrizChecklistProps="editChecklist" />
-        <CompletarCheckListModal ref="completarCheckListModal" :completarCheckList="completarChecklist"
-            :intervenciones="intervenciones" @actualizar-status-checklist="actualizarStatusChecklistCompleta"/>
+        <EditCheckListModal ref="editarCheckListModal" :editChecklistProps="editChecklist" />
+        <CompletarCheckListModal ref="completarCheckListModal" :completarCheckListProps="completarChecklist"
+            :intervenciones="intervenciones" @checklist-completada="checklisCompletada" />
     </div>
 </template>
 
@@ -120,7 +121,7 @@ import usuariosMixin from '../../mixins/usuarios/usuariosMixin';
 
 import MatrizCheckListModal from './MatrizCheckList/MatrizCheckListModal.vue'
 import ListaMatrizCheckListModal from './MatrizCheckList/ListaMatrizCheckListModal.vue';
-import EditCheckListModal from './EditCheckListModal.vue';
+import EditCheckListModal from './EditarChecklist/EditCheckListModal.vue';
 import CompletarCheckListModal from './CompletarCheckListModal.vue';
 
 export default {
@@ -134,8 +135,8 @@ export default {
     data() {
         return {
             newChecklist: {
-                activo_id: 0,
-                matriz_checklist_id: 0,
+                activo_id: null,
+                matriz_checklist_id: null,
                 marca: '',
                 modelo: ''
             },
@@ -149,26 +150,13 @@ export default {
         openListaModal() {
             this.$refs.listaMatrizCheckListModal.open();
         },
-        openEditarModal(matrizChecklist) {
+        openEditarModal(checklist) {
             this.$refs.editarCheckListModal.open();
-            this.editChecklist = matrizChecklist;
+            this.editChecklist = checklist;
         },
-        async openCompletarCheckListModal(matrizChecklist) {
+        async openCompletarCheckListModal(check) {
             this.$refs.completarCheckListModal.open();
-            const intervenciones = await this.fetchItervenciones(matrizChecklist.id);
-
-            matrizChecklist.matriz.categorias.forEach(categoria => {
-                categoria.intervenciones.forEach(intervencion => {
-                    intervenciones.forEach(inter => {
-                        if (inter.matriz_intervencion_checklist_id === intervencion.id) {
-                            intervencion.selected = true;
-                            this.intervenciones.push({ categoria_id: intervencion.matriz_categoria_checklist_id, intervencion_id: intervencion.id, selected: true })
-                        }
-                    });
-                });
-            });
-
-            this.completarChecklist = matrizChecklist;
+            this.completarChecklist = check;
         },
         async saveChecklist() {
             const response = await this.createChecklist(this.newChecklist);
@@ -176,6 +164,11 @@ export default {
             if (this.errors_checklist === null) {
                 this.$notyf.success(response.message);
                 this.checklist.push(response.checklist)
+
+                this.newChecklist.activo_id = 0;
+                this.newChecklist.matriz_checklist_id = null;
+                this.newChecklist.marca = '';
+                this.newChecklist.modelo = '';
             }
         },
         async habilitarCheckList(checklist_id, status) {
@@ -188,11 +181,9 @@ export default {
                 console.error('Error actualizando el estado:', error);
             }
         },
-        actualizarStatusChecklistCompleta(checklist){
-            console.log(checklist)
-            this.checklist = checklist;
-        }
-
+        checklisCompletada() {
+            this.fetchChecklist();
+        },
     },
     created() {
         this.fetchTipoActivosSelect();

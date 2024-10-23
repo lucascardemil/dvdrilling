@@ -59,7 +59,8 @@
                                 </div>
                                 <div class="col-lg-3 col-md-12 mb-3">
                                     <label for="reporteHoras" class="form-label">Horas</label>
-                                    <input type="text" class="form-control" id="reporteHoras" v-model="newReporte.horas"
+                                    <input type="number" min="0" class="form-control" id="reporteHoras"
+                                        v-model="newReporte.horas"
                                         :class="errors_reporte ? errors_reporte.horas ? 'is-invalid' : '' : ''"
                                         required>
                                 </div>
@@ -70,14 +71,14 @@
                             <div class="row g-3 align-items-center">
                                 <div class="col-lg-3 col-md-12 mb-3">
                                     <label for="reporteDesde" class="form-label">Desde</label>
-                                    <input type="number" step="0.01" class="form-control" id="reporteDesde"
+                                    <input type="number" step="0.01" min="0" class="form-control" id="reporteDesde"
                                         v-model="newReporte.desde"
                                         :class="errors_reporte ? errors_reporte.desde ? 'is-invalid' : '' : ''"
                                         required>
                                 </div>
                                 <div class="col-lg-3 col-md-12 mb-3">
                                     <label for="reporteHasta" class="form-label">Hasta</label>
-                                    <input type="number" step="0.01" class="form-control" id="reporteHasta"
+                                    <input type="number" step="0.01" min="0" class="form-control" id="reporteHasta"
                                         v-model="newReporte.hasta"
                                         :class="errors_reporte ? errors_reporte.hasta ? 'is-invalid' : '' : ''"
                                         required>
@@ -90,7 +91,7 @@
                                 </div>
                                 <div class="col-lg-3 col-md-12 mb-3">
                                     <label for="reporteMetros" class="form-label">Metros</label>
-                                    <input type="text" class="form-control" id="reporteMetros"
+                                    <input type="number" min="0" class="form-control" id="reporteMetros"
                                         v-model="newReporte.metros"
                                         :class="errors_reporte ? errors_reporte.metros ? 'is-invalid' : '' : ''"
                                         required>
@@ -99,14 +100,15 @@
                             <div class="row g-3 align-items-center">
                                 <div class="col-lg-3 col-md-12 mb-3">
                                     <label for="reporteInclinacion" class="form-label">Inclinacion</label>
-                                    <input type="text" class="form-control" id="reporteInclinacion"
+                                    <input type="number" min="0" class="form-control" id="reporteInclinacion"
                                         v-model="newReporte.inclinacion"
                                         :class="errors_reporte ? errors_reporte.inclinacion ? 'is-invalid' : '' : ''"
                                         required>
                                 </div>
                                 <div class="col-lg-3 col-md-12 mb-3">
                                     <label for="reporteRumbo" class="form-label">Rumbo</label>
-                                    <input type="text" class="form-control" id="reporteRumbo" v-model="newReporte.rumbo"
+                                    <input type="number" min="0" class="form-control" id="reporteRumbo"
+                                        v-model="newReporte.rumbo"
                                         :class="errors_reporte ? errors_reporte.rumbo ? 'is-invalid' : '' : ''"
                                         required>
                                 </div>
@@ -145,58 +147,119 @@
                 </div>
             </div>
         </div>
+        <template v-if="reportes.length > 0">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <tr v-for="reporte in ListaReportes" :key="reporte.id">
+                    <div class="col">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title">{{ reporte.proyecto.name }}</h5>
+                                    <div>
+                                        <button type="button" class="btn btn-warning"
+                                            @click="openEditarReporteModal(reporte)"><i
+                                                class="bi bi-pencil-square"></i></button>
 
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Ubicacion</th>
-                        <th scope="col">Empresa</th>
-                        <th scope="col">Sondaje</th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Sonda</th>
-                        <th scope="col">Turno</th>
-                        <th scope="col">Horas</th>
-                        <th scope="col">Desde</th>
-                        <th scope="col">Hasta</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Metros</th>
-                        <th scope="col">Inclinacion</th>
-                        <th scope="col">Rumbo</th>
-                        <th scope="col">Programa</th>
-                        <th scope="col">Diametro</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <template v-if="reportes.length">
-                        <tr v-for="reporte in ListaReportes" :key="reporte.id">
-                            <th scope="row">{{ reporte.id }}</th>
-                            <td>{{ reporte.proyecto.name }}</td>
-                            <td>{{ reporte.empresa }}</td>
-                            <td>{{ reporte.sondaje }}</td>
-                            <td>{{ reporte.fecha }}</td>
-                            <td>{{ reporte.sonda }}</td>
-                            <td>{{ reporte.turno }}</td>
-                            <td>{{ reporte.horas }}</td>
-                            <td>{{ reporte.desde }}</td>
-                            <td>{{ reporte.hasta }}</td>
-                            <td>{{ reporte.total }}</td>
-                            <td>{{ reporte.metros }}</td>
-                            <td>{{ reporte.inclinacion }}</td>
-                            <td>{{ reporte.rumbo }}</td>
-                            <td>{{ reporte.programa }}</td>
-                            <td>{{ reporte.diametro }}</td>
-                            <td>
-                                <div class="btn-group" role="group">
-                                    <button class="btn btn-primary"><i class="bi bi-plus-circle"></i></button>
-                                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                        <button type="button" class="btn btn-danger" :disabled="loading_pdf[reporte.id]"
+                                            @click="downloadPDF(reporte)">
+                                            <span v-if="loading_pdf[reporte.id]">
+                                                <span class="spinner-border spinner-border-sm" role="status"
+                                                    aria-hidden="true"></span>
+                                            </span>
+                                            <span v-else><i class="bi bi-filetype-pdf"></i></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <ul class="list-group list-group-flush">
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Empresa</strong>
+                                                <span>{{ reporte.empresa }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Sondaje</strong>
+                                                <span>{{ reporte.sondaje }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <div class="me-auto">
+                                                    <div class="fw-bold">Fecha</div>
+                                                    <span>{{ reporte.fecha }}</span>
+                                                </div>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Sonda</strong>
+                                                <span>{{ reporte.sonda }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Turno</strong>
+                                                <span>{{ reporte.turno }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Horas</strong>
+                                                <span>{{ reporte.horas }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Desde</strong>
+                                                <span>{{ reporte.desde }}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col">
+                                        <ul class="list-group list-group-flush">
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Hasta</strong>
+                                                <span>{{ reporte.hasta }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Total</strong>
+                                                <span>{{ reporte.total }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Metros</strong>
+                                                <span>{{ reporte.metros }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Inclinación</strong>
+                                                <span>{{ reporte.inclinacion }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Rumbo</strong>
+                                                <span>{{ reporte.rumbo }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Programa</strong>
+                                                <span>{{ reporte.programa }}</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>Diámetro</strong>
+                                                <span>{{ reporte.diametro }}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-end">
+                                <div class="dropdown">
+                                    <button class="btn btn-base-dv dropdown-toggle" type="button"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-plus-circle"></i> Agregar
                                     </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownCrearReporte">
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li :class="reporte.horometro.length > 0 ? 'realizado' : 'no_realizado'">
                                             <a class="dropdown-item" href="#"
                                                 @click="openHorometroModal(reporte)">Horómetro</a>
@@ -229,39 +292,28 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </td>
-                            <td>
-                                <div class="btn-group-vertical">
-                                    <button type="button" class="btn btn-warning"
-                                        @click="openEditarReporteModal(reporte)"><i
-                                            class="bi bi-pencil-square"></i></button>
-                                    <button type="button" class="btn btn-danger" @click="downloadPDF(reporte)"><i
-                                            class="bi bi-filetype-pdf"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+            </div>
+        </template>
+        <p v-else-if="loading">Cargando...</p>
+        <p v-else>No hay reportes.</p>
+        <p v-if="errors">{{ errors }}</p>
 
-                                </div>
-
-                            </td>
-                        </tr>
-                    </template>
-                    <p v-else-if="loading">Cargando...</p>
-                    <p v-else>No hay reportes.</p>
-                    <p v-if="errors">{{ errors }}</p>
-                </tbody>
-            </table>
-        </div>
-        <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas"
-            @cambiar-pagina="cambiarPagina" />
+        <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas" @cambiar-pagina="cambiarPagina"
+            @cambiar-pagina-actual="cambiarPaginaActual" />
         <EditarReporteModal ref="editarReporteModal" :reporte="selectedReporte" :proyectos="proyectos"
-            @actualizar-reporte="actualizarReporte"></EditarReporteModal>
+            @actualizar-reporte="actualizarReporte" />
 
-        <HorometroModal ref="horometroModal" :reporte="selectedReporte"></HorometroModal>
-        <CoronasEscareadoresModal ref="coronasEscareadoresModal" :reporte="selectedReporte"></CoronasEscareadoresModal>
-        <AditivoModal ref="aditivosModal" :reporte="selectedReporte"></AditivoModal>
-        <HerramientaModal ref="herramientasModal" :reporte="selectedReporte"></HerramientaModal>
-        <PerforacionModal ref="perforacionesModal" :reporte="selectedReporte"></PerforacionModal>
-        <DetalleHorasModal ref="detalleHorasModal" :reporte="selectedReporte" :actividades="actividades">
-        </DetalleHorasModal>
-        <ObservacionModal ref="observacionModal" :reporte="selectedReporte"></ObservacionModal>
+        <HorometroModal ref="horometroModal" :reporte="selectedReporte" />
+        <CoronasEscareadoresModal ref="coronasEscareadoresModal" :reporte="selectedReporte" />
+        <AditivoModal ref="aditivosModal" :reporte="selectedReporte" />
+        <HerramientaModal ref="herramientasModal" :reporte="selectedReporte" />
+        <PerforacionModal ref="perforacionesModal" :reporte="selectedReporte" />
+        <DetalleHorasModal ref="detalleHorasModal" :reporte="selectedReporte" :actividades="actividades" />
+        <ObservacionModal ref="observacionModal" :reporte="selectedReporte" />
     </div>
 </template>
 
@@ -354,6 +406,9 @@ export default {
         }
     },
     methods: {
+        cambiarPaginaActual(newPage) {
+            this.paginaActual = newPage;
+        },
         cambiarPagina(newPage) {
             this.paginaActual = newPage;
         },
@@ -432,6 +487,8 @@ export default {
                     programa: '',
                     diametro: ''
                 }
+
+                this.fetchReportes();
             }
         },
         actualizarReporte(reporte_actualizado) {
@@ -439,8 +496,8 @@ export default {
                 this.reportes.forEach(reporte => {
                     if (reporte.id === reporte_actualizado.id) {
                         reporte.proyecto_id = reporte_actualizado.proyecto_id,
-                        reporte.proyecto = reporte_actualizado.proyecto,
-                        reporte.sondaje = reporte_actualizado.sondaje;
+                            reporte.proyecto = reporte_actualizado.proyecto,
+                            reporte.sondaje = reporte_actualizado.sondaje;
                         reporte.fecha = reporte_actualizado.fecha;
                         reporte.empresa = reporte_actualizado.empresa;
                         reporte.sonda = reporte_actualizado.sonda;

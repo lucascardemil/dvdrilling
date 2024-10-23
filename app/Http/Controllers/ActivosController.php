@@ -86,7 +86,7 @@ class ActivosController extends Controller
             'color' => $request->color,
             'chasis' => $request->chasis,
             'numero_motor' => $request->numero_motor,
-            'status' => 0, // Estado inicial, puedes cambiarlo según sea necesario
+            'status' => 1,
         ]);
 
         // Retornar una respuesta de éxito

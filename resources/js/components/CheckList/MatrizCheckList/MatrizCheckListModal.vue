@@ -7,13 +7,13 @@
                     v-if="componenteMatrizChecklist" />
 
                 <CrearCategoriaMatrizCheckList @matrizCategoriaChecklist-creada="matrizCategoriaChecklistCreada"
-                    v-else-if="componenteCategoriaChecklist" :matrizChecklist_id="matrizChecklist_id"
+                    v-else-if="componenteCategoriaChecklist" :matriz_checklist_id="matrizChecklist_id"
                     :matrizChecklist_categorias="matrizChecklist_categorias" />
                     
                 <CrearIntervencionMatrizCheckList
                     @matrizIntervencionChecklist-volver="matrizIntervencionChecklistVolver" @matrizChecklist-finalizada="finalizarMatrizChecklist"
                     v-else-if="componenteIntervencionChecklist" :matrizChecklist_categorias="matrizChecklist_categorias"
-                    :matrizChecklist_intervenciones="matrizChecklist_intervenciones" :matrizChecklist_id="matrizChecklist_id"/>
+                    :matrizChecklist_intervenciones="matrizChecklist_intervenciones" :matriz_checklist_id="matrizChecklist_id"/>
             </div>
         </div>
     </div>

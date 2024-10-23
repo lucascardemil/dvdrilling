@@ -4,40 +4,39 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="matrizCheckListModalLabel">Editar Matriz CheckList</h5>
+                    <h5 class="modal-title" id="CheckListModalLabel">Editar CheckList</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <CrearCategoriaCheckList v-if="mostrarCrearCategoriaChecklist"
-                        :matriz_checklist_id="editMatrizChecklistProps.id"
-                        @matrizCategoriaChecklist-creada="agregarCategoriaMatrizChecklist"
-                        @volverEditarMatrizCheckList="volverEditarMatrizCheckList">
+                    <CrearCategoriaCheckList v-if="mostrarCrearCategoriaChecklist" :checklist_id="editChecklistProps.id"
+                        @categoriaChecklist-creada="agregarCategoriaChecklist"
+                        @volverEditarChecklist="volverEditarCheckList">
                     </CrearCategoriaCheckList>
                     <CrearIntervencionCheckList v-else-if="mostrarCrearIntervencioChecklist"
-                        :matrizChecklist_categoria_id="matrizChecklist_categoria_id"
-                        @matrizIntervencionChecklist-creada="agregarIntervencionMatrizChecklist"
-                        @volverEditarMatrizCheckList="volverEditarMatrizCheckList">
+                        :checklist_categoria_id="checklist_categoria_id"
+                        @intervencionChecklist-creada="agregarIntervencionChecklist"
+                        @volverEditarChecklist="volverEditarCheckList">
                     </CrearIntervencionCheckList>
 
                     <EditCategoriaCheckList v-else-if="mostrarEditarCategoriaChecklist"
-                        :matrizChecklist_categoria="matrizChecklist_categoria"
-                        @matrizCategoriaChecklist-actualizada="actualizarCategoriaMatrizChecklist"
-                        @volverEditarMatrizCheckList="volverEditarMatrizCheckList">
+                        :checklist_categoria="checklist_categoria"
+                        @categoriaChecklist-actualizada="actualizarCategoriaChecklist"
+                        @volverEditarChecklist="volverEditarCheckList">
                     </EditCategoriaCheckList>
                     <EditIntervencionCheckList v-else-if="mostrarEditarIntervencionChecklist"
-                        :matrizChecklist_intervencion="matrizChecklist_intervencion"
-                        @matrizIntervencionChecklist-actualizada="actualizarIntervencionMatrizChecklist"
-                        @volverEditarMatrizCheckList="volverEditarMatrizCheckList">
+                        :checklist_intervencion="checklist_intervencion"
+                        @intervencionChecklist-actualizada="actualizarIntervencionChecklist"
+                        @volverEditarChecklist="volverEditarCheckList">
                     </EditIntervencionCheckList>
 
                     <template v-else>
-                        <template v-if="editMatrizChecklistProps && editMatrizChecklistProps.categorias">
+                        <template v-if="editChecklistProps && editChecklistProps.categorias">
                             <div class="d-flex justify-content-end mb-3">
                                 <button type="button" class="btn btn-base-dv" @click="openCrearCategoriaCheckList()"><i
                                         class="bi bi-plus-circle"></i> Categoria</button>
                             </div>
                             <ul class="list-group">
-                                <template v-for="categoria in editMatrizChecklistProps.categorias">
+                                <template v-for="categoria in editChecklistProps.categorias">
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <h5 class="titulo-categoria">{{ categoria.nombre }}</h5>
                                         <div>
@@ -48,6 +47,9 @@
                                             <button type="button" class="btn btn-warning"
                                                 @click="openEditarCategoriaCheckList(categoria)"><i
                                                     class="bi bi-pencil-square"></i></button>
+                                            <button type="button" class="btn btn-danger"
+                                                @click="eliminarCategoriaCheckList(categoria.id)"><i
+                                                    class="bi bi-trash"></i></button>
                                         </div>
                                     </li>
                                     <template v-for="intervencion in categoria.intervenciones">
@@ -58,7 +60,7 @@
                                                     @click="openEditarIntervencionCheckList(intervencion)"><i
                                                         class="bi bi-pencil-square"></i></button>
                                                 <button type="button" class="btn btn-danger"
-                                                    @click="eliminarInternvecionCheckList(intervencion.id)"><i
+                                                    @click="eliminarIntervencionCheckList(intervencion.id)"><i
                                                         class="bi bi-trash"></i></button>
                                             </div>
                                         </li>
@@ -79,12 +81,12 @@ import CrearCategoriaCheckList from './CrearCategoriaCheckList.vue';
 import CrearIntervencionCheckList from './CrearIntervencionCheckList.vue';
 import EditCategoriaCheckList from './EditCategoriaCheckList.vue';
 import EditIntervencionCheckList from './EditIntervencionCheckList.vue';
-import matrizChecklistMixin from '../../mixins/checklist/matrizChecklistMixin';
+import checklistMixin from '../../../mixins/checklist/checklistMixin';
 
 export default {
-    mixins: [matrizChecklistMixin],
+    mixins: [checklistMixin],
     props: {
-        editMatrizChecklistProps: Object
+        editChecklistProps: Object
     },
     components: {
         CrearCategoriaCheckList,
@@ -98,9 +100,9 @@ export default {
             mostrarCrearIntervencioChecklist: false,
             mostrarEditarCategoriaChecklist: false,
             mostrarEditarIntervencionChecklist: false,
-            matrizChecklist_categoria_id: 0,
-            matrizChecklist_categoria: null,
-            matrizChecklist_intervencion: null,
+            checklist_categoria_id: 0,
+            checklist_categoria: null,
+            checklist_intervencion: null,
         };
     },
     methods: {
@@ -121,32 +123,32 @@ export default {
         },
         openEditarCategoriaCheckList(categoria) {
             this.mostrarEditarCategoriaChecklist = true;
-            this.matrizChecklist_categoria = categoria;
+            this.checklist_categoria = categoria;
         },
         openCrearIntervencionCheckList(categoria_id) {
             this.mostrarCrearIntervencioChecklist = true;
-            this.matrizChecklist_categoria_id = categoria_id;
+            this.checklist_categoria_id = categoria_id;
         },
         openEditarIntervencionCheckList(intervencion) {
             this.mostrarEditarIntervencionChecklist = true;
-            this.matrizChecklist_intervencion = intervencion;
+            this.checklist_intervencion = intervencion;
         },
 
-        volverEditarMatrizCheckList() {
+        volverEditarCheckList() {
             this.mostrarCrearCategoriaChecklist = false;
             this.mostrarCrearIntervencioChecklist = false;
             this.mostrarEditarCategoriaChecklist = false;
             this.mostrarEditarIntervencionChecklist = false;
         },
 
-        agregarCategoriaMatrizChecklist(categoria) {
+        agregarCategoriaChecklist(categoria) {
             this.mostrarCrearCategoriaChecklist = false;
-            this.editMatrizChecklistProps.categorias.push(categoria)
+            this.editChecklistProps.categorias.push(categoria)
         },
 
-        agregarIntervencionMatrizChecklist(intervencion) {
+        agregarIntervencionChecklist(intervencion) {
             this.mostrarCrearIntervencioChecklist = false;
-            const categoria = this.editMatrizChecklistProps.categorias.find(categoria => categoria.id === intervencion.matriz_categoria_checklist_id);
+            const categoria = this.editChecklistProps.categorias.find(categoria => categoria.id === intervencion.checklist_categoria_id);
 
             if (!categoria.intervenciones) {
                 categoria.intervenciones = [];
@@ -155,25 +157,33 @@ export default {
             categoria.intervenciones.push(intervencion)
         },
 
-        actualizarCategoriaMatrizChecklist(categoria_actualizada) {
+        actualizarCategoriaChecklist(categoria_actualizada) {
             this.mostrarEditarCategoriaChecklist = false;
-            const categoria = this.editMatrizChecklistProps.categorias.find(categoria => categoria.id === categoria_actualizada.id);
+            const categoria = this.editChecklistProps.categorias.find(categoria => categoria.id === categoria_actualizada.id);
             categoria.nombre = categoria_actualizada.nombre;
         },
 
-        actualizarIntervencionMatrizChecklist(intervencion_actualizada) {
+        actualizarIntervencionChecklist(intervencion_actualizada) {
             this.mostrarEditarIntervencionChecklist = false;
-            const categoria = this.editMatrizChecklistProps.categorias.find(categoria => categoria.id === intervencion_actualizada.matriz_categoria_checklist_id);
+            const categoria = this.editChecklistProps.categorias.find(categoria => categoria.id === intervencion_actualizada.checklist_categoria_id);
             const intervencion = categoria.intervenciones.find(intervencion => intervencion.id === intervencion_actualizada.id);
             intervencion.nombre = intervencion_actualizada.nombre;
         },
 
-        async eliminarInternvecionCheckList(intervencion_id) {
-            const response = await this.eliminarIntervencionMatrizChecklist(intervencion_id);
+        async eliminarCategoriaCheckList(categoria_id) {
+            const response = await this.eliminarCategoriaChecklist(categoria_id);
 
-            if (this.errors_categoria_matriz_checklist === null) {
+            if (this.errors_categoria_checklist === null) {
                 this.$notyf.success(response.message);
-                const categoria = this.editMatrizChecklistProps.categorias.find(categoria => categoria.id === response.intervencionMatrizChecklist.matriz_categoria_checklist_id);
+                this.editChecklistProps.categorias = this.editChecklistProps.categorias.filter(categoria => categoria.id !== response.categoriaChecklist.id);
+            }
+        },
+        async eliminarIntervencionCheckList(intervencion_id) {
+            const response = await this.eliminarIntervencionChecklist(intervencion_id);
+
+            if (this.errors_intervencion_checklist === null) {
+                this.$notyf.success(response.message);
+                const categoria = this.editChecklistProps.categorias.find(categoria => categoria.id === response.intervencionChecklist.checklist_categoria_id);
                 categoria.intervenciones = categoria.intervenciones.filter(intervencion => intervencion.id !== intervencion_id);
             }
         }

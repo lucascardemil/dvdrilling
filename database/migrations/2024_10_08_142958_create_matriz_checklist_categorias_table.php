@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMatrizCategoriasChecklistTable extends Migration
+class CreateMatrizChecklistCategoriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMatrizCategoriasChecklistTable extends Migration
      */
     public function up()
     {
-        Schema::create('matriz_categorias_checklist', function (Blueprint $table) {
+        Schema::create('matriz_checklist_categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->integer('status');
@@ -30,6 +30,6 @@ class CreateMatrizCategoriasChecklistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('matriz_categorias_checklist');
+        Schema::dropIfExists('matriz_checklist_categorias');
     }
 }

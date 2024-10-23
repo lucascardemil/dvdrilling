@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMatrizIntervencionesChecklistTable extends Migration
+class CreateMatrizChecklistIntervencionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateMatrizIntervencionesChecklistTable extends Migration
      */
     public function up()
     {
-        Schema::create('matriz_intervenciones_checklist', function (Blueprint $table) {
+        Schema::create('matriz_checklist_intervenciones', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->integer('status');
-            $table->unsignedBigInteger('matriz_categoria_checklist_id');
-            $table->foreign('matriz_categoria_checklist_id', 'fk_matriz_categoria_id')->references('id')->on('matriz_categorias_checklist');
+            $table->unsignedBigInteger('matriz_checklist_categoria_id');
+            $table->foreign('matriz_checklist_categoria_id', 'fk_matriz_categoria_id')->references('id')->on('matriz_checklist_categorias');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateMatrizIntervencionesChecklistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('matriz_intervenciones_checklist');
+        Schema::dropIfExists('matriz_checklist_intervenciones');
     }
 }

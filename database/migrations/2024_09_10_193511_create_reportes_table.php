@@ -22,16 +22,18 @@ class CreateReportesTable extends Migration
             $table->dateTime('fecha');
             $table->string('sonda');
             $table->string('turno');
-            $table->string('horas');
+            $table->integer('horas');
             $table->string('desde');
             $table->string('hasta');
             $table->string('total');
-            $table->string('metros');
-            $table->string('inclinacion');
-            $table->string('rumbo');
+            $table->integer('metros');
+            $table->integer('inclinacion');
+            $table->integer('rumbo');
             $table->string('programa');
             $table->string('diametro');
             $table->integer('status');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

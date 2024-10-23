@@ -4,7 +4,7 @@
         <div class="btn-group">
             <button class="btn btn-base-dv" @click="anteriorPagina" v-if="paginaActual !== 1">Anterior</button>
             <button class="btn btn-base-dv" v-for="pagina in totalPaginas"
-                v-bind:class="[pagina === paginaActiva ? 'active' : '']">{{ pagina }}</button>
+                v-bind:class="[pagina === paginaActiva ? 'active' : '']" @click="irPagina(pagina)">{{ pagina }}</button>
             <button class="btn btn-base-dv" @click="siguientePagina"
             v-if="paginaActual !== totalPaginas">Siguiente</button>
         </div>
@@ -29,6 +29,9 @@ export default {
         },
     },
     methods: {
+        irPagina(pagina){
+            this.$emit('cambiar-pagina-actual', pagina);
+        },
         siguientePagina() {
             if (this.paginaActual < this.totalPaginas) {
                 this.$emit('cambiar-pagina', this.paginaActual + 1);

@@ -6,6 +6,7 @@ export default {
             reportes: [],
             loading_create: false,
             loading: false,
+            loading_pdf: [],
             errors_reporte: null
         };
     },
@@ -106,7 +107,7 @@ export default {
         },
 
         async descargarPDF(reporte) {
-            console.log(reporte);
+            this.$set(this.loading_pdf, reporte.id, true);
             try {
                 const response = await axios({
                     url: '/reportes/pdf',  // URL de la API
@@ -125,7 +126,7 @@ export default {
                 this.errors_reporte = 'Failed to load reporte';
                 console.error('Error crear reporte:', error);
             } finally {
-                this.loading_create = false;
+                this.$set(this.loading_pdf, reporte.id, false);
             }
         },
     }

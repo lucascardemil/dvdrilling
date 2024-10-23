@@ -182,11 +182,10 @@
                                                         Recup.</label>
                                                 </div>
                                                 <div class="col-6">
-                                                    <input type="number" class="form-control"
+                                                    <input type="number" min="0" class="form-control" 
                                                         id="herramientaRecuperacion"
                                                         v-model="newHerramienta.recuperacion"
-                                                        :class="errors_herramienta ? errors_herramienta.recuperacion ? 'is-invalid' : '' : ''"
-                                                        required>
+                                                        :class="errors_herramienta ? errors_herramienta.recuperacion ? 'is-invalid' : '' : ''">
                                                 </div>
                                             </div>
                                         </div>
@@ -229,7 +228,8 @@ export default {
                 contra: 0,
                 f_termino: 0,
                 f_inicio: 0,
-                reporte_id: 0
+                reporte_id: 0,
+                recuperacion: 0
             },
         };
     },
@@ -299,6 +299,7 @@ export default {
             if (this.errors_herramienta === null) {
                 this.herramienta.push(response.herramienta);
                 this.$notyf.success(response.message);
+                this.close();
             }
         }
     }

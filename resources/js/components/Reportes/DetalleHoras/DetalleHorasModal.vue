@@ -94,7 +94,7 @@
                                     </tbody>
                                 </table>
                                 <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas"
-                                    @cambiar-pagina="cambiarPagina" />
+            @cambiar-pagina="cambiarPagina" @cambiar-pagina-actual="cambiarPaginaActual"/>
                             </div>
                             <EliminarDetalleHora :data="eliminarDetalleHora"
                                 @confirmado-eliminar="confirmadoEliminarDetalleHora"
@@ -181,6 +181,9 @@ export default {
         }
     },
     methods: {
+        cambiarPaginaActual(newPage){
+            this.paginaActual = newPage;
+        },
         cambiarPagina(newPage) {
             this.paginaActual = newPage;
         },
@@ -204,6 +207,12 @@ export default {
 
             if (this.ListaDetalleHoras.length === 0 && this.paginaActual > 1) {
                 this.paginaActual--;
+            }
+
+            if(this.detalleHoras.length === 0){
+                this.newDetalleHoras.de = "";
+                this.existeDe = false;
+                this.errors_detalleHoras = null;
             }
         },
         cancelarEliminarDetalleHora(data) {
@@ -251,8 +260,9 @@ export default {
             if (this.errors_detalleHoras === null) {
                 this.$notyf.success(response.message);
                 this.detalleHoras.push(response.detalleHora);
-                this.newDetalleHoras.de = response.detalleHora.a;
                 this.resetForm();
+                this.newDetalleHoras.de = response.detalleHora.a;
+                this.existeDe = true;
             }
         },
     }

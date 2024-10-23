@@ -59,7 +59,7 @@ export default {
             this.errors_categoria_matriz_checklist = null;
             try {
                 const response = await axios.post('/matrizchecklist/store_categoriaMatrizChecklist', {
-                    matrizChecklist_id: data.matrizChecklist_id,
+                    matriz_checklist_id: data.matriz_checklist_id,
                     nombre: data.nombre
                 });
         
@@ -84,7 +84,7 @@ export default {
             this.errors_intervencion_matriz_checklist = null;
             try {
                 const response = await axios.post('/matrizchecklist/store_intervencionMatrizChecklist', {
-                    matrizChecklist_categoria_id: data.matrizChecklist_categoria_id,
+                    matriz_checklist_categoria_id: data.matriz_checklist_categoria_id,
                     nombre: data.nombre
                 });
         

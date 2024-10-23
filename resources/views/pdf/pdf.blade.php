@@ -191,335 +191,355 @@
         </tr>
     </table>
 
+    @if (count($horometro) > 0)
+        <table class="horometro">
+            @for ($i = 0; $i < count($horometro); $i++)
+                <tr>
+                    <td>
+                        <label class="texto">HOROMETRO INICIO: <small>{{ $horometro[$i]['inicio'] }}</small></label>
+                    </td>
+                    <td>
+                        <label class="texto">HOROMETRO TERMINO: <small>{{ $horometro[$i]['termino'] }}</small></label>
+                    </td>
+                    <td>
+                        <label class="texto">N° CAJAS: <small>{{ $horometro[$i]['numero_cajas'] }}</small></label>
+                    </td>
+                </tr>
+            @endfor
+        </table>
+    @endif
 
-    <table class="horometro">
-        @for ($i = 0; $i < count($horometro); $i++)
+    @if (count($corona_escareador) > 0)
+        <table style="table-layout: fixed">
             <tr>
                 <td>
-                    <label class="texto">HOROMETRO INICIO: <small>{{ $horometro[$i]['inicio'] }}</small></label>
+                    <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">CONTROL CORONAS Y
+                        ESCAREADORES</h5>
                 </td>
                 <td>
-                    <label class="texto">HOROMETRO TERMINO: <small>{{ $horometro[$i]['termino'] }}</small></label>
-                </td>
-                <td>
-                    <label class="texto">N° CAJAS: <small>{{ $horometro[$i]['numero_cajas'] }}</small></label>
+                    <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">CONTROL DE ADITIVOS
+                    </h5>
                 </td>
             </tr>
-        @endfor
-    </table>
+            <tr>
+                <td>
+                    <table class="control-coronas-escareadores">
+
+                        <head>
+                            <tr>
+                                <th>DETALLE</th>
+                                <th>DESDE</th>
+                                <th>HASTA</th>
+                                <th>DIAMETRO</th>
+                                <th>N° CORONA</th>
+                            </tr>
+                        </head>
+                        <tbody>
+                            @for ($i = 0; $i < count($corona_escareador); $i++)
+                                <tr>
+                                    <td>{{ $corona_escareador[$i]['detalle'] }}</td>
+                                    <td>{{ $corona_escareador[$i]['desde'] }}</td>
+                                    <td>{{ $corona_escareador[$i]['hasta'] }}</td>
+                                    <td>{{ $corona_escareador[$i]['diametro'] }}</td>
+                                    <td>{{ $corona_escareador[$i]['numero_corona'] }}</td>
+                                </tr>
+                            @endfor
+                        </tbody>
+                    </table>
+                </td>
+                <td style="vertical-align: top">
+                    <table class="consumo-aditivos">
+
+                        <head>
+                            <tr>
+                                <th class="titulo-cantidad">CANTIDAD</th>
+                                <th>DETALLE</th>
+                            </tr>
+                        </head>
+                        <tbody>
+                            @for ($i = 0; $i < count($aditivo); $i++)
+                                <tr>
+                                    <td>{{ $aditivo[$i]['cantidad'] }}</td>
+                                    <td>{{ $aditivo[$i]['detalle'] }}</td>
+                                </tr>
+                            @endfor
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    @endif
+
+
 
     <table style="table-layout: fixed">
         <tr>
-            <td>
-                <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">CONTROL CORONAS Y
-                    ESCAREADORES</h5>
-            </td>
-            <td>
-                <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">CONTROL DE ADITIVOS</h5>
-            </td>
+            @if (count($perforacion) > 0)
+                <td>
+                    <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">PERFORACIÓN EN ROCA
+                    </h5>
+                </td>
+            @endif
+
+            @if (count($herramienta) > 0)
+                <td>
+                    <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">CONTROL DE HERRAMIENTA
+                    </h5>
+                </td>
+            @endif
         </tr>
         <tr>
+            @if (count($perforacion) > 0)
+                <td style="vertical-align: top">
+                    <table class="perforacion-roca">
+
+                        <head>
+                            <tr>
+                                <th>DESDE</th>
+                                <th>HASTA</th>
+                                <th>PERFORADO</th>
+                                <th>RECUPERADO</th>
+                                <th>%</th>
+                                <th>N° CAJAS</th>
+                            </tr>
+                        </head>
+                        <tbody>
+                            @for ($i = 0; $i < count($perforacion); $i++)
+                                <tr>
+                                    <td>{{ $perforacion[$i]['desde'] }}</td>
+                                    <td>{{ $perforacion[$i]['hasta'] }}</td>
+                                    <td>{{ $perforacion[$i]['perforado'] }}</td>
+                                    <td>{{ $perforacion[$i]['recuperado'] }}</td>
+                                    <td>{{ $perforacion[$i]['porcentaje'] }}%</td>
+                                    <td>{{ $perforacion[$i]['numero_cajas'] }}</td>
+                                </tr>
+                            @endfor
+                        </tbody>
+                    </table>
+                </td>
+            @endif
+
             <td>
-                <table class="control-coronas-escareadores">
-
-                    <head>
-                        <tr>
-                            <th>DETALLE</th>
-                            <th>DESDE</th>
-                            <th>HASTA</th>
-                            <th>DIAMETRO</th>
-                            <th>N° CORONA</th>
-                        </tr>
-                    </head>
-                    <tbody>
-                        @for ($i = 0; $i < count($corona_escareador); $i++)
+                @if (count($herramienta) > 0)
+                    <table class="control-herramienta">
+                        @for ($i = 0; $i < count($herramienta); $i++)
                             <tr>
-                                <td>{{ $corona_escareador[$i]['detalle'] }}</td>
-                                <td>{{ $corona_escareador[$i]['desde'] }}</td>
-                                <td>{{ $corona_escareador[$i]['hasta'] }}</td>
-                                <td>{{ $corona_escareador[$i]['diametro'] }}</td>
-                                <td>{{ $corona_escareador[$i]['numero_corona'] }}</td>
+                                <td>
+                                    <label class="texto">BARRAS 3,00</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['barras_3'] }}</label>
+                                </td>
+                                <td>
+                                    <label class="texto">x 3,00</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['barras_3'] * 3 }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="texto">BARRAS 3,05</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['barras_3_5'] }}</label>
+                                </td>
+                                <td>
+                                    <label class="texto">x 3,05</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['barras_3_5'] * 3.05 }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="texto">SUBTOTAL</label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label
+                                        class="texto">{{ $herramienta[$i]['barras_3'] * 3 + $herramienta[$i]['barras_3_5'] * 3.05 }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="texto">BARRIL</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['barril'] }}</label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['total_barril'] }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="texto">SUBTOTAL</label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label
+                                        class="texto">{{ $herramienta[$i]['barras_3'] * 3 + $herramienta[$i]['barras_3_5'] * 3.05 + $herramienta[$i]['total_barril'] }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="texto">MUERTO</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['muerto'] }}</label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="texto">HERRAMIENTA TOTAL</label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label
+                                        class="texto">{{ $herramienta[$i]['barras_3'] * 3 + $herramienta[$i]['barras_3_5'] * 3.05 + $herramienta[$i]['total_barril'] - $herramienta[$i]['muerto'] }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="texto">CONTRA</label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['contra'] }}</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="texto">TOTAL</label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label class="texto"></label>
+                                </td>
+                                <td>
+                                    <label
+                                        class="texto">{{ $herramienta[$i]['barras_3'] * 3 + $herramienta[$i]['barras_3_5'] * 3.05 + $herramienta[$i]['total_barril'] - $herramienta[$i]['muerto'] - $herramienta[$i]['contra'] }}</label>
+                                </td>
+                            </tr>
+
+
+                            <tr style="border: 1px solid black">
+                                <td>
+                                    <label class="texto">F. INICIO:</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['f_inicio'] }}</label>
+                                </td>
+                                <td>
+                                    <label class="texto">AVANCE:</label>
+                                </td>
+                                <td>
+                                    <label
+                                        class="texto">{{ $herramienta[$i]['f_termino'] - $herramienta[$i]['f_inicio'] }}</label>
+                                </td>
+                            </tr>
+                            <tr style="border: 1px solid black">
+                                <td>
+                                    <label class="texto">F. TÉRMINO:</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['f_termino'] }}</label>
+                                </td>
+                                <td>
+                                    <label class="texto">% RECUP.:</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $herramienta[$i]['recuperacion'] }}%</label>
+                                </td>
                             </tr>
                         @endfor
-                    </tbody>
-                </table>
-            </td>
-            <td style="vertical-align: top">
-                <table class="consumo-aditivos">
-
-                    <head>
+                    </table>
+                @endif
+                @if (count($detalle_hora) > 0)
+                    <table>
                         <tr>
-                            <th class="titulo-cantidad">CANTIDAD</th>
-                            <th>DETALLE</th>
+                            <td>
+                                <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">DETALLE
+                                    HORAS
+                                </h5>
+                            </td>
                         </tr>
-                    </head>
-                    <tbody>
-                        @for ($i = 0; $i < count($aditivo); $i++)
+                    </table>
+
+                    <table class="detalle-horas" style="table-layout: fixed">
+                        @for ($i = 0; $i < count($detalle_hora); $i++)
                             <tr>
-                                <td>{{ $aditivo[$i]['cantidad'] }}</td>
-                                <td>{{ $aditivo[$i]['detalle'] }}</td>
+                                <td>
+                                    <label class="texto">DE</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ substr($detalle_hora[$i]['de'], 0, -3) }}</label>
+                                </td>
+                                <td>
+                                    <label class="texto">A</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ substr($detalle_hora[$i]['a'], 0, -3) }}</label>
+                                </td>
+                                <td>
+                                    <label class="texto">{{ $detalle_hora[$i]['actividad']['name'] }}</label>
+                                </td>
                             </tr>
                         @endfor
-                    </tbody>
-                </table>
+                    </table>
+                @endif
             </td>
         </tr>
     </table>
 
-
-    <table style="table-layout: fixed">
-        <tr>
-            <td>
-                <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">PERFORACIÓN EN ROCA</h5>
-            </td>
-            <td>
-                <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">CONTROL DE HERRAMIENTA
-                </h5>
-            </td>
-        </tr>
-        <tr>
-            <td style="vertical-align: top">
-                <table class="perforacion-roca">
-
-                    <head>
-                        <tr>
-                            <th>DESDE</th>
-                            <th>HASTA</th>
-                            <th>PERFORADO</th>
-                            <th>RECUPERADO</th>
-                            <th>%</th>
-                            <th>N° CAJAS</th>
-                        </tr>
-                    </head>
-                    <tbody>
-                        @for ($i = 0; $i < count($perforacion); $i++)
-                            <tr>
-                                <td>{{ $perforacion[$i]['desde'] }}</td>
-                                <td>{{ $perforacion[$i]['hasta'] }}</td>
-                                <td>{{ $perforacion[$i]['perforado'] }}</td>
-                                <td>{{ $perforacion[$i]['recuperado'] }}</td>
-                                <td>{{ $perforacion[$i]['porcentaje'] }}%</td>
-                                <td>{{ $perforacion[$i]['numero_cajas'] }}</td>
-                            </tr>
-                        @endfor
-                    </tbody>
-                </table>
-            </td>
-            <td>
-                <table class="control-herramienta">
-                    @for ($i = 0; $i < count($herramienta); $i++)
-                        <tr>
-                            <td>
-                                <label class="texto">BARRAS 3,00</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['barras_3'] }}</label>
-                            </td>
-                            <td>
-                                <label class="texto">x 3,00</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['barras_3'] * 3 }}</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="texto">BARRAS 3,05</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['barras_3_5'] }}</label>
-                            </td>
-                            <td>
-                                <label class="texto">x 3,05</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['barras_3_5'] * 3.05 }}</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="texto">SUBTOTAL</label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label
-                                    class="texto">{{ $herramienta[$i]['barras_3'] * 3 + $herramienta[$i]['barras_3_5'] * 3.05 }}</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="texto">BARRIL</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['barril'] }}</label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['total_barril'] }}</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="texto">SUBTOTAL</label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label
-                                    class="texto">{{ $herramienta[$i]['barras_3'] * 3 + $herramienta[$i]['barras_3_5'] * 3.05 + $herramienta[$i]['total_barril'] }}</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="texto">MUERTO</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['muerto'] }}</label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="texto">HERRAMIENTA TOTAL</label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label
-                                    class="texto">{{ $herramienta[$i]['barras_3'] * 3 + $herramienta[$i]['barras_3_5'] * 3.05 + $herramienta[$i]['total_barril'] - $herramienta[$i]['muerto'] }}</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="texto">CONTRA</label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['contra'] }}</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label class="texto">TOTAL</label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label class="texto"></label>
-                            </td>
-                            <td>
-                                <label
-                                    class="texto">{{ $herramienta[$i]['barras_3'] * 3 + $herramienta[$i]['barras_3_5'] * 3.05 + $herramienta[$i]['total_barril'] - $herramienta[$i]['muerto'] - $herramienta[$i]['contra'] }}</label>
-                            </td>
-                        </tr>
-
-
-                        <tr style="border: 1px solid black">
-                            <td>
-                                <label class="texto">F. INICIO:</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['f_inicio'] }}</label>
-                            </td>
-                            <td>
-                                <label class="texto">AVANCE:</label>
-                            </td>
-                            <td>
-                                <label
-                                    class="texto">{{ $herramienta[$i]['f_termino'] - $herramienta[$i]['f_inicio'] }}</label>
-                            </td>
-                        </tr>
-                        <tr style="border: 1px solid black">
-                            <td>
-                                <label class="texto">F. TÉRMINO:</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['f_termino'] }}</label>
-                            </td>
-                            <td>
-                                <label class="texto">% RECUP.:</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $herramienta[$i]['recuperacion'] }}%</label>
-                            </td>
-                        </tr>
-                    @endfor
-                </table>
-
-                <table>
-                    <tr>
-                        <td>
-                            <h5 class="titulo-reporte" style="text-align: center; margin: 0; padding: 0;">DETALLE HORAS
-                            </h5>
-                        </td>
-                    </tr>
-                </table>
-
-                <table class="detalle-horas" style="table-layout: fixed">
-                    @for ($i = 0; $i < count($detalle_hora); $i++)
-                        <tr>
-                            <td>
-                                <label class="texto">DE</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ substr($detalle_hora[$i]['de'], 0, -3) }}</label>
-                            </td>
-                            <td>
-                                <label class="texto">A</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ substr($detalle_hora[$i]['a'], 0, -3) }}</label>
-                            </td>
-                            <td>
-                                <label class="texto">{{ $detalle_hora[$i]['actividad']['name'] }}</label>
-                            </td>
-                        </tr>
-                    @endfor
-                </table>
-            </td>
-        </tr>
-    </table>
-
-    <table class="observacion">
-        <tr>
-            <td>
-                <h5 class="titulo-reporte" style="margin: 0; padding: 0;">OBSERVACIONES</h5>
-            </td>
-        </tr>
-        @for ($i = 0; $i < count($observacion); $i++)
+    @if (count($observacion) > 0)
+        <table class="observacion">
             <tr>
-                <td style="border: 1px solid black" class="texto-observacion">
-                    {{ $observacion[$i]['observacion'] }}
+                <td>
+                    <h5 class="titulo-reporte" style="margin: 0; padding: 0;">OBSERVACIONES</h5>
                 </td>
             </tr>
-        @endfor
-    </table>
+            @for ($i = 0; $i < count($observacion); $i++)
+                <tr>
+                    <td style="border: 1px solid black" class="texto-observacion">
+                        {{ $observacion[$i]['observacion'] }}
+                    </td>
+                </tr>
+            @endfor
+        </table>
+    @endif
 
     <table class="datos-principal">
         <tr>

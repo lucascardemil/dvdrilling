@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MatrizCategoriaChecklist extends Model
+class MatrizChecklistCategoria extends Model
 {
     use HasFactory;
 
-    protected $table = 'matriz_categorias_checklist';
+    protected $table = 'matriz_checklist_categorias';
 
     protected $fillable = [
         'nombre',
@@ -24,6 +24,6 @@ class MatrizCategoriaChecklist extends Model
 
     public function intervenciones()
     {
-        return $this->hasMany(MatrizIntervencionChecklist::class);
+        return $this->hasMany(MatrizChecklistIntervencion::class);
     }
 }

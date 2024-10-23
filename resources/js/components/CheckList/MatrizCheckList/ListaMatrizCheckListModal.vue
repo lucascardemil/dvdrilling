@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div class="modal fade" id="listaMatrizCheckListModal" tabindex="-1"
         aria-labelledby="listaMatrizCheckListModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -8,7 +8,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <VerMatrizCheckListModal :matrizChecklist="matriz" v-if="habilitarVerMatrizChecklist" />
+                    <EditMatrizCheckListModal :editMatrizChecklistProps="matrizChecklist" v-if="habilitarEditMatrizChecklist"/>
                     <div class="table-responsive" v-else>
                         <table class="table">
                             <thead>
@@ -31,8 +31,8 @@
                                         </div>
                                     </td>
                                     <td class="text-end">
-                                        <button type="button" class="btn btn-success"
-                                            @click="verMatrizChecklist(matriz)"><i class="bi bi-file-text-fill"></i>
+                                        <button type="button" class="btn btn-warning"
+                                            @click="editMatrizChecklist(matriz)"><i class="bi bi-pencil-square"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -40,9 +40,9 @@
                         </table>
                     </div>
                 </div>
-                <div class="modal-footer" v-if="habilitarVerMatrizChecklist">
+                <div class="modal-footer" v-if="habilitarEditMatrizChecklist">
                     <button type="button" class="btn btn-base-dv" @click="volverListaMatrizCheckList()"><i
-                            class="bi bi-arrow-left"></i> Volver
+                            class="bi bi-arrow-left"></i> Volver a Lista Matriz 
                     </button>
                 </div>
             </div>
@@ -52,24 +52,26 @@
 
 <script>
 import { Modal } from 'bootstrap';
-import VerMatrizCheckListModal from './VerMatrizCheckListModal';
+import EditMatrizCheckListModal from '../EditarMatrizChecklist/EditMatrizCheckListModal.vue';
 import matrizChecklistMixin from '../../../mixins/checklist/matrizChecklistMixin';
+
 export default {
     mixins: [matrizChecklistMixin],
     props: {
         matrizChecklistProps: Array,
     },
     components: {
-        VerMatrizCheckListModal
+        EditMatrizCheckListModal
     },
     data() {
         return {
-            matriz: null,
-            habilitarVerMatrizChecklist: false
+            matrizChecklist: null,
+            habilitarEditMatrizChecklist: false
         };
     },
     methods: {
         open() {
+            this.habilitarEditMatrizChecklist = false;
             this.errors = null;
             const modalElement = document.getElementById('listaMatrizCheckListModal');
             const modal = new Modal(modalElement);
@@ -78,7 +80,7 @@ export default {
         close() {
             const modalElement = document.getElementById('listaMatrizCheckListModal');
             const modal = Modal.getInstance(modalElement);
-            if (modal) modal.hide();
+            if (modal) modal.hide();            
         },
 
         async handleEnabledChange(matrizId, status) {
@@ -95,15 +97,14 @@ export default {
             }
         },
 
-        verMatrizChecklist(matriz) {
-            this.habilitarVerMatrizChecklist = true;
-            this.matriz = matriz;
+        editMatrizChecklist(matrizChecklist) {
+            this.habilitarEditMatrizChecklist = true;
+            this.matrizChecklist = matrizChecklist;
         },
 
         volverListaMatrizCheckList(){
-            this.habilitarVerMatrizChecklist = false;
-        }
-
+            this.habilitarEditMatrizChecklist = false;
+        },
     }
 }
 </script>

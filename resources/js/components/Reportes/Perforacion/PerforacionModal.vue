@@ -10,8 +10,7 @@
                 <div class="modal-body">
                     <div class="row" v-if="habilitarEditar">
                         <div class="col-12">
-                            <EditarPerforacion :data="editPerforaciones"
-                                @actualizar-perforacion="actualizarPerforacion"
+                            <EditarPerforacion :data="editPerforaciones" @actualizar-perforacion="actualizarPerforacion"
                                 @cancelar-editar="cancelarEditarPerforacion">
                             </EditarPerforacion>
                         </div>
@@ -85,7 +84,6 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th scope="col">#</th>
                                             <th scope="col">Desde</th>
                                             <th scope="col">Hasta</th>
                                             <th scope="col">Perforado</th>
@@ -97,7 +95,6 @@
                                     </thead>
                                     <tbody>
                                         <tr v-for="perforacion in ListaPerforaciones" :key="perforacion.id">
-                                            <th scope="row">{{ perforacion.id }}</th>
                                             <td>{{ perforacion.desde }}</td>
                                             <td>{{ perforacion.hasta }}</td>
                                             <td>{{ perforacion.perforado }}</td>
@@ -116,7 +113,7 @@
                                     </tbody>
                                 </table>
                                 <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas"
-                                    @cambiar-pagina="cambiarPagina" />
+                                    @cambiar-pagina="cambiarPagina" @cambiar-pagina-actual="cambiarPaginaActual" />
                             </div>
                             <EliminarPerforacion :data="eliminarPerforacion"
                                 @confirmado-eliminar="confirmadoEliminarPerforacion"
@@ -162,7 +159,7 @@ export default {
             eliminarPerforacion: {},
             habilitarEliminar: false,
             paginaActual: 1,
-            filasPorPagina: 7,
+            filasPorPagina: 10,
             habilitarEditar: false
         };
     },
@@ -197,6 +194,9 @@ export default {
         'newPerforaciones.hasta': 'validarInicioTermino'
     },
     methods: {
+        cambiarPaginaActual(newPage) {
+            this.paginaActual = newPage;
+        },
         cambiarPagina(newPage) {
             this.paginaActual = newPage;
         },
@@ -224,6 +224,12 @@ export default {
             if (this.ListaPerforaciones.length === 0 && this.paginaActual > 1) {
                 this.paginaActual--;
             }
+
+            if(this.perforaciones.length === 0){
+                this.newPerforaciones.desde = 0;
+                this.existeDesde = false;
+                this.errors_perforaciones = null;
+            }
         },
         cancelarEliminarPerforacion(data) {
             this.habilitarEliminar = data;
@@ -250,7 +256,7 @@ export default {
             }
         },
         calculoPerforado() {
-            const perforado = this.newPerforaciones.hasta - this.newPerforaciones.desde;
+            const perforado = (this.newPerforaciones.hasta - this.newPerforaciones.desde) * 100;
             this.newPerforaciones.perforado = Number.isInteger(perforado)
                 ? perforado
                 : perforado.toFixed(2).replace(/\.?0+$/, '');
@@ -314,8 +320,9 @@ export default {
             if (this.errors_perforaciones === null) {
                 this.$notyf.success(response.message);
                 this.perforaciones.push(response.perforacion);
-                this.newPerforaciones.desde = response.perforacion.hasta;
                 this.resetForm();
+                this.newPerforaciones.desde = response.perforacion.hasta;
+                this.existeDesde = true;
             }
         },
     }

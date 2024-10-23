@@ -32,7 +32,6 @@ class HerramientaController extends Controller
             'contra' => 'required|not_in:0',
             'f_inicio' => 'required|not_in:0',
             'f_termino' => 'required|not_in:0',
-            'recuperacion' => 'required|not_in:0',
         ]);
 
         if ($validator->fails()) {

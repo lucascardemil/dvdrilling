@@ -37,7 +37,7 @@ class CargosController extends Controller
 
         $cargo = Cargo::create([
             'name' => $request->name,
-            'status' => 0,
+            'status' => 1,
         ]);
 
         return response()->json(['message' => 'Cargo creado exitosamente', 'cargo' => $cargo], 201);

@@ -64,7 +64,7 @@ class PersonalController extends Controller
             'apellido_materno' => $request->apellido_materno,
             'run' => $request->run,
             'cargo_id' => $request->cargo_id,
-            'status' => 0,
+            'status' => 1,
         ]);
 
         return response()->json(['message' => 'Personal creado exitosamente', 'personal' => $personal], 201);

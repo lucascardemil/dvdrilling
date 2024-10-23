@@ -9,11 +9,16 @@ export default {
             loading_intervenciones: false,
             loading_checklist: false,
             loading_checklist_create: false,
+            loading_checklist_update: false,
             loading_checklist_delete: false,
             loading_checklist_finish: false,
+            loading_checklist_observacion: false,
+            loading_checklist_delete_observacion: [],
             errors_checklist: null,
             errors_categoria_checklist: null,
             errors_intervencion_checklist: null,
+            errors_finalizar_checklist: null,
+            errors_observacion_checklist: null
         };
     },
     methods: {
@@ -56,15 +61,15 @@ export default {
                     activo_id: data.activo_id,
                     matriz_checklist_id: data.matriz_checklist_id
                 });
-        
+
                 // Verifica si la respuesta tiene errores de validación
                 if (response.data.errors) {
                     this.errors_checklist = response.data.errors;
                 }
-        
+
                 // Maneja la respuesta exitosa, si es necesario
                 return response.data;
-        
+
             } catch (error) {
                 this.errors_checklist = 'Failed to load checklist';
                 console.error('Error crear checklist:', error);
@@ -73,30 +78,121 @@ export default {
             }
         },
 
+        async createCategoriaChecklist(data) {
+            this.loading_checklist_create = true;
+            this.errors_categoria_checklist = null;
+            try {
+                const response = await axios.post('/checklist/store_categoriaChecklist', {
+                    checklist_id: data.checklist_id,
+                    nombre: data.nombre
+                });
+
+                // Verifica si la respuesta tiene errores de validación
+                if (response.data.errors) {
+                    this.errors_categoria_checklist = response.data.errors;
+                }
+
+                // Maneja la respuesta exitosa, si es necesario
+                return response.data;
+
+            } catch (error) {
+                this.errors_categoria_checklist = 'Failed to load checklist';
+                console.error('Error crear checklist:', error);
+            } finally {
+                this.loading_checklist_create = false;
+            }
+        },
 
         async createIntervencionChecklist(data) {
             this.loading_checklist_create = true;
             this.errors_intervencion_checklist = null;
             try {
                 const response = await axios.post('/checklist/store_intervencionChecklist', {
-                    checklist_id: data.checklist_id,
-                    intervenciones: data.intervenciones,
-                    selected: data.selected
+                    checklist_categoria_id: data.checklist_categoria_id,
+                    nombre: data.nombre
                 });
-        
+
                 // Verifica si la respuesta tiene errores de validación
                 if (response.data.errors) {
                     this.errors_intervencion_checklist = response.data.errors;
                 }
-        
+
                 // Maneja la respuesta exitosa, si es necesario
                 return response.data;
-        
+
             } catch (error) {
                 this.errors_intervencion_checklist = 'Failed to load checklist';
                 console.error('Error crear checklist:', error);
             } finally {
                 this.loading_checklist_create = false;
+            }
+        },
+
+        async createObservacionChecklist(data){
+            this.loading_checklist_observacion = true;
+            this.errors_observacion_checklist = null;
+            try {
+                const response = await axios.post('/checklist/store_observacionChecklist', data, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+
+                if (response.data.errors) {
+                    this.errors_observacion_checklist = response.data.errors;
+                }
+
+                return response.data;
+
+            } catch (error) {
+                this.errors_observacion_checklist = 'Failed to load observacion';
+                console.error('Error actualizar observacion:', error);
+            } finally {
+                this.loading_checklist_observacion = false;
+            }
+        },
+
+        async actualizarCategoriaChecklist(data) {
+            this.loading_checklist_update = true;
+            this.errors_categoria_checklist = null;
+            try {
+                const response = await axios.put('/checklist/update_categoriaChecklist/' + data.id, {
+                    nombre: data.nombre
+                });
+
+                if (response.data.errors) {
+                    this.errors_categoria_checklist = response.data.errors;
+                }
+
+                return response.data;
+
+            } catch (error) {
+                this.errors_categoria_checklist = 'Failed to load checklist';
+                console.error('Error actualizar checklist:', error);
+            } finally {
+                this.loading_checklist_update = false;
+            }
+        },
+
+        async actualizarIntervencionCheckList(data) {
+            this.loading_checklist_update = true;
+            this.errors_intervencion_checklist = null;
+            try {
+                const response = await axios.put('/checklist/update_intervencionChecklist/' + data.id, {
+                    nombre: data.nombre
+                });
+
+                if (response.data.errors) {
+                    this.errors_intervencion_checklist = response.data.errors;
+                }
+
+                return response.data;
+
+            } catch (error) {
+                this.errors_intervencion_checklist = 'Failed to load checklist';
+                console.error('Error actualizar checklist:', error);
+            } finally {
+                this.loading_checklist_update = false;
             }
         },
 
@@ -120,8 +216,93 @@ export default {
             } finally {
                 this.loading_checklist_create = false;
             }
+        },
+
+        async eliminarCategoriaChecklist(id) {
+            this.loading_checklist_delete = true;
+            this.errors_categoria_checklist = null;
+            try {
+                const response = await axios.delete('/checklist/delete_categoriaChecklist/' + id);
+
+                if (response.data.errors) {
+                    this.errors_categoria_checklist = response.data.errors;
+                }
+
+                return response.data;
+
+            } catch (error) {
+                this.errors_categoria_checklist = 'Failed to load checklist';
+                console.error('Error actualizar checklist:', error);
+            } finally {
+                this.loading_checklist_delete = false;
+            }
+        },
+
+        async eliminarIntervencionChecklist(id) {
+            this.loading_checklist_delete = true;
+            this.errors_intervencion_checklist = null;
+            try {
+                const response = await axios.delete('/checklist/delete_intervencionChecklist/' + id);
+
+                if (response.data.errors) {
+                    this.errors_intervencion_checklist = response.data.errors;
+                }
+
+                return response.data;
+
+            } catch (error) {
+                this.errors_intervencion_checklist = 'Failed to load checklist';
+                console.error('Error actualizar checklist:', error);
+            } finally {
+                this.loading_checklist_delete = false;
+            }
+        },
+
+        async eliminarObservacionChecklist(id){
+            this.$set(this.loading_checklist_delete_observacion, id, true);
+            this.errors_observacion_checklist = null;
+            try {
+                const response = await axios.delete('/checklist/delete_observacionChecklist/' + id);
+
+                if (response.data.errors) {
+                    this.errors_observacion_checklist = response.data.errors;
+                }
+
+                return response.data;
+
+            } catch (error) {
+                this.errors_observacion_checklist = 'Failed to load checklist';
+                console.error('Error actualizar checklist:', error);
+            } finally {
+                this.$set(this.loading_checklist_delete_observacion, id, false); 
+            }
+        },
+
+        async finalizarChecklist(checkslist, checklist_id) {
+            this.loading_checklist_finish = true;
+            this.errors_finalizar_checklist = null;
+            try {
+                const response = await axios.post('/checklist/store_completarChecklist', {
+                    checkslist: checkslist,
+                    checklist_id: checklist_id
+                });
+
+                // Verifica si la respuesta tiene errores de validación
+                if (response.data.errors) {
+                    this.errors_finalizar_checklist = response.data.errors;
+                }
+
+                // Maneja la respuesta exitosa, si es necesario
+                return response.data;
+
+            } catch (error) {
+                this.errors_finalizar_checklist = 'Failed to load checklist';
+                console.error('Error crear checklist:', error);
+            } finally {
+                this.loading_checklist_finish = false;
+            }
         }
 
-        
+
     }
 };

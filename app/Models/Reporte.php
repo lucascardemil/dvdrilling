@@ -12,6 +12,7 @@ class Reporte extends Model
     protected $table = 'reportes';
 
     protected $fillable = [
+        'user_id',
         'name',
         'status',
         'proyecto_id',

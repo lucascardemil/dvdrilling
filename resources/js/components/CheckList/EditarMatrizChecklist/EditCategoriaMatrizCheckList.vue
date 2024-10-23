@@ -1,11 +1,11 @@
 <template>
     <div>
-        <form @submit.prevent="updateCategoriaChecklist" class="mb-3">
+        <form @submit.prevent="updateMatrizChecklistCategoria" class="mb-3">
             <div class="row align-items-end">
                 <div class="col-lg-8 col-md-12">
-                    <label for="categoriaChecklistNombre" class="form-label">Categoria</label>
-                    <input type="text" class="form-control" id="categoriaChecklistNombre"
-                        v-model="editCategoriaChecklist.nombre" placeholder="Nombre"
+                    <label for="categoriaMatrizChecklistNombre" class="form-label">Categoria</label>
+                    <input type="text" class="form-control" id="categoriaMatrizChecklistNombre"
+                        v-model="editMatrizChecklistCategoria.nombre" placeholder="Nombre"
                         :class="errors_categoria_matriz_checklist ? errors_categoria_matriz_checklist.nombre ? 'is-invalid' : '' : ''"
                         required>
                 </div>
@@ -20,7 +20,7 @@
             </div>
         </form>
         
-        <button type="button" class="btn btn-base-dv" @click="volverEditarMatrizCheckList()"><i
+        <button type="button" class="btn btn-base-dv" @click="volverEditarMatrizChecklist()"><i
                 class="bi bi-arrow-left"></i>
             Volver
         </button>
@@ -28,34 +28,33 @@
 </template>
 
 <script>
-import checklistMixin from '../../mixins/checklist/checklistMixin';
-import matrizChecklistMixin from '../../mixins/checklist/matrizChecklistMixin';
+import matrizChecklistMixin from '../../../mixins/checklist/matrizChecklistMixin';
 
 export default {
-    mixins: [checklistMixin, matrizChecklistMixin],
+    mixins: [matrizChecklistMixin],
     props: {
-        matrizChecklist_categoria: Object
+        matriz_checklist_categoria: Object
     },
     data() {
         return {
-            editCategoriaChecklist: {
-                id: this.matrizChecklist_categoria.id,
-                nombre: this.matrizChecklist_categoria.nombre,
+            editMatrizChecklistCategoria: {
+                id: this.matriz_checklist_categoria.id,
+                nombre: this.matriz_checklist_categoria.nombre,
             },
         };
     },
     methods: {
-        async updateCategoriaChecklist() {
-            const response = await this.actualizarCategoriaMatrizChecklist(this.editCategoriaChecklist);
+        async updateMatrizChecklistCategoria() {
+            const response = await this.actualizarCategoriaMatrizChecklist(this.editMatrizChecklistCategoria);
 
             if (this.errors_categoria_matriz_checklist === null) {
                 this.$notyf.success(response.message);
-                this.$emit('matrizCategoriaChecklist-actualizada', response.categoriaMatrizChecklist);
+                this.$emit('categoriaMatrizChecklist-actualizada', response.categoriaMatrizChecklist);
             }
         },
 
-        volverEditarMatrizCheckList() {
-            this.$emit('volverEditarMatrizCheckList');
+        volverEditarMatrizChecklist() {
+            this.$emit('volverEditarMatrizChecklist');
         }
     }
 }

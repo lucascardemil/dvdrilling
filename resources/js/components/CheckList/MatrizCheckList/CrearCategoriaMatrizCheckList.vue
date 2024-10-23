@@ -66,7 +66,7 @@ import matrizChecklistMixin from '../../../mixins/checklist/matrizChecklistMixin
 export default {
     mixins: [matrizChecklistMixin],
     props: {
-        matrizChecklist_id: {
+        matriz_checklist_id: {
             type: Number,
             required: true
         },
@@ -75,7 +75,7 @@ export default {
     data() {
         return {
             newCategoriaMatrizChecklist: {
-                matrizChecklist_id: this.matrizChecklist_id,
+                matriz_checklist_id: this.matriz_checklist_id,
                 nombre: '',
             },
             categorias: this.matrizChecklist_categorias

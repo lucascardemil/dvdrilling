@@ -1,11 +1,11 @@
 <template>
     <div>
-        <form @submit.prevent="updateIntervencionChecklist" class="mb-3">
+        <form @submit.prevent="updateIntervencionMatrizChecklist" class="mb-3">
             <div class="row align-items-end">
                 <div class="col-lg-8 col-md-12">
-                    <label for="intervencionChecklistNombre" class="form-label">Intervencion</label>
-                    <input type="text" class="form-control" id="intervencionChecklistNombre"
-                        v-model="editIntervencionChecklist.nombre" placeholder="Nombre"
+                    <label for="intervencionMatrizChecklistNombre" class="form-label">Intervencion</label>
+                    <input type="text" class="form-control" id="intervencionMatrizChecklistNombre"
+                        v-model="editIntervencionMatrizChecklist.nombre" placeholder="Nombre"
                         :class="errors_intervencion_matriz_checklist ? errors_intervencion_matriz_checklist.nombre ? 'is-invalid' : '' : ''"
                         required>
                 </div>
@@ -28,34 +28,33 @@
 </template>
 
 <script>
-import checklistMixin from '../../mixins/checklist/checklistMixin';
-import matrizChecklistMixin from '../../mixins/checklist/matrizChecklistMixin';
+import matrizChecklistMixin from '../../../mixins/checklist/matrizChecklistMixin';
 
 export default {
-    mixins: [checklistMixin, matrizChecklistMixin],
+    mixins: [matrizChecklistMixin],
     props: {
-        matrizChecklist_intervencion: Object
+        matriz_checklist_intervencion: Object
     },
     data() {
         return {
-            editIntervencionChecklist: {
-                id: this.matrizChecklist_intervencion.id,
-                nombre: this.matrizChecklist_intervencion.nombre,
+            editIntervencionMatrizChecklist: {
+                id: this.matriz_checklist_intervencion.id,
+                nombre: this.matriz_checklist_intervencion.nombre,
             },
         };
     },
     methods: {
-        async updateIntervencionChecklist() {
-            const response = await this.actualizarIntervencionMatrizChecklist(this.editIntervencionChecklist);
+        async updateIntervencionMatrizChecklist() {
+            const response = await this.actualizarIntervencionMatrizChecklist(this.editIntervencionMatrizChecklist);
 
             if (this.errors_intervencion_matriz_checklist === null) {
                 this.$notyf.success(response.message);
-                this.$emit('matrizIntervencionChecklist-actualizada', response.intervencionMatrizChecklist);
+                this.$emit('intervencionMatrizChecklist-actualizada', response.intervencionMatrizChecklist);
             }
         },
 
         volverEditarMatrizCheckList() {
-            this.$emit('volverEditarMatrizCheckList');
+            this.$emit('volverEditarMatrizChecklist');
         }
     }
 }

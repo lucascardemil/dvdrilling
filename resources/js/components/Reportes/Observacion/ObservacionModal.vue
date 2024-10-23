@@ -85,6 +85,8 @@ export default {
             if (this.errors_observacion === null) {
                 this.observacion.push(response.observacion);
                 this.$notyf.success(response.message);
+                this.resetForm();
+                this.close();
             }
         },
         resetForm() {

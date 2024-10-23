@@ -72,7 +72,7 @@
                                     </tbody>
                                 </table>
                                 <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas"
-                                    @cambiar-pagina="cambiarPagina" />
+            @cambiar-pagina="cambiarPagina" @cambiar-pagina-actual="cambiarPaginaActual"/>
                             </div>
                             <EliminarAditivo :data="eliminarAditivo" @confirmado-eliminar="confirmadoEliminarAditivo"
                                 @cancelar-eliminar="cancelarEliminarAditivo" v-else></EliminarAditivo>
@@ -139,6 +139,9 @@ export default {
         },
     },
     methods: {
+        cambiarPaginaActual(newPage){
+            this.paginaActual = newPage;
+        },
         cambiarPagina(newPage) {
             this.paginaActual = newPage;
         },

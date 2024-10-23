@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Validator;
-use App\Models\MatrizCategoriaChecklist;
+use App\Models\MatrizChecklistCategoria;
+use App\Models\MatrizChecklistIntervencion;
 
-class MatrizCategoriaChecklistController extends Controller
+class MatrizChecklistCategoriaController extends Controller
 {
     use AuthorizesRequests;
 
@@ -28,10 +29,10 @@ class MatrizCategoriaChecklistController extends Controller
         }
 
         // Si no existe, creamos un nuevo registro
-        $categoriaMatrizChecklist = MatrizCategoriaChecklist::create([
+        $categoriaMatrizChecklist = MatrizChecklistCategoria::create([
             'nombre' => $request->nombre,
-            'status' => false,
-            'matriz_checklist_id' =>$request->matrizChecklist_id,
+            'status' => 1,
+            'matriz_checklist_id' => $request->matriz_checklist_id,
         ]);
 
         return response()->json(['message' => 'La Categoria creado exitosamente', 'categoriaMatrizChecklist' => $categoriaMatrizChecklist], 201);
@@ -40,7 +41,7 @@ class MatrizCategoriaChecklistController extends Controller
     public function update(Request $request, $id)
     {
 
-        $categoriaMatrizChecklist = MatrizCategoriaChecklist::findOrFail($id);
+        $categoriaMatrizChecklist = MatrizChecklistCategoria::findOrFail($id);
         $categoriaMatrizChecklist->update([
             'nombre' => $request->nombre
         ]);
@@ -50,7 +51,7 @@ class MatrizCategoriaChecklistController extends Controller
 
     public function delete($id)
     {
-        $categoriaMatrizChecklist = MatrizCategoriaChecklist::find($id);
+        $categoriaMatrizChecklist = MatrizChecklistCategoria::find($id);
 
         if (!$categoriaMatrizChecklist) {
             return response()->json([
@@ -58,10 +59,17 @@ class MatrizCategoriaChecklistController extends Controller
             ], 404);
         }
 
-        // Elimina el personal
+        $intervenciones = MatrizChecklistIntervencion::where('matriz_checklist_categoria_id', $categoriaMatrizChecklist->id)->get();
+
+        if (!$intervenciones->isEmpty()) {
+            foreach ($intervenciones as $intervencion) {
+                $intervencionMatrizChecklist = MatrizChecklistIntervencion::find($intervencion->id);
+                $intervencionMatrizChecklist->delete();
+            }
+        }
+
         $categoriaMatrizChecklist->delete();
 
-        // Retorna el personal eliminado junto con el mensaje de éxito
         return response()->json([
             'message' => 'La Categoria eliminado exitosamente',
             'categoriaMatrizChecklist' => $categoriaMatrizChecklist

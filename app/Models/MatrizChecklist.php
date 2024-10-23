@@ -18,7 +18,7 @@ class MatrizChecklist extends Model
 
     public function categorias()
     {
-        return $this->hasMany(MatrizCategoriaChecklist::class);
+        return $this->hasMany(MatrizChecklistCategoria::class);
     }
 
     public function checklist()

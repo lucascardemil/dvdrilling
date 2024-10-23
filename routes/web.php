@@ -24,7 +24,7 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 Route::get('/user/role', [App\Http\Controllers\HomeController::class, 'getUserRole'])->middleware('auth');
-Route::post('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth','permission:proyecto']], function () {
     Route::get('/proyecto', [App\Http\Controllers\ProyectoController::class, 'index'])->name('proyecto.index');
@@ -142,21 +142,31 @@ Route::group(['middleware' => ['auth','permission:checklist']], function () {
     Route::put('/matrizchecklist/update_matrizChecklist/{id}', [App\Http\Controllers\MatrizChecklistController::class, 'update']);
     Route::put('/matrizchecklist/update-status/{id}', [App\Http\Controllers\MatrizChecklistController::class, 'update_status']);
 
-    Route::post('/matrizchecklist/store_categoriaMatrizChecklist', [App\Http\Controllers\MatrizCategoriaChecklistController::class, 'store']);
-    Route::delete('/matrizchecklist/delete_categoriaMatrizChecklist/{id}', [App\Http\Controllers\MatrizCategoriaChecklistController::class, 'delete']);
-    Route::put('/matrizchecklist/update_categoriaMatrizChecklist/{id}', [App\Http\Controllers\MatrizCategoriaChecklistController::class, 'update']);
+    Route::post('/matrizchecklist/store_categoriaMatrizChecklist', [App\Http\Controllers\MatrizChecklistCategoriaController::class, 'store']);
+    Route::delete('/matrizchecklist/delete_categoriaMatrizChecklist/{id}', [App\Http\Controllers\MatrizChecklistCategoriaController::class, 'delete']);
+    Route::put('/matrizchecklist/update_categoriaMatrizChecklist/{id}', [App\Http\Controllers\MatrizChecklistCategoriaController::class, 'update']);
 
-    Route::post('/matrizchecklist/store_intervencionMatrizChecklist', [App\Http\Controllers\MatrizIntervencionChecklistController::class, 'store']);
-    Route::delete('/matrizchecklist/delete_intervencionMatrizChecklist/{id}', [App\Http\Controllers\MatrizIntervencionChecklistController::class, 'delete']);
-    Route::put('/matrizchecklist/update_intervencionMatrizChecklist/{id}', [App\Http\Controllers\MatrizIntervencionChecklistController::class, 'update']);
+    Route::post('/matrizchecklist/store_intervencionMatrizChecklist', [App\Http\Controllers\MatrizChecklistIntervencionController::class, 'store']);
+    Route::delete('/matrizchecklist/delete_intervencionMatrizChecklist/{id}', [App\Http\Controllers\MatrizChecklistIntervencionController::class, 'delete']);
+    Route::put('/matrizchecklist/update_intervencionMatrizChecklist/{id}', [App\Http\Controllers\MatrizChecklistIntervencionController::class, 'update']);
 
     Route::get('/checklist/all', [App\Http\Controllers\ChecklistController::class, 'all']);
     Route::post('/checklist/store_checklist', [App\Http\Controllers\ChecklistController::class, 'store']);
     Route::put('/checklist/update_checklist/{id}', [App\Http\Controllers\ChecklistController::class, 'update']);
     Route::put('/checklist/update-status/{id}', [App\Http\Controllers\ChecklistController::class, 'update_status']);
+    Route::post('/checklist/store_completarChecklist', [App\Http\Controllers\ChecklistController::class, 'store_completar_checklist']);
 
-    Route::get('/checklist/intervenciones/{id}', [App\Http\Controllers\IntervencionChecklistController::class, 'all']);
-    Route::post('/checklist/store_intervencionChecklist', [App\Http\Controllers\IntervencionChecklistController::class, 'store']);
+    Route::post('/checklist/store_categoriaChecklist', [App\Http\Controllers\ChecklistCategoriaController::class, 'store']);
+    Route::put('/checklist/update_categoriaChecklist/{id}', [App\Http\Controllers\ChecklistCategoriaController::class, 'update']);
+    Route::delete('/checklist/delete_categoriaChecklist/{id}', [App\Http\Controllers\ChecklistCategoriaController::class, 'delete']);
+    
+    Route::get('/checklist/intervenciones/{id}', [App\Http\Controllers\ChecklistIntervencionController::class, 'all']);
+    Route::post('/checklist/store_intervencionChecklist', [App\Http\Controllers\ChecklistIntervencionController::class, 'store']);
+    Route::put('/checklist/update_intervencionChecklist/{id}', [App\Http\Controllers\ChecklistIntervencionController::class, 'update']);
+    Route::delete('/checklist/delete_intervencionChecklist/{id}', [App\Http\Controllers\ChecklistIntervencionController::class, 'delete']);
+
+    Route::post('/checklist/store_observacionChecklist', [App\Http\Controllers\ChecklistObservacionController::class, 'store']);
+    Route::delete('/checklist/delete_observacionChecklist/{id}', [App\Http\Controllers\ChecklistObservacionController::class, 'delete']);
 });
 
 Route::group(['middleware' => ['auth','permission:usuarios']], function () {
@@ -174,4 +184,10 @@ Route::group(['middleware' => ['auth','permission:roles']], function () {
     Route::post('/roles/store', [App\Http\Controllers\RolesController::class, 'store']);
     Route::put('/roles/update/{id}', [App\Http\Controllers\RolesController::class, 'update']);
     Route::get('/permissions', [App\Http\Controllers\PermissionController::class, 'index']);
+});
+
+Route::get('/storage-link', function () {
+    $targetFolder = storage_path('app/public');
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
+    symlink($targetFolder, $linkFolder);
 });

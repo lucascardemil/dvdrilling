@@ -14,7 +14,9 @@ class Checklist extends Model
     protected $fillable = [
         'marca',
         'modelo',
+        'horometro',
         'status',
+        'user_id',
         'activo_id',
         'matriz_checklist_id'
     ];
@@ -24,9 +26,20 @@ class Checklist extends Model
         return $this->belongsTo(Activo::class, 'activo_id');
     }
 
+    public function categorias()
+    {
+        return $this->hasMany(ChecklistCategoria::class);
+    }
 
     public function matriz()
     {
         return $this->belongsTo(MatrizChecklist::class, 'matriz_checklist_id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+
 }

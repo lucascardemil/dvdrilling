@@ -111,7 +111,7 @@
                                     </tbody>
                                 </table>
                                 <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas"
-                                    @cambiar-pagina="cambiarPagina" />
+            @cambiar-pagina="cambiarPagina" @cambiar-pagina-actual="cambiarPaginaActual"/>
                             </div>
                             <EliminarCoronaEscareador :data="eliminarCoronaEscareador"
                                 @confirmado-eliminar="confirmadoEliminarCoronaEscareador"
@@ -184,6 +184,9 @@ export default {
         'newCoronasEscareadores.hasta': 'validarInicioTermino'
     },
     methods: {
+        cambiarPaginaActual(newPage){
+            this.paginaActual = newPage;
+        },
         cambiarPagina(newPage) {
             this.paginaActual = newPage;
         },

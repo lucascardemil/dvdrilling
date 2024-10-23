@@ -62,4 +62,11 @@ class LoginController extends Controller
 
         return redirect('/');
     }
+
+    
+    public function getUserRole()
+    {
+        $user = auth()->user();
+        return response()->json(['name' => $user->name]);
+    }
 }
