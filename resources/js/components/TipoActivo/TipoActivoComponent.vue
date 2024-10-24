@@ -23,7 +23,7 @@
                             <td>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" role="switch"
-                                        id="flexSwitchCheckDefault" v-model="tipo_activo.status"
+                                        :id="tipo_activo.id" v-model="tipo_activo.status"
                                         @change="handleEnabledChange(tipo_activo.id, tipo_activo.status)">
                                 </div>
                             </td>

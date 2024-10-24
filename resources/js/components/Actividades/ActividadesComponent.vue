@@ -23,8 +23,8 @@
                             <td>{{ actividad.name }}</td>
                             <td>
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch"
-                                        id="flexSwitchCheckDefault" v-model="actividad.status"
+                                    <input class="form-check-input" type="checkbox" role="switch" :id="actividad.id"
+                                        v-model="actividad.status"
                                         @change="handleEnabledChange(actividad.id, actividad.status)">
                                 </div>
                             </td>

@@ -128,21 +128,6 @@ export default {
             } finally {
                 this.loading = false;
             }
-        },
-
-        async logoutUsuario() {
-            try {
-                const response = await axios.post('/logout');
-
-                if (response.data.errors) {
-                    this.errors = response.data.errors;
-                }
-
-                return response.data;
-
-            } catch (error) {
-                console.error("Error al cerrar sesión:", error);
-            }
         }
     }
 };

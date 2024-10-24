@@ -13,20 +13,26 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
-    return view('home');
-});
+    return view('auth.login');
+})->name('login');
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'web'], function () {
     Auth::routes();
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+    Route::get('/login', function () {
+        return view('auth.login');
+    })->name('login');
 });
 
 Route::get('/user/role', [App\Http\Controllers\HomeController::class, 'getUserRole'])->middleware('auth');
-Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth','permission:proyecto']], function () {
+
+Route::group(['middleware' => ['auth', 'permission:proyecto']], function () {
     Route::get('/proyecto', [App\Http\Controllers\ProyectoController::class, 'index'])->name('proyecto.index');
     Route::get('/proyectos/all', [App\Http\Controllers\ProyectoController::class, 'all']);
     Route::get('/proyectos/all-select', [App\Http\Controllers\ProyectoController::class, 'all_select']);
@@ -35,7 +41,7 @@ Route::group(['middleware' => ['auth','permission:proyecto']], function () {
     Route::put('/proyectos/update-status/{id}', [App\Http\Controllers\ProyectoController::class, 'update_status']);
 });
 
-Route::group(['middleware' => ['auth','permission:personal']], function () {
+Route::group(['middleware' => ['auth', 'permission:personal']], function () {
     Route::get('/personal', [App\Http\Controllers\PersonalController::class, 'index'])->name('personal.index');
     Route::get('/personals/all', [App\Http\Controllers\PersonalController::class, 'all']);
     Route::get('/personals/buscar-nombre/{nombre?}', [App\Http\Controllers\PersonalController::class, 'buscar_nombre']);
@@ -51,7 +57,7 @@ Route::group(['middleware' => ['auth','permission:personal']], function () {
     Route::put('/cargos/update-status/{id}', [App\Http\Controllers\CargosController::class, 'update_status']);
 });
 
-Route::group(['middleware' => ['auth','permission:activos']], function () {
+Route::group(['middleware' => ['auth', 'permission:activos']], function () {
     Route::get('/activos', [App\Http\Controllers\ActivosController::class, 'index'])->name('activos.index');
     Route::get('/activos/all', [App\Http\Controllers\ActivosController::class, 'all']);
     Route::get('/activos/all-select', [App\Http\Controllers\ActivosController::class, 'all_select']);
@@ -68,7 +74,7 @@ Route::group(['middleware' => ['auth','permission:activos']], function () {
     Route::put('/tipo-activos/update-status/{id}', [App\Http\Controllers\TipoActivosController::class, 'update_status']);
 });
 
-Route::group(['middleware' => ['auth','permission:recursos']], function () {
+Route::group(['middleware' => ['auth', 'permission:recursos']], function () {
     Route::get('/recursos', [App\Http\Controllers\RecursosController::class, 'index'])->name('recursos.index');
 
     Route::get('/recursos/all-asignar-personal', [App\Http\Controllers\RecursosController::class, 'all_asignar_personal']);
@@ -82,7 +88,7 @@ Route::group(['middleware' => ['auth','permission:recursos']], function () {
     Route::put('/recursos/update-activo/{id}', [App\Http\Controllers\RecursosController::class, 'update_activo']);
 });
 
-Route::group(['middleware' => ['auth','permission:actividades']], function () {
+Route::group(['middleware' => ['auth', 'permission:actividades']], function () {
     Route::get('/actividades', [App\Http\Controllers\ActividadesController::class, 'index'])->name('actividades.index');
 
     Route::get('/actividades/all', [App\Http\Controllers\ActividadesController::class, 'all']);
@@ -92,7 +98,7 @@ Route::group(['middleware' => ['auth','permission:actividades']], function () {
     Route::put('/actividades/update-status/{id}', [App\Http\Controllers\ActividadesController::class, 'update_status']);
 });
 
-Route::group(['middleware' => ['auth','permission:reportes']], function () {
+Route::group(['middleware' => ['auth', 'permission:reportes']], function () {
     Route::get('/reportes', [App\Http\Controllers\ReporteController::class, 'index'])->name('reportes.index');
     Route::get('/reportes/all', [App\Http\Controllers\ReporteController::class, 'all']);
     Route::post('/reportes/store', [App\Http\Controllers\ReporteController::class, 'store']);
@@ -131,10 +137,9 @@ Route::group(['middleware' => ['auth','permission:reportes']], function () {
 
     Route::get('/observaciones/all/{id}', [App\Http\Controllers\ObservacionController::class, 'all']);
     Route::post('/observaciones/store', [App\Http\Controllers\ObservacionController::class, 'store']);
-
 });
 
-Route::group(['middleware' => ['auth','permission:checklist']], function () {
+Route::group(['middleware' => ['auth', 'permission:checklist']], function () {
     Route::get('/checklist', [App\Http\Controllers\ChecklistController::class, 'index'])->name('checklist.index');
 
     Route::get('/matrizchecklist/all', [App\Http\Controllers\MatrizChecklistController::class, 'all']);
@@ -159,7 +164,7 @@ Route::group(['middleware' => ['auth','permission:checklist']], function () {
     Route::post('/checklist/store_categoriaChecklist', [App\Http\Controllers\ChecklistCategoriaController::class, 'store']);
     Route::put('/checklist/update_categoriaChecklist/{id}', [App\Http\Controllers\ChecklistCategoriaController::class, 'update']);
     Route::delete('/checklist/delete_categoriaChecklist/{id}', [App\Http\Controllers\ChecklistCategoriaController::class, 'delete']);
-    
+
     Route::get('/checklist/intervenciones/{id}', [App\Http\Controllers\ChecklistIntervencionController::class, 'all']);
     Route::post('/checklist/store_intervencionChecklist', [App\Http\Controllers\ChecklistIntervencionController::class, 'store']);
     Route::put('/checklist/update_intervencionChecklist/{id}', [App\Http\Controllers\ChecklistIntervencionController::class, 'update']);
@@ -169,7 +174,7 @@ Route::group(['middleware' => ['auth','permission:checklist']], function () {
     Route::delete('/checklist/delete_observacionChecklist/{id}', [App\Http\Controllers\ChecklistObservacionController::class, 'delete']);
 });
 
-Route::group(['middleware' => ['auth','permission:usuarios']], function () {
+Route::group(['middleware' => ['auth', 'permission:usuarios']], function () {
     Route::get('/usuarios', [App\Http\Controllers\UsuariosController::class, 'index'])->name('usuarios.index');
     Route::get('/usuarios/all', [App\Http\Controllers\UsuariosController::class, 'all']);
     Route::post('/usuarios/store', [App\Http\Controllers\UsuariosController::class, 'store']);
@@ -178,7 +183,7 @@ Route::group(['middleware' => ['auth','permission:usuarios']], function () {
     Route::put('/usuarios/update-password/{id}', [App\Http\Controllers\UsuariosController::class, 'update_password']);
 });
 
-Route::group(['middleware' => ['auth','permission:roles']], function () {
+Route::group(['middleware' => ['auth', 'permission:roles']], function () {
     Route::get('/roles', [App\Http\Controllers\RolesController::class, 'index'])->name('roles.index');
     Route::get('/roles/all', [App\Http\Controllers\RolesController::class, 'all']);
     Route::post('/roles/store', [App\Http\Controllers\RolesController::class, 'store']);

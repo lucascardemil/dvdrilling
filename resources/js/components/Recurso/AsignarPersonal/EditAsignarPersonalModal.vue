@@ -12,7 +12,7 @@
                 <div class="modal-body">
                     <form @submit.prevent="editarAsignarPersonal">
                         <div class="mb-3">
-                            <select class="form-select" aria-label="Seleccione el proyecto"
+                            <select class="form-select" id="selectProyecto" aria-label="Seleccione el proyecto"
                                 :class="errors_personal ? errors_personal.proyecto_id ? 'is-invalid' : '' : ''"
                                 v-model="editPersonal.proyecto">
                                 <option :value="null" disabled>Seleccione el proyecto</option>

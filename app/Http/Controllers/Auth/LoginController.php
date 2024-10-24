@@ -40,29 +40,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    public function showLoginForm()
-    {
-        return view('home');
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        if ($request->expectsJson()) {
-            return new JsonResponse([
-                'message' => 'Logged out successfully.',
-            ], 200);
-        }
-
-        return redirect('/');
-    }
-
     
     public function getUserRole()
     {

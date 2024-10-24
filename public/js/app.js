@@ -12166,7 +12166,7 @@ var render = function render() {
       attrs: {
         type: "checkbox",
         role: "switch",
-        id: "flexSwitchCheckDefault"
+        id: actividad.id
       },
       domProps: {
         checked: Array.isArray(actividad.status) ? _vm._i(actividad.status, null) > -1 : actividad.status
@@ -12508,7 +12508,7 @@ var render = function render() {
       attrs: {
         type: "checkbox",
         role: "switch",
-        id: "flexSwitchCheckDefault"
+        id: activo.id
       },
       domProps: {
         checked: Array.isArray(activo.status) ? _vm._i(activo.status, null) > -1 : activo.status
@@ -12704,6 +12704,7 @@ var render = function render() {
     staticClass: "form-select",
     "class": _vm.errors ? _vm.errors.tipo_activo ? "is-invalid" : "" : "",
     attrs: {
+      id: "activoActivo",
       "aria-label": "Seleccione el tipo de activo",
       required: ""
     },
@@ -13194,6 +13195,7 @@ var render = function render() {
     staticClass: "form-select",
     "class": _vm.errors ? _vm.errors.tipo_activo ? "is-invalid" : "" : "",
     attrs: {
+      id: "activoActivo",
       "aria-label": "Seleccione el tipo de activo",
       required: ""
     },
@@ -13898,7 +13900,7 @@ var render = function render() {
       attrs: {
         type: "checkbox",
         role: "switch",
-        id: "flexSwitchCheckDefault"
+        id: cargo.id
       },
       domProps: {
         checked: Array.isArray(cargo.status) ? _vm._i(cargo.status, null) > -1 : cargo.status
@@ -16964,6 +16966,7 @@ var render = function render() {
     }],
     staticClass: "form-select",
     attrs: {
+      id: "personalCargo",
       "aria-label": "Seleccione el cargo"
     },
     on: {
@@ -17226,6 +17229,7 @@ var render = function render() {
     }],
     staticClass: "form-select",
     attrs: {
+      id: "personalCargo",
       "aria-label": "Seleccione el cargo"
     },
     on: {
@@ -17429,7 +17433,7 @@ var render = function render() {
       attrs: {
         type: "checkbox",
         role: "switch",
-        id: "flexSwitchCheckDefault"
+        id: personal.id
       },
       domProps: {
         checked: Array.isArray(personal.status) ? _vm._i(personal.status, null) > -1 : personal.status
@@ -17787,7 +17791,7 @@ var render = function render() {
       attrs: {
         type: "checkbox",
         role: "switch",
-        id: "flexSwitchCheckDefault"
+        id: proyecto.id
       },
       domProps: {
         checked: Array.isArray(proyecto.status) ? _vm._i(proyecto.status, null) > -1 : proyecto.status
@@ -17972,6 +17976,7 @@ var render = function render() {
     staticClass: "form-select",
     "class": _vm.errors_activo ? _vm.errors_activo.proyecto_id ? "is-invalid" : "" : "",
     attrs: {
+      id: "selectProyecto",
       "aria-label": "Seleccione el proyecto"
     },
     on: {
@@ -18196,6 +18201,7 @@ var render = function render() {
     staticClass: "form-select",
     "class": _vm.errors_activo ? _vm.errors_activo.proyecto_id ? "is-invalid" : "" : "",
     attrs: {
+      id: "selectProyecto",
       "aria-label": "Seleccione el proyecto"
     },
     on: {
@@ -18441,6 +18447,7 @@ var render = function render() {
     staticClass: "form-select",
     "class": _vm.errors_personal ? _vm.errors_personal.proyecto_id ? "is-invalid" : "" : "",
     attrs: {
+      id: "selectProyecto",
       "aria-label": "Seleccione el proyecto"
     },
     on: {
@@ -18665,6 +18672,7 @@ var render = function render() {
     staticClass: "form-select",
     "class": _vm.errors_personal ? _vm.errors_personal.proyecto_id ? "is-invalid" : "" : "",
     attrs: {
+      id: "selectProyecto",
       "aria-label": "Seleccione el proyecto"
     },
     on: {
@@ -23535,7 +23543,7 @@ var render = function render() {
     }
   })]), _vm._v(" "), _c("div", {
     staticClass: "mb-3"
-  }, [_c("label", {
+  }, [_c("p", {
     staticClass: "form-label"
   }, [_vm._v("Permisos")]), _vm._v(" "), _vm._l(_vm.permissionsSelected, function (permission) {
     return _c("div", {
@@ -23969,7 +23977,7 @@ var render = function render() {
       attrs: {
         type: "checkbox",
         role: "switch",
-        id: "flexSwitchCheckDefault"
+        id: tipo_activo.id
       },
       domProps: {
         checked: Array.isArray(tipo_activo.status) ? _vm._i(tipo_activo.status, null) > -1 : tipo_activo.status
@@ -29087,33 +29095,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               return _context6.stop();
           }
         }, _callee6, null, [[2, 10, 14, 17]]);
-      }))();
-    },
-    logoutUsuario: function logoutUsuario() {
-      var _this7 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee7$(_context7) {
-          while (1) switch (_context7.prev = _context7.next) {
-            case 0:
-              _context7.prev = 0;
-              _context7.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/logout');
-            case 3:
-              response = _context7.sent;
-              if (response.data.errors) {
-                _this7.errors = response.data.errors;
-              }
-              return _context7.abrupt("return", response.data);
-            case 8:
-              _context7.prev = 8;
-              _context7.t0 = _context7["catch"](0);
-              console.error("Error al cerrar sesión:", _context7.t0);
-            case 11:
-            case "end":
-              return _context7.stop();
-          }
-        }, _callee7, null, [[0, 8]]);
       }))();
     }
   }

@@ -12,7 +12,7 @@
                 <div class="modal-body">
                     <form @submit.prevent="editarAsignarActivo">
                         <div class="mb-3">
-                            <select class="form-select" aria-label="Seleccione el proyecto"
+                            <select class="form-select" id="selectProyecto" aria-label="Seleccione el proyecto"
                                 :class="errors_activo ? errors_activo.proyecto_id ? 'is-invalid' : '' : ''"
                                 v-model="editActivo.proyecto">
                                 <option :value="null" disabled>Seleccione el proyecto</option>

@@ -30,7 +30,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="personalCargo" class="form-label">Cargo</label>
-                            <select class="form-select" aria-label="Seleccione el cargo" v-model="newPersonal.cargo">
+                            <select class="form-select" id="personalCargo" aria-label="Seleccione el cargo" v-model="newPersonal.cargo">
                                 <option :value="null" disabled>Seleccione el cargo</option>
                                 <template v-for="cargo in cargos">
                                     <option :value="cargo.id">{{ cargo.name }}</option>

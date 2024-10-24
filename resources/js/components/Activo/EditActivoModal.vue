@@ -11,7 +11,7 @@
                     <form @submit.prevent="editarActivo">
                         <div class="mb-3">
                             <label for="activoActivo" class="form-label">Tipo de Activo</label>
-                            <select class="form-select" :class="errors ? errors.tipo_activo ? 'is-invalid' : '' : ''"
+                            <select class="form-select" id="activoActivo" :class="errors ? errors.tipo_activo ? 'is-invalid' : '' : ''"
                                 aria-label="Seleccione el tipo de activo" v-model="editActivo.tipo_activo" required>
                                 <option :value="null" disabled>Seleccione el tipo de activo</option>
                                 <template v-for="tipo_activo in tipo_activos">
