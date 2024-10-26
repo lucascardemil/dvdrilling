@@ -114,12 +114,21 @@
                                 </a>
                             </li>
                         @endcan
+                        @can('matriz')
+                            <li class="nav-item">
+                                <a class="nav-link {{ request()->routeIs('matriz.index') ? 'active' : '' }}"
+                                    aria-current="page" href="{{ route('matriz.index') }}">
+                                    <i class="bi bi-list-check"></i>
+                                    Matriz Checklist
+                                </a>
+                            </li>
+                        @endcan
                         @can('checklist')
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('checklist.index') ? 'active' : '' }}"
                                     aria-current="page" href="{{ route('checklist.index') }}">
                                     <i class="bi bi-list-check"></i>
-                                    Matriz Checklist
+                                    Checklist
                                 </a>
                             </li>
                         @endcan

@@ -22,6 +22,7 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'recursos']);
         Permission::create(['name' => 'actividades']);
         Permission::create(['name' => 'reportes']);
+        Permission::create(['name' => 'matriz']);
         Permission::create(['name' => 'checklist']);
         Permission::create(['name' => 'usuarios']);
         Permission::create(['name' => 'roles']);
@@ -35,6 +36,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $adminRole->givePermissionTo('recursos');
         $adminRole->givePermissionTo('actividades');
         $adminRole->givePermissionTo('reportes');
+        $adminRole->givePermissionTo('matriz');
         $adminRole->givePermissionTo('checklist');
         $adminRole->givePermissionTo('usuarios');
         $adminRole->givePermissionTo('roles');
@@ -42,7 +44,8 @@ class RolesAndPermissionsSeeder extends Seeder
         $admin = User::create([
             'name' => 'Admin User',
             'email' => 'admin@example.com',
-            'password' => bcrypt('password')
+            'password' => bcrypt('password'),
+            'status' => 1
         ]);
         $admin->assignRole('administrador');
     }

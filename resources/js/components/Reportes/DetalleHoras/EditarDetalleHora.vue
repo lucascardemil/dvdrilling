@@ -64,7 +64,6 @@ export default {
             immediate: true,
             handler(data) {
                 if (data) {
-                    console.log(data);
                     this.editDetalleHoras = {
                         id: data.id,
                         reporte_id: data.reporte_id,

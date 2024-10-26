@@ -151,6 +151,9 @@ export default {
                     }
                 });
 
+                // Log para inspeccionar la respuesta
+                console.log('Respuesta del servidor:', response.data);
+
                 if (response.data.errors) {
                     this.errors = response.data.errors;
                 }
@@ -164,5 +167,7 @@ export default {
                 this.loading = false;
             }
         }
+
+
     }
 };

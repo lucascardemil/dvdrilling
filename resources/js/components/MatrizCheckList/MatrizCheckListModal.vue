@@ -81,6 +81,7 @@ export default {
 
         finalizarMatrizChecklist(){
             this.close();
+            this.$emit('listarMatrizChecklist-finalizada');
         }
     }
 }

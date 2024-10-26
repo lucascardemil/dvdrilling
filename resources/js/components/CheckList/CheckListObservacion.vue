@@ -14,7 +14,7 @@
                         rows="5" required></textarea>
                 </div>
                 <div class="mb-3">
-                    <input type="file" class="form-control" id="imagenObservacion" @change="handleFileChange"
+                    <input type="file"  class="form-control" id="imagenObservacion" @change="handleFileChange"
                         accept=".png, .jpeg, .jpg" ref="imagenObservacion"
                         :class="errors_observacion_checklist ? errors_observacion_checklist.imagen ? 'is-invalid' : '' : ''"
                         aria-label="Imagen">
@@ -47,6 +47,7 @@
 
 import checklistMixin from '../../mixins/checklist/checklistMixin';
 import CheckListObservacionImagenes from './CheckListObservacionImagenes.vue';
+import { redimensionarImagen } from '../../utils/redimensionarImagen';
 
 export default {
     mixins: [checklistMixin],
@@ -74,8 +75,17 @@ export default {
             this.mostrarObservacionesImagenes = true;
             this.checklist_observaciones = observaciones
         },
-        handleFileChange(event) {
-            this.newObservacion.imagen = event.target.files[0];
+        async handleFileChange(event) {
+            const file = event.target.files[0];
+            this.errors = null;
+
+            try {
+                const resizedImage = await Promise.resolve(this.redimensionarImagen(file));
+                this.newObservacion.imagen = resizedImage;
+            } catch (error) {
+                this.errors = { imagenes: [error.message] };
+                console.error('Error al procesar archivos:', error);
+            }
         },
         volverCheckListObservacion() {
             this.mostrarObservacionesImagenes = false;
@@ -108,7 +118,8 @@ export default {
             this.newObservacion.observacion = '';
             this.newObservacion.imagen = null;
             this.$refs.imagenObservacion.value = '';
-        }
+        },
+        redimensionarImagen
     }
 }
 </script>

@@ -48,10 +48,9 @@
                             </td>
                             <td>
                                 <button type="button" class="btn btn-success" @click="openImagenesModal(activo)"><i
-                                        class="bi bi-images"></i> Imagenes</button>
-                                <button type="button" class="btn btn-primary" @click="openEditModal(activo)"><i
-                                        class="bi bi-pencil-square"></i> Editar
-                                    Activo</button>
+                                        class="bi bi-images"></i></button>
+                                <button type="button" class="btn btn-warning" @click="openEditModal(activo)"><i
+                                        class="bi bi-pencil-square"></i></button>
                             </td>
                         </tr>
                     </template>

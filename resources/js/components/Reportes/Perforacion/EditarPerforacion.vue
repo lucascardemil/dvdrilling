@@ -74,7 +74,6 @@ export default {
             immediate: true,
             handler(data) {
                 if (data) {
-                    console.log(data);
                     this.editPerforaciones = {
                         id: data.id,
                         reporte_id: data.reporte_id,

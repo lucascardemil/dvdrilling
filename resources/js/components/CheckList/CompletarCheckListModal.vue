@@ -14,7 +14,7 @@
                                 <div class="row align-items-center">
                                     <p class="col-6 col-form-label fw-bold">Tipo Equipo</p>
                                     <div class="col-6">
-                                        <p class="mb-0">{{ completarCheckListProps.activo.tipo_activo.name }}</p>
+                                        <p class="mb-0">{{ completarCheckListProps.tipoactivo.name }}</p>
                                     </div>
                                 </div>
                                 <div class="row align-items-center">
@@ -228,7 +228,6 @@ export default {
 
         agregarObservacion(intervencion) {
             this.mostrarAgregarObservacion = true;
-            console.log(intervencion)
             this.checklist_intervencion = intervencion;
         },
 

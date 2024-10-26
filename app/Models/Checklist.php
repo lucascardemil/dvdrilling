@@ -17,13 +17,13 @@ class Checklist extends Model
         'horometro',
         'status',
         'user_id',
-        'activo_id',
+        'tipo_activo_id',
         'matriz_checklist_id'
     ];
 
-    public function activo()
+    public function tipoactivo()
     {
-        return $this->belongsTo(Activo::class, 'activo_id');
+        return $this->belongsTo(TipoActivo::class, 'tipo_activo_id');
     }
 
     public function categorias()

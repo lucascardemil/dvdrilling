@@ -20,4 +20,9 @@ class TipoActivo extends Model
     {
         return $this->hasMany(Activo::class);
     }
+
+    public function checklist()
+    {
+        return $this->hasMany(Checklist::class);
+    }
 }

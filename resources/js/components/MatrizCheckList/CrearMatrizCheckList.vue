@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import matrizChecklistMixin from '../../../mixins/checklist/matrizChecklistMixin';
+import matrizChecklistMixin from '../../mixins/checklist/matrizChecklistMixin';
 
 export default {
     mixins: [matrizChecklistMixin],

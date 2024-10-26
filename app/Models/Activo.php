@@ -40,9 +40,4 @@ class Activo extends Model
     {
         return $this->hasMany(AsignarActivo::class, 'activo_id');
     }
-
-    public function checklist()
-    {
-        return $this->hasMany(Checklist::class);
-    }
 }

@@ -13,7 +13,7 @@ class MatrizChecklistIntervencionController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:checklist');
+        $this->middleware('permission:matriz');
     }
 
     public function store(Request $request)

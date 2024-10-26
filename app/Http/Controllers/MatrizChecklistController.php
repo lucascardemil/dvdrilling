@@ -13,7 +13,12 @@ class MatrizChecklistController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:checklist');
+        $this->middleware('permission:matriz');
+    }
+
+    public function index()
+    {
+        return view('matriz.index');
     }
 
     public function all()

@@ -12,10 +12,10 @@ class PdfController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:reportes');
+        $this->middleware('permission:reportes|checklist');
     }
 
-    public function generatePdf(Request $request)
+    public function generarPdfReporte(Request $request)
     {
         $data = [
             'proyecto' => $request->reporte['proyecto']['name'],
@@ -43,12 +43,31 @@ class PdfController extends Controller
         ];
 
         // Cargar la vista y pasar los datos
-        $pdf = PDF::loadView('pdf/pdf', $data);
+        $pdf = PDF::loadView('pdf/pdf_reporte', $data);
 
         // Opcional: Configurar tamaño del papel y orientación (ejemplo: A4 y vertical)
         $pdf->setPaper('A4', 'portrait');
 
         // Descargar el archivo PDF
+        return $pdf->stream('archivo.pdf');
+    }
+
+
+    public function generarPdfChecklist(Request $request)
+    {
+
+        // dd($request->checklist['categorias']); exit;
+        $data = [
+            'tipo_equipo' => $request->checklist['tipoactivo']['name'],
+            'matriz' => $request->checklist['matriz']['nombre'],
+            'marca' => $request->checklist['marca'],
+            'modelo' => $request->checklist['modelo'],
+            'categorias' => $request->checklist['categorias']
+        ];
+
+     
+        $pdf = PDF::loadView('pdf/pdf_checklist', $data);
+        $pdf->setPaper('A4', 'portrait');
         return $pdf->stream('archivo.pdf');
     }
 }

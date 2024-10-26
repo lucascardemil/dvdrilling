@@ -30,6 +30,7 @@ Vue.component('actividades-component', require('./components/Actividades/Activid
 Vue.component('recurso-component', require('./components/Recurso/IndexComponent.vue').default);
 Vue.component('reporte-component', require('./components/Reportes/ReporteComponent.vue').default);
 Vue.component('checklist-component', require('./components/CheckList/CheckListComponent.vue').default);
+Vue.component('matriz-component', require('./components/MatrizCheckList/MatrizCheckListComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -52,8 +52,8 @@
 
 <script>
 import { Modal } from 'bootstrap';
-import EditMatrizCheckListModal from '../EditarMatrizChecklist/EditMatrizCheckListModal.vue';
-import matrizChecklistMixin from '../../../mixins/checklist/matrizChecklistMixin';
+import EditMatrizCheckListModal from './EditarMatrizChecklist/EditMatrizCheckListModal.vue';
+import matrizChecklistMixin from '../../mixins/checklist/matrizChecklistMixin';
 
 export default {
     mixins: [matrizChecklistMixin],
@@ -105,6 +105,6 @@ export default {
         volverListaMatrizCheckList(){
             this.habilitarEditMatrizChecklist = false;
         },
-    }
+    },
 }
 </script>

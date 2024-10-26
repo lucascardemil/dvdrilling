@@ -21,8 +21,8 @@ class CreateChecklistTable extends Migration
             $table->integer('status');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->unsignedBigInteger('activo_id');
-            $table->foreign('activo_id')->references('id')->on('activos');
+            $table->unsignedBigInteger('tipo_activo_id');
+            $table->foreign('tipo_activo_id')->references('id')->on('tipo_activos');
             $table->unsignedBigInteger('matriz_checklist_id');
             $table->foreign('matriz_checklist_id')->references('id')->on('matriz_checklist');
             $table->timestamps();

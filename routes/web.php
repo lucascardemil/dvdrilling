@@ -103,7 +103,7 @@ Route::group(['middleware' => ['auth', 'permission:reportes']], function () {
     Route::get('/reportes/all', [App\Http\Controllers\ReporteController::class, 'all']);
     Route::post('/reportes/store', [App\Http\Controllers\ReporteController::class, 'store']);
     Route::put('/reportes/update/{id}', [App\Http\Controllers\ReporteController::class, 'update']);
-    Route::post('/reportes/pdf', [App\Http\Controllers\PdfController::class, 'generatePdf']);
+    Route::post('/reportes/pdf', [App\Http\Controllers\PdfController::class, 'generarPdfReporte']);
 
     Route::get('/horometros/all/{id}', [App\Http\Controllers\HorometroController::class, 'all']);
     Route::post('/horometros/store', [App\Http\Controllers\HorometroController::class, 'store']);
@@ -139,8 +139,8 @@ Route::group(['middleware' => ['auth', 'permission:reportes']], function () {
     Route::post('/observaciones/store', [App\Http\Controllers\ObservacionController::class, 'store']);
 });
 
-Route::group(['middleware' => ['auth', 'permission:checklist']], function () {
-    Route::get('/checklist', [App\Http\Controllers\ChecklistController::class, 'index'])->name('checklist.index');
+Route::group(['middleware' => ['auth', 'permission:matriz']], function () {
+    Route::get('/matriz', [App\Http\Controllers\MatrizChecklistController::class, 'index'])->name('matriz.index');
 
     Route::get('/matrizchecklist/all', [App\Http\Controllers\MatrizChecklistController::class, 'all']);
     Route::post('/matrizchecklist/store_matrizChecklist', [App\Http\Controllers\MatrizChecklistController::class, 'store']);
@@ -154,6 +154,11 @@ Route::group(['middleware' => ['auth', 'permission:checklist']], function () {
     Route::post('/matrizchecklist/store_intervencionMatrizChecklist', [App\Http\Controllers\MatrizChecklistIntervencionController::class, 'store']);
     Route::delete('/matrizchecklist/delete_intervencionMatrizChecklist/{id}', [App\Http\Controllers\MatrizChecklistIntervencionController::class, 'delete']);
     Route::put('/matrizchecklist/update_intervencionMatrizChecklist/{id}', [App\Http\Controllers\MatrizChecklistIntervencionController::class, 'update']);
+});
+
+
+Route::group(['middleware' => ['auth', 'permission:checklist']], function () {
+    Route::get('/checklist', [App\Http\Controllers\ChecklistController::class, 'index'])->name('checklist.index');
 
     Route::get('/checklist/all', [App\Http\Controllers\ChecklistController::class, 'all']);
     Route::post('/checklist/store_checklist', [App\Http\Controllers\ChecklistController::class, 'store']);
@@ -172,6 +177,8 @@ Route::group(['middleware' => ['auth', 'permission:checklist']], function () {
 
     Route::post('/checklist/store_observacionChecklist', [App\Http\Controllers\ChecklistObservacionController::class, 'store']);
     Route::delete('/checklist/delete_observacionChecklist/{id}', [App\Http\Controllers\ChecklistObservacionController::class, 'delete']);
+
+    Route::post('/checklist/pdf', [App\Http\Controllers\PdfController::class, 'generarPdfChecklist']);
 });
 
 Route::group(['middleware' => ['auth', 'permission:usuarios']], function () {

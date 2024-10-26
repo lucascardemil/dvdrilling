@@ -14,11 +14,12 @@ export default {
             loading_checklist_finish: false,
             loading_checklist_observacion: false,
             loading_checklist_delete_observacion: [],
+            loading_pdf: [],
             errors_checklist: null,
             errors_categoria_checklist: null,
             errors_intervencion_checklist: null,
             errors_finalizar_checklist: null,
-            errors_observacion_checklist: null
+            errors_observacion_checklist: null,
         };
     },
     methods: {
@@ -58,7 +59,7 @@ export default {
                 const response = await axios.post('/checklist/store_checklist', {
                     marca: data.marca,
                     modelo: data.modelo,
-                    activo_id: data.activo_id,
+                    tipo_activo_id: data.tipo_activo_id,
                     matriz_checklist_id: data.matriz_checklist_id
                 });
 
@@ -301,8 +302,30 @@ export default {
             } finally {
                 this.loading_checklist_finish = false;
             }
-        }
+        },
 
+        async descargarPDF(checklist) {
+            this.$set(this.loading_pdf, checklist.id, true);
+            try {
+                const response = await axios({
+                    url: '/checklist/pdf',  // URL de la API
+                    method: 'POST',
+                    data: { checklist },
+                    responseType: 'blob'  // Importante para recibir el archivo como Blob
+                });
 
+                // Crear un objeto URL desde el Blob
+                const url = window.URL.createObjectURL(response.data, { type: 'application/pdf' });
+
+                // Abrir el PDF en una nueva pestaña
+                window.open(url, '_blank');
+
+            } catch (error) {
+                this.errors_reporte = 'Failed to load checklist';
+                console.error('Error crear checklist:', error);
+            } finally {
+                this.$set(this.loading_pdf, checklist.id, false);
+            }
+        },
     }
 };

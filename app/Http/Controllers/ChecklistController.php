@@ -40,7 +40,7 @@ class ChecklistController extends Controller
         $rol = $user->getRoleNames()->first(); // Asumiendo que usas spatie/laravel-permission
 
         // Definir las relaciones a cargar con 'with'
-        $relations = ['activo.tipo_activo', 'matriz', 'categorias.intervenciones.condiciones', 'categorias.intervenciones.observaciones.imagenes'];
+        $relations = ['tipoactivo', 'matriz', 'categorias.intervenciones.condiciones', 'categorias.intervenciones.observaciones.imagenes'];
 
         // Si el rol es 'usuario', filtrar por el user_id
         if ($rol === 'usuario') {
@@ -60,7 +60,7 @@ class ChecklistController extends Controller
         $validator = Validator::make($request->all(), [
             'marca' => 'required|string|max:255',
             'modelo' => 'required|string|max:255',
-            'activo_id' => 'required|exists:activos,id',
+            'tipo_activo_id' => 'required|exists:tipo_activos,id',
             'matriz_checklist_id' => 'required|exists:matriz_checklist,id',
         ]);
 
@@ -73,7 +73,7 @@ class ChecklistController extends Controller
             'marca' => $request->marca,
             'modelo' => $request->modelo,
             'horometro' => 0,
-            'activo_id' => $request->activo_id,
+            'tipo_activo_id' => $request->tipo_activo_id,
             'user_id' => $user->id,
             'matriz_checklist_id' => $request->matriz_checklist_id,
             'status' => 1
@@ -104,7 +104,7 @@ class ChecklistController extends Controller
             }
         }
 
-        $checklist = Checklist::with('activo.tipo_activo', 'matriz', 'categorias.intervenciones')->where('id', $checklist_id)->first();
+        $checklist = Checklist::with('tipoactivo', 'matriz', 'categorias.intervenciones')->where('id', $checklist_id)->first();
         return response()->json(['message' => 'La Checklist creado exitosamente', 'checklist' => $checklist], 201);
     }
 

@@ -59,7 +59,6 @@
                             </template>
                         </tr>
                     </template>
-
                 </template>
             </tbody>
         </table>

@@ -5637,10 +5637,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 /* harmony import */ var _mixins_activo_activoMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/activo/activoMixin */ "./resources/js/mixins/activo/activoMixin.js");
 /* harmony import */ var _utils_formatImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/formatImage */ "./resources/js/utils/formatImage.js");
+/* harmony import */ var _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/redimensionarImagen */ "./resources/js/utils/redimensionarImagen.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
 
 
 
@@ -5680,39 +5682,85 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       if (modal) modal.hide();
     },
     handleFileChange: function handleFileChange(event) {
-      this.editImagenesActivo.imagenes = Array.from(event.target.files);
-    },
-    editarImagenes: function editarImagenes() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var formData, response;
+        var files, resizedImages;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              formData = new FormData();
-              formData.append('activo_id', _this.activo.id);
-              if (_this.editImagenesActivo.imagenes) {
-                _this.editImagenesActivo.imagenes.forEach(function (file, index) {
-                  formData.append("imagenes[".concat(index, "]"), file);
-                });
-              }
-              _context.next = 5;
-              return _this.actualizarImagenesActivo(formData);
-            case 5:
-              response = _context.sent;
-              if (_this.errors === null) {
-                _this.$notyf.success(response.message);
-                _this.$emit('activo-updated');
-                _this.close();
-              }
-            case 7:
+              files = Array.from(event.target.files);
+              _this.editImagenesActivo.imagenes = [];
+              _this.errors = null;
+              _context.prev = 3;
+              _context.next = 6;
+              return Promise.all(files.map(function (file) {
+                return _this.redimensionarImagen(file);
+              }));
+            case 6:
+              resizedImages = _context.sent;
+              _this.editImagenesActivo.imagenes = resizedImages;
+              _context.next = 14;
+              break;
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](3);
+              _this.errors = {
+                imagenes: [_context.t0.message]
+              };
+              console.error('Error al procesar archivos:', _context.t0);
+            case 14:
             case "end":
               return _context.stop();
           }
-        }, _callee);
+        }, _callee, null, [[3, 10]]);
       }))();
     },
-    formatImage: _utils_formatImage__WEBPACK_IMPORTED_MODULE_2__.formatImage
+    editarImagenes: function editarImagenes() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var formData, response;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              formData = new FormData();
+              formData.append('activo_id', _this2.activo.id);
+              if (!(_this2.editImagenesActivo.imagenes.length > 0)) {
+                _context2.next = 6;
+                break;
+              }
+              _this2.editImagenesActivo.imagenes.forEach(function (file) {
+                formData.append('imagenes[]', file);
+              });
+              _context2.next = 8;
+              break;
+            case 6:
+              _this2.errors = {
+                imagenes: ['No se han seleccionado imágenes.']
+              };
+              return _context2.abrupt("return");
+            case 8:
+              _context2.next = 10;
+              return _this2.actualizarImagenesActivo(formData);
+            case 10:
+              response = _context2.sent;
+              if (response && response.errors) {
+                _this2.errors = response.errors;
+              } else {
+                _this2.$notyf.success(response.message);
+                _this2.editImagenesActivo.imagenes = [];
+                document.getElementById('formFile').value = null;
+                _this2.$emit('activo-updated');
+                _this2.close();
+              }
+            case 12:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    formatImage: _utils_formatImage__WEBPACK_IMPORTED_MODULE_2__.formatImage,
+    redimensionarImagen: _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_3__.redimensionarImagen
   }
 });
 
@@ -6009,12 +6057,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
 /* harmony import */ var _mixins_tipoActivo_tipoActivoMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/tipoActivo/tipoActivoMixin */ "./resources/js/mixins/tipoActivo/tipoActivoMixin.js");
-/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
-/* harmony import */ var _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/usuarios/usuariosMixin */ "./resources/js/mixins/usuarios/usuariosMixin.js");
-/* harmony import */ var _MatrizCheckList_MatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MatrizCheckList/MatrizCheckListModal.vue */ "./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue");
-/* harmony import */ var _MatrizCheckList_ListaMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MatrizCheckList/ListaMatrizCheckListModal.vue */ "./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue");
-/* harmony import */ var _EditarChecklist_EditCheckListModal_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./EditarChecklist/EditCheckListModal.vue */ "./resources/js/components/CheckList/EditarChecklist/EditCheckListModal.vue");
-/* harmony import */ var _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./CompletarCheckListModal.vue */ "./resources/js/components/CheckList/CompletarCheckListModal.vue");
+/* harmony import */ var _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/usuarios/usuariosMixin */ "./resources/js/mixins/usuarios/usuariosMixin.js");
+/* harmony import */ var _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CompletarCheckListModal.vue */ "./resources/js/components/CheckList/CompletarCheckListModal.vue");
+/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -6024,39 +6069,17 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 
 
-
-
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_tipoActivo_tipoActivoMixin__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_tipoActivo_tipoActivoMixin__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
-    MatrizCheckListModal: _MatrizCheckList_MatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    ListaMatrizCheckListModal: _MatrizCheckList_ListaMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
-    EditCheckListModal: _EditarChecklist_EditCheckListModal_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
-    CompletarCheckListModal: _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+    CompletarCheckListModal: _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
-      newChecklist: {
-        activo_id: null,
-        matriz_checklist_id: null,
-        marca: '',
-        modelo: ''
-      },
       intervenciones: []
     };
   },
   methods: {
-    openCrearModal: function openCrearModal() {
-      this.$refs.matrizCheckListModal.open();
-    },
-    openListaModal: function openListaModal() {
-      this.$refs.listaMatrizCheckListModal.open();
-    },
-    openEditarModal: function openEditarModal(checklist) {
-      this.$refs.editarCheckListModal.open();
-      this.editChecklist = checklist;
-    },
     openCompletarCheckListModal: function openCompletarCheckListModal(check) {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -6072,63 +6095,27 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee);
       }))();
     },
-    saveChecklist: function saveChecklist() {
+    checklisCompletada: function checklisCompletada() {
+      this.fetchChecklist();
+    },
+    downloadPDF: function downloadPDF(checklist) {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var response;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
-              return _this2.createChecklist(_this2.newChecklist);
-            case 2:
-              response = _context2.sent;
-              if (_this2.errors_checklist === null) {
-                _this2.$notyf.success(response.message);
-                _this2.checklist.push(response.checklist);
-                _this2.newChecklist.activo_id = 0;
-                _this2.newChecklist.matriz_checklist_id = null;
-                _this2.newChecklist.marca = '';
-                _this2.newChecklist.modelo = '';
+              if (!checklist) {
+                _context2.next = 3;
+                break;
               }
-            case 4:
+              _context2.next = 3;
+              return _this2.descargarPDF(checklist);
+            case 3:
             case "end":
               return _context2.stop();
           }
         }, _callee2);
       }))();
-    },
-    habilitarCheckList: function habilitarCheckList(checklist_id, status) {
-      var _this3 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-        var checkboxStatus, checkbox;
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-          while (1) switch (_context3.prev = _context3.next) {
-            case 0:
-              checkboxStatus = status ? 1 : 0;
-              checkbox = {
-                checklist_id: checklist_id,
-                status: checkboxStatus
-              };
-              _context3.prev = 2;
-              _context3.next = 5;
-              return _this3.actualizarStatusChecklist(checkbox);
-            case 5:
-              _context3.next = 10;
-              break;
-            case 7:
-              _context3.prev = 7;
-              _context3.t0 = _context3["catch"](2);
-              console.error('Error actualizando el estado:', _context3.t0);
-            case 10:
-            case "end":
-              return _context3.stop();
-          }
-        }, _callee3, null, [[2, 7]]);
-      }))();
-    },
-    checklisCompletada: function checklisCompletada() {
-      this.fetchChecklist();
     }
   },
   created: function created() {
@@ -6154,10 +6141,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
 /* harmony import */ var _CheckListObservacionImagenes_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckListObservacionImagenes.vue */ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue");
+/* harmony import */ var _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/redimensionarImagen */ "./resources/js/utils/redimensionarImagen.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -6187,7 +6176,35 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       this.checklist_observaciones = observaciones;
     },
     handleFileChange: function handleFileChange(event) {
-      this.newObservacion.imagen = event.target.files[0];
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var file, resizedImage;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              file = event.target.files[0];
+              _this.errors = null;
+              _context.prev = 2;
+              _context.next = 5;
+              return Promise.resolve(_this.redimensionarImagen(file));
+            case 5:
+              resizedImage = _context.sent;
+              _this.newObservacion.imagen = resizedImage;
+              _context.next = 13;
+              break;
+            case 9:
+              _context.prev = 9;
+              _context.t0 = _context["catch"](2);
+              _this.errors = {
+                imagenes: [_context.t0.message]
+              };
+              console.error('Error al procesar archivos:', _context.t0);
+            case 13:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[2, 9]]);
+      }))();
     },
     volverCheckListObservacion: function volverCheckListObservacion() {
       this.mostrarObservacionesImagenes = false;
@@ -6199,39 +6216,40 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       this.$emit('delete-checkListObservacionCompletar', observacionChecklist);
     },
     saveObservacionChecklist: function saveObservacionChecklist() {
-      var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var formData, response;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
             case 0:
               formData = new FormData();
-              formData.append('observacion', _this.newObservacion.observacion);
-              formData.append('checklist_intervencion_id', _this.newObservacion.checklist_intervencion_id);
-              if (_this.newObservacion.imagen) {
-                formData.append('imagen', _this.newObservacion.imagen);
+              formData.append('observacion', _this2.newObservacion.observacion);
+              formData.append('checklist_intervencion_id', _this2.newObservacion.checklist_intervencion_id);
+              if (_this2.newObservacion.imagen) {
+                formData.append('imagen', _this2.newObservacion.imagen);
               }
-              _context.next = 6;
-              return _this.createObservacionChecklist(formData);
+              _context2.next = 6;
+              return _this2.createObservacionChecklist(formData);
             case 6:
-              response = _context.sent;
-              if (_this.errors_observacion_checklist === null) {
-                _this.$notyf.success(response.message);
-                _this.checklist_intervencionProps.observaciones.push(response.observacionChecklist);
-                _this.limpiarCampos();
+              response = _context2.sent;
+              if (_this2.errors_observacion_checklist === null) {
+                _this2.$notyf.success(response.message);
+                _this2.checklist_intervencionProps.observaciones.push(response.observacionChecklist);
+                _this2.limpiarCampos();
               }
             case 8:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
-        }, _callee);
+        }, _callee2);
       }))();
     },
     limpiarCampos: function limpiarCampos() {
       this.newObservacion.observacion = '';
       this.newObservacion.imagen = null;
       this.$refs.imagenObservacion.value = '';
-    }
+    },
+    redimensionarImagen: _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_2__.redimensionarImagen
   }
 });
 
@@ -6395,7 +6413,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     },
     agregarObservacion: function agregarObservacion(intervencion) {
       this.mostrarAgregarObservacion = true;
-      console.log(intervencion);
       this.checklist_intervencion = intervencion;
     },
     volverCompletarCheckList: function volverCompletarCheckList() {
@@ -6882,10 +6899,316 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
-/*!*******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \*******************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
+/* harmony import */ var _CheckListObservacionImagenes_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckListObservacionImagenes.vue */ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue");
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  components: {
+    CheckListObservacionImagenes: _CheckListObservacionImagenes_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: {
+    verCheckListProps: Object
+  },
+  data: function data() {
+    return {
+      mostrarObservacionesImagenes: false,
+      checklist_observaciones: [],
+      verImagenesObservaciones: false
+    };
+  },
+  methods: {
+    verObservacionesImagenes: function verObservacionesImagenes(observaciones) {
+      this.mostrarObservacionesImagenes = true;
+      this.checklist_observaciones = observaciones;
+    },
+    volverCheckListObservacion: function volverCheckListObservacion() {
+      this.mostrarObservacionesImagenes = false;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mixins: [_mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: {
+    matriz_checklist_id: {
+      type: Number,
+      required: true
+    },
+    matrizChecklist_categorias: Array
+  },
+  data: function data() {
+    return {
+      newCategoriaMatrizChecklist: {
+        matriz_checklist_id: this.matriz_checklist_id,
+        nombre: ''
+      },
+      categorias: this.matrizChecklist_categorias
+    };
+  },
+  methods: {
+    saveCategoriaMatrizChecklist: function saveCategoriaMatrizChecklist() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.createCategoriaMatrizChecklist(_this.newCategoriaMatrizChecklist);
+            case 2:
+              response = _context.sent;
+              if (_this.errors_categoria_matriz_checklist === null) {
+                _this.categorias.push(response.categoriaMatrizChecklist);
+                _this.newCategoriaMatrizChecklist.nombre = '';
+              }
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }))();
+    },
+    deleteCategoriaMatrizChecklist: function deleteCategoriaMatrizChecklist(id) {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _this2.loading_id = id;
+              _context2.next = 3;
+              return _this2.eliminarCategoriaMatrizChecklist(id);
+            case 3:
+              response = _context2.sent;
+              if (_this2.errors_categoria_matriz_checklist === null) {
+                _this2.categorias = _this2.categorias.filter(function (categoria) {
+                  return categoria.id !== response.categoriaMatrizChecklist.id;
+                });
+              }
+              _this2.loading_id = null;
+            case 6:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    irAIntervenciones: function irAIntervenciones() {
+      this.$emit('matrizCategoriaChecklist-creada', this.categorias);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mixins: [_mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  props: {
+    matrizChecklist_categorias: Array,
+    matrizChecklist_intervenciones: Array,
+    matriz_checklist_id: {
+      type: Number,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      newIntervencionMatrizChecklist: {
+        matriz_checklist_categoria_id: null,
+        nombre: ''
+      },
+      categorias: this.matrizChecklist_categorias,
+      intervenciones: this.matrizChecklist_intervenciones
+    };
+  },
+  methods: {
+    saveIntervencionMatrizChecklist: function saveIntervencionMatrizChecklist() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.createIntervencionMatrizChecklist(_this.newIntervencionMatrizChecklist);
+            case 2:
+              response = _context.sent;
+              if (_this.errors_intervencion_matriz_checklist === null) {
+                _this.intervenciones.push(response.intervencionMatrizChecklist);
+                _this.newIntervencionMatrizChecklist.nombre = '';
+                _this.newIntervencionMatrizChecklist.matriz_checklist_categoria_id = null;
+              }
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }))();
+    },
+    deleteIntervencionMatrizChecklist: function deleteIntervencionMatrizChecklist(id) {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _this2.loading_id = id;
+              _context2.next = 3;
+              return _this2.eliminarIntervencionMatrizChecklist(id);
+            case 3:
+              response = _context2.sent;
+              if (_this2.errors_intervencion_matriz_checklist === null) {
+                _this2.intervenciones = _this2.intervenciones.filter(function (intervencion) {
+                  return intervencion.id !== response.intervencionMatrizChecklist.id;
+                });
+              }
+              _this2.loading_id = null;
+            case 6:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    finalizarMatrizChecklist: function finalizarMatrizChecklist() {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return _this3.finalizarCreacionMatrizChecklist(_this3.matriz_checklist_id);
+            case 2:
+              response = _context3.sent;
+              if (_this3.errors_intervencion_matriz_checklist === null) {
+                _this3.$notyf.success(response.message);
+                _this3.$emit('matrizChecklist-finalizada');
+              }
+            case 4:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3);
+      }))();
+    },
+    irACategorias: function irACategorias() {
+      this.$emit('matrizIntervencionChecklist-volver', {
+        categorias: this.categorias,
+        intervenciones: this.intervenciones
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mixins: [_mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
+  data: function data() {
+    return {
+      newMatrizChecklist: {
+        nombre: ''
+      }
+    };
+  },
+  methods: {
+    saveMatrizChecklist: function saveMatrizChecklist() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.createMatrizChecklist(_this.newMatrizChecklist);
+            case 2:
+              response = _context.sent;
+              if (_this.errors_matriz_checklist === null) {
+                _this.$emit('matrizChecklist-creada', response.matrizChecklist);
+              }
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6947,10 +7270,10 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
-/*!**********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \**********************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7012,10 +7335,10 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
-/*!******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \******************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7073,10 +7396,10 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
-/*!*********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \*********************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7134,10 +7457,10 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js":
-/*!**************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js ***!
-  \**************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7145,10 +7468,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _CrearCategoriaMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue */ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue");
-/* harmony import */ var _CrearIntervencionMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue */ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue");
-/* harmony import */ var _EditCategoriaMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditCategoriaMatrizCheckList.vue */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue");
-/* harmony import */ var _EditIntervencionMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditIntervencionMatrizCheckList.vue */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue");
+/* harmony import */ var _CrearCategoriaMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue");
+/* harmony import */ var _CrearIntervencionMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue");
+/* harmony import */ var _EditCategoriaMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditCategoriaMatrizCheckList.vue */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue");
+/* harmony import */ var _EditIntervencionMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./EditIntervencionMatrizCheckList.vue */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue");
 /* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
@@ -7290,273 +7613,10 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
-/*!*************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \*************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  props: {
-    matriz_checklist_id: {
-      type: Number,
-      required: true
-    },
-    matrizChecklist_categorias: Array
-  },
-  data: function data() {
-    return {
-      newCategoriaMatrizChecklist: {
-        matriz_checklist_id: this.matriz_checklist_id,
-        nombre: ''
-      },
-      categorias: this.matrizChecklist_categorias
-    };
-  },
-  methods: {
-    saveCategoriaMatrizChecklist: function saveCategoriaMatrizChecklist() {
-      var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _this.createCategoriaMatrizChecklist(_this.newCategoriaMatrizChecklist);
-            case 2:
-              response = _context.sent;
-              if (_this.errors_categoria_matriz_checklist === null) {
-                _this.categorias.push(response.categoriaMatrizChecklist);
-                _this.newCategoriaMatrizChecklist.nombre = '';
-              }
-            case 4:
-            case "end":
-              return _context.stop();
-          }
-        }, _callee);
-      }))();
-    },
-    deleteCategoriaMatrizChecklist: function deleteCategoriaMatrizChecklist(id) {
-      var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
-            case 0:
-              _this2.loading_id = id;
-              _context2.next = 3;
-              return _this2.eliminarCategoriaMatrizChecklist(id);
-            case 3:
-              response = _context2.sent;
-              if (_this2.errors_categoria_matriz_checklist === null) {
-                _this2.categorias = _this2.categorias.filter(function (categoria) {
-                  return categoria.id !== response.categoriaMatrizChecklist.id;
-                });
-              }
-              _this2.loading_id = null;
-            case 6:
-            case "end":
-              return _context2.stop();
-          }
-        }, _callee2);
-      }))();
-    },
-    irAIntervenciones: function irAIntervenciones() {
-      this.$emit('matrizCategoriaChecklist-creada', this.categorias);
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
-/*!****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \****************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  props: {
-    matrizChecklist_categorias: Array,
-    matrizChecklist_intervenciones: Array,
-    matriz_checklist_id: {
-      type: Number,
-      required: true
-    }
-  },
-  data: function data() {
-    return {
-      newIntervencionMatrizChecklist: {
-        matriz_checklist_categoria_id: null,
-        nombre: ''
-      },
-      categorias: this.matrizChecklist_categorias,
-      intervenciones: this.matrizChecklist_intervenciones
-    };
-  },
-  methods: {
-    saveIntervencionMatrizChecklist: function saveIntervencionMatrizChecklist() {
-      var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _this.createIntervencionMatrizChecklist(_this.newIntervencionMatrizChecklist);
-            case 2:
-              response = _context.sent;
-              if (_this.errors_intervencion_matriz_checklist === null) {
-                _this.intervenciones.push(response.intervencionMatrizChecklist);
-                _this.newIntervencionMatrizChecklist.nombre = '';
-                _this.newIntervencionMatrizChecklist.matriz_checklist_categoria_id = null;
-              }
-            case 4:
-            case "end":
-              return _context.stop();
-          }
-        }, _callee);
-      }))();
-    },
-    deleteIntervencionMatrizChecklist: function deleteIntervencionMatrizChecklist(id) {
-      var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
-            case 0:
-              _this2.loading_id = id;
-              _context2.next = 3;
-              return _this2.eliminarIntervencionMatrizChecklist(id);
-            case 3:
-              response = _context2.sent;
-              if (_this2.errors_intervencion_matriz_checklist === null) {
-                _this2.intervenciones = _this2.intervenciones.filter(function (intervencion) {
-                  return intervencion.id !== response.intervencionMatrizChecklist.id;
-                });
-              }
-              _this2.loading_id = null;
-            case 6:
-            case "end":
-              return _context2.stop();
-          }
-        }, _callee2);
-      }))();
-    },
-    finalizarMatrizChecklist: function finalizarMatrizChecklist() {
-      var _this3 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-          while (1) switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return _this3.finalizarCreacionMatrizChecklist(_this3.matriz_checklist_id);
-            case 2:
-              response = _context3.sent;
-              if (_this3.errors_intervencion_matriz_checklist === null) {
-                _this3.$notyf.success(response.message);
-                _this3.$emit('matrizChecklist-finalizada');
-              }
-            case 4:
-            case "end":
-              return _context3.stop();
-          }
-        }, _callee3);
-      }))();
-    },
-    irACategorias: function irACategorias() {
-      this.$emit('matrizIntervencionChecklist-volver', {
-        categorias: this.categorias,
-        intervenciones: this.intervenciones
-      });
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js":
-/*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \****************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  data: function data() {
-    return {
-      newMatrizChecklist: {
-        nombre: ''
-      }
-    };
-  },
-  methods: {
-    saveMatrizChecklist: function saveMatrizChecklist() {
-      var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _this.createMatrizChecklist(_this.newMatrizChecklist);
-            case 2:
-              response = _context.sent;
-              if (_this.errors_matriz_checklist === null) {
-                _this.$emit('matrizChecklist-creada', response.matrizChecklist);
-              }
-            case 4:
-            case "end":
-              return _context.stop();
-          }
-        }, _callee);
-      }))();
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js":
-/*!*********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js ***!
-  \*********************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7565,8 +7625,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-/* harmony import */ var _EditarMatrizChecklist_EditMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../EditarMatrizChecklist/EditMatrizCheckListModal.vue */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue");
-/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
+/* harmony import */ var _EditarMatrizChecklist_EditMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditarMatrizChecklist/EditMatrizCheckListModal.vue */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue");
+/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -7646,10 +7706,139 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js":
-/*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js ***!
-  \****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=script&lang=js":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=script&lang=js ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
+/* harmony import */ var _mixins_tipoActivo_tipoActivoMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/tipoActivo/tipoActivoMixin */ "./resources/js/mixins/tipoActivo/tipoActivoMixin.js");
+/* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
+/* harmony import */ var _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/usuarios/usuariosMixin */ "./resources/js/mixins/usuarios/usuariosMixin.js");
+/* harmony import */ var _CheckList_EditarChecklist_EditCheckListModal_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../CheckList/EditarChecklist/EditCheckListModal.vue */ "./resources/js/components/CheckList/EditarChecklist/EditCheckListModal.vue");
+/* harmony import */ var _MatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MatrizCheckListModal.vue */ "./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue");
+/* harmony import */ var _ListaMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ListaMatrizCheckListModal.vue */ "./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue");
+/* harmony import */ var _CheckList_CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../CheckList/CompletarCheckListModal.vue */ "./resources/js/components/CheckList/CompletarCheckListModal.vue");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+
+
+
+
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_2__["default"], _mixins_tipoActivo_tipoActivoMixin__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_3__["default"]],
+  components: {
+    MatrizCheckListModal: _MatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    ListaMatrizCheckListModal: _ListaMatrizCheckListModal_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+    EditCheckListModal: _CheckList_EditarChecklist_EditCheckListModal_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    CompletarCheckListModal: _CheckList_CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+  },
+  data: function data() {
+    return {
+      newChecklist: {
+        tipo_activo_id: null,
+        matriz_checklist_id: null,
+        marca: '',
+        modelo: ''
+      }
+    };
+  },
+  methods: {
+    openCrearModal: function openCrearModal() {
+      this.$refs.matrizCheckListModal.open();
+    },
+    openListaModal: function openListaModal() {
+      this.$refs.listaMatrizCheckListModal.open();
+    },
+    openEditarModal: function openEditarModal(checklist) {
+      this.$refs.editarCheckListModal.open();
+      this.editChecklist = checklist;
+    },
+    saveChecklist: function saveChecklist() {
+      var _this = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var response;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return _this.createChecklist(_this.newChecklist);
+            case 2:
+              response = _context.sent;
+              if (_this.errors_checklist === null) {
+                _this.$notyf.success(response.message);
+                _this.checklist.push(response.checklist);
+                _this.newChecklist.tipo_activo_id = 0;
+                _this.newChecklist.matriz_checklist_id = null;
+                _this.newChecklist.marca = '';
+                _this.newChecklist.modelo = '';
+              }
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }))();
+    },
+    habilitarCheckList: function habilitarCheckList(checklist_id, status) {
+      var _this2 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var checkboxStatus, checkbox;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              checkboxStatus = status ? 1 : 0;
+              checkbox = {
+                checklist_id: checklist_id,
+                status: checkboxStatus
+              };
+              _context2.prev = 2;
+              _context2.next = 5;
+              return _this2.actualizarStatusChecklist(checkbox);
+            case 5:
+              _context2.next = 10;
+              break;
+            case 7:
+              _context2.prev = 7;
+              _context2.t0 = _context2["catch"](2);
+              console.error('Error actualizando el estado:', _context2.t0);
+            case 10:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, null, [[2, 7]]);
+      }))();
+    },
+    listarMatrizChecklistFinalizada: function listarMatrizChecklistFinalizada() {
+      this.fetchMatrizChecklist();
+    }
+  },
+  created: function created() {
+    this.fetchTipoActivosSelect();
+    this.fetchMatrizChecklist();
+    this.fetchChecklist();
+    this.fetchUserRole();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7658,9 +7847,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-/* harmony import */ var _CrearMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearMatrizCheckList.vue */ "./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue");
-/* harmony import */ var _CrearCategoriaMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue */ "./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue");
-/* harmony import */ var _CrearIntervencionMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue */ "./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue");
+/* harmony import */ var _CrearMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearMatrizCheckList.vue */ "./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue");
+/* harmony import */ var _CrearCategoriaMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue */ "./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue");
+/* harmony import */ var _CrearIntervencionMatrizCheckList_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue */ "./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue");
 
 
 
@@ -7716,49 +7905,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     finalizarMatrizChecklist: function finalizarMatrizChecklist() {
       this.close();
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js ***!
-  \**************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
-/* harmony import */ var _CheckListObservacionImagenes_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckListObservacionImagenes.vue */ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue");
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  components: {
-    CheckListObservacionImagenes: _CheckListObservacionImagenes_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
-  props: {
-    verCheckListProps: Object
-  },
-  data: function data() {
-    return {
-      mostrarObservacionesImagenes: false,
-      checklist_observaciones: [],
-      verImagenesObservaciones: false
-    };
-  },
-  methods: {
-    verObservacionesImagenes: function verObservacionesImagenes(observaciones) {
-      this.mostrarObservacionesImagenes = true;
-      this.checklist_observaciones = observaciones;
-    },
-    volverCheckListObservacion: function volverCheckListObservacion() {
-      this.mostrarObservacionesImagenes = false;
+      this.$emit('listarMatrizChecklist-finalizada');
     }
   }
 });
@@ -9624,7 +9771,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       immediate: true,
       handler: function handler(data) {
         if (data) {
-          console.log(data);
           this.editCoronasEscareadores = {
             id: data.id,
             reporte_id: data.reporte_id,
@@ -9979,7 +10125,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       immediate: true,
       handler: function handler(data) {
         if (data) {
-          console.log(data);
           this.editDetalleHoras = {
             id: data.id,
             reporte_id: data.reporte_id,
@@ -10609,7 +10754,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       immediate: true,
       handler: function handler(data) {
         if (data) {
-          console.log(data);
           this.editPerforaciones = {
             id: data.id,
             reporte_id: data.reporte_id,
@@ -12545,8 +12689,8 @@ var render = function render() {
       }
     }, [_c("i", {
       staticClass: "bi bi-images"
-    }), _vm._v(" Imagenes")]), _vm._v(" "), _c("button", {
-      staticClass: "btn btn-primary",
+    })]), _vm._v(" "), _c("button", {
+      staticClass: "btn btn-warning",
       attrs: {
         type: "button"
       },
@@ -12557,7 +12701,7 @@ var render = function render() {
       }
     }, [_c("i", {
       staticClass: "bi bi-pencil-square"
-    }), _vm._v(" Editar\n                                Activo")])])]);
+    })])])]);
   }) : _vm.loading ? _c("p", [_vm._v("Cargando...")]) : _c("p", [_vm._v("No hay activos.")]), _vm._v(" "), _vm.errors ? _c("p", [_vm._v(_vm._s(_vm.errors))]) : _vm._e()], 2)])]), _vm._v(" "), _c("CrearActivoModal", {
     ref: "crearActivoModal",
     attrs: {
@@ -13685,6 +13829,7 @@ var render = function render() {
     "class": _vm.errors ? _vm.errors.imagenes ? "is-invalid" : "" : "",
     attrs: {
       type: "file",
+      name: "imagenes[]",
       id: "formFile",
       multiple: "",
       accept: ".png, .jpeg, .jpg",
@@ -13722,7 +13867,7 @@ var render = function render() {
         active: index === 0
       }
     }, [_c("img", {
-      staticClass: "d-block w-100",
+      staticClass: "d-block mx-auto",
       attrs: {
         src: _vm.formatImage(imagen.ruta),
         alt: imagen.ruta
@@ -14204,253 +14349,16 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("div", {
-    staticClass: "d-flex justify-content-between mb-3"
-  }, [_c("h3", [_vm._v("Matriz Checklist")]), _vm._v(" "), _vm.userRole && _vm.userRole.name !== "usuario" ? _c("div", [_c("button", {
-    staticClass: "btn btn-base-dv",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.openListaModal();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "bi bi-list-check"
-  }), _vm._v("\n                Ver Matriz Checklist")]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-base-dv",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.openCrearModal();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "bi bi-plus-circle"
-  }), _vm._v("\n                Crear Matriz Checklist")])]) : _vm._e()]), _vm._v(" "), _c("div", {
-    staticClass: "card shadow mb-5"
-  }, [_c("div", {
-    staticClass: "card-body"
-  }, [_c("form", {
-    on: {
-      submit: function submit($event) {
-        $event.preventDefault();
-        return _vm.saveChecklist.apply(null, arguments);
-      }
-    }
-  }, [_c("h5", [_vm._v("Crear Checklist")]), _vm._v(" "), _c("div", {
-    staticClass: "row mb-3"
-  }, [_c("div", {
-    staticClass: "col-lg-3 col-md-12"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "checklistEquipo"
-    }
-  }, [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("select", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.newChecklist.activo_id,
-      expression: "newChecklist.activo_id"
-    }],
-    staticClass: "form-select",
-    "class": _vm.errors_checklist ? _vm.errors_checklist.activo_id ? "is-invalid" : "" : "",
-    attrs: {
-      "aria-label": "Seleccione el equipo",
-      id: "checklistEquipo",
-      required: ""
-    },
-    on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.$set(_vm.newChecklist, "activo_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
-      }
-    }
-  }, [_c("option", {
-    attrs: {
-      disabled: ""
-    },
-    domProps: {
-      value: null
-    }
-  }, [_vm._v("Seleccione el Equipo")]), _vm._v(" "), _vm._l(_vm.tipo_activos, function (tipo_activo) {
-    return [_c("option", {
-      domProps: {
-        value: tipo_activo.id
-      }
-    }, [_vm._v(_vm._s(tipo_activo.name))])];
-  })], 2)]), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-3 col-md-12"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "checklistMatriz"
-    }
-  }, [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("select", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.newChecklist.matriz_checklist_id,
-      expression: "newChecklist.matriz_checklist_id"
-    }],
-    staticClass: "form-select",
-    "class": _vm.errors_checklist ? _vm.errors_checklist.matriz_checklist_id ? "is-invalid" : "" : "",
-    attrs: {
-      "aria-label": "Seleccione el matriz",
-      id: "checklistMatriz",
-      required: ""
-    },
-    on: {
-      change: function change($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
-          return o.selected;
-        }).map(function (o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val;
-        });
-        _vm.$set(_vm.newChecklist, "matriz_checklist_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
-      }
-    }
-  }, [_c("option", {
-    attrs: {
-      disabled: ""
-    },
-    domProps: {
-      value: null
-    }
-  }, [_vm._v("Seleccione la Matriz")]), _vm._v(" "), _vm._l(_vm.matrizChecklist, function (matriz) {
-    return [matriz.status ? _c("option", {
-      domProps: {
-        value: matriz.id
-      }
-    }, [_vm._v(_vm._s(matriz.nombre))]) : _vm._e()];
-  })], 2)]), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-3 col-md-12"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "checklistMarca"
-    }
-  }, [_vm._v("Marca")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.newChecklist.marca,
-      expression: "newChecklist.marca"
-    }],
-    staticClass: "form-control",
-    "class": _vm.errors_checklist ? _vm.errors_checklist.marca ? "is-invalid" : "" : "",
-    attrs: {
-      type: "text",
-      id: "checklistMarca",
-      required: ""
-    },
-    domProps: {
-      value: _vm.newChecklist.marca
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.newChecklist, "marca", $event.target.value);
-      }
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-3 col-md-12"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "checklistModelo"
-    }
-  }, [_vm._v("Modelo")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.newChecklist.modelo,
-      expression: "newChecklist.modelo"
-    }],
-    staticClass: "form-control",
-    "class": _vm.errors_checklist ? _vm.errors_checklist.modelo ? "is-invalid" : "" : "",
-    attrs: {
-      type: "text",
-      id: "checklistModelo",
-      required: ""
-    },
-    domProps: {
-      value: _vm.newChecklist.modelo
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.newChecklist, "modelo", $event.target.value);
-      }
-    }
-  })])]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-base-dv",
-    attrs: {
-      type: "submit",
-      disabled: _vm.loading_matriz_create
-    }
-  }, [_vm.loading_matriz_create ? _c("span", [_c("span", {
-    staticClass: "spinner-border spinner-border-sm",
-    attrs: {
-      role: "status",
-      "aria-hidden": "true"
-    }
-  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Guardar Cambios")])])])])]), _vm._v(" "), _c("div", {
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "table-responsive"
   }, [_c("table", {
     staticClass: "table"
-  }, [_c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("th", [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("th", [_vm._v("Marca")]), _vm._v(" "), _c("th", [_vm._v("Modelo")]), _vm._v(" "), _vm.userRole && _vm.userRole.name !== "usuario" ? _c("th", [_vm._v("Habilitar")]) : _vm._e(), _vm._v(" "), _c("th")])]), _vm._v(" "), _c("tbody", _vm._l(_vm.checklist, function (check, index) {
+  }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.checklist, function (check, index) {
     return _c("tr", {
       key: check.id
-    }, [_c("th", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.activo.tipo_activo.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.matriz.nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.marca))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.modelo))]), _vm._v(" "), _vm.userRole && _vm.userRole.name !== "usuario" ? _c("td", [_c("div", {
-      staticClass: "form-check form-switch"
-    }, [_c("input", {
-      directives: [{
-        name: "model",
-        rawName: "v-model",
-        value: check.status,
-        expression: "check.status"
-      }],
-      staticClass: "form-check-input",
-      attrs: {
-        type: "checkbox",
-        role: "switch",
-        id: "check-" + check.id + "_" + index
-      },
-      domProps: {
-        checked: Array.isArray(check.status) ? _vm._i(check.status, null) > -1 : check.status
-      },
-      on: {
-        change: [function ($event) {
-          var $$a = check.status,
-            $$el = $event.target,
-            $$c = $$el.checked ? true : false;
-          if (Array.isArray($$a)) {
-            var $$v = null,
-              $$i = _vm._i($$a, $$v);
-            if ($$el.checked) {
-              $$i < 0 && _vm.$set(check, "status", $$a.concat([$$v]));
-            } else {
-              $$i > -1 && _vm.$set(check, "status", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
-            }
-          } else {
-            _vm.$set(check, "status", $$c);
-          }
-        }, function ($event) {
-          return _vm.habilitarCheckList(check.id, check.status);
-        }]
-      }
-    })])]) : _vm._e(), _vm._v(" "), _c("td", [_c("button", {
+    }, [_c("th", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.tipoactivo.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.matriz.nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.marca))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.modelo))]), _vm._v(" "), _c("td", [_c("span", {
+      staticClass: "badge rounded-pill bg-primary"
+    }, [_vm._v(_vm._s(check.status === 0 ? "Realizado" : "No Realizado"))])]), _vm._v(" "), _c("td", [_c("button", {
       staticClass: "btn btn-base-dv",
       attrs: {
         type: "button"
@@ -14462,32 +14370,27 @@ var render = function render() {
       }
     }, [_c("i", {
       staticClass: "bi bi-ui-checks"
-    })]), _vm._v(" "), _vm.userRole && _vm.userRole.name !== "usuario" ? _c("button", {
-      staticClass: "btn btn-warning",
+    })]), _vm._v(" "), _c("button", {
+      staticClass: "btn btn-danger",
       attrs: {
-        type: "button"
+        type: "button",
+        disabled: _vm.loading_pdf[check.id]
       },
       on: {
         click: function click($event) {
-          return _vm.openEditarModal(check);
+          return _vm.downloadPDF(check);
         }
       }
-    }, [_c("i", {
-      staticClass: "bi bi-pencil-square"
-    })]) : _vm._e()])]);
-  }), 0)])]), _vm._v(" "), _c("MatrizCheckListModal", {
-    ref: "matrizCheckListModal"
-  }), _vm._v(" "), _c("ListaMatrizCheckListModal", {
-    ref: "listaMatrizCheckListModal",
-    attrs: {
-      matrizChecklistProps: _vm.matrizChecklist
-    }
-  }), _vm._v(" "), _c("EditCheckListModal", {
-    ref: "editarCheckListModal",
-    attrs: {
-      editChecklistProps: _vm.editChecklist
-    }
-  }), _vm._v(" "), _c("CompletarCheckListModal", {
+    }, [_vm.loading_pdf[check.id] ? _c("span", [_c("span", {
+      staticClass: "spinner-border spinner-border-sm",
+      attrs: {
+        role: "status",
+        "aria-hidden": "true"
+      }
+    })]) : _c("span", [_c("i", {
+      staticClass: "bi bi-filetype-pdf"
+    })])])])]);
+  }), 0)])]), _vm._v(" "), _c("CompletarCheckListModal", {
     ref: "completarCheckListModal",
     attrs: {
       completarCheckListProps: _vm.completarChecklist,
@@ -14498,7 +14401,17 @@ var render = function render() {
     }
   })], 1);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "d-flex justify-content-between mb-3"
+  }, [_c("h3", [_vm._v("Checklist")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("th", [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("th", [_vm._v("Marca")]), _vm._v(" "), _c("th", [_vm._v("Modelo")]), _vm._v(" "), _c("th", [_vm._v("Estado")]), _vm._v(" "), _c("th")])]);
+}];
 render._withStripped = true;
 
 
@@ -14749,7 +14662,7 @@ var render = function render() {
     staticClass: "col-6"
   }, [_c("p", {
     staticClass: "mb-0"
-  }, [_vm._v(_vm._s(_vm.completarCheckListProps.activo.tipo_activo.name))])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(_vm._s(_vm.completarCheckListProps.tipoactivo.name))])])]), _vm._v(" "), _c("div", {
     staticClass: "row align-items-center"
   }, [_c("p", {
     staticClass: "col-6 col-form-label fw-bold"
@@ -15558,10 +15471,10 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=5c9e2128":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=5c9e2128 ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737 ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -15573,485 +15486,77 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("form", {
-    staticClass: "mb-3",
-    on: {
-      submit: function submit($event) {
-        $event.preventDefault();
-        return _vm.saveCategoriaMatrizChecklist.apply(null, arguments);
-      }
-    }
-  }, [_c("div", {
-    staticClass: "row align-items-end"
-  }, [_c("div", {
-    staticClass: "col-lg-8 col-md-12"
-  }, [_c("label", {
-    staticClass: "form-label",
+  return _vm.mostrarObservacionesImagenes ? _c("CheckListObservacionImagenes", {
     attrs: {
-      "for": "categoriaChecklistNombre"
-    }
-  }, [_vm._v("Categoria")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.newCategoriaMatrizChecklist.nombre,
-      expression: "newCategoriaMatrizChecklist.nombre"
-    }],
-    staticClass: "form-control",
-    "class": _vm.errors_categoria_matriz_checklist ? _vm.errors_categoria_matriz_checklist.nombre ? "is-invalid" : "" : "",
-    attrs: {
-      type: "text",
-      id: "categoriaChecklistNombre",
-      placeholder: "Nombre",
-      required: ""
-    },
-    domProps: {
-      value: _vm.newCategoriaMatrizChecklist.nombre
+      checklist_observaciones: _vm.checklist_observaciones,
+      verImagenesObservacionesProp: _vm.verImagenesObservaciones
     },
     on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.newCategoriaMatrizChecklist, "nombre", $event.target.value);
-      }
+      "volver-checkListObservacion": _vm.volverCheckListObservacion
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-4 col-md-12"
-  }, [_c("button", {
-    staticClass: "btn btn-base-dv w-100",
+  }) : _c("div", {
+    staticClass: "table-responsive"
+  }, [_c("table", {
+    staticClass: "table table-bordered text-center align-middle"
+  }, [_c("thead", [_c("tr", [_c("th", {
     attrs: {
-      type: "submit",
-      disabled: _vm.loading_matriz_create
+      rowspan: "2"
     }
-  }, [_vm.loading_matriz_create ? _c("span", [_c("span", {
-    staticClass: "spinner-border spinner-border-sm",
+  }, [_vm._v("Categoria")]), _vm._v(" "), _c("th", {
     attrs: {
-      role: "status",
-      "aria-hidden": "true"
+      colspan: "2"
     }
-  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Agregar")])])])])]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-base-dv",
+  }, [_vm._v("Existe")]), _vm._v(" "), _c("th", {
     attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.volverEditarMatrizCheckList();
-      }
+      colspan: "3"
     }
-  }, [_c("i", {
-    staticClass: "bi bi-arrow-left"
-  }), _vm._v("\n        Volver\n    ")])]);
-};
-var staticRenderFns = [];
-render._withStripped = true;
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=eb7e7e22":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=eb7e7e22 ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* binding */ render),
-/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("form", {
-    staticClass: "mb-3",
-    on: {
-      submit: function submit($event) {
-        $event.preventDefault();
-        return _vm.saveIntervencionMatrizChecklist.apply(null, arguments);
-      }
-    }
-  }, [_c("div", {
-    staticClass: "row align-items-end"
-  }, [_c("div", {
-    staticClass: "col-lg-8 col-md-12"
-  }, [_c("label", {
-    staticClass: "form-label",
+  }, [_vm._v("Estado")]), _vm._v(" "), _c("th", {
     attrs: {
-      "for": "intervencionMatrizChecklistNombre"
+      rowspan: "2"
     }
-  }, [_vm._v("Intervencion")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.newIntervencionMatrizChecklist.nombre,
-      expression: "newIntervencionMatrizChecklist.nombre"
-    }],
-    staticClass: "form-control",
-    "class": _vm.errors_intervencion_matriz_checklist ? _vm.errors_intervencion_matriz_checklist.nombre ? "is-invalid" : "" : "",
-    attrs: {
-      type: "text",
-      id: "intervencionMatrizChecklistNombre",
-      placeholder: "Nombre",
-      required: ""
-    },
-    domProps: {
-      value: _vm.newIntervencionMatrizChecklist.nombre
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.newIntervencionMatrizChecklist, "nombre", $event.target.value);
-      }
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-4 col-md-12"
-  }, [_c("button", {
-    staticClass: "btn btn-base-dv w-100",
-    attrs: {
-      type: "submit",
-      disabled: _vm.loading_matriz_create
-    }
-  }, [_vm.loading_matriz_create ? _c("span", [_c("span", {
-    staticClass: "spinner-border spinner-border-sm",
-    attrs: {
-      role: "status",
-      "aria-hidden": "true"
-    }
-  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Agregar")])])])])]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-base-dv",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.volverEditarMatrizChecklist();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "bi bi-arrow-left"
-  }), _vm._v("\n        Volver\n    ")])]);
-};
-var staticRenderFns = [];
-render._withStripped = true;
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=7e9f6ed6":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=7e9f6ed6 ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* binding */ render),
-/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("form", {
-    staticClass: "mb-3",
-    on: {
-      submit: function submit($event) {
-        $event.preventDefault();
-        return _vm.updateMatrizChecklistCategoria.apply(null, arguments);
-      }
-    }
-  }, [_c("div", {
-    staticClass: "row align-items-end"
-  }, [_c("div", {
-    staticClass: "col-lg-8 col-md-12"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "categoriaMatrizChecklistNombre"
-    }
-  }, [_vm._v("Categoria")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.editMatrizChecklistCategoria.nombre,
-      expression: "editMatrizChecklistCategoria.nombre"
-    }],
-    staticClass: "form-control",
-    "class": _vm.errors_categoria_matriz_checklist ? _vm.errors_categoria_matriz_checklist.nombre ? "is-invalid" : "" : "",
-    attrs: {
-      type: "text",
-      id: "categoriaMatrizChecklistNombre",
-      placeholder: "Nombre",
-      required: ""
-    },
-    domProps: {
-      value: _vm.editMatrizChecklistCategoria.nombre
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.editMatrizChecklistCategoria, "nombre", $event.target.value);
-      }
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-4 col-md-12"
-  }, [_c("button", {
-    staticClass: "btn btn-base-dv w-100",
-    attrs: {
-      type: "submit",
-      disabled: _vm.loading_matriz_update
-    }
-  }, [_vm.loading_matriz_update ? _c("span", [_c("span", {
-    staticClass: "spinner-border spinner-border-sm",
-    attrs: {
-      role: "status",
-      "aria-hidden": "true"
-    }
-  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Editar")])])])])]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-base-dv",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.volverEditarMatrizChecklist();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "bi bi-arrow-left"
-  }), _vm._v("\n        Volver\n    ")])]);
-};
-var staticRenderFns = [];
-render._withStripped = true;
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=212d29b4":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=212d29b4 ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* binding */ render),
-/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_c("form", {
-    staticClass: "mb-3",
-    on: {
-      submit: function submit($event) {
-        $event.preventDefault();
-        return _vm.updateIntervencionMatrizChecklist.apply(null, arguments);
-      }
-    }
-  }, [_c("div", {
-    staticClass: "row align-items-end"
-  }, [_c("div", {
-    staticClass: "col-lg-8 col-md-12"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "intervencionMatrizChecklistNombre"
-    }
-  }, [_vm._v("Intervencion")]), _vm._v(" "), _c("input", {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: _vm.editIntervencionMatrizChecklist.nombre,
-      expression: "editIntervencionMatrizChecklist.nombre"
-    }],
-    staticClass: "form-control",
-    "class": _vm.errors_intervencion_matriz_checklist ? _vm.errors_intervencion_matriz_checklist.nombre ? "is-invalid" : "" : "",
-    attrs: {
-      type: "text",
-      id: "intervencionMatrizChecklistNombre",
-      placeholder: "Nombre",
-      required: ""
-    },
-    domProps: {
-      value: _vm.editIntervencionMatrizChecklist.nombre
-    },
-    on: {
-      input: function input($event) {
-        if ($event.target.composing) return;
-        _vm.$set(_vm.editIntervencionMatrizChecklist, "nombre", $event.target.value);
-      }
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "col-lg-4 col-md-12"
-  }, [_c("button", {
-    staticClass: "btn btn-base-dv w-100",
-    attrs: {
-      type: "submit",
-      disabled: _vm.loading_matriz_update
-    }
-  }, [_vm.loading_matriz_update ? _c("span", [_c("span", {
-    staticClass: "spinner-border spinner-border-sm",
-    attrs: {
-      role: "status",
-      "aria-hidden": "true"
-    }
-  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Editar")])])])])]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-base-dv",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.volverEditarMatrizCheckList();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "bi bi-arrow-left"
-  }), _vm._v("\n        Volver\n    ")])]);
-};
-var staticRenderFns = [];
-render._withStripped = true;
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=74ede9af&scoped=true":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=74ede9af&scoped=true ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* binding */ render),
-/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_vm.mostrarCrearCategoriaMatrizChecklist ? _c("CrearCategoriaMatrizCheckList", {
-    attrs: {
-      matriz_checklist_id: _vm.editMatrizChecklistProps.id
-    },
-    on: {
-      "categoriaMatrizChecklist-creada": _vm.agregarCategoriaMatrizChecklist,
-      volverEditarMatrizChecklist: _vm.volverEditarMatrizCheckList
-    }
-  }) : _vm.mostrarCrearIntervencioMatrizChecklist ? _c("CrearIntervencionMatrizCheckList", {
-    attrs: {
-      matriz_checklist_categoria_id: _vm.matriz_checklist_categoria_id
-    },
-    on: {
-      "intervencionMatrizChecklist-creada": _vm.agregarIntervencionMatrizChecklist,
-      volverEditarMatrizChecklist: _vm.volverEditarMatrizCheckList
-    }
-  }) : _vm.mostrarEditarCategoriaMatrizChecklist ? _c("EditCategoriaMatrizCheckList", {
-    attrs: {
-      matriz_checklist_categoria: _vm.matriz_checklist_categoria
-    },
-    on: {
-      "categoriaMatrizChecklist-actualizada": _vm.actualizarCategoriaMatrizChecklist,
-      volverEditarMatrizChecklist: _vm.volverEditarMatrizCheckList
-    }
-  }) : _vm.mostrarEditarIntervencionMatrizChecklist ? _c("EditIntervencionMatrizCheckList", {
-    attrs: {
-      matriz_checklist_intervencion: _vm.matriz_checklist_intervencion
-    },
-    on: {
-      "intervencionMatrizChecklist-actualizada": _vm.actualizarIntervencionMatrizChecklist,
-      volverEditarMatrizChecklist: _vm.volverEditarMatrizCheckList
-    }
-  }) : [_vm.editMatrizChecklistProps && _vm.editMatrizChecklistProps.categorias ? [_c("div", {
-    staticClass: "d-flex justify-content-end mb-3"
-  }, [_c("button", {
-    staticClass: "btn btn-base-dv",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.openCrearCategoriaMatrizChecklist();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "bi bi-plus-circle"
-  }), _vm._v(" Categoria")])]), _vm._v(" "), _c("ul", {
-    staticClass: "list-group"
-  }, [_vm._l(_vm.editMatrizChecklistProps.categorias, function (categoria) {
-    return [_c("li", {
-      staticClass: "list-group-item d-flex justify-content-between align-items-center"
-    }, [_c("h5", {
-      staticClass: "titulo-categoria"
-    }, [_vm._v(_vm._s(categoria.nombre))]), _vm._v(" "), _c("div", [_c("button", {
-      staticClass: "btn btn-base-dv",
+  }, [_vm._v("Observacion")])]), _vm._v(" "), _c("tr", [_c("th", [_vm._v("SI")]), _vm._v(" "), _c("th", [_vm._v("NO")]), _vm._v(" "), _c("th", [_c("i", {
+    staticClass: "bi bi-emoji-laughing fs-4 text-success"
+  })]), _vm._v(" "), _c("th", [_c("i", {
+    staticClass: "bi bi-emoji-neutral fs-4 text-warning"
+  })]), _vm._v(" "), _c("th", [_c("i", {
+    staticClass: "bi bi-emoji-frown fs-4 text-danger"
+  })])])]), _vm._v(" "), _c("tbody", [_vm._l(_vm.verCheckListProps.categorias, function (categoria) {
+    return [categoria.intervenciones.length > 0 ? [_c("tr", {
+      staticClass: "table-active"
+    }, [_c("th", {
       attrs: {
-        type: "button"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.openCrearIntervencionMatrizChecklist(categoria.id);
-        }
+        colspan: "7"
       }
-    }, [_c("i", {
-      staticClass: "bi bi-plus-circle"
-    }), _vm._v("\n                                Intervencion")]), _vm._v(" "), _c("button", {
-      staticClass: "btn btn-warning",
-      attrs: {
-        type: "button"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.openEditarCategoriaMatrizChecklist(categoria);
-        }
-      }
-    }, [_c("i", {
-      staticClass: "bi bi-pencil-square"
-    })]), _vm._v(" "), _c("button", {
-      staticClass: "btn btn-danger",
-      attrs: {
-        type: "button"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.eliminarCategoriaMatrizCheckList(categoria.id);
-        }
-      }
-    }, [_c("i", {
-      staticClass: "bi bi-trash"
-    })])])]), _vm._v(" "), _vm._l(categoria.intervenciones, function (intervencion) {
-      return [_c("li", {
-        staticClass: "list-group-item d-flex justify-content-between align-items-center"
-      }, [_c("span", [_vm._v(_vm._s(intervencion.nombre))]), _vm._v(" "), _c("div", [_c("button", {
-        staticClass: "btn btn-warning",
-        attrs: {
-          type: "button"
-        },
-        on: {
-          click: function click($event) {
-            return _vm.openEditarIntervencionMatrizChecklist(intervencion);
+    }, [_vm._v(_vm._s(categoria.nombre))])]), _vm._v(" "), _vm._l(categoria.intervenciones, function (intervencion, index) {
+      return _c("tr", {
+        key: intervencion.id + "_" + index
+      }, [_c("td", [_vm._v(_vm._s(intervencion.nombre))]), _vm._v(" "), _vm._l(intervencion.condiciones, function (condicion) {
+        return [condicion.existe === 1 ? _c("td", [_c("i", {
+          staticClass: "bi bi-check-lg fs-4"
+        })]) : _c("td"), _vm._v(" "), condicion.existe === 2 ? _c("td", [_c("i", {
+          staticClass: "bi bi-check-lg fs-4"
+        })]) : _c("td"), _vm._v(" "), condicion.estado === 1 ? _c("td", [_c("i", {
+          staticClass: "bi bi-check-lg fs-4"
+        })]) : _c("td"), _vm._v(" "), condicion.estado === 2 ? _c("td", [_c("i", {
+          staticClass: "bi bi-check-lg fs-4"
+        })]) : _c("td"), _vm._v(" "), condicion.estado === 3 ? _c("td", [_c("i", {
+          staticClass: "bi bi-check-lg fs-4"
+        })]) : _c("td"), _vm._v(" "), _c("td", [_c("button", {
+          staticClass: "btn btn-base-dv w-100",
+          attrs: {
+            type: "button"
+          },
+          on: {
+            click: function click($event) {
+              return _vm.verObservacionesImagenes(intervencion.observaciones);
+            }
           }
-        }
-      }, [_c("i", {
-        staticClass: "bi bi-pencil-square"
-      })]), _vm._v(" "), _c("button", {
-        staticClass: "btn btn-danger",
-        attrs: {
-          type: "button"
-        },
-        on: {
-          click: function click($event) {
-            return _vm.eliminarIntervencionMatrizCheckList(intervencion.id);
-          }
-        }
-      }, [_c("i", {
-        staticClass: "bi bi-trash"
-      })])])])];
-    })];
-  })], 2)] : _vm._e()]], 2);
+        }, [_c("i", {
+          staticClass: "bi bi-image-fill"
+        })])])];
+      })], 2);
+    })] : _vm._e()];
+  })], 2)])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -16059,10 +15564,10 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=72a08d07&scoped=true":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=72a08d07&scoped=true ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=a0391d20&scoped=true":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=a0391d20&scoped=true ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -16207,10 +15712,10 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=52d30d18&scoped=true":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=52d30d18&scoped=true ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=3c2e5f2a&scoped=true":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=3c2e5f2a&scoped=true ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -16416,10 +15921,10 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=63f9cc9c&scoped=true":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=63f9cc9c&scoped=true ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=aed4c3da&scoped=true":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=aed4c3da&scoped=true ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -16508,10 +16013,511 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=6a56f61d":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=6a56f61d ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=2d2caa29":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=2d2caa29 ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("form", {
+    staticClass: "mb-3",
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.saveCategoriaMatrizChecklist.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "row align-items-end"
+  }, [_c("div", {
+    staticClass: "col-lg-8 col-md-12"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "categoriaChecklistNombre"
+    }
+  }, [_vm._v("Categoria")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.newCategoriaMatrizChecklist.nombre,
+      expression: "newCategoriaMatrizChecklist.nombre"
+    }],
+    staticClass: "form-control",
+    "class": _vm.errors_categoria_matriz_checklist ? _vm.errors_categoria_matriz_checklist.nombre ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "categoriaChecklistNombre",
+      placeholder: "Nombre",
+      required: ""
+    },
+    domProps: {
+      value: _vm.newCategoriaMatrizChecklist.nombre
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.newCategoriaMatrizChecklist, "nombre", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-4 col-md-12"
+  }, [_c("button", {
+    staticClass: "btn btn-base-dv w-100",
+    attrs: {
+      type: "submit",
+      disabled: _vm.loading_matriz_create
+    }
+  }, [_vm.loading_matriz_create ? _c("span", [_c("span", {
+    staticClass: "spinner-border spinner-border-sm",
+    attrs: {
+      role: "status",
+      "aria-hidden": "true"
+    }
+  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Agregar")])])])])]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.volverEditarMatrizCheckList();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-left"
+  }), _vm._v("\n        Volver\n    ")])]);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=e46e9ddc":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=e46e9ddc ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("form", {
+    staticClass: "mb-3",
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.saveIntervencionMatrizChecklist.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "row align-items-end"
+  }, [_c("div", {
+    staticClass: "col-lg-8 col-md-12"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "intervencionMatrizChecklistNombre"
+    }
+  }, [_vm._v("Intervencion")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.newIntervencionMatrizChecklist.nombre,
+      expression: "newIntervencionMatrizChecklist.nombre"
+    }],
+    staticClass: "form-control",
+    "class": _vm.errors_intervencion_matriz_checklist ? _vm.errors_intervencion_matriz_checklist.nombre ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "intervencionMatrizChecklistNombre",
+      placeholder: "Nombre",
+      required: ""
+    },
+    domProps: {
+      value: _vm.newIntervencionMatrizChecklist.nombre
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.newIntervencionMatrizChecklist, "nombre", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-4 col-md-12"
+  }, [_c("button", {
+    staticClass: "btn btn-base-dv w-100",
+    attrs: {
+      type: "submit",
+      disabled: _vm.loading_matriz_create
+    }
+  }, [_vm.loading_matriz_create ? _c("span", [_c("span", {
+    staticClass: "spinner-border spinner-border-sm",
+    attrs: {
+      role: "status",
+      "aria-hidden": "true"
+    }
+  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Agregar")])])])])]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.volverEditarMatrizChecklist();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-left"
+  }), _vm._v("\n        Volver\n    ")])]);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=78b87b90":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=78b87b90 ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("form", {
+    staticClass: "mb-3",
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.updateMatrizChecklistCategoria.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "row align-items-end"
+  }, [_c("div", {
+    staticClass: "col-lg-8 col-md-12"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "categoriaMatrizChecklistNombre"
+    }
+  }, [_vm._v("Categoria")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.editMatrizChecklistCategoria.nombre,
+      expression: "editMatrizChecklistCategoria.nombre"
+    }],
+    staticClass: "form-control",
+    "class": _vm.errors_categoria_matriz_checklist ? _vm.errors_categoria_matriz_checklist.nombre ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "categoriaMatrizChecklistNombre",
+      placeholder: "Nombre",
+      required: ""
+    },
+    domProps: {
+      value: _vm.editMatrizChecklistCategoria.nombre
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.editMatrizChecklistCategoria, "nombre", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-4 col-md-12"
+  }, [_c("button", {
+    staticClass: "btn btn-base-dv w-100",
+    attrs: {
+      type: "submit",
+      disabled: _vm.loading_matriz_update
+    }
+  }, [_vm.loading_matriz_update ? _c("span", [_c("span", {
+    staticClass: "spinner-border spinner-border-sm",
+    attrs: {
+      role: "status",
+      "aria-hidden": "true"
+    }
+  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Editar")])])])])]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.volverEditarMatrizChecklist();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-left"
+  }), _vm._v("\n        Volver\n    ")])]);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=5ae16aa3":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=5ae16aa3 ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("form", {
+    staticClass: "mb-3",
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.updateIntervencionMatrizChecklist.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "row align-items-end"
+  }, [_c("div", {
+    staticClass: "col-lg-8 col-md-12"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "intervencionMatrizChecklistNombre"
+    }
+  }, [_vm._v("Intervencion")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.editIntervencionMatrizChecklist.nombre,
+      expression: "editIntervencionMatrizChecklist.nombre"
+    }],
+    staticClass: "form-control",
+    "class": _vm.errors_intervencion_matriz_checklist ? _vm.errors_intervencion_matriz_checklist.nombre ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "intervencionMatrizChecklistNombre",
+      placeholder: "Nombre",
+      required: ""
+    },
+    domProps: {
+      value: _vm.editIntervencionMatrizChecklist.nombre
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.editIntervencionMatrizChecklist, "nombre", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-4 col-md-12"
+  }, [_c("button", {
+    staticClass: "btn btn-base-dv w-100",
+    attrs: {
+      type: "submit",
+      disabled: _vm.loading_matriz_update
+    }
+  }, [_vm.loading_matriz_update ? _c("span", [_c("span", {
+    staticClass: "spinner-border spinner-border-sm",
+    attrs: {
+      role: "status",
+      "aria-hidden": "true"
+    }
+  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Editar")])])])])]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.volverEditarMatrizCheckList();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-left"
+  }), _vm._v("\n        Volver\n    ")])]);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=218dacd2&scoped=true":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=218dacd2&scoped=true ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_vm.mostrarCrearCategoriaMatrizChecklist ? _c("CrearCategoriaMatrizCheckList", {
+    attrs: {
+      matriz_checklist_id: _vm.editMatrizChecklistProps.id
+    },
+    on: {
+      "categoriaMatrizChecklist-creada": _vm.agregarCategoriaMatrizChecklist,
+      volverEditarMatrizChecklist: _vm.volverEditarMatrizCheckList
+    }
+  }) : _vm.mostrarCrearIntervencioMatrizChecklist ? _c("CrearIntervencionMatrizCheckList", {
+    attrs: {
+      matriz_checklist_categoria_id: _vm.matriz_checklist_categoria_id
+    },
+    on: {
+      "intervencionMatrizChecklist-creada": _vm.agregarIntervencionMatrizChecklist,
+      volverEditarMatrizChecklist: _vm.volverEditarMatrizCheckList
+    }
+  }) : _vm.mostrarEditarCategoriaMatrizChecklist ? _c("EditCategoriaMatrizCheckList", {
+    attrs: {
+      matriz_checklist_categoria: _vm.matriz_checklist_categoria
+    },
+    on: {
+      "categoriaMatrizChecklist-actualizada": _vm.actualizarCategoriaMatrizChecklist,
+      volverEditarMatrizChecklist: _vm.volverEditarMatrizCheckList
+    }
+  }) : _vm.mostrarEditarIntervencionMatrizChecklist ? _c("EditIntervencionMatrizCheckList", {
+    attrs: {
+      matriz_checklist_intervencion: _vm.matriz_checklist_intervencion
+    },
+    on: {
+      "intervencionMatrizChecklist-actualizada": _vm.actualizarIntervencionMatrizChecklist,
+      volverEditarMatrizChecklist: _vm.volverEditarMatrizCheckList
+    }
+  }) : [_vm.editMatrizChecklistProps && _vm.editMatrizChecklistProps.categorias ? [_c("div", {
+    staticClass: "d-flex justify-content-end mb-3"
+  }, [_c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.openCrearCategoriaMatrizChecklist();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-plus-circle"
+  }), _vm._v(" Categoria")])]), _vm._v(" "), _c("ul", {
+    staticClass: "list-group"
+  }, [_vm._l(_vm.editMatrizChecklistProps.categorias, function (categoria) {
+    return [_c("li", {
+      staticClass: "list-group-item d-flex justify-content-between align-items-center"
+    }, [_c("h5", {
+      staticClass: "titulo-categoria"
+    }, [_vm._v(_vm._s(categoria.nombre))]), _vm._v(" "), _c("div", [_c("button", {
+      staticClass: "btn btn-base-dv",
+      attrs: {
+        type: "button"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.openCrearIntervencionMatrizChecklist(categoria.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "bi bi-plus-circle"
+    }), _vm._v("\n                                Intervencion")]), _vm._v(" "), _c("button", {
+      staticClass: "btn btn-warning",
+      attrs: {
+        type: "button"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.openEditarCategoriaMatrizChecklist(categoria);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "bi bi-pencil-square"
+    })]), _vm._v(" "), _c("button", {
+      staticClass: "btn btn-danger",
+      attrs: {
+        type: "button"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.eliminarCategoriaMatrizCheckList(categoria.id);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "bi bi-trash"
+    })])])]), _vm._v(" "), _vm._l(categoria.intervenciones, function (intervencion) {
+      return [_c("li", {
+        staticClass: "list-group-item d-flex justify-content-between align-items-center"
+      }, [_c("span", [_vm._v(_vm._s(intervencion.nombre))]), _vm._v(" "), _c("div", [_c("button", {
+        staticClass: "btn btn-warning",
+        attrs: {
+          type: "button"
+        },
+        on: {
+          click: function click($event) {
+            return _vm.openEditarIntervencionMatrizChecklist(intervencion);
+          }
+        }
+      }, [_c("i", {
+        staticClass: "bi bi-pencil-square"
+      })]), _vm._v(" "), _c("button", {
+        staticClass: "btn btn-danger",
+        attrs: {
+          type: "button"
+        },
+        on: {
+          click: function click($event) {
+            return _vm.eliminarIntervencionMatrizCheckList(intervencion.id);
+          }
+        }
+      }, [_c("i", {
+        staticClass: "bi bi-trash"
+      })])])])];
+    })];
+  })], 2)] : _vm._e()]], 2);
+};
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=3e867706":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=3e867706 ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -16647,10 +16653,311 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=3f9e71ec&scoped=true":
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=3f9e71ec&scoped=true ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=template&id=b44a565e&scoped=true":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=template&id=b44a565e&scoped=true ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", [_c("div", {
+    staticClass: "d-flex justify-content-between mb-3"
+  }, [_c("h3", [_vm._v("Matriz Checklist")]), _vm._v(" "), _vm.userRole && _vm.userRole.name !== "usuario" ? _c("div", [_c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.openListaModal();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-list-check"
+  }), _vm._v("\n                Ver Matriz Checklist")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.openCrearModal();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-plus-circle"
+  }), _vm._v("\n                Crear Matriz Checklist")])]) : _vm._e()]), _vm._v(" "), _c("div", {
+    staticClass: "card shadow mb-5"
+  }, [_c("div", {
+    staticClass: "card-body"
+  }, [_c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.saveChecklist.apply(null, arguments);
+      }
+    }
+  }, [_c("h5", [_vm._v("Crear Checklist")]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("div", {
+    staticClass: "col-lg-3 col-md-12"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "checklistEquipo"
+    }
+  }, [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.newChecklist.tipo_activo_id,
+      expression: "newChecklist.tipo_activo_id"
+    }],
+    staticClass: "form-select",
+    "class": _vm.errors_checklist ? _vm.errors_checklist.tipo_activo_id ? "is-invalid" : "" : "",
+    attrs: {
+      "aria-label": "Seleccione el equipo",
+      id: "checklistEquipo",
+      required: ""
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.newChecklist, "tipo_activo_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      disabled: ""
+    },
+    domProps: {
+      value: null
+    }
+  }, [_vm._v("Seleccione el Equipo")]), _vm._v(" "), _vm._l(_vm.tipo_activos, function (tipo_activo) {
+    return [_c("option", {
+      domProps: {
+        value: tipo_activo.id
+      }
+    }, [_vm._v(_vm._s(tipo_activo.name))])];
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-md-12"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "checklistMatriz"
+    }
+  }, [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.newChecklist.matriz_checklist_id,
+      expression: "newChecklist.matriz_checklist_id"
+    }],
+    staticClass: "form-select",
+    "class": _vm.errors_checklist ? _vm.errors_checklist.matriz_checklist_id ? "is-invalid" : "" : "",
+    attrs: {
+      "aria-label": "Seleccione el matriz",
+      id: "checklistMatriz",
+      required: ""
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.newChecklist, "matriz_checklist_id", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      disabled: ""
+    },
+    domProps: {
+      value: null
+    }
+  }, [_vm._v("Seleccione la Matriz")]), _vm._v(" "), _vm._l(_vm.matrizChecklist, function (matriz) {
+    return [matriz.status ? _c("option", {
+      domProps: {
+        value: matriz.id
+      }
+    }, [_vm._v(_vm._s(matriz.nombre))]) : _vm._e()];
+  })], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-md-12"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "checklistMarca"
+    }
+  }, [_vm._v("Marca")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.newChecklist.marca,
+      expression: "newChecklist.marca"
+    }],
+    staticClass: "form-control",
+    "class": _vm.errors_checklist ? _vm.errors_checklist.marca ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "checklistMarca",
+      required: ""
+    },
+    domProps: {
+      value: _vm.newChecklist.marca
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.newChecklist, "marca", $event.target.value);
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-3 col-md-12"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "checklistModelo"
+    }
+  }, [_vm._v("Modelo")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.newChecklist.modelo,
+      expression: "newChecklist.modelo"
+    }],
+    staticClass: "form-control",
+    "class": _vm.errors_checklist ? _vm.errors_checklist.modelo ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "checklistModelo",
+      required: ""
+    },
+    domProps: {
+      value: _vm.newChecklist.modelo
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.$set(_vm.newChecklist, "modelo", $event.target.value);
+      }
+    }
+  })])]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "submit",
+      disabled: _vm.loading_matriz_create
+    }
+  }, [_vm.loading_matriz_create ? _c("span", [_c("span", {
+    staticClass: "spinner-border spinner-border-sm",
+    attrs: {
+      role: "status",
+      "aria-hidden": "true"
+    }
+  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Guardar Cambios")])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "table-responsive"
+  }, [_c("table", {
+    staticClass: "table"
+  }, [_vm._m(0), _vm._v(" "), _c("tbody", _vm._l(_vm.checklist, function (check, index) {
+    return _c("tr", {
+      key: check.id
+    }, [_c("th", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.tipoactivo.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.matriz.nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.marca))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.modelo))]), _vm._v(" "), _c("td", [_c("div", {
+      staticClass: "form-check form-switch"
+    }, [_c("input", {
+      directives: [{
+        name: "model",
+        rawName: "v-model",
+        value: check.status,
+        expression: "check.status"
+      }],
+      staticClass: "form-check-input",
+      attrs: {
+        type: "checkbox",
+        role: "switch",
+        id: "check-" + check.id + "_" + index
+      },
+      domProps: {
+        checked: Array.isArray(check.status) ? _vm._i(check.status, null) > -1 : check.status
+      },
+      on: {
+        change: [function ($event) {
+          var $$a = check.status,
+            $$el = $event.target,
+            $$c = $$el.checked ? true : false;
+          if (Array.isArray($$a)) {
+            var $$v = null,
+              $$i = _vm._i($$a, $$v);
+            if ($$el.checked) {
+              $$i < 0 && _vm.$set(check, "status", $$a.concat([$$v]));
+            } else {
+              $$i > -1 && _vm.$set(check, "status", $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+            }
+          } else {
+            _vm.$set(check, "status", $$c);
+          }
+        }, function ($event) {
+          return _vm.habilitarCheckList(check.id, check.status);
+        }]
+      }
+    })])]), _vm._v(" "), _c("td", [_c("button", {
+      staticClass: "btn btn-warning",
+      attrs: {
+        type: "button"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.openEditarModal(check);
+        }
+      }
+    }, [_c("i", {
+      staticClass: "bi bi-pencil-square"
+    })])])]);
+  }), 0)])]), _vm._v(" "), _c("EditCheckListModal", {
+    ref: "editarCheckListModal",
+    attrs: {
+      editChecklistProps: _vm.editChecklist
+    }
+  }), _vm._v(" "), _c("MatrizCheckListModal", {
+    ref: "matrizCheckListModal",
+    on: {
+      "listarMatrizChecklist-finalizada": _vm.listarMatrizChecklistFinalizada
+    }
+  }), _vm._v(" "), _c("ListaMatrizCheckListModal", {
+    ref: "listaMatrizCheckListModal",
+    attrs: {
+      matrizChecklistProps: _vm.matrizChecklist
+    }
+  })], 1);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("th", [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("th", [_vm._v("Marca")]), _vm._v(" "), _c("th", [_vm._v("Modelo")]), _vm._v(" "), _c("th", [_vm._v("Habilitar")]), _vm._v(" "), _c("th")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=24cc9881&scoped=true":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=24cc9881&scoped=true ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -16697,99 +17004,6 @@ var render = function render() {
       "matrizChecklist-finalizada": _vm.finalizarMatrizChecklist
     }
   }) : _vm._e()], 1)])]);
-};
-var staticRenderFns = [];
-render._withStripped = true;
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737 ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* binding */ render),
-/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _vm.mostrarObservacionesImagenes ? _c("CheckListObservacionImagenes", {
-    attrs: {
-      checklist_observaciones: _vm.checklist_observaciones,
-      verImagenesObservacionesProp: _vm.verImagenesObservaciones
-    },
-    on: {
-      "volver-checkListObservacion": _vm.volverCheckListObservacion
-    }
-  }) : _c("div", {
-    staticClass: "table-responsive"
-  }, [_c("table", {
-    staticClass: "table table-bordered text-center align-middle"
-  }, [_c("thead", [_c("tr", [_c("th", {
-    attrs: {
-      rowspan: "2"
-    }
-  }, [_vm._v("Categoria")]), _vm._v(" "), _c("th", {
-    attrs: {
-      colspan: "2"
-    }
-  }, [_vm._v("Existe")]), _vm._v(" "), _c("th", {
-    attrs: {
-      colspan: "3"
-    }
-  }, [_vm._v("Estado")]), _vm._v(" "), _c("th", {
-    attrs: {
-      rowspan: "2"
-    }
-  }, [_vm._v("Observacion")])]), _vm._v(" "), _c("tr", [_c("th", [_vm._v("SI")]), _vm._v(" "), _c("th", [_vm._v("NO")]), _vm._v(" "), _c("th", [_c("i", {
-    staticClass: "bi bi-emoji-laughing fs-4 text-success"
-  })]), _vm._v(" "), _c("th", [_c("i", {
-    staticClass: "bi bi-emoji-neutral fs-4 text-warning"
-  })]), _vm._v(" "), _c("th", [_c("i", {
-    staticClass: "bi bi-emoji-frown fs-4 text-danger"
-  })])])]), _vm._v(" "), _c("tbody", [_vm._l(_vm.verCheckListProps.categorias, function (categoria) {
-    return [categoria.intervenciones.length > 0 ? [_c("tr", {
-      staticClass: "table-active"
-    }, [_c("th", {
-      attrs: {
-        colspan: "7"
-      }
-    }, [_vm._v(_vm._s(categoria.nombre))])]), _vm._v(" "), _vm._l(categoria.intervenciones, function (intervencion, index) {
-      return _c("tr", {
-        key: intervencion.id + "_" + index
-      }, [_c("td", [_vm._v(_vm._s(intervencion.nombre))]), _vm._v(" "), _vm._l(intervencion.condiciones, function (condicion) {
-        return [condicion.existe === 1 ? _c("td", [_c("i", {
-          staticClass: "bi bi-check-lg fs-4"
-        })]) : _c("td"), _vm._v(" "), condicion.existe === 2 ? _c("td", [_c("i", {
-          staticClass: "bi bi-check-lg fs-4"
-        })]) : _c("td"), _vm._v(" "), condicion.estado === 1 ? _c("td", [_c("i", {
-          staticClass: "bi bi-check-lg fs-4"
-        })]) : _c("td"), _vm._v(" "), condicion.estado === 2 ? _c("td", [_c("i", {
-          staticClass: "bi bi-check-lg fs-4"
-        })]) : _c("td"), _vm._v(" "), condicion.estado === 3 ? _c("td", [_c("i", {
-          staticClass: "bi bi-check-lg fs-4"
-        })]) : _c("td"), _vm._v(" "), _c("td", [_c("button", {
-          staticClass: "btn btn-base-dv w-100",
-          attrs: {
-            type: "button"
-          },
-          on: {
-            click: function click($event) {
-              return _vm.verObservacionesImagenes(intervencion.observaciones);
-            }
-          }
-        }, [_c("i", {
-          staticClass: "bi bi-image-fill"
-        })])])];
-      })], 2);
-    })] : _vm._e()];
-  })], 2)])]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -24765,6 +24979,7 @@ vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('actividades-component', (
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('recurso-component', (__webpack_require__(/*! ./components/Recurso/IndexComponent.vue */ "./resources/js/components/Recurso/IndexComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('reporte-component', (__webpack_require__(/*! ./components/Reportes/ReporteComponent.vue */ "./resources/js/components/Reportes/ReporteComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('checklist-component', (__webpack_require__(/*! ./components/CheckList/CheckListComponent.vue */ "./resources/js/components/CheckList/CheckListComponent.vue")["default"]));
+vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('matriz-component', (__webpack_require__(/*! ./components/MatrizCheckList/MatrizCheckListComponent.vue */ "./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue")["default"]));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -25303,24 +25518,26 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               });
             case 5:
               response = _context7.sent;
+              // Log para inspeccionar la respuesta
+              console.log('Respuesta del servidor:', response.data);
               if (response.data.errors) {
                 _this7.errors = response.data.errors;
               }
               return _context7.abrupt("return", response.data);
-            case 10:
-              _context7.prev = 10;
+            case 11:
+              _context7.prev = 11;
               _context7.t0 = _context7["catch"](2);
               _this7.errors = 'Failed to load activo';
               console.error('Error actualizar activo:', _context7.t0);
-            case 14:
-              _context7.prev = 14;
+            case 15:
+              _context7.prev = 15;
               _this7.loading = false;
-              return _context7.finish(14);
-            case 17:
+              return _context7.finish(15);
+            case 18:
             case "end":
               return _context7.stop();
           }
-        }, _callee7, null, [[2, 10, 14, 17]]);
+        }, _callee7, null, [[2, 11, 15, 18]]);
       }))();
     }
   }
@@ -25569,6 +25786,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       loading_checklist_finish: false,
       loading_checklist_observacion: false,
       loading_checklist_delete_observacion: [],
+      loading_pdf: [],
       errors_checklist: null,
       errors_categoria_checklist: null,
       errors_intervencion_checklist: null,
@@ -25655,7 +25873,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/checklist/store_checklist', {
                 marca: data.marca,
                 modelo: data.modelo,
-                activo_id: data.activo_id,
+                tipo_activo_id: data.tipo_activo_id,
                 matriz_checklist_id: data.matriz_checklist_id
               });
             case 5:
@@ -26049,6 +26267,50 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               return _context13.stop();
           }
         }, _callee13, null, [[2, 10, 14, 17]]);
+      }))();
+    },
+    descargarPDF: function descargarPDF(checklist) {
+      var _this14 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
+        var response, url;
+        return _regeneratorRuntime().wrap(function _callee14$(_context14) {
+          while (1) switch (_context14.prev = _context14.next) {
+            case 0:
+              _this14.$set(_this14.loading_pdf, checklist.id, true);
+              _context14.prev = 1;
+              _context14.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_0___default()({
+                url: '/checklist/pdf',
+                // URL de la API
+                method: 'POST',
+                data: {
+                  checklist: checklist
+                },
+                responseType: 'blob' // Importante para recibir el archivo como Blob
+              });
+            case 4:
+              response = _context14.sent;
+              // Crear un objeto URL desde el Blob
+              url = window.URL.createObjectURL(response.data, {
+                type: 'application/pdf'
+              }); // Abrir el PDF en una nueva pestaña
+              window.open(url, '_blank');
+              _context14.next = 13;
+              break;
+            case 9:
+              _context14.prev = 9;
+              _context14.t0 = _context14["catch"](1);
+              _this14.errors_reporte = 'Failed to load checklist';
+              console.error('Error crear checklist:', _context14.t0);
+            case 13:
+              _context14.prev = 13;
+              _this14.$set(_this14.loading_pdf, checklist.id, false);
+              return _context14.finish(13);
+            case 16:
+            case "end":
+              return _context14.stop();
+          }
+        }, _callee14, null, [[1, 9, 13, 16]]);
       }))();
     }
   }
@@ -29197,6 +29459,76 @@ function formatRUT(rut) {
   // Formatear número
   var numeroFormateado = numero.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   return "".concat(numeroFormateado, "-").concat(digitoVerificador);
+}
+
+/***/ }),
+
+/***/ "./resources/js/utils/redimensionarImagen.js":
+/*!***************************************************!*\
+  !*** ./resources/js/utils/redimensionarImagen.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   redimensionarImagen: () => (/* binding */ redimensionarImagen)
+/* harmony export */ });
+function redimensionarImagen(file) {
+  var size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 400;
+  var quality = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0.8;
+  return new Promise(function (resolve, reject) {
+    var validTypes = ['image/jpeg', 'image/png'];
+    if (!validTypes.includes(file.type)) {
+      reject(new Error('Formato de archivo no válido. Debe ser JPG o PNG.'));
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      var img = new Image();
+      img.onload = function () {
+        // Crear canvas con dimensiones de 500x500
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = size;
+        canvas.height = size;
+
+        // Calcular el tamaño de la imagen escalada manteniendo la proporción
+        var scale = Math.min(size / img.width, size / img.height);
+        var scaledWidth = img.width * scale;
+        var scaledHeight = img.height * scale;
+
+        // Posicionar la imagen centrada en el canvas
+        var xOffset = (canvas.width - scaledWidth) / 2;
+        var yOffset = (canvas.height - scaledHeight) / 2;
+
+        // Rellenar fondo (blanco) y dibujar imagen escalada
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, xOffset, yOffset, scaledWidth, scaledHeight);
+
+        // Convertir canvas a Blob para reducir tamaño y calidad
+        canvas.toBlob(function (blob) {
+          if (blob) {
+            var resizedFile = new File([blob], file.name, {
+              type: file.type
+            });
+            resolve(resizedFile);
+          } else {
+            reject(new Error('Error al redimensionar la imagen.'));
+          }
+        }, file.type, quality);
+      };
+      img.onerror = function () {
+        return reject(new Error('Error al cargar la imagen.'));
+      };
+      img.src = e.target.result;
+    };
+    reader.onerror = function () {
+      return reject(new Error('Error al leer el archivo.'));
+    };
+    reader.readAsDataURL(file);
+  });
 }
 
 /***/ }),
@@ -33700,6 +34032,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@keyframes notyf-fadeinup{0%{opacity:0
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel[data-v-271442e8] {\r\n    height: auto;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css ***!
@@ -33772,10 +34128,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n.titulo-categoria[data-v-64f5eba9] {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -33789,7 +34145,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.titulo-categoria[data-v-74ede9af] {\r\n    margin-bottom: 0;\r\n    color: #6c757d;\r\n    white-space: nowrap;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.titulo-categoria[data-v-218dacd2] {\r\n    margin-bottom: 0;\r\n    color: #6c757d;\r\n    white-space: nowrap;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -51807,6 +52163,36 @@ var update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMP
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ImagenesActivoModal_vue_vue_type_style_index_0_id_271442e8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ImagenesActivoModal_vue_vue_type_style_index_0_id_271442e8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ImagenesActivoModal_vue_vue_type_style_index_0_id_271442e8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css ***!
@@ -51897,10 +52283,10 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -51910,7 +52296,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_style_index_0_id_74ede9af_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_style_index_0_id_218dacd2_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css");
 
             
 
@@ -51919,11 +52305,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_style_index_0_id_74ede9af_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_style_index_0_id_218dacd2_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_style_index_0_id_74ede9af_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_style_index_0_id_218dacd2_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -52483,15 +52869,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ImagenesActivoModal_vue_vue_type_template_id_271442e8_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ImagenesActivoModal.vue?vue&type=template&id=271442e8&scoped=true */ "./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=template&id=271442e8&scoped=true");
 /* harmony import */ var _ImagenesActivoModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ImagenesActivoModal.vue?vue&type=script&lang=js */ "./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _ImagenesActivoModal_vue_vue_type_style_index_0_id_271442e8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css */ "./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ImagenesActivoModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
   _ImagenesActivoModal_vue_vue_type_template_id_271442e8_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
   _ImagenesActivoModal_vue_vue_type_template_id_271442e8_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -53022,398 +53410,6 @@ component.options.__file = "resources/js/components/CheckList/EditarChecklist/Ed
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue":
-/*!***************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue ***!
-  \***************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_5c9e2128__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue?vue&type=template&id=5c9e2128 */ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=5c9e2128");
-/* harmony import */ var _CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_5c9e2128__WEBPACK_IMPORTED_MODULE_0__.render,
-  _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_5c9e2128__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue":
-/*!******************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue ***!
-  \******************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_eb7e7e22__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue?vue&type=template&id=eb7e7e22 */ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=eb7e7e22");
-/* harmony import */ var _CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_eb7e7e22__WEBPACK_IMPORTED_MODULE_0__.render,
-  _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_eb7e7e22__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue":
-/*!**************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue ***!
-  \**************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _EditCategoriaMatrizCheckList_vue_vue_type_template_id_7e9f6ed6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditCategoriaMatrizCheckList.vue?vue&type=template&id=7e9f6ed6 */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=7e9f6ed6");
-/* harmony import */ var _EditCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _EditCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _EditCategoriaMatrizCheckList_vue_vue_type_template_id_7e9f6ed6__WEBPACK_IMPORTED_MODULE_0__.render,
-  _EditCategoriaMatrizCheckList_vue_vue_type_template_id_7e9f6ed6__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue":
-/*!*****************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue ***!
-  \*****************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _EditIntervencionMatrizCheckList_vue_vue_type_template_id_212d29b4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditIntervencionMatrizCheckList.vue?vue&type=template&id=212d29b4 */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=212d29b4");
-/* harmony import */ var _EditIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _EditIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _EditIntervencionMatrizCheckList_vue_vue_type_template_id_212d29b4__WEBPACK_IMPORTED_MODULE_0__.render,
-  _EditIntervencionMatrizCheckList_vue_vue_type_template_id_212d29b4__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue ***!
-  \**********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _EditMatrizCheckListModal_vue_vue_type_template_id_74ede9af_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditMatrizCheckListModal.vue?vue&type=template&id=74ede9af&scoped=true */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=74ede9af&scoped=true");
-/* harmony import */ var _EditMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditMatrizCheckListModal.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js");
-/* harmony import */ var _EditMatrizCheckListModal_vue_vue_type_style_index_0_id_74ede9af_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css */ "./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-;
-
-
-/* normalize component */
-
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _EditMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _EditMatrizCheckListModal_vue_vue_type_template_id_74ede9af_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
-  _EditMatrizCheckListModal_vue_vue_type_template_id_74ede9af_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "74ede9af",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue ***!
-  \*********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_72a08d07_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue?vue&type=template&id=72a08d07&scoped=true */ "./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=72a08d07&scoped=true");
-/* harmony import */ var _CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_72a08d07_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
-  _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_72a08d07_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "72a08d07",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue ***!
-  \************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_52d30d18_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue?vue&type=template&id=52d30d18&scoped=true */ "./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=52d30d18&scoped=true");
-/* harmony import */ var _CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_52d30d18_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
-  _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_52d30d18_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "52d30d18",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue ***!
-  \************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _CrearMatrizCheckList_vue_vue_type_template_id_63f9cc9c_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearMatrizCheckList.vue?vue&type=template&id=63f9cc9c&scoped=true */ "./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=63f9cc9c&scoped=true");
-/* harmony import */ var _CrearMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _CrearMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CrearMatrizCheckList_vue_vue_type_template_id_63f9cc9c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
-  _CrearMatrizCheckList_vue_vue_type_template_id_63f9cc9c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "63f9cc9c",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue ***!
-  \*****************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _ListaMatrizCheckListModal_vue_vue_type_template_id_6a56f61d__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListaMatrizCheckListModal.vue?vue&type=template&id=6a56f61d */ "./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=6a56f61d");
-/* harmony import */ var _ListaMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListaMatrizCheckListModal.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ListaMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ListaMatrizCheckListModal_vue_vue_type_template_id_6a56f61d__WEBPACK_IMPORTED_MODULE_0__.render,
-  _ListaMatrizCheckListModal_vue_vue_type_template_id_6a56f61d__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue":
-/*!************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue ***!
-  \************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _MatrizCheckListModal_vue_vue_type_template_id_3f9e71ec_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MatrizCheckListModal.vue?vue&type=template&id=3f9e71ec&scoped=true */ "./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=3f9e71ec&scoped=true");
-/* harmony import */ var _MatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MatrizCheckListModal.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _MatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _MatrizCheckListModal_vue_vue_type_template_id_3f9e71ec_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
-  _MatrizCheckListModal_vue_vue_type_template_id_3f9e71ec_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "3f9e71ec",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
 /***/ "./resources/js/components/CheckList/VerCheckListCompletado.vue":
 /*!**********************************************************************!*\
   !*** ./resources/js/components/CheckList/VerCheckListCompletado.vue ***!
@@ -53449,6 +53445,437 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/CheckList/VerCheckListCompletado.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_a0391d20_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue?vue&type=template&id=a0391d20&scoped=true */ "./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=a0391d20&scoped=true");
+/* harmony import */ var _CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_a0391d20_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
+  _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_a0391d20_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "a0391d20",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_3c2e5f2a_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue?vue&type=template&id=3c2e5f2a&scoped=true */ "./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=3c2e5f2a&scoped=true");
+/* harmony import */ var _CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_3c2e5f2a_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
+  _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_3c2e5f2a_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "3c2e5f2a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CrearMatrizCheckList_vue_vue_type_template_id_aed4c3da_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearMatrizCheckList.vue?vue&type=template&id=aed4c3da&scoped=true */ "./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=aed4c3da&scoped=true");
+/* harmony import */ var _CrearMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CrearMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CrearMatrizCheckList_vue_vue_type_template_id_aed4c3da_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
+  _CrearMatrizCheckList_vue_vue_type_template_id_aed4c3da_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "aed4c3da",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue ***!
+  \*********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_2d2caa29__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue?vue&type=template&id=2d2caa29 */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=2d2caa29");
+/* harmony import */ var _CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_2d2caa29__WEBPACK_IMPORTED_MODULE_0__.render,
+  _CrearCategoriaMatrizCheckList_vue_vue_type_template_id_2d2caa29__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue ***!
+  \************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_e46e9ddc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue?vue&type=template&id=e46e9ddc */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=e46e9ddc");
+/* harmony import */ var _CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_e46e9ddc__WEBPACK_IMPORTED_MODULE_0__.render,
+  _CrearIntervencionMatrizCheckList_vue_vue_type_template_id_e46e9ddc__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue":
+/*!********************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue ***!
+  \********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditCategoriaMatrizCheckList_vue_vue_type_template_id_78b87b90__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditCategoriaMatrizCheckList.vue?vue&type=template&id=78b87b90 */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=78b87b90");
+/* harmony import */ var _EditCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditCategoriaMatrizCheckList_vue_vue_type_template_id_78b87b90__WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditCategoriaMatrizCheckList_vue_vue_type_template_id_78b87b90__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditIntervencionMatrizCheckList_vue_vue_type_template_id_5ae16aa3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditIntervencionMatrizCheckList.vue?vue&type=template&id=5ae16aa3 */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=5ae16aa3");
+/* harmony import */ var _EditIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EditIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditIntervencionMatrizCheckList_vue_vue_type_template_id_5ae16aa3__WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditIntervencionMatrizCheckList_vue_vue_type_template_id_5ae16aa3__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditMatrizCheckListModal_vue_vue_type_template_id_218dacd2_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditMatrizCheckListModal.vue?vue&type=template&id=218dacd2&scoped=true */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=218dacd2&scoped=true");
+/* harmony import */ var _EditMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditMatrizCheckListModal.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js");
+/* harmony import */ var _EditMatrizCheckListModal_vue_vue_type_style_index_0_id_218dacd2_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css */ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _EditMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EditMatrizCheckListModal_vue_vue_type_template_id_218dacd2_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
+  _EditMatrizCheckListModal_vue_vue_type_template_id_218dacd2_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "218dacd2",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ListaMatrizCheckListModal_vue_vue_type_template_id_3e867706__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListaMatrizCheckListModal.vue?vue&type=template&id=3e867706 */ "./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=3e867706");
+/* harmony import */ var _ListaMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListaMatrizCheckListModal.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ListaMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ListaMatrizCheckListModal_vue_vue_type_template_id_3e867706__WEBPACK_IMPORTED_MODULE_0__.render,
+  _ListaMatrizCheckListModal_vue_vue_type_template_id_3e867706__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MatrizCheckListComponent_vue_vue_type_template_id_b44a565e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MatrizCheckListComponent.vue?vue&type=template&id=b44a565e&scoped=true */ "./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=template&id=b44a565e&scoped=true");
+/* harmony import */ var _MatrizCheckListComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MatrizCheckListComponent.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MatrizCheckListComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MatrizCheckListComponent_vue_vue_type_template_id_b44a565e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
+  _MatrizCheckListComponent_vue_vue_type_template_id_b44a565e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "b44a565e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MatrizCheckListModal_vue_vue_type_template_id_24cc9881_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MatrizCheckListModal.vue?vue&type=template&id=24cc9881&scoped=true */ "./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=24cc9881&scoped=true");
+/* harmony import */ var _MatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MatrizCheckListModal.vue?vue&type=script&lang=js */ "./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MatrizCheckListModal_vue_vue_type_template_id_24cc9881_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
+  _MatrizCheckListModal_vue_vue_type_template_id_24cc9881_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "24cc9881",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/MatrizCheckList/MatrizCheckListModal.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -55413,166 +55840,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
-/*!***************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \***************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
-/*!******************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \******************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
-/*!**************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \**************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
-/*!*****************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \*****************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js":
-/*!**********************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js ***!
-  \**********************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditMatrizCheckListModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
-/*!*********************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \*********************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
-/*!************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js":
-/*!************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js ***!
-  \************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js":
-/*!*****************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js ***!
-  \*****************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaMatrizCheckListModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js":
-/*!************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js ***!
-  \************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MatrizCheckListModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
 /***/ "./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js":
 /*!**********************************************************************************************!*\
   !*** ./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js ***!
@@ -55586,6 +55853,182 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletado_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCheckListCompletado.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletado_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
+/*!*********************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \*********************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
+/*!************************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js":
+/*!********************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditMatrizCheckListModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaMatrizCheckListModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MatrizCheckListComponent.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MatrizCheckListModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -56601,176 +57044,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=5c9e2128":
-/*!*********************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=5c9e2128 ***!
-  \*********************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_5c9e2128__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_5c9e2128__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_5c9e2128__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearCategoriaMatrizCheckList.vue?vue&type=template&id=5c9e2128 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=5c9e2128");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=eb7e7e22":
-/*!************************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=eb7e7e22 ***!
-  \************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_eb7e7e22__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_eb7e7e22__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_eb7e7e22__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearIntervencionMatrizCheckList.vue?vue&type=template&id=eb7e7e22 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=eb7e7e22");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=7e9f6ed6":
-/*!********************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=7e9f6ed6 ***!
-  \********************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_template_id_7e9f6ed6__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_template_id_7e9f6ed6__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_template_id_7e9f6ed6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditCategoriaMatrizCheckList.vue?vue&type=template&id=7e9f6ed6 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=7e9f6ed6");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=212d29b4":
-/*!***********************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=212d29b4 ***!
-  \***********************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_template_id_212d29b4__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_template_id_212d29b4__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_template_id_212d29b4__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditIntervencionMatrizCheckList.vue?vue&type=template&id=212d29b4 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=212d29b4");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=74ede9af&scoped=true":
-/*!****************************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=74ede9af&scoped=true ***!
-  \****************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_template_id_74ede9af_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_template_id_74ede9af_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_template_id_74ede9af_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditMatrizCheckListModal.vue?vue&type=template&id=74ede9af&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=74ede9af&scoped=true");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=72a08d07&scoped=true":
-/*!***************************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=72a08d07&scoped=true ***!
-  \***************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_72a08d07_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_72a08d07_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_72a08d07_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearCategoriaMatrizCheckList.vue?vue&type=template&id=72a08d07&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=72a08d07&scoped=true");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=52d30d18&scoped=true":
-/*!******************************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=52d30d18&scoped=true ***!
-  \******************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_52d30d18_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_52d30d18_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_52d30d18_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearIntervencionMatrizCheckList.vue?vue&type=template&id=52d30d18&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=52d30d18&scoped=true");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=63f9cc9c&scoped=true":
-/*!******************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=63f9cc9c&scoped=true ***!
-  \******************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_template_id_63f9cc9c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_template_id_63f9cc9c_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_template_id_63f9cc9c_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearMatrizCheckList.vue?vue&type=template&id=63f9cc9c&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=63f9cc9c&scoped=true");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=6a56f61d":
-/*!***********************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=6a56f61d ***!
-  \***********************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_template_id_6a56f61d__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_template_id_6a56f61d__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_template_id_6a56f61d__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaMatrizCheckListModal.vue?vue&type=template&id=6a56f61d */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=6a56f61d");
-
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=3f9e71ec&scoped=true":
-/*!******************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=3f9e71ec&scoped=true ***!
-  \******************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_template_id_3f9e71ec_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_template_id_3f9e71ec_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_template_id_3f9e71ec_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MatrizCheckListModal.vue?vue&type=template&id=3f9e71ec&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=3f9e71ec&scoped=true");
-
-
-/***/ }),
-
 /***/ "./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737":
 /*!****************************************************************************************************!*\
   !*** ./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737 ***!
@@ -56784,6 +57057,193 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletado_vue_vue_type_template_id_495fb737__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletado_vue_vue_type_template_id_495fb737__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCheckListCompletado.vue?vue&type=template&id=495fb737 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=a0391d20&scoped=true":
+/*!*****************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=a0391d20&scoped=true ***!
+  \*****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_a0391d20_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_a0391d20_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_a0391d20_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearCategoriaMatrizCheckList.vue?vue&type=template&id=a0391d20&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=a0391d20&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=3c2e5f2a&scoped=true":
+/*!********************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=3c2e5f2a&scoped=true ***!
+  \********************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_3c2e5f2a_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_3c2e5f2a_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_3c2e5f2a_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearIntervencionMatrizCheckList.vue?vue&type=template&id=3c2e5f2a&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=3c2e5f2a&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=aed4c3da&scoped=true":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=aed4c3da&scoped=true ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_template_id_aed4c3da_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_template_id_aed4c3da_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearMatrizCheckList_vue_vue_type_template_id_aed4c3da_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearMatrizCheckList.vue?vue&type=template&id=aed4c3da&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/CrearMatrizCheckList.vue?vue&type=template&id=aed4c3da&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=2d2caa29":
+/*!***************************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=2d2caa29 ***!
+  \***************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_2d2caa29__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_2d2caa29__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearCategoriaMatrizCheckList_vue_vue_type_template_id_2d2caa29__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearCategoriaMatrizCheckList.vue?vue&type=template&id=2d2caa29 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearCategoriaMatrizCheckList.vue?vue&type=template&id=2d2caa29");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=e46e9ddc":
+/*!******************************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=e46e9ddc ***!
+  \******************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_e46e9ddc__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_e46e9ddc__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CrearIntervencionMatrizCheckList_vue_vue_type_template_id_e46e9ddc__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CrearIntervencionMatrizCheckList.vue?vue&type=template&id=e46e9ddc */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/CrearIntervencionMatrizCheckList.vue?vue&type=template&id=e46e9ddc");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=78b87b90":
+/*!**************************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=78b87b90 ***!
+  \**************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_template_id_78b87b90__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_template_id_78b87b90__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCategoriaMatrizCheckList_vue_vue_type_template_id_78b87b90__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditCategoriaMatrizCheckList.vue?vue&type=template&id=78b87b90 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditCategoriaMatrizCheckList.vue?vue&type=template&id=78b87b90");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=5ae16aa3":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=5ae16aa3 ***!
+  \*****************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_template_id_5ae16aa3__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_template_id_5ae16aa3__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditIntervencionMatrizCheckList_vue_vue_type_template_id_5ae16aa3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditIntervencionMatrizCheckList.vue?vue&type=template&id=5ae16aa3 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditIntervencionMatrizCheckList.vue?vue&type=template&id=5ae16aa3");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=218dacd2&scoped=true":
+/*!**********************************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=218dacd2&scoped=true ***!
+  \**********************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_template_id_218dacd2_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_template_id_218dacd2_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_template_id_218dacd2_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditMatrizCheckListModal.vue?vue&type=template&id=218dacd2&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=template&id=218dacd2&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=3e867706":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=3e867706 ***!
+  \*************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_template_id_3e867706__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_template_id_3e867706__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaMatrizCheckListModal_vue_vue_type_template_id_3e867706__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ListaMatrizCheckListModal.vue?vue&type=template&id=3e867706 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/ListaMatrizCheckListModal.vue?vue&type=template&id=3e867706");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=template&id=b44a565e&scoped=true":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=template&id=b44a565e&scoped=true ***!
+  \************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListComponent_vue_vue_type_template_id_b44a565e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListComponent_vue_vue_type_template_id_b44a565e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListComponent_vue_vue_type_template_id_b44a565e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MatrizCheckListComponent.vue?vue&type=template&id=b44a565e&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListComponent.vue?vue&type=template&id=b44a565e&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=24cc9881&scoped=true":
+/*!********************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=24cc9881&scoped=true ***!
+  \********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_template_id_24cc9881_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_template_id_24cc9881_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_MatrizCheckListModal_vue_vue_type_template_id_24cc9881_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MatrizCheckListModal.vue?vue&type=template&id=24cc9881&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/MatrizCheckListModal.vue?vue&type=template&id=24cc9881&scoped=true");
 
 
 /***/ }),
@@ -57502,6 +57962,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css ***!
+  \************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ImagenesActivoModal_vue_vue_type_style_index_0_id_271442e8_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Activo/ImagenesActivoModal.vue?vue&type=style&index=0&id=271442e8&scoped=true&lang=css");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css":
 /*!************************************************************************************************************************!*\
   !*** ./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css ***!
@@ -57541,15 +58014,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css":
-/*!******************************************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css ***!
-  \******************************************************************************************************************************************************/
+/***/ "./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css":
+/*!************************************************************************************************************************************************************!*\
+  !*** ./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css ***!
+  \************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_style_index_0_id_74ede9af_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=74ede9af&scoped=true&lang=css");
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditMatrizCheckListModal_vue_vue_type_style_index_0_id_218dacd2_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MatrizCheckList/EditarMatrizChecklist/EditMatrizCheckListModal.vue?vue&type=style&index=0&id=218dacd2&scoped=true&lang=css");
 
 
 /***/ }),

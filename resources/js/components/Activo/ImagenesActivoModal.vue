@@ -13,8 +13,8 @@
                         <div class="mb-3">
                             <label for="activoMarca" class="form-label">Imagenes</label>
                             <div class="input-group">
-                                <input type="file" class="form-control" id="formFile" @change="handleFileChange"
-                                    multiple accept=".png, .jpeg, .jpg"
+                                <input type="file" name="imagenes[]" class="form-control" id="formFile"
+                                    @change="handleFileChange" multiple accept=".png, .jpeg, .jpg"
                                     :class="errors ? errors.imagenes ? 'is-invalid' : '' : ''" aria-label="file example"
                                     required>
                                 <button type="submit" class="btn btn-base-dv"
@@ -28,11 +28,12 @@
                             </template>
                         </div>
 
-                        <div v-if="imagenes.length > 0" id="carouselImagenesControls" class="carousel slide" data-bs-ride="carousel">
+                        <div v-if="imagenes.length > 0" id="carouselImagenesControls" class="carousel slide"
+                            data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <template v-for="(imagen, index) in imagenes">
                                     <div class="carousel-item" :class="{ 'active': index === 0 }">
-                                        <img :src="formatImage(imagen.ruta)" class="d-block w-100" :alt="imagen.ruta">
+                                        <img :src="formatImage(imagen.ruta)" class="d-block mx-auto" :alt="imagen.ruta">
                                     </div>
                                 </template>
                             </div>
@@ -58,6 +59,7 @@
 import { Modal } from 'bootstrap';
 import activoMixin from '../../mixins/activo/activoMixin';
 import { formatImage } from '../../utils/formatImage';
+import { redimensionarImagen } from '../../utils/redimensionarImagen';
 
 export default {
     mixins: [activoMixin],
@@ -95,31 +97,54 @@ export default {
             const modal = Modal.getInstance(modalElement);
             if (modal) modal.hide();
         },
-        handleFileChange(event) {
-            this.editImagenesActivo.imagenes = Array.from(event.target.files);
+
+        async handleFileChange(event) {
+            const files = Array.from(event.target.files);
+            this.editImagenesActivo.imagenes = [];
+            this.errors = null;
+
+            try {
+                const resizedImages = await Promise.all(files.map(file => this.redimensionarImagen(file)));
+                this.editImagenesActivo.imagenes = resizedImages;
+            } catch (error) {
+                this.errors = { imagenes: [error.message] };
+                console.error('Error al procesar archivos:', error);
+            }
         },
 
         async editarImagenes() {
-
             const formData = new FormData();
             formData.append('activo_id', this.activo.id);
 
-            if (this.editImagenesActivo.imagenes) {
-                this.editImagenesActivo.imagenes.forEach((file, index) => {
-                    formData.append(`imagenes[${index}]`, file);
+            if (this.editImagenesActivo.imagenes.length > 0) {
+                this.editImagenesActivo.imagenes.forEach(file => {
+                    formData.append('imagenes[]', file);
                 });
+            } else {
+                this.errors = { imagenes: ['No se han seleccionado imágenes.'] };
+                return;
             }
+
             const response = await this.actualizarImagenesActivo(formData);
 
-            if (this.errors === null) {
+            if (response && response.errors) {
+                this.errors = response.errors;
+            } else {
                 this.$notyf.success(response.message);
+                this.editImagenesActivo.imagenes = [];
+                document.getElementById('formFile').value = null;
                 this.$emit('activo-updated');
                 this.close();
             }
         },
-        formatImage
+        formatImage,
+        redimensionarImagen
     }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.carousel {
+    height: auto;
+}
+</style>

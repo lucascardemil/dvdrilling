@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use App\Models\Activo;
 use App\Models\ActivoImagen;
+use Illuminate\Support\Facades\Log;
 
 class ActivosController extends Controller
 {
@@ -172,24 +173,30 @@ class ActivosController extends Controller
     {
         // Validar los archivos subidos
         $request->validate([
-            'imagenes.*' => 'required|file|mimes:jpg,jpeg,png|max:2048',
+            'activo_id' => 'required|integer',
+            'imagenes' => 'required|array',
+            'imagenes.*' => 'file|mimes:jpg,jpeg,png|max:2048', // Ajusta el tamaño máximo según sea necesario
         ]);
 
         $images = $request->file('imagenes');
+
         $savedImages = [];
 
-        foreach ($images as $image) {
-            // Guardar en 'storage/app/imagenes'
-            $path = $image->store('public/imagenes', 'local');
+        if ($request->hasFile('imagenes')) {
+            foreach ($images as $image) {
 
-            // Crear un registro en la base de datos
-            $activoImagen = ActivoImagen::create([
-                'ruta' => $path,
-                'status' => 0,
-                'activo_id' => $request->activo_id,
-            ]);
+                $path = $image->store('public/imagenes', 'local');
 
-            $savedImages[] = $activoImagen;
+                $activoImagen = ActivoImagen::create([
+                    'ruta' => $path,
+                    'status' => 0,
+                    'activo_id' => $request->activo_id,
+                ]);
+
+                $savedImages[] = $activoImagen;
+            }
+        } else {
+            return response()->json(['errors' => ['imagenes' => ['No se recibieron imágenes.']]], 422);
         }
 
         return response()->json([
