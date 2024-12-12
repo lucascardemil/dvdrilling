@@ -134,6 +134,12 @@ body {
   background-color: rgba(0, 0, 0, 0.075) !important;
 }
 
+@media (min-width: 1024px) {
+  .modal-reporte {
+    left: 430px !important;
+    width: 70% !important;
+  }
+}
 html {
   height: 100%;
 }

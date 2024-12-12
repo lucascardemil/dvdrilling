@@ -1,6 +1,6 @@
 <template>
-    <div class="modal fade" id="aditivoModal" tabindex="-1" aria-labelledby="aditivoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-reporte modal fade" id="aditivoModal" tabindex="-1" aria-labelledby="aditivoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="aditivoModalLabel">Control De Aditivos</h5>
@@ -15,10 +15,21 @@
                         </div>
                     </div>
                     <div class="row" v-else>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-12">
                             <div class="card shadow mb-3">
                                 <div class="card-body">
                                     <form @submit.prevent="crearAditivos">
+                                        <div class="mb-3">
+                                            <label for="aditivoTipoPeso" class="form-label">Tipo de Peso</label>
+                                            <select class="form-select" aria-label="Seleccione el tipo de peso"
+                                                id="aditivoTipoPeso" v-model="newAditivo.tipo_peso"
+                                                :class="errors_aditivos ? errors_aditivos.tipo_peso ? 'is-invalid' : '' : ''"
+                                                required>
+                                                <option :value="null" disabled>Seleccione el tipo de peso</option>
+                                                <option value="KG">KG</option>
+                                                <option value="LT">LT</option>
+                                            </select>
+                                        </div>
                                         <div class="mb-3">
                                             <label for="aditivoCantidad" class="form-label">Cantidad</label>
                                             <input type="number" min="0" class="form-control" id="aditivoCantidad"
@@ -44,14 +55,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8">
-                            <div v-if="!habilitarEliminar">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="table-responsive" v-if="!habilitarEliminar">
                                 <table class="table">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Cantidad</th>
                                             <th scope="col">Detalle</th>
+                                            <th scope="col">Tipo de Peso</th>
                                             <th scope="col"></th>
                                         </tr>
                                     </thead>
@@ -60,6 +72,7 @@
                                             <th scope="row">{{ aditivo.id }}</th>
                                             <td>{{ aditivo.cantidad }}</td>
                                             <td>{{ aditivo.detalle }}</td>
+                                            <td>{{ aditivo.tipo_peso }}</td>
                                             <td class="text-end">
                                                 <button type="button" class="btn btn-primary"
                                                     @click="openEditarAditivo(aditivo)"><i
@@ -72,7 +85,7 @@
                                     </tbody>
                                 </table>
                                 <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas"
-            @cambiar-pagina="cambiarPagina" @cambiar-pagina-actual="cambiarPaginaActual"/>
+                                    @cambiar-pagina="cambiarPagina" @cambiar-pagina-actual="cambiarPaginaActual" />
                             </div>
                             <EliminarAditivo :data="eliminarAditivo" @confirmado-eliminar="confirmadoEliminarAditivo"
                                 @cancelar-eliminar="cancelarEliminarAditivo" v-else></EliminarAditivo>
@@ -106,7 +119,8 @@ export default {
             newAditivo: {
                 reporte_id: 0,
                 detalle: '',
-                cantidad: 0
+                cantidad: 0,
+                tipo_peso: null
             },
             editAditivos: {},
             existeInicio: false,
@@ -139,7 +153,7 @@ export default {
         },
     },
     methods: {
-        cambiarPaginaActual(newPage){
+        cambiarPaginaActual(newPage) {
             this.paginaActual = newPage;
         },
         cambiarPagina(newPage) {
@@ -151,7 +165,8 @@ export default {
                 id: aditivo.id,
                 reporte_id: aditivo.reporte_id,
                 detalle: aditivo.detalle,
-                cantidad: aditivo.cantidad
+                cantidad: aditivo.cantidad,
+                tipo_peso: aditivo.tipo_peso
             }
         },
         openElimninarCoronaEscareador(aditivo) {
@@ -186,6 +201,7 @@ export default {
         resetForm() {
             this.newAditivo.detalle = '';
             this.newAditivo.cantidad = 0;
+            this.newAditivo.tipo_peso = null;
             this.errors_aditivos = null;
             this.habilitarEliminar = false;
             this.habilitarEditar = false;
@@ -197,6 +213,7 @@ export default {
                     if (aditivo.id === aditivos.id) {
                         aditivo.detalle = aditivos.detalle;
                         aditivo.cantidad = aditivos.cantidad;
+                        aditivo.tipo_peso = aditivos.tipo_peso;
                     }
                     this.resetForm();
                 });

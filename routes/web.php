@@ -165,7 +165,6 @@ Route::group(['middleware' => ['auth', 'permission:checklist']], function () {
     Route::put('/checklist/update_checklist/{id}', [App\Http\Controllers\ChecklistController::class, 'update']);
     Route::put('/checklist/update-status/{id}', [App\Http\Controllers\ChecklistController::class, 'update_status']);
     Route::post('/checklist/store_completarChecklist', [App\Http\Controllers\ChecklistController::class, 'store_completar_checklist']);
-
     Route::post('/checklist/store_categoriaChecklist', [App\Http\Controllers\ChecklistCategoriaController::class, 'store']);
     Route::put('/checklist/update_categoriaChecklist/{id}', [App\Http\Controllers\ChecklistCategoriaController::class, 'update']);
     Route::delete('/checklist/delete_categoriaChecklist/{id}', [App\Http\Controllers\ChecklistCategoriaController::class, 'delete']);
@@ -179,6 +178,8 @@ Route::group(['middleware' => ['auth', 'permission:checklist']], function () {
     Route::delete('/checklist/delete_observacionChecklist/{id}', [App\Http\Controllers\ChecklistObservacionController::class, 'delete']);
 
     Route::post('/checklist/pdf', [App\Http\Controllers\PdfController::class, 'generarPdfChecklist']);
+
+    Route::get('/checklistvehiculos/all', [App\Http\Controllers\ChecklistVehiculoController::class, 'all']);
 });
 
 Route::group(['middleware' => ['auth', 'permission:usuarios']], function () {

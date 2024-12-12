@@ -10,6 +10,9 @@ use App\Models\Checklist;
 use App\Models\ChecklistCategoria;
 use App\Models\ChecklistIntervencion;
 use App\Models\ChecklistCondicion;
+use App\Models\ChecklistVehiculo;
+use App\Models\ChecklistVehiculoDetalle;
+use App\Models\ChecklistObservacion;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -40,7 +43,7 @@ class ChecklistController extends Controller
         $rol = $user->getRoleNames()->first(); // Asumiendo que usas spatie/laravel-permission
 
         // Definir las relaciones a cargar con 'with'
-        $relations = ['tipoactivo', 'matriz', 'categorias.intervenciones.condiciones', 'categorias.intervenciones.observaciones.imagenes'];
+        $relations = ['tipoactivo', 'matriz', 'categorias.intervenciones.condiciones.imagenes', 'vehiculos.detalles'];
 
         // Si el rol es 'usuario', filtrar por el user_id
         if ($rol === 'usuario') {
@@ -52,6 +55,7 @@ class ChecklistController extends Controller
         $reportes = Checklist::with($relations)->get();
         return response()->json($reportes);
     }
+
 
     public function store(Request $request)
     {
@@ -130,35 +134,144 @@ class ChecklistController extends Controller
 
     public function store_completar_checklist(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'patente' => 'required|string|max:255',
+            'conductor' => 'required|string|max:255',
+            'numero_interno' => 'required|string|max:255',
+            'proyecto' => 'required|string|max:255',
+            'faena' => 'required|string|max:255',
+            'turno' => 'required|string|max:255',
+            'observacion_bitacora' => 'required|string|max:255',
+            'carga_combustible' => 'required|integer',
+            'estado_equipo' => 'required|integer',
+            'checklist_id' => 'required|integer',
+            'kilometraje_inicial' => 'nullable|integer',
+            'kilometraje_final' => 'nullable|integer',
+            'horometro_inicial' => 'nullable|integer',
+            'horometro_final' => 'nullable|integer',
+        ]);
+
+        $checkslist = json_decode($request['checkslist'], true);
+        $errores = $this->validarCheckslist($checkslist);
+
+        if (!empty($errores) || $validator->fails()) {
+            return response()->json(['errors_checks' => $errores, 'errors' => $validator->errors()], 201);
+        }
+
+        $checklistVehiculo = $this->obtenerOcrearChecklistVehiculo($request);
+        $checklistVehiculoDetalle = $this->crearDetalleChecklist($checklistVehiculo->id, $request);
+
+        $this->guardarImagenVehiculo($checklistVehiculoDetalle, $request->file('imagen_combustible'));
+
+        $checklistCondicion = $this->crearChecklistCondiciones($checkslist, $checklistVehiculo->id, $checklistVehiculoDetalle->id);
+
+        if ($request['observaciones']) {
+            $this->crearChecklistObservaciones($checklistCondicion, $request['observaciones']);
+        }
+
+        return response()->json([
+            'message' => 'La Checklist se completó correctamente.',
+            'checklistCondicion' => $checklistCondicion,
+        ], 201);
+    }
+
+    // Función para validar checkslist
+    private function validarCheckslist(array $checkslist)
+    {
         $errores = [];
-        $checklistCondicion = [];
-
-        foreach ($request['checkslist'] as $checklist) {
-
-            if ($checklist['existe'] == null || $checklist['estado'] == null) {
-                $errores[] = ['categoria' => $checklist['categoria'], 'intervencion' => $checklist['intervencion'], 'existe' => $checklist['existe'], 'estado' => $checklist['estado']];
-            } else {
-                $checklistCondicion[] = ChecklistCondicion::updateOrCreate([
-                    'checklist_intervencion_id' => $checklist['intervencion_id'],
-                ], [
+        foreach ($checkslist as $checklist) {
+            if (is_null($checklist['existe']) || ($checklist['existe'] === 1 && is_null($checklist['estado']))) {
+                $errores[] = [
+                    'categoria' => $checklist['categoria'],
+                    'intervencion' => $checklist['intervencion'],
                     'existe' => $checklist['existe'],
                     'estado' => $checklist['estado'],
-                    'status' => 1
-                ]);
+                ];
             }
         }
+        return $errores;
+    }
 
-        if (!empty($errores)) {
-            return response()->json(['errors' => $errores], 201);
+    // Función para obtener o crear un ChecklistVehiculo
+    private function obtenerOcrearChecklistVehiculo(Request $request)
+    {
+        return ChecklistVehiculo::firstOrCreate(
+            ['patente' => $request['patente']],
+            ['checklist_id' => $request['checklist_id'], 'status' => 1]
+        );
+    }
+
+    // Función para crear el detalle del checklist
+    private function crearDetalleChecklist($checklistVehiculoId, Request $request)
+    {
+        return ChecklistVehiculoDetalle::create([
+            'checklist_vehiculo_id' => $checklistVehiculoId,
+            'status' => 1,
+            'patente' => $request['patente'],
+            'conductor' => $request['conductor'],
+            'kilometraje_inicial' => $request['kilometraje_inicial'],
+            'kilometraje_final' => $request['kilometraje_final'],
+            'horometro_inicial' => $request['horometro_inicial'],
+            'horometro_final' => $request['horometro_final'],
+            'numero_interno' => $request['numero_interno'],
+            'proyecto' => $request['proyecto'],
+            'faena' => $request['faena'],
+            'turno' => $request['turno'],
+            'litros' => $request['litros'],
+            'observacion_bitacora' => $request['observacion_bitacora'],
+            'carga_combustible' => $request['carga_combustible'],
+            'estado_equipo' => $request['estado_equipo'],
+        ]);
+    }
+
+    // Función para guardar la imagen vehiculos
+    private function guardarImagenVehiculo($checklistVehiculoDetalle, $imagen)
+    {
+        if ($imagen) {
+            $path = $imagen->store('public/checklist');
+            $checklistVehiculoDetalle->update(['imagen_combustible' => $path]);
         }
+    }
 
-        if (!empty($checklistCondicion)) {
-            $checklist = Checklist::findOrFail($request['checklist_id']);
-            $checklist->update([
-                'status' => 0
+    // Función para crear condiciones del checklist
+    private function crearChecklistCondiciones(array $checkslist, $checklistVehiculoId, $checklistVehiculoDetalleId)
+    {
+        $condiciones = [];
+        foreach ($checkslist as $checklist) {
+            $condiciones[] = ChecklistCondicion::create([
+                'checklist_vehiculo_id' => $checklistVehiculoId,
+                'checklist_vehiculo_detalle_id' => $checklistVehiculoDetalleId,
+                'checklist_intervencion_id' => $checklist['intervencion_id'],
+                'existe' => $checklist['existe'],
+                'estado' => $checklist['estado'],
+                'status' => 1,
             ]);
         }
+        return $condiciones;
+    }
 
-        return response()->json(['message' => 'La Checklist se completó correctamente', 'checklistCondicion' => $checklistCondicion], 201);
+    // Función para crear observaciones del checklist
+    private function crearChecklistObservaciones(array $condiciones, $observaciones)
+    {
+        foreach ($condiciones as $condicion) {
+
+            foreach ($observaciones as $observacion) {
+                $imagenPath = null;
+                $observacionTexto = $observacion['observacion'];
+
+                if ($observacion['checklist_intervencion_id'] == $condicion['checklist_intervencion_id']) {
+                    if (isset($observacion['imagen_observacion']) && $observacion['imagen_observacion'] instanceof \Illuminate\Http\UploadedFile) {
+                        $path = $observacion['imagen_observacion']->store('public/observaciones');
+                        $imagenPath = $path;
+                    }
+
+                    ChecklistObservacion::create([
+                        'observacion' => $observacionTexto,
+                        'checklist_condicion_id' => $condicion['id'],
+                        'imagen' => $imagenPath
+                    ]);
+                }
+            }
+        }
     }
 }

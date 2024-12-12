@@ -25,7 +25,7 @@ class Reporte extends Model
         'desde',
         'hasta',
         'total',
-        'metros',
+        'adicional',
         'inclinacion',
         'rumbo',
         'programa',

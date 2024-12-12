@@ -5,6 +5,7 @@ export default {
         return {
             editChecklist: null,
             completarChecklist: null,
+            verCheckListCompletadoChecklist: null,
             checklist: [],
             loading_intervenciones: false,
             loading_checklist: false,
@@ -19,7 +20,7 @@ export default {
             errors_categoria_checklist: null,
             errors_intervencion_checklist: null,
             errors_finalizar_checklist: null,
-            errors_observacion_checklist: null,
+            errors_observacion_checklist: null
         };
     },
     methods: {
@@ -129,7 +130,7 @@ export default {
             }
         },
 
-        async createObservacionChecklist(data){
+        async createObservacionChecklist(data) {
             this.loading_checklist_observacion = true;
             this.errors_observacion_checklist = null;
             try {
@@ -259,7 +260,7 @@ export default {
             }
         },
 
-        async eliminarObservacionChecklist(id){
+        async eliminarObservacionChecklist(id) {
             this.$set(this.loading_checklist_delete_observacion, id, true);
             this.errors_observacion_checklist = null;
             try {
@@ -275,22 +276,24 @@ export default {
                 this.errors_observacion_checklist = 'Failed to load checklist';
                 console.error('Error actualizar checklist:', error);
             } finally {
-                this.$set(this.loading_checklist_delete_observacion, id, false); 
+                this.$set(this.loading_checklist_delete_observacion, id, false);
             }
         },
 
-        async finalizarChecklist(checkslist, checklist_id) {
+        async finalizarChecklist(data) {
             this.loading_checklist_finish = true;
             this.errors_finalizar_checklist = null;
             try {
-                const response = await axios.post('/checklist/store_completarChecklist', {
-                    checkslist: checkslist,
-                    checklist_id: checklist_id
+
+                const response = await axios.post('/checklist/store_completarChecklist', data, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
                 });
 
                 // Verifica si la respuesta tiene errores de validación
-                if (response.data.errors) {
-                    this.errors_finalizar_checklist = response.data.errors;
+                if (response.data.errors || response.data.errors_checks) {
+                    this.errors_finalizar_checklist = { 'errors': response.data.errors, 'errors_checks': response.data.errors_checks };
                 }
 
                 // Maneja la respuesta exitosa, si es necesario
@@ -304,27 +307,24 @@ export default {
             }
         },
 
-        async descargarPDF(checklist) {
-            this.$set(this.loading_pdf, checklist.id, true);
+        async descargarPDF(checklist, check_id, check_vehiculo_id, check_vehiculo_detalle_id) {
+            this.$set(this.loading_pdf, check_vehiculo_detalle_id, true);
             try {
                 const response = await axios({
-                    url: '/checklist/pdf',  // URL de la API
+                    url: '/checklist/pdf', 
                     method: 'POST',
-                    data: { checklist },
-                    responseType: 'blob'  // Importante para recibir el archivo como Blob
+                    data: { checklist: checklist, check_id: check_id, check_list_vehiculo_id: check_vehiculo_id, check_list_vehiculo_detalle_id: check_vehiculo_detalle_id },
+                    responseType: 'blob'  
                 });
 
-                // Crear un objeto URL desde el Blob
                 const url = window.URL.createObjectURL(response.data, { type: 'application/pdf' });
-
-                // Abrir el PDF en una nueva pestaña
                 window.open(url, '_blank');
 
             } catch (error) {
                 this.errors_reporte = 'Failed to load checklist';
                 console.error('Error crear checklist:', error);
             } finally {
-                this.$set(this.loading_pdf, checklist.id, false);
+                this.$set(this.loading_pdf, check_vehiculo_detalle_id, false);
             }
         },
     }

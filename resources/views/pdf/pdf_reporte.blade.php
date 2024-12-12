@@ -168,9 +168,6 @@
             <td>
                 <label class="texto">TOTAL: <small>{{ $total }}</small></label>
             </td>
-            <td>
-                <label class="texto">MTS: <small>{{ $metros }}</small></label>
-            </td>
         </tr>
         <tr>
             <td>
@@ -183,7 +180,7 @@
                 <label class="texto">PROGRAMA: <small>{{ $programa }}</small></label>
             </td>
             <td>
-                <label class="texto">MTS: <small>{{ $metros }}</small></label>
+                <label class="texto">ADICIONAL: <small>{{ $adicional }}</small></label>
             </td>
             <td>
                 <label class="texto">DIAMETRO: <small>{{ $diametro }}</small></label>

@@ -29,6 +29,7 @@ class AditivoController extends Controller
             'reporte_id' => 'required|exists:reportes,id',
             'cantidad' => 'required|not_in:0',
             'detalle' => 'required|string|max:255',
+            'tipo_peso' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -40,7 +41,8 @@ class AditivoController extends Controller
             'reporte_id' => $request->reporte_id,
             'cantidad' => $request->cantidad,
             'detalle' => $request->detalle,
-            'status' => 1
+            'status' => 1,
+            'tipo_peso' => $request->tipo_peso,
         ]);
 
         return response()->json(['message' => 'Creado exitosamente', 'aditivo' => $aditivo], 201);
@@ -52,6 +54,7 @@ class AditivoController extends Controller
         $validator = Validator::make($request->all(), [
             'cantidad' => 'required|not_in:0',
             'detalle' => 'required|string|max:255',
+            'tipo_peso' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -61,7 +64,8 @@ class AditivoController extends Controller
         $aditivo = Aditivo::findOrFail($id);
         $aditivo->update([
             'detalle' => $request->detalle,
-            'cantidad' => $request->cantidad
+            'cantidad' => $request->cantidad,
+            'tipo_peso' => $request->tipo_peso,
         ]);
 
         $updatedAditivo = Aditivo::where('id', '=', $aditivo['id'])->first();

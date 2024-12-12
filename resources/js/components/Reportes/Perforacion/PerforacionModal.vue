@@ -1,7 +1,7 @@
 <template>
-    <div class="modal fade" id="perforacionesModal" tabindex="-1" aria-labelledby="perforacionModalLabel"
+    <div class="modal-reporte modal fade" id="perforacionesModal" tabindex="-1" aria-labelledby="perforacionModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="perforacionModalLabel">Perforacion En Roca</h5>
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="row" v-else>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-12">
                             <div class="card shadow mb-3">
                                 <div class="card-body">
                                     <form @submit.prevent="crearPerforaciones">
@@ -79,39 +79,41 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8">
+                        <div class="col-lg-8 col-md-12">
                             <div v-if="!habilitarEliminar">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Desde</th>
-                                            <th scope="col">Hasta</th>
-                                            <th scope="col">Perforado</th>
-                                            <th scope="col">Recuperado</th>
-                                            <th scope="col">Porcentaje</th>
-                                            <th scope="col">N° Cajas</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for="perforacion in ListaPerforaciones" :key="perforacion.id">
-                                            <td>{{ perforacion.desde }}</td>
-                                            <td>{{ perforacion.hasta }}</td>
-                                            <td>{{ perforacion.perforado }}</td>
-                                            <td>{{ perforacion.recuperado }}</td>
-                                            <td>{{ perforacion.porcentaje }}%</td>
-                                            <td>{{ perforacion.numero_cajas }}</td>
-                                            <td class="text-end">
-                                                <button type="button" class="btn btn-primary"
-                                                    @click="openEditarPerforacion(perforacion)"><i
-                                                        class="bi bi-pencil-square"></i></button>
-                                                <button type="button" class="btn btn-danger"
-                                                    @click="openElimninarPerforacion(perforacion)"><i
-                                                        class="bi bi-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Desde</th>
+                                                <th scope="col">Hasta</th>
+                                                <th scope="col">Perforado</th>
+                                                <th scope="col">Recuperado</th>
+                                                <th scope="col">Porcentaje</th>
+                                                <th scope="col">N° Cajas</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="perforacion in ListaPerforaciones" :key="perforacion.id">
+                                                <td>{{ perforacion.desde }}</td>
+                                                <td>{{ perforacion.hasta }}</td>
+                                                <td>{{ perforacion.perforado }}</td>
+                                                <td>{{ perforacion.recuperado }}</td>
+                                                <td>{{ perforacion.porcentaje }}%</td>
+                                                <td>{{ perforacion.numero_cajas }}</td>
+                                                <td class="text-end">
+                                                    <button type="button" class="btn btn-primary"
+                                                        @click="openEditarPerforacion(perforacion)"><i
+                                                            class="bi bi-pencil-square"></i></button>
+                                                    <button type="button" class="btn btn-danger"
+                                                        @click="openElimninarPerforacion(perforacion)"><i
+                                                            class="bi bi-trash"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas"
                                     @cambiar-pagina="cambiarPagina" @cambiar-pagina-actual="cambiarPaginaActual" />
                             </div>
@@ -225,7 +227,7 @@ export default {
                 this.paginaActual--;
             }
 
-            if(this.perforaciones.length === 0){
+            if (this.perforaciones.length === 0) {
                 this.newPerforaciones.desde = 0;
                 this.existeDesde = false;
                 this.errors_perforaciones = null;

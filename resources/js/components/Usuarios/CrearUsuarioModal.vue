@@ -82,8 +82,16 @@ export default {
             if (this.errors === null) {
                 this.$notyf.success(response.message);
                 this.$emit('usuario-updated');
+                this.limpiarForm();
                 this.close();
             }
+        },
+
+        limpiarForm() {
+            this.newUsuario.name = '';
+            this.newUsuario.email = '';
+            this.newUsuario.password = '';
+            this.newUsuario.password_confirmation = '';
         }
     }
 }

@@ -12,17 +12,13 @@ class ChecklistObservacion extends Model
     protected $table = 'checklist_observaciones';
 
     protected $fillable = [
+        'imagen',
         'observacion',
-        'checklist_intervencion_id'
+        'checklist_condicion_id'
     ];
 
-    public function intervencion()
+    public function observacion()
     {
-        return $this->belongsTo(ChecklistIntervencion::class, 'checklist_intervencion_id');
-    }
-
-    public function imagenes()
-    {
-        return $this->hasMany(ChecklistObservacionImagen::class);
+        return $this->belongsTo(ChecklistCondicion::class, 'checklist_condicion_id');
     }
 }

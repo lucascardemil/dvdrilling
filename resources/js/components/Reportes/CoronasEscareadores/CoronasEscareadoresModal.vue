@@ -1,7 +1,7 @@
 <template>
-    <div class="modal fade" id="coronasEscareadoresModal" tabindex="-1" aria-labelledby="coronasEscareadoresModalLabel"
+    <div class="modal-reporte modal fade" id="coronasEscareadoresModal" tabindex="-1" aria-labelledby="coronasEscareadoresModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="coronasEscareadoresModalLabel">Control Coronas y Escareadores</h5>
@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="row" v-else>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-12">
                             <div class="card shadow mb-3">
                                 <div class="card-body">
                                     <form @submit.prevent="crearCoronasEscareadores">
@@ -49,7 +49,7 @@
 
                                         <div class="mb-3">
                                             <label for="coronasEscareadoresDiametro" class="form-label">Diametro</label>
-                                            <input type="number" min="0" class="form-control"
+                                            <input type="text" class="form-control"
                                                 id="coronasEscareadoresDiametro"
                                                 v-model="newCoronasEscareadores.diametro"
                                                 :class="errors_coronasEscareadores ? errors_coronasEscareadores.diametro ? 'is-invalid' : '' : ''"
@@ -76,8 +76,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8">
-                            <div v-if="!habilitarEliminar">
+                        <div class="col-lg-8 col-md-12">
+                            <div class="table-responsive" v-if="!habilitarEliminar">
                                 <table class="table">
                                     <thead>
                                         <tr>
@@ -148,7 +148,7 @@ export default {
                 detalle: null,
                 desde: 0,
                 hasta: 0,
-                diametro: 0,
+                diametro: '',
                 numero_corona: 0
             },
             editCoronasEscareadores: {},
@@ -257,7 +257,7 @@ export default {
             this.newCoronasEscareadores.detalle = null;
             this.newCoronasEscareadores.desde = 0;
             this.newCoronasEscareadores.hasta = 0;
-            this.newCoronasEscareadores.diametro = 0;
+            this.newCoronasEscareadores.diametro = '';
             this.newCoronasEscareadores.numero_corona = 0;
             this.errors_coronasEscareadores = null;
             this.habilitarEliminar = false;

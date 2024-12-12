@@ -41,5 +41,8 @@ class Checklist extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-
+    public function vehiculos()
+    {
+        return $this->hasMany(ChecklistVehiculo::class);
+    }
 }

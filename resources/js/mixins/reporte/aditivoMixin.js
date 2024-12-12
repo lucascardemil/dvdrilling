@@ -50,7 +50,8 @@ export default {
             try {
                 const response = await axios.put('/aditivos/update/' + data.id, {
                     detalle: data.detalle,
-                    cantidad: data.cantidad
+                    cantidad: data.cantidad, 
+                    tipo_peso: data.tipo_peso
                 });
 
                 if (response.data.errors) {

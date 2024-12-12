@@ -6060,6 +6060,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/usuarios/usuariosMixin */ "./resources/js/mixins/usuarios/usuariosMixin.js");
 /* harmony import */ var _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CompletarCheckListModal.vue */ "./resources/js/components/CheckList/CompletarCheckListModal.vue");
 /* harmony import */ var _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../mixins/checklist/matrizChecklistMixin */ "./resources/js/mixins/checklist/matrizChecklistMixin.js");
+/* harmony import */ var _VerCheckListCompletadoModal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./VerCheckListCompletadoModal.vue */ "./resources/js/components/CheckList/VerCheckListCompletadoModal.vue");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -6069,14 +6070,17 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"], _mixins_checklist_matrizChecklistMixin__WEBPACK_IMPORTED_MODULE_4__["default"], _mixins_tipoActivo_tipoActivoMixin__WEBPACK_IMPORTED_MODULE_1__["default"], _mixins_usuarios_usuariosMixin__WEBPACK_IMPORTED_MODULE_2__["default"]],
   components: {
-    CompletarCheckListModal: _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    CompletarCheckListModal: _CompletarCheckListModal_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    VerCheckListCompletadoModal: _VerCheckListCompletadoModal_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
-      intervenciones: []
+      intervenciones: [],
+      data_actualizada: []
     };
   },
   methods: {
@@ -6095,27 +6099,94 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee);
       }))();
     },
-    checklisCompletada: function checklisCompletada() {
-      this.fetchChecklist();
-    },
-    downloadPDF: function downloadPDF(checklist) {
+    openVerCheckListCompletadoModal: function openVerCheckListCompletadoModal(props) {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
-              if (!checklist) {
-                _context2.next = 3;
-                break;
-              }
-              _context2.next = 3;
-              return _this2.descargarPDF(checklist);
-            case 3:
+              _this2.$refs.verCheckListCompletadoModal.open();
+              _this2.verCheckListCompletadoChecklist = _this2.obtenerCondiciones(props);
+            case 2:
             case "end":
               return _context2.stop();
           }
         }, _callee2);
       }))();
+    },
+    checklisCompletada: function checklisCompletada() {
+      this.fetchChecklist();
+    },
+    downloadPDF: function downloadPDF(checklist, check_id, check_vehiculo_id, check_vehiculo_detalle_id) {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              if (!(checklist && check_id && check_vehiculo_id && check_vehiculo_detalle_id)) {
+                _context3.next = 3;
+                break;
+              }
+              _context3.next = 3;
+              return _this3.descargarPDF(checklist, check_id, check_vehiculo_id, check_vehiculo_detalle_id);
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3);
+      }))();
+    },
+    formatearFecha: function formatearFecha(fecha) {
+      var fechaObj = new Date(fecha);
+      var dia = String(fechaObj.getDate()).padStart(2, "0");
+      var mes = String(fechaObj.getMonth() + 1).padStart(2, "0");
+      var anio = fechaObj.getFullYear();
+      return "".concat(dia, "-").concat(mes, "-").concat(anio);
+    },
+    obtenerCondiciones: function obtenerCondiciones(props) {
+      var _checklistNuevo$categ, _checklistNuevo$vehic, _vehiculoFiltrado$det;
+      if (!props || !this.checklist) return null;
+
+      // Filtrar el checklist que coincide con el check_id
+      var checklistOriginal = this.checklist.find(function (check) {
+        return check.id === props.check_id;
+      });
+      if (!checklistOriginal) return null;
+
+      // Crear una copia profunda del checklist para no modificar el original
+      var checklistNuevo = JSON.parse(JSON.stringify(checklistOriginal));
+
+      // Iterar por las categorias dentro del nuevo checklist
+      (_checklistNuevo$categ = checklistNuevo.categorias) === null || _checklistNuevo$categ === void 0 || _checklistNuevo$categ.forEach(function (categoria) {
+        var _categoria$intervenci;
+        // Iterar por las intervenciones dentro de cada categoria
+        (_categoria$intervenci = categoria.intervenciones) === null || _categoria$intervenci === void 0 || _categoria$intervenci.forEach(function (intervencion) {
+          // Verificar si tiene condiciones
+          if (intervencion.condiciones) {
+            // Filtrar las condiciones que coinciden con los ids de props
+            intervencion.condiciones = intervencion.condiciones.filter(function (condicion) {
+              return condicion.checklist_vehiculo_detalle_id === props.check_list_vehiculo_detalle_id && condicion.checklist_vehiculo_id === props.check_list_vehiculo_id;
+            });
+          }
+        });
+      });
+
+      // Filtrar el vehículo que coincide con check_list_vehiculo_id
+      var vehiculoFiltrado = (_checklistNuevo$vehic = checklistNuevo.vehiculos) === null || _checklistNuevo$vehic === void 0 ? void 0 : _checklistNuevo$vehic.find(function (vehiculo) {
+        return vehiculo.id === props.check_list_vehiculo_id;
+      });
+      if (!vehiculoFiltrado) return null;
+
+      // Filtrar los detalles del vehículo
+      vehiculoFiltrado.detalles = (_vehiculoFiltrado$det = vehiculoFiltrado.detalles) === null || _vehiculoFiltrado$det === void 0 ? void 0 : _vehiculoFiltrado$det.find(function (detalle) {
+        return detalle.id === props.check_list_vehiculo_detalle_id && detalle.checklist_vehiculo_id === props.check_list_vehiculo_id;
+      });
+
+      // Mantener solo el vehículo filtrado en el checklist
+      checklistNuevo.vehiculos = vehiculoFiltrado;
+
+      // Retornar el checklist nuevo con las modificaciones
+      return checklistNuevo;
     }
   },
   created: function created() {
@@ -6140,62 +6211,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
-/* harmony import */ var _CheckListObservacionImagenes_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckListObservacionImagenes.vue */ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue");
-/* harmony import */ var _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/redimensionarImagen */ "./resources/js/utils/redimensionarImagen.js");
+/* harmony import */ var _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/redimensionarImagen */ "./resources/js/utils/redimensionarImagen.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 
 
-
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  components: {
-    CheckListObservacionImagenes: _CheckListObservacionImagenes_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
   props: {
-    checklist_intervencionProps: Object
+    checklist_agregar_observacion_props: Object,
+    checklist_devolver_observaciones_props: Array
   },
   data: function data() {
     return {
       newObservacion: {
-        checklist_intervencion_id: this.checklist_intervencionProps.id,
+        checklist_intervencion_id: this.checklist_agregar_observacion_props.intervencion_id,
+        matriz_id: this.checklist_agregar_observacion_props.matriz_id,
         observacion: '',
-        imagen: null
+        imagen_observacion: null
       },
-      mostrarObservacionesImagenes: false,
-      checklist_observaciones: [],
-      verImagenesObservaciones: true
+      checklist_observaciones: []
     };
   },
-  watch: {},
+  watch: {
+    checklist_devolver_observaciones_props: {
+      immediate: true,
+      handler: function handler(checklist_devolver_observaciones_props) {
+        var _this = this;
+        if (checklist_devolver_observaciones_props) {
+          checklist_devolver_observaciones_props.forEach(function (observacion) {
+            _this.checklist_observaciones.push(observacion);
+          });
+        }
+      }
+    }
+  },
   methods: {
-    verObservacionesImagenes: function verObservacionesImagenes(observaciones) {
-      this.mostrarObservacionesImagenes = true;
-      this.checklist_observaciones = observaciones;
-    },
     handleFileChange: function handleFileChange(event) {
-      var _this = this;
+      var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         var file, resizedImage;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
               file = event.target.files[0];
-              _this.errors = null;
+              _this2.errors = null;
               _context.prev = 2;
               _context.next = 5;
-              return Promise.resolve(_this.redimensionarImagen(file));
+              return Promise.resolve(_this2.redimensionarImagen(file));
             case 5:
               resizedImage = _context.sent;
-              _this.newObservacion.imagen = resizedImage;
+              _this2.newObservacion.imagen_observacion = resizedImage;
               _context.next = 13;
               break;
             case 9:
               _context.prev = 9;
               _context.t0 = _context["catch"](2);
-              _this.errors = {
+              _this2.errors = {
                 imagenes: [_context.t0.message]
               };
               console.error('Error al procesar archivos:', _context.t0);
@@ -6206,130 +6285,39 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee, null, [[2, 9]]);
       }))();
     },
-    volverCheckListObservacion: function volverCheckListObservacion() {
-      this.mostrarObservacionesImagenes = false;
-    },
     volverCompletarCheckList: function volverCompletarCheckList() {
-      this.$emit('volver-completarCheckList');
+      this.$emit('volver-completarCheckList', this.checklist_observaciones);
     },
     eliminarCheckListObservacion: function eliminarCheckListObservacion(observacionChecklist) {
       this.$emit('delete-checkListObservacionCompletar', observacionChecklist);
     },
     saveObservacionChecklist: function saveObservacionChecklist() {
-      var _this2 = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var formData, response;
-        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-          while (1) switch (_context2.prev = _context2.next) {
-            case 0:
-              formData = new FormData();
-              formData.append('observacion', _this2.newObservacion.observacion);
-              formData.append('checklist_intervencion_id', _this2.newObservacion.checklist_intervencion_id);
-              if (_this2.newObservacion.imagen) {
-                formData.append('imagen', _this2.newObservacion.imagen);
-              }
-              _context2.next = 6;
-              return _this2.createObservacionChecklist(formData);
-            case 6:
-              response = _context2.sent;
-              if (_this2.errors_observacion_checklist === null) {
-                _this2.$notyf.success(response.message);
-                _this2.checklist_intervencionProps.observaciones.push(response.observacionChecklist);
-                _this2.limpiarCampos();
-              }
-            case 8:
-            case "end":
-              return _context2.stop();
-          }
-        }, _callee2);
-      }))();
+      // Crear una copia del objeto para evitar referencias
+      var observacionCopia = _objectSpread({}, this.newObservacion);
+
+      // Emitir el evento con los datos
+      this.$emit('create-checkListObservacionCompletar', observacionCopia);
+
+      // Agregar la copia al array
+      this.checklist_observaciones.push(observacionCopia);
+
+      // Limpiar los campos sin afectar los datos guardados
+      this.limpiarCampos();
+    },
+    deleteObservacionChecklist: function deleteObservacionChecklist(checklist_intervencion_id, matriz_id) {
+      this.checklist_observaciones = this.checklist_observaciones.filter(function (observacion) {
+        return !(observacion.checklist_intervencion_id === checklist_intervencion_id && observacion.matriz_id === matriz_id);
+      });
     },
     limpiarCampos: function limpiarCampos() {
       this.newObservacion.observacion = '';
-      this.newObservacion.imagen = null;
+      this.newObservacion.imagen_observacion = null;
       this.$refs.imagenObservacion.value = '';
     },
-    redimensionarImagen: _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_2__.redimensionarImagen
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=script&lang=js":
-/*!********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=script&lang=js ***!
-  \********************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
-/* harmony import */ var _utils_formatImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/formatImage */ "./resources/js/utils/formatImage.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  components: {},
-  props: {
-    checklist_observaciones: Array,
-    verImagenesObservacionesProp: {
-      type: Boolean,
-      required: true
-    }
-  },
-  data: function data() {
-    return {
-      localChecklistObservaciones: _toConsumableArray(this.checklist_observaciones)
-    };
-  },
-  watch: {
-    checklist_observaciones: function checklist_observaciones(nuevaObservacion) {
-      this.localChecklistObservaciones = _toConsumableArray(nuevaObservacion);
-    }
-  },
-  methods: {
-    deleteObservacionChecklist: function deleteObservacionChecklist(observacion_id) {
-      var _this = this;
-      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var response;
-        return _regeneratorRuntime().wrap(function _callee$(_context) {
-          while (1) switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return _this.eliminarObservacionChecklist(observacion_id);
-            case 2:
-              response = _context.sent;
-              if (_this.errors_observacion_checklist === null) {
-                _this.$notyf.success(response.message);
-                _this.localChecklistObservaciones = _this.localChecklistObservaciones.filter(function (observacion) {
-                  return observacion.id !== response.observacionChecklist.id;
-                });
-                _this.$emit('delete-checkListObservacion', response.observacionChecklist);
-              }
-            case 4:
-            case "end":
-              return _context.stop();
-          }
-        }, _callee);
-      }))();
+    mostrarImagenObservacion: function mostrarImagenObservacion(imagen) {
+      return URL.createObjectURL(imagen);
     },
-    volverCheckListObservacion: function volverCheckListObservacion() {
-      this.$emit('volver-checkListObservacion');
-    },
-    formatImage: _utils_formatImage__WEBPACK_IMPORTED_MODULE_1__.formatImage
+    redimensionarImagen: _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_1__.redimensionarImagen
   }
 });
 
@@ -6348,8 +6336,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
 /* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
-/* harmony import */ var _VerCheckListCompletado_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./VerCheckListCompletado.vue */ "./resources/js/components/CheckList/VerCheckListCompletado.vue");
-/* harmony import */ var _CheckListObservacion_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CheckListObservacion.vue */ "./resources/js/components/CheckList/CheckListObservacion.vue");
+/* harmony import */ var _CheckListObservacion_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CheckListObservacion.vue */ "./resources/js/components/CheckList/CheckListObservacion.vue");
+/* harmony import */ var _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/redimensionarImagen */ "./resources/js/utils/redimensionarImagen.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
@@ -6361,19 +6349,44 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   components: {
-    VerCheckListCompletado: _VerCheckListCompletado_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    CheckListObservacion: _CheckListObservacion_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    CheckListObservacion: _CheckListObservacion_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     completarCheckListProps: Object
   },
   data: function data() {
     return {
+      kilometraje_existe_inicial: true,
+      kilometraje_existe_final: true,
+      kilometraje_existe: false,
+      horometro_existe_inicial: true,
+      horometro_existe_final: true,
+      horometro_existe: false,
+      patente_existe: false,
+      carga_combustible_existe: true,
+      patente: '',
+      conductor: '',
+      kilometraje_inicial: null,
+      kilometraje_final: null,
+      horometro_inicial: null,
+      horometro_final: null,
+      numero_interno: '',
+      proyecto: '',
+      faena: '',
+      turno: '',
+      litros: 0,
+      observacion_bitacora: '',
+      carga_combustible: null,
+      estado_equipo: null,
+      imagen_combustible: null,
+      observaciones: [],
       checkslist: [],
+      aplicaEstado: {},
       radioExiste: {},
       radioEstado: {},
       mostrarAgregarObservacion: false,
-      checklist_intervencion: null
+      checklist_agregar_observacion: null,
+      checklist_devolver_observaciones: null
     };
   },
   watch: {
@@ -6397,26 +6410,84 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
           });
         }
       }
+    },
+    kilometraje_inicial: function kilometraje_inicial(newVal, oldVal) {
+      if (newVal !== null && this.kilometraje_final !== null && newVal >= this.kilometraje_final) {
+        this.errors_finalizar_checklist = {
+          errors: {
+            kilometraje_inicial: "El kilometraje inicial no puede ser mayor que el final."
+          }
+        };
+      } else {
+        this.clearError("kilometraje_inicial");
+      }
+    },
+    kilometraje_final: function kilometraje_final(newVal, oldVal) {
+      if (newVal !== null && this.kilometraje_inicial !== null && newVal <= this.kilometraje_inicial) {
+        this.errors_finalizar_checklist = {
+          errors: {
+            kilometraje_final: "El kilometraje final no puede ser menor que el inicial."
+          }
+        };
+      } else {
+        this.clearError("kilometraje_final");
+      }
+    },
+    horometro_inicial: function horometro_inicial(newVal, oldVal) {
+      if (newVal !== null && this.horometro_final !== null && newVal > this.horometro_final) {
+        this.errors_finalizar_checklist = {
+          errors: {
+            horometro_inicial: "El horometro inicial no puede ser mayor que el final."
+          }
+        };
+      } else {
+        this.clearError("horometro_inicial");
+      }
+    },
+    horometro_final: function horometro_final(newVal, oldVal) {
+      if (newVal !== null && this.horometro_inicial !== null && newVal < this.horometro_inicial) {
+        this.errors_finalizar_checklist = {
+          errors: {
+            horometro_final: "El horometro final no puede ser menor que el inicial."
+          }
+        };
+      } else {
+        this.clearError("horometro_final");
+      }
     }
   },
   methods: {
+    clearError: function clearError(field) {
+      var _this$errors_finaliza;
+      if ((_this$errors_finaliza = this.errors_finalizar_checklist) !== null && _this$errors_finaliza !== void 0 && (_this$errors_finaliza = _this$errors_finaliza.errors) !== null && _this$errors_finaliza !== void 0 && _this$errors_finaliza[field]) {
+        delete this.errors_finalizar_checklist.errors[field];
+        // Limpia todo el objeto de errores si ya no hay errores restantes
+        if (Object.keys(this.errors_finalizar_checklist.errors).length === 0) {
+          this.errors_finalizar_checklist = null;
+        }
+      }
+    },
     open: function open() {
-      this.limpiarParametros();
       var modalElement = document.getElementById('completarCheckListModal');
       var modal = new bootstrap__WEBPACK_IMPORTED_MODULE_0__.Modal(modalElement);
       modal.show();
     },
     close: function close() {
+      this.limpiarParametros();
       var modalElement = document.getElementById('completarCheckListModal');
       var modal = bootstrap__WEBPACK_IMPORTED_MODULE_0__.Modal.getInstance(modalElement);
       if (modal) modal.hide();
     },
-    agregarObservacion: function agregarObservacion(intervencion) {
+    agregarObservacion: function agregarObservacion(matriz_id, intervencion_id) {
       this.mostrarAgregarObservacion = true;
-      this.checklist_intervencion = intervencion;
+      this.checklist_agregar_observacion = {
+        matriz_id: matriz_id,
+        intervencion_id: intervencion_id
+      };
     },
-    volverCompletarCheckList: function volverCompletarCheckList() {
+    volverCompletarCheckList: function volverCompletarCheckList(observaciones) {
       this.mostrarAgregarObservacion = false;
+      this.checklist_devolver_observaciones = observaciones;
     },
     checklistRadio: function checklistRadio(categoria_nombre, intervencion_nombre, intervencion_id, value, tipo) {
       var index = this.checkslist.findIndex(function (item) {
@@ -6424,6 +6495,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       });
       if (index !== -1) {
         if (tipo === 'existe') {
+          if (value === 2) {
+            this.checkslist[index].estado = null;
+            delete this.radioEstado[intervencion_id];
+          }
+          this.aplicaEstado[intervencion_id] = value === 2;
           this.checkslist[index].existe = value;
         } else if (tipo === 'estado') {
           this.checkslist[index].estado = value;
@@ -6436,18 +6512,49 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
           estado: tipo === 'estado' ? value : null,
           existe: tipo === 'existe' ? value : null
         });
+        this.aplicaEstado[intervencion_id] = value === 2 && tipo === 'existe';
       }
+    },
+    createCheckListObservacionCompletar: function createCheckListObservacionCompletar(observacionChecklist) {
+      this.observaciones.push(observacionChecklist);
     },
     finalizarCheckList: function finalizarCheckList() {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var response;
+        var formData, response;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return _this2.finalizarChecklist(_this2.checkslist, _this2.completarCheckListProps.id);
-            case 2:
+              formData = new FormData();
+              formData.append('checkslist', JSON.stringify(_this2.checkslist));
+              formData.append('checklist_id', _this2.completarCheckListProps.id);
+              formData.append('patente', _this2.patente);
+              formData.append('conductor', _this2.conductor);
+              formData.append('kilometraje_inicial', _this2.kilometraje_inicial === null ? 0 : _this2.kilometraje_inicial);
+              formData.append('kilometraje_final', _this2.kilometraje_final === null ? 0 : _this2.kilometraje_final);
+              formData.append('horometro_inicial', _this2.horometro_inicial === null ? 0 : _this2.horometro_inicial);
+              formData.append('horometro_final', _this2.horometro_final === null ? 0 : _this2.horometro_final);
+              formData.append('numero_interno', _this2.numero_interno);
+              formData.append('proyecto', _this2.proyecto);
+              formData.append('faena', _this2.faena);
+              formData.append('turno', _this2.turno);
+              formData.append('litros', _this2.litros);
+              formData.append('observacion_bitacora', _this2.observacion_bitacora);
+              formData.append('carga_combustible', _this2.carga_combustible);
+              formData.append('estado_equipo', _this2.estado_equipo);
+              _this2.observaciones.forEach(function (observacion, index) {
+                formData.append("observaciones[".concat(index, "][observacion]"), observacion.observacion);
+                formData.append("observaciones[".concat(index, "][checklist_intervencion_id]"), observacion.checklist_intervencion_id);
+                if (observacion.imagen_observacion) {
+                  formData.append("observaciones[".concat(index, "][imagen_observacion]"), observacion.imagen_observacion);
+                }
+              });
+              if (_this2.imagen_combustible) {
+                formData.append('imagen_combustible', _this2.imagen_combustible);
+              }
+              _context.next = 21;
+              return _this2.finalizarChecklist(formData);
+            case 21:
               response = _context.sent;
               if (_this2.errors_finalizar_checklist === null) {
                 _this2.$notyf.success(response.message);
@@ -6455,7 +6562,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
                 _this2.limpiarParametros();
                 _this2.close();
               }
-            case 4:
+            case 23:
             case "end":
               return _context.stop();
           }
@@ -6467,12 +6574,145 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       this.radioExiste = {};
       this.radioEstado = {};
       this.errors_finalizar_checklist = null;
+      this.carga_combustible_existe = null;
+      this.estado_equipo = null;
+      this.kilometraje_inicial = null;
+      this.kilometraje_final = null;
+      this.kilometraje_existe_inicial = true;
+      this.kilometraje_existe_final = true;
+      this.horometro_inicial = null;
+      this.horometro_final = null;
+      this.horometro_existe_inicial = true;
+      this.horometro_existe_final = true;
+      this.patente_existe = null;
+      this.kilometraje_existe = false;
+      this.horometro_existe = false;
+      this.patente = '';
+      this.conductor = '';
+      this.numero_interno = '';
+      this.proyecto = '';
+      this.faena = '';
+      this.turno = '';
+      this.litros = null;
+      this.observacion_bitacora = '';
+      this.carga_combustible = null;
+      this.estado_equipo = null;
+      this.imagen_combustible = null;
+      this.mostrarAgregarObservacion = false;
+      document.getElementById('completarCheckListImagenCombustible').value = null;
+      this.checklist_agregar_observacion = null;
+      this.checklist_devolver_observaciones = null;
     },
-    eliminarCheckListObservacionCompletar: function eliminarCheckListObservacionCompletar(observacionChecklist) {
-      this.checklist_intervencion.observaciones = this.checklist_intervencion.observaciones.filter(function (observacion) {
-        return observacion.id !== observacionChecklist.id;
-      });
-    }
+    switchKilometrajeExiste: function switchKilometrajeExiste(existe) {
+      var _this3 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              _this3.kilometraje_inicial = existe ? _this3.kilometraje_inicial : null;
+              _this3.kilometraje_final = existe ? _this3.kilometraje_final : null;
+              _this3.kilometraje_existe_inicial = existe ? false : true;
+              _this3.kilometraje_existe_final = existe ? false : true;
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2);
+      }))();
+    },
+    switchHorometroExiste: function switchHorometroExiste(existe) {
+      var _this4 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+        return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+          while (1) switch (_context3.prev = _context3.next) {
+            case 0:
+              _this4.horometro_inicial = existe ? _this4.horometro_inicial : null;
+              _this4.horometro_final = existe ? _this4.horometro_final : null;
+              _this4.horometro_existe_inicial = existe ? false : true;
+              _this4.horometro_existe_final = existe ? false : true;
+            case 4:
+            case "end":
+              return _context3.stop();
+          }
+        }, _callee3);
+      }))();
+    },
+    switchPatenteExiste: function switchPatenteExiste(existe) {
+      var _this5 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+        return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
+            case 0:
+              _this5.patente = existe ? '' : _this5.patente;
+              _this5.patente_existe = existe;
+            case 2:
+            case "end":
+              return _context4.stop();
+          }
+        }, _callee4);
+      }))();
+    },
+    checkCargaCombustible: function checkCargaCombustible(existe) {
+      var _this6 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
+        return _regeneratorRuntime().wrap(function _callee5$(_context5) {
+          while (1) switch (_context5.prev = _context5.next) {
+            case 0:
+              _this6.litros = existe ? 0 : _this6.litros;
+              _this6.carga_combustible_existe = existe;
+            case 2:
+            case "end":
+              return _context5.stop();
+          }
+        }, _callee5);
+      }))();
+    },
+    checkEstadoEquipo: function checkEstadoEquipo(existe) {
+      var _this7 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6() {
+        return _regeneratorRuntime().wrap(function _callee6$(_context6) {
+          while (1) switch (_context6.prev = _context6.next) {
+            case 0:
+              _this7.estado_equipo_existe = existe;
+            case 1:
+            case "end":
+              return _context6.stop();
+          }
+        }, _callee6);
+      }))();
+    },
+    handleFileChange: function handleFileChange(event) {
+      var _this8 = this;
+      return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
+        var file, resizedImage;
+        return _regeneratorRuntime().wrap(function _callee7$(_context7) {
+          while (1) switch (_context7.prev = _context7.next) {
+            case 0:
+              file = event.target.files[0];
+              _this8.errors_finalizar_checklist = null;
+              _context7.prev = 2;
+              _context7.next = 5;
+              return Promise.resolve(_this8.redimensionarImagen(file));
+            case 5:
+              resizedImage = _context7.sent;
+              _this8.imagen_combustible = resizedImage;
+              _context7.next = 13;
+              break;
+            case 9:
+              _context7.prev = 9;
+              _context7.t0 = _context7["catch"](2);
+              _this8.errors_finalizar_checklist = {
+                imagenes: [_context7.t0.message]
+              };
+              console.error('Error al procesar archivos:', _context7.t0);
+            case 13:
+            case "end":
+              return _context7.stop();
+          }
+        }, _callee7, null, [[2, 9]]);
+      }))();
+    },
+    redimensionarImagen: _utils_redimensionarImagen__WEBPACK_IMPORTED_MODULE_3__.redimensionarImagen
   }
 });
 
@@ -6899,10 +7139,10 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6910,33 +7150,43 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
-/* harmony import */ var _CheckListObservacionImagenes_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckListObservacionImagenes.vue */ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue");
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/* harmony import */ var _mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../mixins/checklist/checklistMixin */ "./resources/js/mixins/checklist/checklistMixin.js");
+/* harmony import */ var _utils_formatImage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utils/formatImage */ "./resources/js/utils/formatImage.js");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_0__["default"]],
-  components: {
-    CheckListObservacionImagenes: _CheckListObservacionImagenes_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-  },
+  mixins: [_mixins_checklist_checklistMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
   props: {
     verCheckListProps: Object
   },
   data: function data() {
     return {
       mostrarObservacionesImagenes: false,
-      checklist_observaciones: [],
+      checklist_condiciones: [],
       verImagenesObservaciones: false
     };
   },
   methods: {
-    verObservacionesImagenes: function verObservacionesImagenes(observaciones) {
+    open: function open() {
+      var modalElement = document.getElementById('verCheckListCompletadoModal');
+      var modal = new bootstrap__WEBPACK_IMPORTED_MODULE_0__.Modal(modalElement);
+      modal.show();
+    },
+    close: function close() {
+      var modalElement = document.getElementById('verCheckListCompletadoModal');
+      var modal = bootstrap__WEBPACK_IMPORTED_MODULE_0__.Modal.getInstance(modalElement);
+      if (modal) modal.hide();
+    },
+    verObservacionesImagenes: function verObservacionesImagenes(condiciones) {
       this.mostrarObservacionesImagenes = true;
-      this.checklist_observaciones = observaciones;
+      this.checklist_condiciones = condiciones;
     },
     volverCheckListObservacion: function volverCheckListObservacion() {
       this.mostrarObservacionesImagenes = false;
-    }
+    },
+    formatImage: _utils_formatImage__WEBPACK_IMPORTED_MODULE_2__.formatImage
   }
 });
 
@@ -9272,7 +9522,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       newAditivo: {
         reporte_id: 0,
         detalle: '',
-        cantidad: 0
+        cantidad: 0,
+        tipo_peso: null
       },
       editAditivos: {},
       existeInicio: false,
@@ -9317,7 +9568,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         id: aditivo.id,
         reporte_id: aditivo.reporte_id,
         detalle: aditivo.detalle,
-        cantidad: aditivo.cantidad
+        cantidad: aditivo.cantidad,
+        tipo_peso: aditivo.tipo_peso
       };
     },
     openElimninarCoronaEscareador: function openElimninarCoronaEscareador(aditivo) {
@@ -9353,6 +9605,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     resetForm: function resetForm() {
       this.newAditivo.detalle = '';
       this.newAditivo.cantidad = 0;
+      this.newAditivo.tipo_peso = null;
       this.errors_aditivos = null;
       this.habilitarEliminar = false;
       this.habilitarEditar = false;
@@ -9365,6 +9618,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
           if (aditivo.id === aditivos.id) {
             aditivo.detalle = aditivos.detalle;
             aditivo.cantidad = aditivos.cantidad;
+            aditivo.tipo_peso = aditivos.tipo_peso;
           }
           _this.resetForm();
         });
@@ -9426,7 +9680,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         id: 0,
         reporte_id: 0,
         detalle: '',
-        cantidad: 0
+        cantidad: 0,
+        tipo_peso: null
       }
     };
   },
@@ -9439,7 +9694,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
             id: data.id,
             reporte_id: data.reporte_id,
             detalle: data.detalle,
-            cantidad: data.cantidad
+            cantidad: data.cantidad,
+            tipo_peso: data.tipo_peso
           };
         }
       }
@@ -9574,7 +9830,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         detalle: null,
         desde: 0,
         hasta: 0,
-        diametro: 0,
+        diametro: '',
         numero_corona: 0
       },
       editCoronasEscareadores: {},
@@ -9681,7 +9937,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       this.newCoronasEscareadores.detalle = null;
       this.newCoronasEscareadores.desde = 0;
       this.newCoronasEscareadores.hasta = 0;
-      this.newCoronasEscareadores.diametro = 0;
+      this.newCoronasEscareadores.diametro = '';
       this.newCoronasEscareadores.numero_corona = 0;
       this.errors_coronasEscareadores = null;
       this.habilitarEliminar = false;
@@ -9761,7 +10017,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         detalle: null,
         desde: 0,
         hasta: 0,
-        diametro: 0,
+        diametro: '',
         numero_corona: 0
       }
     };
@@ -11196,7 +11452,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
         desde: '',
         hasta: '',
         total: '',
-        metros: '',
+        adicional: '',
         inclinacion: '',
         rumbo: '',
         programa: '',
@@ -11207,7 +11463,16 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       filtros: '',
       selectedReporte: null,
       paginaActual: 1,
-      filasPorPagina: 10
+      filasPorPagina: 10,
+      modalsState: {
+        horometro: false,
+        coronasEscareadores: false,
+        aditivos: false,
+        herramientas: false,
+        perforaciones: false,
+        detalleHoras: false,
+        observacion: false
+      }
     };
   },
   watch: {
@@ -11250,49 +11515,83 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }
     },
     openHorometroModal: function openHorometroModal(reporte) {
+      if (this.modalsState.horometro) return; // Evita abrir si ya está abierto
+      this.cerrarTodosLosModals();
       if (reporte) {
         this.selectedReporte = _objectSpread({}, reporte);
+        this.modalsState.horometro = true;
         this.$refs.horometroModal.open();
       }
     },
     openCoronasEscareadoresModal: function openCoronasEscareadoresModal(reporte) {
+      if (this.modalsState.coronasEscareadores) return;
+      this.cerrarTodosLosModals();
       if (reporte) {
         this.selectedReporte = _objectSpread({}, reporte);
+        this.modalsState.coronasEscareadores = true;
         this.$refs.coronasEscareadoresModal.open();
       }
     },
     openAditivosModal: function openAditivosModal(reporte) {
+      if (this.modalsState.aditivos) return;
+      this.cerrarTodosLosModals();
       if (reporte) {
         this.selectedReporte = _objectSpread({}, reporte);
+        this.modalsState.aditivos = true;
         this.$refs.aditivosModal.open();
       }
     },
     openHerramientasModal: function openHerramientasModal(reporte) {
+      if (this.modalsState.herramientas) return;
+      this.cerrarTodosLosModals();
       if (reporte) {
         this.selectedReporte = _objectSpread({}, reporte);
+        this.modalsState.herramientas = true;
         this.$refs.herramientasModal.open();
       }
     },
     openPerforacionesModal: function openPerforacionesModal(reporte) {
+      if (this.modalsState.perforaciones) return;
+      this.cerrarTodosLosModals();
       if (reporte) {
         this.selectedReporte = _objectSpread({}, reporte);
+        this.modalsState.perforaciones = true;
         this.$refs.perforacionesModal.open();
       }
     },
     openDetalleHorasModal: function openDetalleHorasModal(reporte) {
+      if (this.modalsState.detalleHoras) return;
+      this.cerrarTodosLosModals();
       if (reporte) {
         this.selectedReporte = _objectSpread({}, reporte);
+        this.modalsState.detalleHoras = true;
         this.$refs.detalleHorasModal.open();
       }
     },
     openObservacionModal: function openObservacionModal(reporte) {
+      if (this.modalsState.observacion) return;
+      this.cerrarTodosLosModals();
       if (reporte) {
         this.selectedReporte = _objectSpread({}, reporte);
+        this.modalsState.observacion = true;
         this.$refs.observacionModal.open();
       }
     },
-    downloadPDF: function downloadPDF(reporte) {
+    cerrarTodosLosModals: function cerrarTodosLosModals() {
       var _this2 = this;
+      // Cierra todos los modales y reinicia el estado
+      Object.keys(this.modalsState).forEach(function (modal) {
+        if (_this2.$refs["".concat(modal, "Modal")]) {
+          _this2.$refs["".concat(modal, "Modal")].close();
+        }
+        _this2.modalsState[modal] = false;
+      });
+    },
+    closeOffcanvas: function closeOffcanvas() {
+      this.cerrarTodosLosModals();
+    },
+    downloadPDF: function downloadPDF(reporte) {
+      var _this3 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
@@ -11302,7 +11601,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
                 break;
               }
               _context.next = 3;
-              return _this2.descargarPDF(reporte);
+              return _this3.descargarPDF(reporte);
             case 3:
             case "end":
               return _context.stop();
@@ -11311,19 +11610,19 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
       }))();
     },
     saveDatosPrincipales: function saveDatosPrincipales() {
-      var _this3 = this;
+      var _this4 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
         var response;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return _this3.createReporte(_this3.newReporte);
+              return _this4.createReporte(_this4.newReporte);
             case 2:
               response = _context2.sent;
-              if (_this3.errors_reporte === null) {
-                _this3.$notyf.success(response.message);
-                _this3.newReporte = {
+              if (_this4.errors_reporte === null) {
+                _this4.$notyf.success(response.message);
+                _this4.newReporte = {
                   proyecto_id: null,
                   sondaje: '',
                   fecha: new Date(),
@@ -11334,13 +11633,13 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
                   desde: '',
                   hasta: '',
                   total: '',
-                  metros: '',
+                  adicional: '',
                   inclinacion: '',
                   rumbo: '',
                   programa: '',
                   diametro: ''
                 };
-                _this3.fetchReportes();
+                _this4.fetchReportes();
               }
             case 4:
             case "end":
@@ -11362,7 +11661,7 @@ function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e 
             reporte.desde = reporte_actualizado.desde;
             reporte.hasta = reporte_actualizado.hasta;
             reporte.total = reporte_actualizado.total;
-            reporte.metros = reporte_actualizado.metros;
+            reporte.adicional = reporte_actualizado.adicional;
             reporte.inclinacion = reporte_actualizado.inclinacion;
             reporte.rumbo = reporte_actualizado.rumbo;
             reporte.programa = reporte_actualizado.programa;
@@ -11927,6 +12226,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               if (_this.errors === null) {
                 _this.$notyf.success(response.message);
                 _this.$emit('usuario-updated');
+                _this.limpiarForm();
                 _this.close();
               }
             case 4:
@@ -11935,6 +12235,12 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
           }
         }, _callee);
       }))();
+    },
+    limpiarForm: function limpiarForm() {
+      this.newUsuario.name = '';
+      this.newUsuario.email = '';
+      this.newUsuario.password = '';
+      this.newUsuario.password_confirmation = '';
     }
   }
 });
@@ -14352,13 +14658,9 @@ var render = function render() {
   return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "table-responsive"
   }, [_c("table", {
-    staticClass: "table"
-  }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.checklist, function (check, index) {
-    return _c("tr", {
-      key: check.id
-    }, [_c("th", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.tipoactivo.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.matriz.nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.marca))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.modelo))]), _vm._v(" "), _c("td", [_c("span", {
-      staticClass: "badge rounded-pill bg-primary"
-    }, [_vm._v(_vm._s(check.status === 0 ? "Realizado" : "No Realizado"))])]), _vm._v(" "), _c("td", [_c("button", {
+    staticClass: "table table-striped"
+  }, [_vm._m(1), _vm._v(" "), _c("tbody", [_vm._l(_vm.checklist, function (check, index) {
+    return [_c("tr", [_c("th", [_vm._v(_vm._s(index + 1))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.tipoactivo.name))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.matriz.nombre))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.marca))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check.modelo))]), _vm._v(" "), _c("td", [_c("button", {
       staticClass: "btn btn-base-dv",
       attrs: {
         type: "button"
@@ -14370,27 +14672,87 @@ var render = function render() {
       }
     }, [_c("i", {
       staticClass: "bi bi-ui-checks"
-    })]), _vm._v(" "), _c("button", {
-      staticClass: "btn btn-danger",
+    })])])]), _vm._v(" "), _c("tr", [_c("td", {
       attrs: {
-        type: "button",
-        disabled: _vm.loading_pdf[check.id]
-      },
-      on: {
-        click: function click($event) {
-          return _vm.downloadPDF(check);
+        colspan: "6"
+      }
+    }, [_c("div", {
+      staticClass: "accordion",
+      attrs: {
+        id: "accordionCheckListVehiculos"
+      }
+    }, [_vm._l(check.vehiculos, function (check_vehiculo, index) {
+      return [_c("div", {
+        staticClass: "accordion-item"
+      }, [_c("h2", {
+        staticClass: "accordion-header",
+        attrs: {
+          id: "headingCheckListVehiculos" + check_vehiculo.id
         }
-      }
-    }, [_vm.loading_pdf[check.id] ? _c("span", [_c("span", {
-      staticClass: "spinner-border spinner-border-sm",
-      attrs: {
-        role: "status",
-        "aria-hidden": "true"
-      }
-    })]) : _c("span", [_c("i", {
-      staticClass: "bi bi-filetype-pdf"
-    })])])])]);
-  }), 0)])]), _vm._v(" "), _c("CompletarCheckListModal", {
+      }, [_c("button", {
+        staticClass: "accordion-button collapsed",
+        attrs: {
+          type: "button",
+          "data-bs-toggle": "collapse",
+          "data-bs-target": "#collapseCheckListVehiculos" + check_vehiculo.id,
+          "aria-expanded": "true",
+          "aria-controls": "collapseCheckListVehiculos" + check_vehiculo.id
+        }
+      }, [_c("h6", {
+        staticClass: "mb-0"
+      }, [_vm._v(_vm._s(check_vehiculo.patente))])])]), _vm._v(" "), _c("div", {
+        staticClass: "accordion-collapse collapse",
+        attrs: {
+          id: "collapseCheckListVehiculos" + check_vehiculo.id,
+          "aria-labelledby": "headingCheckListVehiculos" + check_vehiculo.id,
+          "data-bs-parent": "#accordionCheckListVehiculos"
+        }
+      }, [_c("div", {
+        staticClass: "accordion-body"
+      }, [_c("table", {
+        staticClass: "table table-sm mb-0"
+      }, [_vm._m(2, true), _vm._v(" "), _c("tbody", [_vm._l(check_vehiculo.detalles, function (check_vehiculo_detalle, index) {
+        return [_c("tr", [_c("td", [_vm._v("CHECK LIST " + _vm._s((index + 1).toString().padStart(4, "0")))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check_vehiculo_detalle.numero_interno))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(_vm.formatearFecha(check_vehiculo_detalle.created_at)))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(check_vehiculo_detalle.turno))]), _vm._v(" "), _c("td", [_c("span", {
+          staticClass: "badge rounded-pill bg-primary"
+        }, [_vm._v("\n                                                                        " + _vm._s(check_vehiculo_detalle.estado_equipo === 1 ? "Operativo" : "Fuera De Servicio") + "\n                                                                    ")])]), _vm._v(" "), _c("td", [_c("button", {
+          staticClass: "btn btn-danger",
+          attrs: {
+            type: "button",
+            disabled: _vm.loading_pdf[check_vehiculo_detalle.id]
+          },
+          on: {
+            click: function click($event) {
+              return _vm.downloadPDF(check, check.id, check_vehiculo.id, check_vehiculo_detalle.id);
+            }
+          }
+        }, [_vm.loading_pdf[check_vehiculo_detalle.id] ? _c("span", [_c("span", {
+          staticClass: "spinner-border spinner-border-sm",
+          attrs: {
+            role: "status",
+            "aria-hidden": "true"
+          }
+        })]) : _c("span", [_c("i", {
+          staticClass: "bi bi-filetype-pdf"
+        })])]), _vm._v(" "), _c("button", {
+          staticClass: "btn btn-primary",
+          attrs: {
+            type: "button"
+          },
+          on: {
+            click: function click($event) {
+              return _vm.openVerCheckListCompletadoModal({
+                check_id: check.id,
+                check_list_vehiculo_id: check_vehiculo.id,
+                check_list_vehiculo_detalle_id: check_vehiculo_detalle.id
+              });
+            }
+          }
+        }, [_c("i", {
+          staticClass: "bi bi-eye"
+        })])])])];
+      })], 2)])])])])];
+    })], 2)])])];
+  })], 2)])]), _vm._v(" "), _c("CompletarCheckListModal", {
     ref: "completarCheckListModal",
     attrs: {
       completarCheckListProps: _vm.completarChecklist,
@@ -14398,6 +14760,11 @@ var render = function render() {
     },
     on: {
       "checklist-completada": _vm.checklisCompletada
+    }
+  }), _vm._v(" "), _c("VerCheckListCompletadoModal", {
+    ref: "verCheckListCompletadoModal",
+    attrs: {
+      verCheckListProps: _vm.verCheckListCompletadoChecklist
     }
   })], 1);
 };
@@ -14410,7 +14777,11 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("th", [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("th", [_vm._v("Marca")]), _vm._v(" "), _c("th", [_vm._v("Modelo")]), _vm._v(" "), _c("th", [_vm._v("Estado")]), _vm._v(" "), _c("th")])]);
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("#")]), _vm._v(" "), _c("th", [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("th", [_vm._v("Matriz Checklist")]), _vm._v(" "), _c("th", [_vm._v("Marca")]), _vm._v(" "), _c("th", [_vm._v("Modelo")]), _vm._v(" "), _c("th", [_vm._v("Realizar")])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("thead", [_c("tr", [_c("th", [_vm._v("Check List")]), _vm._v(" "), _c("th", [_vm._v("Numero Interno")]), _vm._v(" "), _c("th", [_vm._v("Fecha")]), _vm._v(" "), _c("th", [_vm._v("Turno")]), _vm._v(" "), _c("th", [_vm._v("Estado Equipo")]), _vm._v(" "), _c("th")])]);
 }];
 render._withStripped = true;
 
@@ -14432,16 +14803,7 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_vm.mostrarObservacionesImagenes ? _c("CheckListObservacionImagenes", {
-    attrs: {
-      checklist_observaciones: _vm.checklist_observaciones,
-      verImagenesObservacionesProp: _vm.verImagenesObservaciones
-    },
-    on: {
-      "delete-checkListObservacion": _vm.eliminarCheckListObservacion,
-      "volver-checkListObservacion": _vm.volverCheckListObservacion
-    }
-  }) : _c("div", [_c("form", {
+  return _c("div", [_c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -14507,19 +14869,7 @@ var render = function render() {
     }
   }, [_c("i", {
     staticClass: "bi bi-arrow-left"
-  }), _vm._v(" Volver\n                ")]), _vm._v(" "), _c("div", [_vm.checklist_intervencionProps.observaciones ? _c("button", {
-    staticClass: "btn btn-primary me-2",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.verObservacionesImagenes(_vm.checklist_intervencionProps.observaciones);
-      }
-    }
-  }, [_c("i", {
-    staticClass: "bi bi-image"
-  }), _vm._v(" Imagenes\n                    ")]) : _vm._e(), _vm._v(" "), _c("button", {
+  }), _vm._v(" Volver\n            ")]), _vm._v(" "), _c("div", [_c("button", {
     staticClass: "btn btn-base-dv",
     attrs: {
       type: "submit",
@@ -14531,47 +14881,22 @@ var render = function render() {
       role: "status",
       "aria-hidden": "true"
     }
-  }), _vm._v("\n                            Cargando...")]) : _c("span", [_vm._v("Guardar Cambios")])])])])])])], 1);
-};
-var staticRenderFns = [];
-render._withStripped = true;
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=template&id=cf4e45a8":
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=template&id=cf4e45a8 ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* binding */ render),
-/* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function render() {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", [_vm.localChecklistObservaciones ? _c("div", {
-    staticClass: "mb-4"
+  }), _vm._v("\n                        Cargando...")]) : _c("span", [_vm._v("Guardar Cambios")])])])])]), _vm._v(" "), _vm.checklist_observaciones.length > 0 ? _c("div", {
+    staticClass: "my-4"
   }, [_c("div", {
     staticClass: "row row-cols-1 row-cols-md-2 g-4"
-  }, [_vm._l(_vm.localChecklistObservaciones, function (observacion) {
-    return [_c("div", {
+  }, [_vm._l(_vm.checklist_observaciones, function (observacion) {
+    return [observacion.checklist_intervencion_id === _vm.newObservacion.checklist_intervencion_id && observacion.matriz_id === _vm.newObservacion.matriz_id ? [_c("div", {
       staticClass: "col"
     }, [_c("div", {
       staticClass: "card h-100"
-    }, [_vm._l(observacion.imagenes, function (imagen) {
-      return [_c("img", {
-        staticClass: "card-img-top",
-        attrs: {
-          src: _vm.formatImage(imagen.imagen),
-          alt: observacion.observacion
-        }
-      })];
-    }), _vm._v(" "), observacion.imagenes.length === 0 ? _c("div", {
+    }, [observacion.imagen_observacion ? [_c("img", {
+      staticClass: "card-img-top",
+      attrs: {
+        src: _vm.mostrarImagenObservacion(observacion.imagen_observacion),
+        alt: observacion.observacion
+      }
+    })] : _vm._e(), _vm._v(" "), !observacion.imagen_observacion ? _c("div", {
       staticClass: "sin-imagen"
     }, [_c("i", {
       staticClass: "bi bi-image"
@@ -14581,7 +14906,7 @@ var render = function render() {
       staticClass: "card-title"
     }, [_vm._v("Observacion")]), _vm._v(" "), _c("p", {
       staticClass: "card-text"
-    }, [_vm._v(_vm._s(observacion.observacion))]), _vm._v(" "), _vm.verImagenesObservacionesProp ? _c("button", {
+    }, [_vm._v(_vm._s(observacion.observacion))]), _vm._v(" "), _c("button", {
       staticClass: "btn btn-danger",
       attrs: {
         type: "button",
@@ -14589,7 +14914,7 @@ var render = function render() {
       },
       on: {
         click: function click($event) {
-          return _vm.deleteObservacionChecklist(observacion.id);
+          return _vm.deleteObservacionChecklist(observacion.checklist_intervencion_id, observacion.matriz_id);
         }
       }
     }, [_vm.loading_checklist_delete_observacion[observacion.id] ? _c("span", [_c("span", {
@@ -14598,22 +14923,10 @@ var render = function render() {
         role: "status",
         "aria-hidden": "true"
       }
-    }), _vm._v("\n                                    Cargando...")]) : _c("span", [_c("i", {
+    }), _vm._v("\n                                        Cargando...")]) : _c("span", [_c("i", {
       staticClass: "bi bi-trash"
-    }), _vm._v("\n                                    Eliminar")])]) : _vm._e()])], 2)])];
-  })], 2)]) : _vm._e(), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-base-dv",
-    attrs: {
-      type: "button"
-    },
-    on: {
-      click: function click($event) {
-        return _vm.volverCheckListObservacion();
-      }
-    }
-  }, [_c("i", {
-    staticClass: "bi bi-arrow-left"
-  }), _vm._v("\n        Volver\n    ")])]);
+    }), _vm._v("\n                                        Eliminar")])])])], 2)])] : _vm._e()];
+  })], 2)]) : _vm._e()]);
 };
 var staticRenderFns = [];
 render._withStripped = true;
@@ -14634,69 +14947,760 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   staticRenderFns: () => (/* binding */ staticRenderFns)
 /* harmony export */ });
 var render = function render() {
+  var _vm$errors_finalizar_, _vm$errors_finalizar_2, _vm$errors_finalizar_3, _vm$errors_finalizar_4, _vm$errors_finalizar_5, _vm$errors_finalizar_6, _vm$errors_finalizar_7, _vm$errors_finalizar_8, _vm$errors_finalizar_9, _vm$errors_finalizar_10, _vm$errors_finalizar_11, _vm$errors_finalizar_12, _vm$errors_finalizar_13, _vm$errors_finalizar_14, _vm$errors_finalizar_15, _vm$errors_finalizar_16, _vm$errors_finalizar_17, _vm$errors_finalizar_18;
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
     staticClass: "modal fade",
     attrs: {
       id: "completarCheckListModal",
+      "data-bs-backdrop": "static",
+      "data-bs-keyboard": "false",
       tabindex: "-1",
       "aria-labelledby": "completarCheckListModalLabel",
       "aria-hidden": "true"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-lg"
+    staticClass: "modal-dialog modal-fullscreen"
   }, [_c("div", {
     staticClass: "modal-content"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title",
+    attrs: {
+      id: "matrizCheckListModalLabel"
+    }
+  }, [_vm._v("Completar CheckList")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.close();
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
     staticClass: "modal-body"
   }, [_vm.completarCheckListProps && _vm.completarCheckListProps.matriz ? [_c("div", {
-    staticClass: "card mb-3 border-card border-checklist"
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-lg-5 col-md-12 mb-md-5 form-checklist overflow-auto"
+  }, [_c("div", {
+    staticClass: "card bg-white"
   }, [_c("div", {
     staticClass: "card-body"
   }, [_c("div", {
-    staticClass: "row align-items-center"
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Proyecto")]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
   }, [_c("p", {
-    staticClass: "col-6 col-form-label fw-bold"
+    staticClass: "col-6 col-form-label"
   }, [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("div", {
     staticClass: "col-6"
   }, [_c("p", {
     staticClass: "mb-0"
-  }, [_vm._v(_vm._s(_vm.completarCheckListProps.tipoactivo.name))])])]), _vm._v(" "), _c("div", {
-    staticClass: "row align-items-center"
+  }, [_vm._v(_vm._s(_vm.completarCheckListProps.tipoactivo.name) + "\n                                                ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
   }, [_c("p", {
-    staticClass: "col-6 col-form-label fw-bold"
-  }, [_vm._v("Matriz\n                                    Checklist")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Numero Interno")]), _vm._v(" "), _c("div", {
     staticClass: "col-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.numero_interno,
+      expression: "numero_interno"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_ = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_ !== void 0 && _vm$errors_finalizar_.numero_interno ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "completarCheckListNumeroInterno",
+      required: ""
+    },
+    domProps: {
+      value: _vm.numero_interno
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.numero_interno = $event.target.value;
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
   }, [_c("p", {
-    staticClass: "mb-0"
-  }, [_vm._v(_vm._s(_vm.completarCheckListProps.matriz.nombre))])])]), _vm._v(" "), _c("div", {
-    staticClass: "row align-items-center"
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Proyecto")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.proyecto,
+      expression: "proyecto"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_2 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_2 !== void 0 && _vm$errors_finalizar_2.proyecto ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "completarCheckListProyecto",
+      required: ""
+    },
+    domProps: {
+      value: _vm.proyecto
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.proyecto = $event.target.value;
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
   }, [_c("p", {
-    staticClass: "col-6 col-form-label fw-bold"
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Faena")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.faena,
+      expression: "faena"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_3 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_3 !== void 0 && _vm$errors_finalizar_3.faena ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "completarCheckListFaena",
+      required: ""
+    },
+    domProps: {
+      value: _vm.faena
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.faena = $event.target.value;
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Turno")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.turno,
+      expression: "turno"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_4 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_4 !== void 0 && _vm$errors_finalizar_4.turno ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "completarCheckListTurno",
+      required: ""
+    },
+    domProps: {
+      value: _vm.turno
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.turno = $event.target.value;
+      }
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Vehiculo")]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
   }, [_vm._v("Marca")]), _vm._v(" "), _c("div", {
     staticClass: "col-6"
   }, [_c("p", {
     staticClass: "mb-0"
   }, [_vm._v(_vm._s(_vm.completarCheckListProps.marca))])])]), _vm._v(" "), _c("div", {
-    staticClass: "row align-items-center"
+    staticClass: "row align-items-center mb-2"
   }, [_c("p", {
-    staticClass: "col-6 col-form-label fw-bold"
+    staticClass: "col-6 col-form-label"
   }, [_vm._v("Modelo")]), _vm._v(" "), _c("div", {
     staticClass: "col-6"
   }, [_c("p", {
     staticClass: "mb-0"
-  }, [_vm._v(_vm._s(_vm.completarCheckListProps.modelo))])])])])]), _vm._v(" "), _vm.completarCheckListProps.status === 0 ? _c("VerCheckListCompletado", {
+  }, [_vm._v(_vm._s(_vm.completarCheckListProps.modelo))])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-start mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Patente")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "form-check form-switch mb-3"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.patente_existe,
+      expression: "patente_existe"
+    }],
+    staticClass: "form-check-input switch-checklist",
     attrs: {
-      verCheckListProps: _vm.completarCheckListProps
+      type: "checkbox",
+      role: "switch",
+      id: "completarCheckListPatenteExiste"
+    },
+    domProps: {
+      checked: Array.isArray(_vm.patente_existe) ? _vm._i(_vm.patente_existe, null) > -1 : _vm.patente_existe
+    },
+    on: {
+      change: [function ($event) {
+        var $$a = _vm.patente_existe,
+          $$el = $event.target,
+          $$c = $$el.checked ? true : false;
+        if (Array.isArray($$a)) {
+          var $$v = null,
+            $$i = _vm._i($$a, $$v);
+          if ($$el.checked) {
+            $$i < 0 && (_vm.patente_existe = $$a.concat([$$v]));
+          } else {
+            $$i > -1 && (_vm.patente_existe = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.patente_existe = $$c;
+        }
+      }, function ($event) {
+        return _vm.switchPatenteExiste(_vm.patente_existe);
+      }]
     }
-  }) : _vm.mostrarAgregarObservacion ? _c("CheckListObservacion", {
+  })]), _vm._v(" "), _vm.patente_existe ? _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.patente,
+      expression: "patente"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_5 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_5 !== void 0 && _vm$errors_finalizar_5.patente ? "is-invalid" : "" : "",
     attrs: {
-      checklist_intervencionProps: _vm.checklist_intervencion
+      list: "completarCheckListPatente",
+      id: "completarCheckListPatente",
+      placeholder: "Escriba la Patente",
+      required: ""
+    },
+    domProps: {
+      value: _vm.patente
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.patente = $event.target.value;
+      }
+    }
+  }) : _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.patente,
+      expression: "patente"
+    }],
+    staticClass: "form-select form-select-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_6 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_6 !== void 0 && _vm$errors_finalizar_6.patente ? "is-invalid" : "" : "",
+    attrs: {
+      id: "completarCheckListPatente"
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.patente = $event.target.multiple ? $$selectedVal : $$selectedVal[0];
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: "",
+      disabled: ""
+    }
+  }, [_vm._v("Selecciona la Patente")]), _vm._v(" "), _vm._l(_vm.completarCheckListProps.vehiculos, function (vehiculo) {
+    return [_c("option", {
+      domProps: {
+        value: vehiculo.patente
+      }
+    }, [_vm._v(_vm._s(vehiculo.patente) + "\n                                                        ")])];
+  })], 2)])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Conductor/Operador")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_vm.completarCheckListProps.conductor ? _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.completarCheckListProps.conductor))]) : _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.conductor,
+      expression: "conductor"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_7 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_7 !== void 0 && _vm$errors_finalizar_7.conductor ? "is-invalid" : "" : "",
+    attrs: {
+      type: "text",
+      id: "completarCheckListConductor",
+      required: ""
+    },
+    domProps: {
+      value: _vm.conductor
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.conductor = $event.target.value;
+      }
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Kilometraje y Horometro")]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Kilometraje")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "form-check form-switch"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.kilometraje_existe,
+      expression: "kilometraje_existe"
+    }],
+    staticClass: "form-check-input switch-checklist",
+    attrs: {
+      type: "checkbox",
+      role: "switch",
+      id: "completarCheckListKilometraje"
+    },
+    domProps: {
+      checked: Array.isArray(_vm.kilometraje_existe) ? _vm._i(_vm.kilometraje_existe, null) > -1 : _vm.kilometraje_existe
+    },
+    on: {
+      change: [function ($event) {
+        var $$a = _vm.kilometraje_existe,
+          $$el = $event.target,
+          $$c = $$el.checked ? true : false;
+        if (Array.isArray($$a)) {
+          var $$v = null,
+            $$i = _vm._i($$a, $$v);
+          if ($$el.checked) {
+            $$i < 0 && (_vm.kilometraje_existe = $$a.concat([$$v]));
+          } else {
+            $$i > -1 && (_vm.kilometraje_existe = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.kilometraje_existe = $$c;
+        }
+      }, function ($event) {
+        return _vm.switchKilometrajeExiste(_vm.kilometraje_existe);
+      }]
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Inicial")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.kilometraje_inicial,
+      expression: "kilometraje_inicial"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_8 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_8 !== void 0 && _vm$errors_finalizar_8.kilometraje_inicial ? "is-invalid" : "" : "",
+    attrs: {
+      type: "number",
+      id: "completarCheckListkilometrajeInicial",
+      disabled: _vm.kilometraje_existe_inicial,
+      required: ""
+    },
+    domProps: {
+      value: _vm.kilometraje_inicial
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.kilometraje_inicial = $event.target.value;
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Final")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.kilometraje_final,
+      expression: "kilometraje_final"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_9 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_9 !== void 0 && _vm$errors_finalizar_9.kilometraje_final ? "is-invalid" : "" : "",
+    attrs: {
+      type: "number",
+      id: "completarCheckListkilometrajeFinal",
+      disabled: _vm.kilometraje_existe_final,
+      required: ""
+    },
+    domProps: {
+      value: _vm.kilometraje_final
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.kilometraje_final = $event.target.value;
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Horometro")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "form-check form-switch"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.horometro_existe,
+      expression: "horometro_existe"
+    }],
+    staticClass: "form-check-input switch-checklist",
+    attrs: {
+      type: "checkbox",
+      role: "switch",
+      id: "completarCheckListHorometro"
+    },
+    domProps: {
+      checked: Array.isArray(_vm.horometro_existe) ? _vm._i(_vm.horometro_existe, null) > -1 : _vm.horometro_existe
+    },
+    on: {
+      change: [function ($event) {
+        var $$a = _vm.horometro_existe,
+          $$el = $event.target,
+          $$c = $$el.checked ? true : false;
+        if (Array.isArray($$a)) {
+          var $$v = null,
+            $$i = _vm._i($$a, $$v);
+          if ($$el.checked) {
+            $$i < 0 && (_vm.horometro_existe = $$a.concat([$$v]));
+          } else {
+            $$i > -1 && (_vm.horometro_existe = $$a.slice(0, $$i).concat($$a.slice($$i + 1)));
+          }
+        } else {
+          _vm.horometro_existe = $$c;
+        }
+      }, function ($event) {
+        return _vm.switchHorometroExiste(_vm.horometro_existe);
+      }]
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Inicial")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.horometro_inicial,
+      expression: "horometro_inicial"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_10 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_10 !== void 0 && _vm$errors_finalizar_10.horometro_inicial ? "is-invalid" : "" : "",
+    attrs: {
+      type: "number",
+      id: "completarCheckListHorometroInicial",
+      disabled: _vm.horometro_existe_final,
+      required: ""
+    },
+    domProps: {
+      value: _vm.horometro_inicial
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.horometro_inicial = $event.target.value;
+      }
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Final")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.horometro_final,
+      expression: "horometro_final"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_11 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_11 !== void 0 && _vm$errors_finalizar_11.horometro_final ? "is-invalid" : "" : "",
+    attrs: {
+      type: "number",
+      id: "completarCheckListHorometroFinal",
+      disabled: _vm.horometro_existe_final,
+      required: ""
+    },
+    domProps: {
+      value: _vm.horometro_final
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.horometro_final = $event.target.value;
+      }
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Estado Equipo")]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("p", {
+    staticClass: "fw-bold mb-0"
+  }, [_vm._v("Status Equipo")]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Operativo")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "form-check"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.estado_equipo,
+      expression: "estado_equipo"
+    }],
+    staticClass: "form-check-input checkbox-checklist",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_12 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_12 !== void 0 && _vm$errors_finalizar_12.estado_equipo ? "is-invalid" : "" : "",
+    attrs: {
+      type: "radio",
+      name: "radioEstadoEquipo",
+      id: "radioEstadoEquipoOperativo",
+      value: "1"
+    },
+    domProps: {
+      checked: _vm._q(_vm.estado_equipo, "1")
+    },
+    on: {
+      change: function change($event) {
+        _vm.estado_equipo = "1";
+      }
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Fuera De Servicio")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "form-check"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.estado_equipo,
+      expression: "estado_equipo"
+    }],
+    staticClass: "form-check-input checkbox-checklist",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_13 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_13 !== void 0 && _vm$errors_finalizar_13.estado_equipo ? "is-invalid" : "" : "",
+    attrs: {
+      type: "radio",
+      name: "radioEstadoEquipo",
+      id: "radioEstadoEquipoFueraServicio",
+      value: "0"
+    },
+    domProps: {
+      checked: _vm._q(_vm.estado_equipo, "0")
+    },
+    on: {
+      change: function change($event) {
+        _vm.estado_equipo = "0";
+      }
+    }
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("p", {
+    staticClass: "fw-bold mb-0"
+  }, [_vm._v("Carga De Combustible")]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("SI")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "form-check"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.carga_combustible,
+      expression: "carga_combustible"
+    }],
+    staticClass: "form-check-input checkbox-checklist",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_14 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_14 !== void 0 && _vm$errors_finalizar_14.carga_combustible ? "is-invalid" : "" : "",
+    attrs: {
+      type: "radio",
+      name: "radioCargaCombustible",
+      id: "radioCargaCombustibleSi",
+      value: "1"
+    },
+    domProps: {
+      checked: _vm._q(_vm.carga_combustible, "1")
+    },
+    on: {
+      change: [function ($event) {
+        _vm.carga_combustible = "1";
+      }, function ($event) {
+        return _vm.checkCargaCombustible(false);
+      }]
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("NO")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("div", {
+    staticClass: "form-check"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.carga_combustible,
+      expression: "carga_combustible"
+    }],
+    staticClass: "form-check-input checkbox-checklist",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_15 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_15 !== void 0 && _vm$errors_finalizar_15.carga_combustible ? "is-invalid" : "" : "",
+    attrs: {
+      type: "radio",
+      name: "radioCargaCombustible",
+      id: "radioCargaCombustibleNo",
+      value: "0"
+    },
+    domProps: {
+      checked: _vm._q(_vm.carga_combustible, "0")
+    },
+    on: {
+      change: [function ($event) {
+        _vm.carga_combustible = "0";
+      }, function ($event) {
+        return _vm.checkCargaCombustible(true);
+      }]
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("LTS")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.litros,
+      expression: "litros"
+    }],
+    staticClass: "form-control form-control-sm",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_16 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_16 !== void 0 && _vm$errors_finalizar_16.litros ? "is-invalid" : "" : "",
+    attrs: {
+      type: "number",
+      min: "0",
+      id: "completarCheckListLitros",
+      disabled: _vm.carga_combustible_existe,
+      required: ""
+    },
+    domProps: {
+      value: _vm.litros
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.litros = $event.target.value;
+      }
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("p", {
+    staticClass: "fw-bold mb-0"
+  }, [_vm._v("INDIQUE NIVEL DE COMBUSTIBLE AL INICIAR EL TURNO\n                                            ")]), _vm._v(" "), _c("div", [_c("input", {
+    ref: "completarCheckListImagenCombustible",
+    staticClass: "form-control",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_17 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_17 !== void 0 && _vm$errors_finalizar_17.imagen ? "is-invalid" : "" : "",
+    attrs: {
+      type: "file",
+      id: "completarCheckListImagenCombustible",
+      accept: ".png, .jpeg, .jpg",
+      "aria-label": "Imagen"
+    },
+    on: {
+      change: _vm.handleFileChange
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Observacion (Bitacora)")]), _vm._v(" "), _c("div", {
+    staticClass: "col-12"
+  }, [_c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.observacion_bitacora,
+      expression: "observacion_bitacora"
+    }],
+    staticClass: "form-control",
+    "class": _vm.errors_finalizar_checklist ? (_vm$errors_finalizar_18 = _vm.errors_finalizar_checklist.errors) !== null && _vm$errors_finalizar_18 !== void 0 && _vm$errors_finalizar_18.observacion_bitacora ? "is-invalid" : "" : "",
+    attrs: {
+      id: "completarCheckListObservacionBitacora",
+      rows: "5",
+      required: ""
+    },
+    domProps: {
+      value: _vm.observacion_bitacora
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.observacion_bitacora = $event.target.value;
+      }
+    }
+  })])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-7 col-md-12"
+  }, [_vm.mostrarAgregarObservacion ? _c("CheckListObservacion", {
+    attrs: {
+      checklist_agregar_observacion_props: _vm.checklist_agregar_observacion,
+      checklist_devolver_observaciones_props: _vm.checklist_devolver_observaciones
     },
     on: {
       "volver-completarCheckList": _vm.volverCompletarCheckList,
-      "delete-checkListObservacionCompletar": _vm.eliminarCheckListObservacionCompletar
+      "create-checkListObservacionCompletar": _vm.createCheckListObservacionCompletar
     }
   }) : _c("div", {
     staticClass: "table-responsive"
@@ -14710,7 +15714,7 @@ var render = function render() {
     attrs: {
       colspan: "2"
     }
-  }, [_vm._v("Existe")]), _vm._v(" "), _c("th", {
+  }, [_vm._v("Aplica")]), _vm._v(" "), _c("th", {
     attrs: {
       colspan: "3"
     }
@@ -14743,7 +15747,7 @@ var render = function render() {
           value: _vm.radioExiste[intervencion.id],
           expression: "radioExiste[intervencion.id]"
         }],
-        staticClass: "form-check-input",
+        staticClass: "form-check-input checkbox-checklist",
         attrs: {
           type: "radio",
           name: "radio_existe_si_" + intervencion.id + "_" + index,
@@ -14769,7 +15773,7 @@ var render = function render() {
           value: _vm.radioExiste[intervencion.id],
           expression: "radioExiste[intervencion.id]"
         }],
-        staticClass: "form-check-input",
+        staticClass: "form-check-input checkbox-checklist",
         attrs: {
           type: "radio",
           name: "radio_existe_no_" + intervencion.id + "_" + index,
@@ -14795,11 +15799,12 @@ var render = function render() {
           value: _vm.radioEstado[intervencion.id],
           expression: "radioEstado[intervencion.id]"
         }],
-        staticClass: "form-check-input",
+        staticClass: "form-check-input checkbox-checklist",
         attrs: {
           type: "radio",
           name: "radio_estado_1_" + intervencion.id + "_" + index,
-          id: "radio_estado_1_" + intervencion.id + "_" + index
+          id: "radio_estado_1_" + intervencion.id + "_" + index,
+          disabled: _vm.aplicaEstado[intervencion.id]
         },
         domProps: {
           value: 1,
@@ -14821,11 +15826,12 @@ var render = function render() {
           value: _vm.radioEstado[intervencion.id],
           expression: "radioEstado[intervencion.id]"
         }],
-        staticClass: "form-check-input",
+        staticClass: "form-check-input checkbox-checklist",
         attrs: {
           type: "radio",
           name: "radio_estado_2_" + intervencion.id + "_" + index,
-          id: "radio_estado_2_" + intervencion.id + "_" + index
+          id: "radio_estado_2_" + intervencion.id + "_" + index,
+          disabled: _vm.aplicaEstado[intervencion.id]
         },
         domProps: {
           value: 2,
@@ -14847,11 +15853,12 @@ var render = function render() {
           value: _vm.radioEstado[intervencion.id],
           expression: "radioEstado[intervencion.id]"
         }],
-        staticClass: "form-check-input",
+        staticClass: "form-check-input checkbox-checklist",
         attrs: {
           type: "radio",
           name: "radio_estado_3_" + intervencion.id + "_" + index,
-          id: "radio_estado_3_" + intervencion.id + "_" + index
+          id: "radio_estado_3_" + intervencion.id + "_" + index,
+          disabled: _vm.aplicaEstado[intervencion.id]
         },
         domProps: {
           value: 3,
@@ -14871,14 +15878,14 @@ var render = function render() {
         },
         on: {
           click: function click($event) {
-            return _vm.agregarObservacion(intervencion);
+            return _vm.agregarObservacion(_vm.completarCheckListProps.id, intervencion.id);
           }
         }
       }, [_c("i", {
         staticClass: "bi bi-eye"
       }), _vm._v(" Observación")])])]);
     })] : _vm._e()];
-  })], 2)]), _vm._v(" "), Array.isArray(_vm.errors_finalizar_checklist) ? _vm._l(_vm.errors_finalizar_checklist, function (errors) {
+  })], 2)]), _vm._v(" "), _vm.errors_finalizar_checklist ? _vm._l(_vm.errors_finalizar_checklist.errors_checks, function (errors) {
     return _c("div", {
       staticClass: "alert alert-danger alert-dismissible",
       attrs: {
@@ -14886,11 +15893,11 @@ var render = function render() {
       }
     }, [errors.existe === null && errors.estado === null ? [_c("i", {
       staticClass: "bi bi-exclamation-triangle-fill"
-    }), _vm._v("\n                                    Existe y Estado de la "), _c("strong", [_vm._v(_vm._s(errors.categoria))]), _c("strong", [_vm._v(" - " + _vm._s(errors.intervencion))]), _vm._v(" no pueden quedar vacio\n                                ")] : errors.estado === null ? [_c("i", {
+    }), _vm._v("\n                                            Aplica y Estado de la "), _c("strong", [_vm._v(_vm._s(errors.categoria))]), _c("strong", [_vm._v(" -\n                                                " + _vm._s(errors.intervencion))]), _vm._v(" no pueden quedar vacio\n                                        ")] : errors.existe !== null && errors.estado === null ? [_c("i", {
       staticClass: "bi bi-exclamation-triangle-fill"
-    }), _vm._v("\n                                    Estado de la "), _c("strong", [_vm._v(_vm._s(errors.categoria))]), _c("strong", [_vm._v(" - " + _vm._s(errors.intervencion))]), _vm._v(" no puede quedar vacio\n                                ")] : errors.existe === null ? [_c("i", {
+    }), _vm._v("\n                                            Estado de la "), _c("strong", [_vm._v(_vm._s(errors.categoria))]), _c("strong", [_vm._v(" - " + _vm._s(errors.intervencion))]), _vm._v(" no puede quedar vacio\n                                        ")] : errors.existe === null ? [_c("i", {
       staticClass: "bi bi-exclamation-triangle-fill"
-    }), _vm._v("\n                                    Existe de la "), _c("strong", [_vm._v(_vm._s(errors.categoria))]), _c("strong", [_vm._v(" - " + _vm._s(errors.intervencion))]), _vm._v(" no puede quedar vacio\n                                ")] : _vm._e()], 2);
+    }), _vm._v("\n                                            Aplica de la "), _c("strong", [_vm._v(_vm._s(errors.categoria))]), _c("strong", [_vm._v(" - " + _vm._s(errors.intervencion))]), _vm._v(" no puede quedar vacio\n                                        ")] : _vm._e()], 2);
   }) : _vm._e()], 2), _vm._v(" "), _vm.completarCheckListProps.status && !_vm.mostrarAgregarObservacion ? _c("div", {
     staticClass: "d-flex justify-content-end mt-3"
   }, [_c("button", {
@@ -14910,29 +15917,11 @@ var render = function render() {
       role: "status",
       "aria-hidden": "true"
     }
-  }), _vm._v("\n                                Cargando...")]) : _c("span", [_c("i", {
+  }), _vm._v("\n                                        Cargando...")]) : _c("span", [_c("i", {
     staticClass: "bi bi-clipboard2-check-fill"
-  }), _vm._v(" Finalizar")])])]) : _vm._e()] : _vm._e()], 2)])])]);
+  }), _vm._v(" Finalizar")])])]) : _vm._e()], 1)])] : _vm._e()], 2)])])]);
 };
-var staticRenderFns = [function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("div", {
-    staticClass: "modal-header"
-  }, [_c("h5", {
-    staticClass: "modal-title",
-    attrs: {
-      id: "matrizCheckListModalLabel"
-    }
-  }, [_vm._v("Completar CheckList")]), _vm._v(" "), _c("button", {
-    staticClass: "btn-close",
-    attrs: {
-      type: "button",
-      "data-bs-dismiss": "modal",
-      "aria-label": "Close"
-    }
-  })]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -15471,10 +16460,10 @@ render._withStripped = true;
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737 ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=template&id=107c9534&scoped=true":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=template&id=107c9534&scoped=true ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -15486,51 +16475,266 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm.mostrarObservacionesImagenes ? _c("CheckListObservacionImagenes", {
+  return _c("div", {
+    staticClass: "modal fade",
     attrs: {
-      checklist_observaciones: _vm.checklist_observaciones,
-      verImagenesObservacionesProp: _vm.verImagenesObservaciones
+      id: "verCheckListCompletadoModal",
+      "data-bs-backdrop": "static",
+      "data-bs-keyboard": "false",
+      tabindex: "-1",
+      "aria-labelledby": "verCheckListCompletadoModalLabel",
+      "aria-hidden": "true"
+    }
+  }, [_c("div", {
+    staticClass: "modal-dialog modal-fullscreen"
+  }, [_c("div", {
+    staticClass: "modal-content"
+  }, [_c("div", {
+    staticClass: "modal-header"
+  }, [_c("h5", {
+    staticClass: "modal-title",
+    attrs: {
+      id: "verCheckListCompletadoModalLabel"
+    }
+  }, [_vm._v("Completar CheckList")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button"
     },
     on: {
-      "volver-checkListObservacion": _vm.volverCheckListObservacion
+      click: function click($event) {
+        return _vm.close();
+      }
     }
-  }) : _c("div", {
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "modal-body"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-lg-5 col-md-12 mb-md-5 form-checklist overflow-auto"
+  }, [_vm.verCheckListProps ? [_c("div", {
+    staticClass: "card bg-white"
+  }, [_c("div", {
+    staticClass: "card-body"
+  }, [_c("div", {
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Proyecto")]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Tipo Equipo")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.tipoactivo.name) + "\n                                                ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Numero Interno")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_vm.verCheckListProps.vehiculos.detalles.numero_interno ? _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.vehiculos.detalles.numero_interno))]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Proyecto")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_vm.verCheckListProps.vehiculos.detalles.proyecto ? _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.vehiculos.detalles.proyecto))]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Faena")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_vm.verCheckListProps.vehiculos.detalles.faena ? _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.vehiculos.detalles.faena))]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Turno")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_vm.verCheckListProps.vehiculos.detalles.turno ? _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.vehiculos.detalles.turno))]) : _vm._e()])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Vehiculo")]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Marca")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.marca))])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Modelo")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.modelo))])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-start mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Patente")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_vm.verCheckListProps.vehiculos.patente ? _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.vehiculos.patente))]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Conductor/Operador")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_vm.verCheckListProps.vehiculos.detalles.conductor ? _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.vehiculos.detalles.conductor))]) : _vm._e()])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Kilometraje y Horometro")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Inicial")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("\n                                                    " + _vm._s(_vm.verCheckListProps.vehiculos.detalles.kilometraje_inicial) + "\n                                                ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Final")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("\n                                                    " + _vm._s(_vm.verCheckListProps.vehiculos.detalles.kilometraje_final))])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Inicial")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("\n                                                    " + _vm._s(_vm.verCheckListProps.vehiculos.detalles.horometro_inicial) + "\n                                                ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Final")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("\n                                                    " + _vm._s(_vm.verCheckListProps.vehiculos.detalles.horometro_final) + "\n                                                ")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Estado Equipo")]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("p", {
+    staticClass: "fw-bold mb-0"
+  }, [_vm._v("Status Equipo")]), _vm._v(" "), _vm.verCheckListProps.vehiculos.detalles.estado_equipo === 1 ? _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Operativo")]), _vm._v(" "), _vm._m(2)]) : _vm.verCheckListProps.vehiculos.detalles.estado_equipo === 0 ? _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Fuera De Servicio")]), _vm._v(" "), _vm._m(3)]) : _c("div")]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("p", {
+    staticClass: "fw-bold mb-0"
+  }, [_vm._v("Carga De Combustible")]), _vm._v(" "), _vm.verCheckListProps.vehiculos.detalles.carga_combustible === 1 ? _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("SI")]), _vm._v(" "), _vm._m(4)]) : _vm.verCheckListProps.vehiculos.detalles.carga_combustible === 0 ? _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("NO")]), _vm._v(" "), _vm._m(5)]) : _c("div", [_c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("LTS")]), _vm._v(" "), _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v(_vm._s(_vm.verCheckListProps.vehiculos.detalles.litros))])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("p", {
+    staticClass: "fw-bold mb-0"
+  }, [_vm._v("INDIQUE NIVEL DE COMBUSTIBLE AL INICIAR EL TURNO\n                                            ")]), _vm._v(" "), _vm.verCheckListProps.vehiculos.detalles.imagen_combustible ? _c("div", {
+    staticClass: "w-50"
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: _vm.formatImage(_vm.verCheckListProps.vehiculos.detalles.imagen_combustible),
+      alt: _vm.verCheckListProps.vehiculos.detalles.imagen_combustible
+    }
+  })]) : _c("div")])]), _vm._v(" "), _c("div", {
+    staticClass: "row mb-3"
+  }, [_c("h5", [_vm._v("Observacion (Bitacora)")]), _vm._v(" "), _c("div", {
+    staticClass: "col-12"
+  }, [_vm.verCheckListProps.vehiculos.detalles.observacion_bitacora ? _c("p", {
+    staticClass: "mb-0"
+  }, [_vm._v("\n                                                " + _vm._s(_vm.verCheckListProps.vehiculos.detalles.observacion_bitacora) + "\n                                            ")]) : _vm._e()])])])])] : _vm._e()], 2), _vm._v(" "), _c("div", {
+    staticClass: "col-lg-7 col-md-12"
+  }, [_vm.mostrarObservacionesImagenes ? _c("div", {
+    staticClass: "my-4"
+  }, [_c("div", {
+    staticClass: "row row-cols-1 row-cols-md-2 g-4"
+  }, [_vm._l(_vm.checklist_condiciones, function (condicion) {
+    return [_vm._l(condicion.imagenes, function (imagen) {
+      return [_c("div", {
+        staticClass: "col"
+      }, [_c("div", {
+        staticClass: "card h-100"
+      }, [imagen.imagen ? [_c("img", {
+        staticClass: "card-img-top",
+        attrs: {
+          src: _vm.formatImage(imagen.imagen),
+          alt: imagen.observacion
+        }
+      })] : _vm._e(), _vm._v(" "), !imagen.imagen ? _c("div", {
+        staticClass: "sin-imagen"
+      }, [_c("i", {
+        staticClass: "bi bi-image"
+      })]) : _vm._e(), _vm._v(" "), _c("div", {
+        staticClass: "card-body"
+      }, [_c("h5", {
+        staticClass: "card-title"
+      }, [_vm._v("Observacion")]), _vm._v(" "), _c("p", {
+        staticClass: "card-text"
+      }, [_vm._v(_vm._s(imagen.observacion))])])], 2)])];
+    })];
+  })], 2), _vm._v(" "), _c("div", {
+    staticClass: "my-3"
+  }, [_c("button", {
+    staticClass: "btn btn-base-dv",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.volverCheckListObservacion();
+      }
+    }
+  }, [_c("i", {
+    staticClass: "bi bi-arrow-left"
+  }), _vm._v("\n                                    Volver")])])]) : _c("div", {
     staticClass: "table-responsive"
   }, [_c("table", {
     staticClass: "table table-bordered text-center align-middle"
-  }, [_c("thead", [_c("tr", [_c("th", {
-    attrs: {
-      rowspan: "2"
-    }
-  }, [_vm._v("Categoria")]), _vm._v(" "), _c("th", {
-    attrs: {
-      colspan: "2"
-    }
-  }, [_vm._v("Existe")]), _vm._v(" "), _c("th", {
-    attrs: {
-      colspan: "3"
-    }
-  }, [_vm._v("Estado")]), _vm._v(" "), _c("th", {
-    attrs: {
-      rowspan: "2"
-    }
-  }, [_vm._v("Observacion")])]), _vm._v(" "), _c("tr", [_c("th", [_vm._v("SI")]), _vm._v(" "), _c("th", [_vm._v("NO")]), _vm._v(" "), _c("th", [_c("i", {
-    staticClass: "bi bi-emoji-laughing fs-4 text-success"
-  })]), _vm._v(" "), _c("th", [_c("i", {
-    staticClass: "bi bi-emoji-neutral fs-4 text-warning"
-  })]), _vm._v(" "), _c("th", [_c("i", {
-    staticClass: "bi bi-emoji-frown fs-4 text-danger"
-  })])])]), _vm._v(" "), _c("tbody", [_vm._l(_vm.verCheckListProps.categorias, function (categoria) {
-    return [categoria.intervenciones.length > 0 ? [_c("tr", {
-      staticClass: "table-active"
-    }, [_c("th", {
-      attrs: {
-        colspan: "7"
-      }
-    }, [_vm._v(_vm._s(categoria.nombre))])]), _vm._v(" "), _vm._l(categoria.intervenciones, function (intervencion, index) {
-      return _c("tr", {
-        key: intervencion.id + "_" + index
-      }, [_c("td", [_vm._v(_vm._s(intervencion.nombre))]), _vm._v(" "), _vm._l(intervencion.condiciones, function (condicion) {
+  }, [_vm._m(6), _vm._v(" "), _c("tbody", [_vm.verCheckListProps ? [_vm._l(_vm.verCheckListProps.categorias, function (categoria) {
+    return [categoria.intervenciones ? [_vm._l(categoria.intervenciones, function (intervencion) {
+      return [intervencion.condiciones.length > 0 ? [_c("tr", {
+        staticClass: "table-active"
+      }, [_c("th", {
+        attrs: {
+          colspan: "7"
+        }
+      }, [_vm._v(_vm._s(categoria.nombre))])]), _vm._v(" "), _c("tr", [_c("td", [_vm._v(_vm._s(intervencion.nombre))]), _vm._v(" "), _vm._l(intervencion.condiciones, function (condicion) {
         return [condicion.existe === 1 ? _c("td", [_c("i", {
           staticClass: "bi bi-check-lg fs-4"
         })]) : _c("td"), _vm._v(" "), condicion.existe === 2 ? _c("td", [_c("i", {
@@ -15548,17 +16752,99 @@ var render = function render() {
           },
           on: {
             click: function click($event) {
-              return _vm.verObservacionesImagenes(intervencion.observaciones);
+              return _vm.verObservacionesImagenes(intervencion.condiciones);
             }
           }
         }, [_c("i", {
           staticClass: "bi bi-image-fill"
         })])])];
-      })], 2);
+      })], 2)] : _vm._e()];
     })] : _vm._e()];
-  })], 2)])]);
+  })] : _vm._e()], 2)])])])])])])])]);
 };
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Kilometraje")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "row align-items-center mb-2"
+  }, [_c("p", {
+    staticClass: "col-6 col-form-label"
+  }, [_vm._v("Horometro")])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_c("i", {
+    staticClass: "bi bi-check-lg fs-4"
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_c("i", {
+    staticClass: "bi bi-check-lg fs-4"
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_c("i", {
+    staticClass: "bi bi-check-lg fs-4"
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "col-6"
+  }, [_c("p", {
+    staticClass: "mb-0"
+  }, [_c("i", {
+    staticClass: "bi bi-check-lg fs-4"
+  })])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("thead", [_c("tr", [_c("th", {
+    attrs: {
+      rowspan: "2"
+    }
+  }, [_vm._v("Categoria")]), _vm._v(" "), _c("th", {
+    attrs: {
+      colspan: "2"
+    }
+  }, [_vm._v("Aplica")]), _vm._v(" "), _c("th", {
+    attrs: {
+      colspan: "3"
+    }
+  }, [_vm._v("Estado")]), _vm._v(" "), _c("th", {
+    attrs: {
+      rowspan: "2"
+    }
+  }, [_vm._v("Observacion")])]), _vm._v(" "), _c("tr", [_c("th", [_vm._v("SI")]), _vm._v(" "), _c("th", [_vm._v("NO")]), _vm._v(" "), _c("th", [_c("i", {
+    staticClass: "bi bi-emoji-laughing fs-4 text-success"
+  })]), _vm._v(" "), _c("th", [_c("i", {
+    staticClass: "bi bi-emoji-neutral fs-4 text-warning"
+  })]), _vm._v(" "), _c("th", [_c("i", {
+    staticClass: "bi bi-emoji-frown fs-4 text-danger"
+  })])])]);
+}];
 render._withStripped = true;
 
 
@@ -19105,7 +20391,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "modal fade",
+    staticClass: "modal-reporte modal fade",
     attrs: {
       id: "aditivoModal",
       tabindex: "-1",
@@ -19113,7 +20399,7 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+    staticClass: "modal-dialog modal-xl"
   }, [_c("div", {
     staticClass: "modal-content"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -19133,7 +20419,7 @@ var render = function render() {
   })], 1)]) : _c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-4"
+    staticClass: "col-lg-4 col-md-12"
   }, [_c("div", {
     staticClass: "card shadow mb-3"
   }, [_c("div", {
@@ -19146,6 +20432,53 @@ var render = function render() {
       }
     }
   }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "aditivoTipoPeso"
+    }
+  }, [_vm._v("Tipo de Peso")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.newAditivo.tipo_peso,
+      expression: "newAditivo.tipo_peso"
+    }],
+    staticClass: "form-select",
+    "class": _vm.errors_aditivos ? _vm.errors_aditivos.tipo_peso ? "is-invalid" : "" : "",
+    attrs: {
+      "aria-label": "Seleccione el tipo de peso",
+      id: "aditivoTipoPeso",
+      required: ""
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.newAditivo, "tipo_peso", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      disabled: ""
+    },
+    domProps: {
+      value: null
+    }
+  }, [_vm._v("Seleccione el tipo de peso")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "KG"
+    }
+  }, [_vm._v("KG")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "LT"
+    }
+  }, [_vm._v("LT")])])]), _vm._v(" "), _c("div", {
     staticClass: "mb-3"
   }, [_c("label", {
     staticClass: "form-label",
@@ -19218,8 +20551,10 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }), _vm._v("\n                                            Cargando...")]) : _c("span", [_vm._v("Guardar Cambios")])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-8"
-  }, [!_vm.habilitarEliminar ? _c("div", [_c("table", {
+    staticClass: "col-lg-8 col-md-12"
+  }, [!_vm.habilitarEliminar ? _c("div", {
+    staticClass: "table-responsive"
+  }, [_c("table", {
     staticClass: "table"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.ListaAditivos, function (aditivo) {
     return _c("tr", {
@@ -19228,7 +20563,7 @@ var render = function render() {
       attrs: {
         scope: "row"
       }
-    }, [_vm._v(_vm._s(aditivo.id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(aditivo.cantidad))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(aditivo.detalle))]), _vm._v(" "), _c("td", {
+    }, [_vm._v(_vm._s(aditivo.id))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(aditivo.cantidad))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(aditivo.detalle))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(aditivo.tipo_peso))]), _vm._v(" "), _c("td", {
       staticClass: "text-end"
     }, [_c("button", {
       staticClass: "btn btn-primary",
@@ -19311,6 +20646,10 @@ var staticRenderFns = [function () {
     attrs: {
       scope: "col"
     }
+  }, [_vm._v("Tipo de Peso")]), _vm._v(" "), _c("th", {
+    attrs: {
+      scope: "col"
+    }
   })])]);
 }];
 render._withStripped = true;
@@ -19341,6 +20680,53 @@ var render = function render() {
       }
     }
   }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "aditivoTipoPeso"
+    }
+  }, [_vm._v("Tipo de Peso")]), _vm._v(" "), _c("select", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.editAditivo.tipo_peso,
+      expression: "editAditivo.tipo_peso"
+    }],
+    staticClass: "form-select",
+    "class": _vm.errors_aditivos ? _vm.errors_aditivos.tipo_peso ? "is-invalid" : "" : "",
+    attrs: {
+      "aria-label": "Seleccione el tipo de peso",
+      id: "aditivoTipoPeso",
+      required: ""
+    },
+    on: {
+      change: function change($event) {
+        var $$selectedVal = Array.prototype.filter.call($event.target.options, function (o) {
+          return o.selected;
+        }).map(function (o) {
+          var val = "_value" in o ? o._value : o.value;
+          return val;
+        });
+        _vm.$set(_vm.editAditivo, "tipo_peso", $event.target.multiple ? $$selectedVal : $$selectedVal[0]);
+      }
+    }
+  }, [_c("option", {
+    attrs: {
+      disabled: ""
+    },
+    domProps: {
+      value: null
+    }
+  }, [_vm._v("Seleccione el tipo de peso")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "KG"
+    }
+  }, [_vm._v("KG")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: "LT"
+    }
+  }, [_vm._v("LT")])])]), _vm._v(" "), _c("div", {
     staticClass: "mb-3"
   }, [_c("label", {
     staticClass: "form-label",
@@ -19513,7 +20899,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "modal fade",
+    staticClass: "modal-reporte modal fade",
     attrs: {
       id: "coronasEscareadoresModal",
       tabindex: "-1",
@@ -19521,7 +20907,7 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+    staticClass: "modal-dialog modal-xl"
   }, [_c("div", {
     staticClass: "modal-content"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -19541,7 +20927,7 @@ var render = function render() {
   })], 1)]) : _c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-4"
+    staticClass: "col-lg-4 col-md-12"
   }, [_c("div", {
     staticClass: "card shadow mb-3"
   }, [_c("div", {
@@ -19679,8 +21065,7 @@ var render = function render() {
     staticClass: "form-control",
     "class": _vm.errors_coronasEscareadores ? _vm.errors_coronasEscareadores.diametro ? "is-invalid" : "" : "",
     attrs: {
-      type: "number",
-      min: "0",
+      type: "text",
       id: "coronasEscareadoresDiametro",
       required: ""
     },
@@ -19737,8 +21122,10 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }), _vm._v("\n                                            Cargando...")]) : _c("span", [_vm._v("Guardar Cambios")])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-8"
-  }, [!_vm.habilitarEliminar ? _c("div", [_c("table", {
+    staticClass: "col-lg-8 col-md-12"
+  }, [!_vm.habilitarEliminar ? _c("div", {
+    staticClass: "table-responsive"
+  }, [_c("table", {
     staticClass: "table"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.ListaCoronasEscareadores, function (coronasEscareadores) {
     return _c("tr", {
@@ -19997,8 +21384,7 @@ var render = function render() {
     staticClass: "form-control",
     "class": _vm.errors_coronasEscareadores ? _vm.errors_coronasEscareadores.diametro ? "is-invalid" : "" : "",
     attrs: {
-      type: "number",
-      min: "0",
+      type: "text",
       id: "coronasEscareadoresDiametro",
       required: ""
     },
@@ -20161,7 +21547,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "modal fade",
+    staticClass: "modal-reporte modal fade",
     attrs: {
       id: "detalleHorasModal",
       tabindex: "-1",
@@ -20169,7 +21555,7 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+    staticClass: "modal-dialog modal-xl"
   }, [_c("div", {
     staticClass: "modal-content"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -20190,7 +21576,7 @@ var render = function render() {
   })], 1)]) : _c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-4"
+    staticClass: "col-lg-4 col-md-12"
   }, [_c("div", {
     staticClass: "card shadow mb-3"
   }, [_c("div", {
@@ -20328,8 +21714,10 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }), _vm._v("\n                                            Cargando...")]) : _c("span", [_vm._v("Guardar Cambios")])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-8"
-  }, [!_vm.habilitarEliminar ? _c("div", [_c("table", {
+    staticClass: "col-lg-8 col-md-12"
+  }, [!_vm.habilitarEliminar ? _c("div", [_c("div", {
+    staticClass: "table-responsive"
+  }, [_c("table", {
     staticClass: "table"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.ListaDetalleHoras, function (detalleHora) {
     return _c("tr", {
@@ -20365,7 +21753,7 @@ var render = function render() {
     }, [_c("i", {
       staticClass: "bi bi-trash"
     })])])]);
-  }), 0)]), _vm._v(" "), _c("PaginacionComponent", {
+  }), 0)])]), _vm._v(" "), _c("PaginacionComponent", {
     attrs: {
       paginaActual: _vm.paginaActual,
       totalPaginas: _vm.totalPaginas
@@ -20687,7 +22075,7 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+    staticClass: "modal-dialog modal-xl"
   }, [_c("div", {
     staticClass: "modal-content"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -21230,7 +22618,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "modal fade",
+    staticClass: "modal-reporte modal fade",
     attrs: {
       id: "herramientasModal",
       tabindex: "-1",
@@ -21238,7 +22626,7 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-dialog-centered modal-dialog-scrollable"
+    staticClass: "modal-dialog"
   }, [_c("div", {
     staticClass: "modal-content"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -21826,7 +23214,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "modal fade",
+    staticClass: "modal-reporte modal fade",
     attrs: {
       id: "horometroModal",
       tabindex: "-1",
@@ -21834,7 +23222,7 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+    staticClass: "modal-dialog modal-lg"
   }, [_c("div", {
     staticClass: "modal-content"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -21998,7 +23386,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "modal fade",
+    staticClass: "modal-reporte modal fade",
     attrs: {
       id: "observacionModal",
       tabindex: "-1",
@@ -22006,7 +23394,7 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"
+    staticClass: "modal-dialog modal-lg"
   }, [_c("div", {
     staticClass: "modal-content"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -22417,7 +23805,7 @@ var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "modal fade",
+    staticClass: "modal-reporte modal fade",
     attrs: {
       id: "perforacionesModal",
       tabindex: "-1",
@@ -22425,7 +23813,7 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }, [_c("div", {
-    staticClass: "modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+    staticClass: "modal-dialog modal-xl"
   }, [_c("div", {
     staticClass: "modal-content"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -22445,7 +23833,7 @@ var render = function render() {
   })], 1)]) : _c("div", {
     staticClass: "row"
   }, [_c("div", {
-    staticClass: "col-4"
+    staticClass: "col-lg-4 col-md-12"
   }, [_c("div", {
     staticClass: "card shadow mb-3"
   }, [_c("div", {
@@ -22663,8 +24051,10 @@ var render = function render() {
       "aria-hidden": "true"
     }
   }), _vm._v("\n                                            Cargando...")]) : _c("span", [_vm._v("Guardar Cambios")])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-8"
-  }, [!_vm.habilitarEliminar ? _c("div", [_c("table", {
+    staticClass: "col-lg-8 col-md-12"
+  }, [!_vm.habilitarEliminar ? _c("div", [_c("div", {
+    staticClass: "table-responsive"
+  }, [_c("table", {
     staticClass: "table"
   }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.ListaPerforaciones, function (perforacion) {
     return _c("tr", {
@@ -22696,7 +24086,7 @@ var render = function render() {
     }, [_c("i", {
       staticClass: "bi bi-trash"
     })])])]);
-  }), 0)]), _vm._v(" "), _c("PaginacionComponent", {
+  }), 0)])]), _vm._v(" "), _c("PaginacionComponent", {
     attrs: {
       paginaActual: _vm.paginaActual,
       totalPaginas: _vm.totalPaginas
@@ -23130,30 +24520,30 @@ var render = function render() {
   }, [_c("label", {
     staticClass: "form-label",
     attrs: {
-      "for": "reporteMetros"
+      "for": "reporteAdicionales"
     }
-  }, [_vm._v("Metros")]), _vm._v(" "), _c("input", {
+  }, [_vm._v("Adicional")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.newReporte.metros,
-      expression: "newReporte.metros"
+      value: _vm.newReporte.adicional,
+      expression: "newReporte.adicional"
     }],
     staticClass: "form-control",
-    "class": _vm.errors_reporte ? _vm.errors_reporte.metros ? "is-invalid" : "" : "",
+    "class": _vm.errors_reporte ? _vm.errors_reporte.adicional ? "is-invalid" : "" : "",
     attrs: {
       type: "number",
       min: "0",
-      id: "reporteMetros",
+      id: "reporteAdicionales",
       required: ""
     },
     domProps: {
-      value: _vm.newReporte.metros
+      value: _vm.newReporte.adicional
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.$set(_vm.newReporte, "metros", $event.target.value);
+        _vm.$set(_vm.newReporte, "adicional", $event.target.value);
       }
     }
   })])]), _vm._v(" "), _c("div", {
@@ -23331,14 +24721,40 @@ var render = function render() {
     }, [_c("div", {
       staticClass: "col"
     }, [_c("div", {
-      staticClass: "card h-100"
+      staticClass: "accordion",
+      attrs: {
+        id: "accordionExample" + reporte.id
+      }
     }, [_c("div", {
-      staticClass: "card-body"
-    }, [_c("div", {
-      staticClass: "d-flex justify-content-between align-items-center mb-3"
+      staticClass: "accordion-item"
+    }, [_c("h2", {
+      staticClass: "accordion-header",
+      attrs: {
+        id: "heading" + reporte.id
+      }
+    }, [_c("button", {
+      staticClass: "accordion-button collapsed",
+      attrs: {
+        type: "button",
+        "data-bs-toggle": "collapse",
+        "data-bs-target": "#collapse" + reporte.id,
+        "aria-expanded": "true",
+        "aria-controls": "collapse" + reporte.id
+      }
     }, [_c("h5", {
-      staticClass: "card-title"
-    }, [_vm._v(_vm._s(reporte.proyecto.name))]), _vm._v(" "), _c("div", [_c("button", {
+      staticClass: "mb-0"
+    }, [_vm._v(_vm._s(reporte.proyecto.name))])])]), _vm._v(" "), _c("div", {
+      staticClass: "accordion-collapse collapse",
+      attrs: {
+        id: "collapse" + reporte.id,
+        "aria-labelledby": "heading" + reporte.id,
+        "data-bs-parent": "#accordionExample" + reporte.id
+      }
+    }, [_c("div", {
+      staticClass: "accordion-body"
+    }, [_c("div", {
+      staticClass: "d-flex justify-content-end"
+    }, [_c("div", [_c("button", {
       staticClass: "btn btn-warning",
       attrs: {
         type: "button"
@@ -23381,11 +24797,7 @@ var render = function render() {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("strong", [_vm._v("Sondaje")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.sondaje))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
-    }, [_c("div", {
-      staticClass: "me-auto"
-    }, [_c("div", {
-      staticClass: "fw-bold"
-    }, [_vm._v("Fecha")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.fecha))])])]), _vm._v(" "), _c("li", {
+    }, [_c("strong", [_vm._v("Fecha")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.fecha))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("strong", [_vm._v("Sonda")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.sonda))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
@@ -23393,17 +24805,13 @@ var render = function render() {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("strong", [_vm._v("Horas")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.horas))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
-    }, [_c("strong", [_vm._v("Desde")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.desde))])])])]), _vm._v(" "), _c("div", {
-      staticClass: "col"
-    }, [_c("ul", {
-      staticClass: "list-group list-group-flush"
-    }, [_c("li", {
+    }, [_c("strong", [_vm._v("Desde")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.desde))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("strong", [_vm._v("Hasta")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.hasta))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("strong", [_vm._v("Total")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.total))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
-    }, [_c("strong", [_vm._v("Metros")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.metros))])]), _vm._v(" "), _c("li", {
+    }, [_c("strong", [_vm._v("Adicional")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.adicional))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("strong", [_vm._v("Inclinación")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.inclinacion))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
@@ -23411,19 +24819,54 @@ var render = function render() {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("strong", [_vm._v("Programa")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.programa))])]), _vm._v(" "), _c("li", {
       staticClass: "list-group-item d-flex justify-content-between align-items-center"
-    }, [_c("strong", [_vm._v("Diámetro")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.diametro))])])])])])]), _vm._v(" "), _c("div", {
-      staticClass: "card-footer d-flex justify-content-end"
-    }, [_c("div", {
-      staticClass: "dropdown"
-    }, [_vm._m(1, true), _vm._v(" "), _c("ul", {
-      staticClass: "dropdown-menu",
+    }, [_c("strong", [_vm._v("Diámetro")]), _vm._v(" "), _c("span", [_vm._v(_vm._s(reporte.diametro))])])])])]), _vm._v(" "), _c("div", {
+      staticClass: "d-flex justify-content-end"
+    }, [_c("button", {
+      staticClass: "btn btn-base-dv",
       attrs: {
-        "aria-labelledby": "dropdownMenuButton1"
+        type: "button",
+        "data-bs-toggle": "offcanvas",
+        "data-bs-target": "#offcanvasScrolling" + reporte.id,
+        "aria-controls": "#offcanvasScrolling" + reporte.id
       }
+    }, [_c("i", {
+      staticClass: "bi bi-plus-circle"
+    }), _vm._v("\n                                            Agregar")]), _vm._v(" "), _c("div", {
+      staticClass: "offcanvas offcanvas-start",
+      attrs: {
+        "data-bs-scroll": "true",
+        "data-bs-backdrop": "false",
+        tabindex: "-1",
+        id: "offcanvasScrolling" + reporte.id,
+        "aria-labelledby": "offcanvasScrollingLabel" + reporte.id
+      }
+    }, [_c("div", {
+      staticClass: "offcanvas-header"
+    }, [_c("h5", {
+      staticClass: "offcanvas-title",
+      attrs: {
+        id: "offcanvasScrollingLabel" + reporte.id
+      }
+    }, [_vm._v(_vm._s(reporte.proyecto.name))]), _vm._v(" "), _c("button", {
+      staticClass: "btn-close text-reset",
+      attrs: {
+        type: "button",
+        "data-bs-dismiss": "offcanvas",
+        "aria-label": "Close"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.closeOffcanvas();
+        }
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "offcanvas-body"
+    }, [_c("ul", {
+      staticClass: "list-group list-group-flush"
     }, [_c("li", {
-      "class": reporte.horometro.length > 0 ? "realizado" : "no_realizado"
+      staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("a", {
-      staticClass: "dropdown-item",
+      staticClass: "list-group-item-action text-decoration-none",
       attrs: {
         href: "#"
       },
@@ -23432,10 +24875,13 @@ var render = function render() {
           return _vm.openHorometroModal(reporte);
         }
       }
-    }, [_vm._v("Horómetro")])]), _vm._v(" "), _c("li", {
-      "class": reporte.corona_escareador.length > 0 ? "realizado" : "no_realizado"
+    }, [_vm._v("Horómetro")]), _vm._v(" "), _c("i", {
+      staticClass: "bi bi-check2-circle",
+      "class": reporte.horometro.length > 0 ? "realizado" : "no_realizado"
+    })]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("a", {
-      staticClass: "dropdown-item",
+      staticClass: "list-group-item-action text-decoration-none",
       attrs: {
         href: "#"
       },
@@ -23444,10 +24890,13 @@ var render = function render() {
           return _vm.openCoronasEscareadoresModal(reporte);
         }
       }
-    }, [_vm._v("Control Coronas y\n                                            Escareadores")])]), _vm._v(" "), _c("li", {
-      "class": reporte.aditivo.length > 0 ? "realizado" : "no_realizado"
+    }, [_vm._v("Control\n                                                            Coronas y\n                                                            Escareadores")]), _vm._v(" "), _c("i", {
+      staticClass: "bi bi-check2-circle",
+      "class": reporte.corona_escareador.length > 0 ? "realizado" : "no_realizado"
+    })]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("a", {
-      staticClass: "dropdown-item",
+      staticClass: "list-group-item-action text-decoration-none",
       attrs: {
         href: "#"
       },
@@ -23456,10 +24905,13 @@ var render = function render() {
           return _vm.openAditivosModal(reporte);
         }
       }
-    }, [_vm._v("Control de Aditivos")])]), _vm._v(" "), _c("li", {
-      "class": reporte.herramienta.length > 0 ? "realizado" : "no_realizado"
+    }, [_vm._v("Control de\n                                                            Aditivos")]), _vm._v(" "), _c("i", {
+      staticClass: "bi bi-check2-circle",
+      "class": reporte.aditivo.length > 0 ? "realizado" : "no_realizado"
+    })]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("a", {
-      staticClass: "dropdown-item",
+      staticClass: "list-group-item-action text-decoration-none",
       attrs: {
         href: "#"
       },
@@ -23468,10 +24920,13 @@ var render = function render() {
           return _vm.openHerramientasModal(reporte);
         }
       }
-    }, [_vm._v("Control de Herramientas")])]), _vm._v(" "), _c("li", {
-      "class": reporte.perforacion.length > 0 ? "realizado" : "no_realizado"
+    }, [_vm._v("Control\n                                                            de\n                                                            Herramientas")]), _vm._v(" "), _c("i", {
+      staticClass: "bi bi-check2-circle",
+      "class": reporte.herramienta.length > 0 ? "realizado" : "no_realizado"
+    })]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("a", {
-      staticClass: "dropdown-item",
+      staticClass: "list-group-item-action text-decoration-none",
       attrs: {
         href: "#"
       },
@@ -23480,10 +24935,13 @@ var render = function render() {
           return _vm.openPerforacionesModal(reporte);
         }
       }
-    }, [_vm._v("Perforación en Roca")])]), _vm._v(" "), _c("li", {
-      "class": reporte.detalle_hora.length > 0 ? "realizado" : "no_realizado"
+    }, [_vm._v("Perforación en\n                                                            Roca")]), _vm._v(" "), _c("i", {
+      staticClass: "bi bi-check2-circle",
+      "class": reporte.perforacion.length > 0 ? "realizado" : "no_realizado"
+    })]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("a", {
-      staticClass: "dropdown-item",
+      staticClass: "list-group-item-action text-decoration-none",
       attrs: {
         href: "#"
       },
@@ -23492,10 +24950,13 @@ var render = function render() {
           return _vm.openDetalleHorasModal(reporte);
         }
       }
-    }, [_vm._v("Detalle Horas")])]), _vm._v(" "), _c("li", {
-      "class": reporte.observacion.length > 0 ? "realizado" : "no_realizado"
+    }, [_vm._v("Detalle\n                                                            Horas")]), _vm._v(" "), _c("i", {
+      staticClass: "bi bi-check2-circle",
+      "class": reporte.detalle_hora.length > 0 ? "realizado" : "no_realizado"
+    })]), _vm._v(" "), _c("li", {
+      staticClass: "list-group-item d-flex justify-content-between align-items-center"
     }, [_c("a", {
-      staticClass: "dropdown-item",
+      staticClass: "list-group-item-action text-decoration-none",
       attrs: {
         href: "#"
       },
@@ -23504,8 +24965,16 @@ var render = function render() {
           return _vm.openObservacionModal(reporte);
         }
       }
-    }, [_vm._v("Observaciones")])])])])])])])]);
-  }), 0)] : _vm.loading ? _c("p", [_vm._v("Cargando...")]) : _c("p", [_vm._v("No hay reportes.")]), _vm._v(" "), _vm.errors ? _c("p", [_vm._v(_vm._s(_vm.errors))]) : _vm._e(), _vm._v(" "), _c("PaginacionComponent", {
+    }, [_vm._v("Observaciones")]), _vm._v(" "), _c("i", {
+      staticClass: "bi bi-check2-circle",
+      "class": reporte.observacion.length > 0 ? "realizado" : "no_realizado"
+    })])])])])])])])])])])]);
+  }), 0)] : _vm.loading ? _c("p", [_vm._v("Cargando...")]) : _c("p", [_vm._v("No hay reportes.")]), _vm._v(" "), _vm.errors ? _c("p", [_vm._v(_vm._s(_vm.errors))]) : _vm._e(), _vm._v(" "), _c("HorometroModal", {
+    ref: "horometroModal",
+    attrs: {
+      reporte: _vm.selectedReporte
+    }
+  }), _vm._v(" "), _c("PaginacionComponent", {
     attrs: {
       paginaActual: _vm.paginaActual,
       totalPaginas: _vm.totalPaginas
@@ -23522,11 +24991,6 @@ var render = function render() {
     },
     on: {
       "actualizar-reporte": _vm.actualizarReporte
-    }
-  }), _vm._v(" "), _c("HorometroModal", {
-    ref: "horometroModal",
-    attrs: {
-      reporte: _vm.selectedReporte
     }
   }), _vm._v(" "), _c("CoronasEscareadoresModal", {
     ref: "coronasEscareadoresModal",
@@ -23567,20 +25031,6 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "d-flex justify-content-between mb-3"
   }, [_c("h3", [_vm._v("Reportes")])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("button", {
-    staticClass: "btn btn-base-dv dropdown-toggle",
-    attrs: {
-      type: "button",
-      id: "dropdownMenuButton1",
-      "data-bs-toggle": "dropdown",
-      "aria-expanded": "false"
-    }
-  }, [_c("i", {
-    staticClass: "bi bi-plus-circle"
-  }), _vm._v(" Agregar\n                                ")]);
 }];
 render._withStripped = true;
 
@@ -25777,6 +27227,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     return {
       editChecklist: null,
       completarChecklist: null,
+      verCheckListCompletadoChecklist: null,
       checklist: [],
       loading_intervenciones: false,
       loading_checklist: false,
@@ -26229,7 +27680,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee12, null, [[2, 10, 14, 17]]);
       }))();
     },
-    finalizarChecklist: function finalizarChecklist(checkslist, checklist_id) {
+    finalizarChecklist: function finalizarChecklist(data) {
       var _this13 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee13() {
         var response;
@@ -26240,15 +27691,19 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _this13.errors_finalizar_checklist = null;
               _context13.prev = 2;
               _context13.next = 5;
-              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/checklist/store_completarChecklist', {
-                checkslist: checkslist,
-                checklist_id: checklist_id
+              return axios__WEBPACK_IMPORTED_MODULE_0___default().post('/checklist/store_completarChecklist', data, {
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                }
               });
             case 5:
               response = _context13.sent;
               // Verifica si la respuesta tiene errores de validación
-              if (response.data.errors) {
-                _this13.errors_finalizar_checklist = response.data.errors;
+              if (response.data.errors || response.data.errors_checks) {
+                _this13.errors_finalizar_checklist = {
+                  'errors': response.data.errors,
+                  'errors_checks': response.data.errors_checks
+                };
               }
 
               // Maneja la respuesta exitosa, si es necesario
@@ -26269,31 +27724,32 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         }, _callee13, null, [[2, 10, 14, 17]]);
       }))();
     },
-    descargarPDF: function descargarPDF(checklist) {
+    descargarPDF: function descargarPDF(checklist, check_id, check_vehiculo_id, check_vehiculo_detalle_id) {
       var _this14 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee14() {
         var response, url;
         return _regeneratorRuntime().wrap(function _callee14$(_context14) {
           while (1) switch (_context14.prev = _context14.next) {
             case 0:
-              _this14.$set(_this14.loading_pdf, checklist.id, true);
+              _this14.$set(_this14.loading_pdf, check_vehiculo_detalle_id, true);
               _context14.prev = 1;
               _context14.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_0___default()({
                 url: '/checklist/pdf',
-                // URL de la API
                 method: 'POST',
                 data: {
-                  checklist: checklist
+                  checklist: checklist,
+                  check_id: check_id,
+                  check_list_vehiculo_id: check_vehiculo_id,
+                  check_list_vehiculo_detalle_id: check_vehiculo_detalle_id
                 },
-                responseType: 'blob' // Importante para recibir el archivo como Blob
+                responseType: 'blob'
               });
             case 4:
               response = _context14.sent;
-              // Crear un objeto URL desde el Blob
               url = window.URL.createObjectURL(response.data, {
                 type: 'application/pdf'
-              }); // Abrir el PDF en una nueva pestaña
+              });
               window.open(url, '_blank');
               _context14.next = 13;
               break;
@@ -26304,7 +27760,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               console.error('Error crear checklist:', _context14.t0);
             case 13:
               _context14.prev = 13;
-              _this14.$set(_this14.loading_pdf, checklist.id, false);
+              _this14.$set(_this14.loading_pdf, check_vehiculo_detalle_id, false);
               return _context14.finish(13);
             case 16:
             case "end":
@@ -27681,7 +29137,8 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
               _context3.next = 5;
               return axios__WEBPACK_IMPORTED_MODULE_0___default().put('/aditivos/update/' + data.id, {
                 detalle: data.detalle,
-                cantidad: data.cantidad
+                cantidad: data.cantidad,
+                tipo_peso: data.tipo_peso
               });
             case 5:
               response = _context3.sent;
@@ -34056,10 +35513,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n.carousel[data-v-271442e8] {\r\n    
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -34097,7 +35554,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item-base-dv[data-v-2dd98000] {\r\n    border-left-color: #fd7e14;\n}\n.border-checklist[data-v-2dd98000] {\r\n    border-left-color: #fd7e14;\n}\n.border-card[data-v-2dd98000] {\r\n    border-left-width: .25rem;\r\n    border-radius: .25rem;\n}\n.form-check-input[data-v-2dd98000] {\r\n    float: none;\r\n    width: 1.4em;\r\n    height: 1.4em;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item-base-dv[data-v-2dd98000] {\r\n    border-left-color: #fd7e14;\n}\n.border-checklist[data-v-2dd98000] {\r\n    border-left-color: #fd7e14;\n}\n.border-card[data-v-2dd98000] {\r\n    border-left-width: .25rem;\r\n    border-radius: .25rem;\n}\n.checkbox-checklist[data-v-2dd98000] {\r\n    float: none;\r\n    width: 1.4em;\r\n    height: 1.4em;\n}\n.switch-checklist[data-v-2dd98000] {\r\n    width: 3.1em;\r\n    height: 1.5em;\n}\n.form-checklist[data-v-2dd98000] {\r\n    max-height: 750px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34122,6 +35579,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.titulo-categoria[data-v-64f5eba9] {\r\n    margin-bottom: 0;\r\n    color: #6c757d;\r\n    white-space: nowrap;\n}\r\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.list-group-item-base-dv[data-v-107c9534] {\r\n    border-left-color: #fd7e14;\n}\n.border-checklist[data-v-107c9534] {\r\n    border-left-color: #fd7e14;\n}\n.border-card[data-v-107c9534] {\r\n    border-left-width: .25rem;\r\n    border-radius: .25rem;\n}\n.checkbox-checklist[data-v-107c9534] {\r\n    float: none;\r\n    width: 1.4em;\r\n    height: 1.4em;\n}\n.switch-checklist[data-v-107c9534] {\r\n    width: 3.1em;\r\n    height: 1.5em;\n}\n.form-checklist[data-v-107c9534] {\r\n    max-height: 750px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -34169,7 +35650,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.dropdown-menu {\r\n    min-width: 20rem;\n}\n.dropdown-menu .no_realizado a {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.dropdown-menu .no_realizado a::after {\r\n    content: \"\\F623\";\r\n    font-family: bootstrap-icons !important;\r\n    font-size: 16px;\r\n    font-weight: bold;\r\n    color: #dc3545;\n}\n.dropdown-menu .realizado a {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\n}\n.dropdown-menu .realizado a::after {\r\n    content: \"\\F26B\";\r\n    font-family: bootstrap-icons !important;\r\n    font-size: 18px;\r\n    font-weight: bold;\r\n    color: #198754\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.dropdown-menu {\r\n    min-width: 20rem;\n}\n.bi-check2-circle {\r\n    font-size: 20px;\n}\n.realizado {\r\n    color: #198754;\n}\n.no_realizado {\r\n    color: #dc3545;\n}\n.offcanvas {\r\n    z-index: 9999;\n}\n@media (max-width: 425px) {\n.offcanvas {\r\n        z-index: 1045;\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -52193,10 +53674,10 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -52206,7 +53687,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacionImagenes_vue_vue_type_style_index_0_id_cf4e45a8_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacion_vue_vue_type_style_index_0_id_3d4db3aa_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css");
 
             
 
@@ -52215,11 +53696,11 @@ var options = {};
 options.insert = "head";
 options.singleton = false;
 
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacionImagenes_vue_vue_type_style_index_0_id_cf4e45a8_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacion_vue_vue_type_style_index_0_id_3d4db3aa_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacionImagenes_vue_vue_type_style_index_0_id_cf4e45a8_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacion_vue_vue_type_style_index_0_id_3d4db3aa_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -52280,6 +53761,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCheckListModal_vue_vue_type_style_index_0_id_64f5eba9_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletadoModal_vue_vue_type_style_index_0_id_107c9534_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletadoModal_vue_vue_type_style_index_0_id_107c9534_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletadoModal_vue_vue_type_style_index_0_id_107c9534_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -53105,15 +54616,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _CheckListObservacion_vue_vue_type_template_id_3d4db3aa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckListObservacion.vue?vue&type=template&id=3d4db3aa */ "./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=template&id=3d4db3aa");
 /* harmony import */ var _CheckListObservacion_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckListObservacion.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _CheckListObservacion_vue_vue_type_style_index_0_id_3d4db3aa_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css */ "./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _CheckListObservacion_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
   _CheckListObservacion_vue_vue_type_template_id_3d4db3aa__WEBPACK_IMPORTED_MODULE_0__.render,
   _CheckListObservacion_vue_vue_type_template_id_3d4db3aa__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
@@ -53127,47 +54640,6 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/CheckList/CheckListObservacion.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue":
-/*!****************************************************************************!*\
-  !*** ./resources/js/components/CheckList/CheckListObservacionImagenes.vue ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _CheckListObservacionImagenes_vue_vue_type_template_id_cf4e45a8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CheckListObservacionImagenes.vue?vue&type=template&id=cf4e45a8 */ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=template&id=cf4e45a8");
-/* harmony import */ var _CheckListObservacionImagenes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CheckListObservacionImagenes.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=script&lang=js");
-/* harmony import */ var _CheckListObservacionImagenes_vue_vue_type_style_index_0_id_cf4e45a8_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css */ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-;
-
-
-/* normalize component */
-
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _CheckListObservacionImagenes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CheckListObservacionImagenes_vue_vue_type_template_id_cf4e45a8__WEBPACK_IMPORTED_MODULE_0__.render,
-  _CheckListObservacionImagenes_vue_vue_type_template_id_cf4e45a8__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/CheckListObservacionImagenes.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -53410,10 +54882,10 @@ component.options.__file = "resources/js/components/CheckList/EditarChecklist/Ed
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/VerCheckListCompletado.vue":
-/*!**********************************************************************!*\
-  !*** ./resources/js/components/CheckList/VerCheckListCompletado.vue ***!
-  \**********************************************************************/
+/***/ "./resources/js/components/CheckList/VerCheckListCompletadoModal.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/CheckList/VerCheckListCompletadoModal.vue ***!
+  \***************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -53421,30 +54893,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _VerCheckListCompletado_vue_vue_type_template_id_495fb737__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VerCheckListCompletado.vue?vue&type=template&id=495fb737 */ "./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737");
-/* harmony import */ var _VerCheckListCompletado_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VerCheckListCompletado.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _VerCheckListCompletadoModal_vue_vue_type_template_id_107c9534_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./VerCheckListCompletadoModal.vue?vue&type=template&id=107c9534&scoped=true */ "./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=template&id=107c9534&scoped=true");
+/* harmony import */ var _VerCheckListCompletadoModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./VerCheckListCompletadoModal.vue?vue&type=script&lang=js */ "./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=script&lang=js");
+/* harmony import */ var _VerCheckListCompletadoModal_vue_vue_type_style_index_0_id_107c9534_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css */ "./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
+;
 
 
 /* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _VerCheckListCompletado_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
-  _VerCheckListCompletado_vue_vue_type_template_id_495fb737__WEBPACK_IMPORTED_MODULE_0__.render,
-  _VerCheckListCompletado_vue_vue_type_template_id_495fb737__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _VerCheckListCompletadoModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"],
+  _VerCheckListCompletadoModal_vue_vue_type_template_id_107c9534_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render,
+  _VerCheckListCompletadoModal_vue_vue_type_template_id_107c9534_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  null,
+  "107c9534",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/CheckList/VerCheckListCompletado.vue"
+component.options.__file = "resources/js/components/CheckList/VerCheckListCompletadoModal.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -55728,22 +57202,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=script&lang=js":
-/*!****************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=script&lang=js ***!
-  \****************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacionImagenes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckListObservacionImagenes.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacionImagenes_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
 /***/ "./resources/js/components/CheckList/CompletarCheckListModal.vue?vue&type=script&lang=js":
 /*!***********************************************************************************************!*\
   !*** ./resources/js/components/CheckList/CompletarCheckListModal.vue?vue&type=script&lang=js ***!
@@ -55840,10 +57298,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js ***!
-  \**********************************************************************************************/
+/***/ "./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -55851,8 +57309,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletado_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCheckListCompletado.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=script&lang=js");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletado_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletadoModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCheckListCompletadoModal.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=script&lang=js");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletadoModal_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -56925,23 +58383,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=template&id=cf4e45a8":
-/*!**********************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=template&id=cf4e45a8 ***!
-  \**********************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacionImagenes_vue_vue_type_template_id_cf4e45a8__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacionImagenes_vue_vue_type_template_id_cf4e45a8__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacionImagenes_vue_vue_type_template_id_cf4e45a8__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckListObservacionImagenes.vue?vue&type=template&id=cf4e45a8 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=template&id=cf4e45a8");
-
-
-/***/ }),
-
 /***/ "./resources/js/components/CheckList/CompletarCheckListModal.vue?vue&type=template&id=2dd98000&scoped=true":
 /*!*****************************************************************************************************************!*\
   !*** ./resources/js/components/CheckList/CompletarCheckListModal.vue?vue&type=template&id=2dd98000&scoped=true ***!
@@ -57044,19 +58485,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737":
-/*!****************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737 ***!
-  \****************************************************************************************************/
+/***/ "./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=template&id=107c9534&scoped=true":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=template&id=107c9534&scoped=true ***!
+  \*********************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletado_vue_vue_type_template_id_495fb737__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletado_vue_vue_type_template_id_495fb737__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletadoModal_vue_vue_type_template_id_107c9534_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   staticRenderFns: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletadoModal_vue_vue_type_template_id_107c9534_scoped_true__WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletado_vue_vue_type_template_id_495fb737__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCheckListCompletado.vue?vue&type=template&id=495fb737 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletado.vue?vue&type=template&id=495fb737");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletadoModal_vue_vue_type_template_id_107c9534_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCheckListCompletadoModal.vue?vue&type=template&id=107c9534&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/lib/loaders/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=template&id=107c9534&scoped=true");
 
 
 /***/ }),
@@ -57975,15 +59416,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css":
-/*!************************************************************************************************************************!*\
-  !*** ./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css ***!
-  \************************************************************************************************************************/
+/***/ "./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css ***!
+  \****************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacionImagenes_vue_vue_type_style_index_0_id_cf4e45a8_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacionImagenes.vue?vue&type=style&index=0&id=cf4e45a8&lang=css");
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_CheckListObservacion_vue_vue_type_style_index_0_id_3d4db3aa_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/CheckListObservacion.vue?vue&type=style&index=0&id=3d4db3aa&lang=css");
 
 
 /***/ }),
@@ -58010,6 +59451,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_EditCheckListModal_vue_vue_type_style_index_0_id_64f5eba9_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./EditCheckListModal.vue?vue&type=style&index=0&id=64f5eba9&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/EditarChecklist/EditCheckListModal.vue?vue&type=style&index=0&id=64f5eba9&scoped=true&lang=css");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css":
+/*!***********************************************************************************************************************************!*\
+  !*** ./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css ***!
+  \***********************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_VerCheckListCompletadoModal_vue_vue_type_style_index_0_id_107c9534_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader/dist/cjs.js!../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/CheckList/VerCheckListCompletadoModal.vue?vue&type=style&index=0&id=107c9534&scoped=true&lang=css");
 
 
 /***/ }),

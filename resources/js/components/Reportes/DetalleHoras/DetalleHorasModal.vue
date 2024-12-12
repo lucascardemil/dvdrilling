@@ -1,7 +1,7 @@
 <template>
-    <div class="modal fade" id="detalleHorasModal" tabindex="-1" aria-labelledby="detalleHorasModalLabel"
+    <div class="modal-reporte modal fade" id="detalleHorasModal" tabindex="-1" aria-labelledby="detalleHorasModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="detalleHorasModalLabel">Detalle Horas</h5>
@@ -10,15 +10,13 @@
                 <div class="modal-body">
                     <div class="row" v-if="habilitarEditar">
                         <div class="col-12">
-                            <EditarDetalleHora :data="editDetalleHoras"
-                                @actualizar-detalleHora="actualizarDetalleHora"
-                                @cancelar-editar="cancelarEditarDetalleHora"
-                                :actividades="actividades">
+                            <EditarDetalleHora :data="editDetalleHoras" @actualizar-detalleHora="actualizarDetalleHora"
+                                @cancelar-editar="cancelarEditarDetalleHora" :actividades="actividades">
                             </EditarDetalleHora>
                         </div>
                     </div>
                     <div class="row" v-else>
-                        <div class="col-4">
+                        <div class="col-lg-4 col-md-12">
                             <div class="card shadow mb-3">
                                 <div class="card-body">
                                     <form @submit.prevent="crearDetalleHoras">
@@ -64,37 +62,39 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8">
+                        <div class="col-lg-8 col-md-12">
                             <div v-if="!habilitarEliminar">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">De</th>
-                                            <th scope="col">A</th>
-                                            <th scope="col">Actividad</th>
-                                            <th scope="col"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for="detalleHora in ListaDetalleHoras" :key="detalleHora.id">
-                                            <th scope="row">{{ detalleHora.id }}</th>
-                                            <td>{{ detalleHora.de.slice(0, 5) }}</td>
-                                            <td>{{ detalleHora.a.slice(0, 5) }}</td>
-                                            <td>{{ detalleHora.actividad.name }}</td>
-                                            <td class="text-end">
-                                                <button type="button" class="btn btn-primary"
-                                                    @click="openEditarDetalleHora(detalleHora)"><i
-                                                        class="bi bi-pencil-square"></i></button>
-                                                <button type="button" class="btn btn-danger"
-                                                    @click="openElimninarDetalleHora(detalleHora)"><i
-                                                        class="bi bi-trash"></i></button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">De</th>
+                                                <th scope="col">A</th>
+                                                <th scope="col">Actividad</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="detalleHora in ListaDetalleHoras" :key="detalleHora.id">
+                                                <th scope="row">{{ detalleHora.id }}</th>
+                                                <td>{{ detalleHora.de.slice(0, 5) }}</td>
+                                                <td>{{ detalleHora.a.slice(0, 5) }}</td>
+                                                <td>{{ detalleHora.actividad.name }}</td>
+                                                <td class="text-end">
+                                                    <button type="button" class="btn btn-primary"
+                                                        @click="openEditarDetalleHora(detalleHora)"><i
+                                                            class="bi bi-pencil-square"></i></button>
+                                                    <button type="button" class="btn btn-danger"
+                                                        @click="openElimninarDetalleHora(detalleHora)"><i
+                                                            class="bi bi-trash"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                                 <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas"
-            @cambiar-pagina="cambiarPagina" @cambiar-pagina-actual="cambiarPaginaActual"/>
+                                    @cambiar-pagina="cambiarPagina" @cambiar-pagina-actual="cambiarPaginaActual" />
                             </div>
                             <EliminarDetalleHora :data="eliminarDetalleHora"
                                 @confirmado-eliminar="confirmadoEliminarDetalleHora"
@@ -169,19 +169,19 @@ export default {
                 }
             }
         },
-        'newDetalleHoras.a': function(nuevaHoraA) {
+        'newDetalleHoras.a': function (nuevaHoraA) {
             if (nuevaHoraA && this.newDetalleHoras.de && nuevaHoraA < this.newDetalleHoras.de) {
                 this.newDetalleHoras.a = this.newDetalleHoras.de;
             }
         },
-        'newDetalleHoras.de': function(nuevaHoraDe) {
+        'newDetalleHoras.de': function (nuevaHoraDe) {
             if (this.newDetalleHoras.a && nuevaHoraDe && this.newDetalleHoras.a < nuevaHoraDe) {
                 this.newDetalleHoras.a = nuevaHoraDe;
             }
         }
     },
     methods: {
-        cambiarPaginaActual(newPage){
+        cambiarPaginaActual(newPage) {
             this.paginaActual = newPage;
         },
         cambiarPagina(newPage) {
@@ -209,7 +209,7 @@ export default {
                 this.paginaActual--;
             }
 
-            if(this.detalleHoras.length === 0){
+            if (this.detalleHoras.length === 0) {
                 this.newDetalleHoras.de = "";
                 this.existeDe = false;
                 this.errors_detalleHoras = null;

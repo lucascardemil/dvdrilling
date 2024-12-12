@@ -1,7 +1,7 @@
 <template>
-    <div class="modal fade" id="observacionModal" tabindex="-1" aria-labelledby="observacionModalLabel"
+    <div class="modal-reporte modal fade" id="observacionModal" tabindex="-1" aria-labelledby="observacionModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-dialog modal-lg ">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="observacionModalLabel">Observaciones</h5>

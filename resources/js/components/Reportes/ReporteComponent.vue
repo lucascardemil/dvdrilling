@@ -90,10 +90,10 @@
                                         readonly>
                                 </div>
                                 <div class="col-lg-3 col-md-12 mb-3">
-                                    <label for="reporteMetros" class="form-label">Metros</label>
-                                    <input type="number" min="0" class="form-control" id="reporteMetros"
-                                        v-model="newReporte.metros"
-                                        :class="errors_reporte ? errors_reporte.metros ? 'is-invalid' : '' : ''"
+                                    <label for="reporteAdicionales" class="form-label">Adicional</label>
+                                    <input type="number" min="0" class="form-control" id="reporteAdicionales"
+                                        v-model="newReporte.adicional"
+                                        :class="errors_reporte ? errors_reporte.adicional ? 'is-invalid' : '' : ''"
                                         required>
                                 </div>
                             </div>
@@ -151,149 +151,207 @@
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <tr v-for="reporte in ListaReportes" :key="reporte.id">
                     <div class="col">
-                        <div class="card h-100">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h5 class="card-title">{{ reporte.proyecto.name }}</h5>
-                                    <div>
-                                        <button type="button" class="btn btn-warning"
-                                            @click="openEditarReporteModal(reporte)"><i
-                                                class="bi bi-pencil-square"></i></button>
 
-                                        <button type="button" class="btn btn-danger" :disabled="loading_pdf[reporte.id]"
-                                            @click="downloadPDF(reporte)">
-                                            <span v-if="loading_pdf[reporte.id]">
-                                                <span class="spinner-border spinner-border-sm" role="status"
-                                                    aria-hidden="true"></span>
-                                            </span>
-                                            <span v-else><i class="bi bi-filetype-pdf"></i></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <ul class="list-group list-group-flush">
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Empresa</strong>
-                                                <span>{{ reporte.empresa }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Sondaje</strong>
-                                                <span>{{ reporte.sondaje }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <div class="me-auto">
-                                                    <div class="fw-bold">Fecha</div>
-                                                    <span>{{ reporte.fecha }}</span>
-                                                </div>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Sonda</strong>
-                                                <span>{{ reporte.sonda }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Turno</strong>
-                                                <span>{{ reporte.turno }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Horas</strong>
-                                                <span>{{ reporte.horas }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Desde</strong>
-                                                <span>{{ reporte.desde }}</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul class="list-group list-group-flush">
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Hasta</strong>
-                                                <span>{{ reporte.hasta }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Total</strong>
-                                                <span>{{ reporte.total }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Metros</strong>
-                                                <span>{{ reporte.metros }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Inclinación</strong>
-                                                <span>{{ reporte.inclinacion }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Rumbo</strong>
-                                                <span>{{ reporte.rumbo }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Programa</strong>
-                                                <span>{{ reporte.programa }}</span>
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <strong>Diámetro</strong>
-                                                <span>{{ reporte.diametro }}</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-footer d-flex justify-content-end">
-                                <div class="dropdown">
-                                    <button class="btn btn-base-dv dropdown-toggle" type="button"
-                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-plus-circle"></i> Agregar
+                        <div class="accordion" :id="'accordionExample' + reporte.id">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" :id="'heading' + reporte.id">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        :data-bs-target="'#collapse' + reporte.id" aria-expanded="true"
+                                        :aria-controls="'collapse' + reporte.id">
+                                        <h5 class="mb-0">{{ reporte.proyecto.name }}</h5>
                                     </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li :class="reporte.horometro.length > 0 ? 'realizado' : 'no_realizado'">
-                                            <a class="dropdown-item" href="#"
-                                                @click="openHorometroModal(reporte)">Horómetro</a>
-                                        </li>
-                                        <li
-                                            :class="reporte.corona_escareador.length > 0 ? 'realizado' : 'no_realizado'">
-                                            <a class="dropdown-item" href="#"
-                                                @click="openCoronasEscareadoresModal(reporte)">Control Coronas y
-                                                Escareadores</a>
-                                        </li>
-                                        <li :class="reporte.aditivo.length > 0 ? 'realizado' : 'no_realizado'">
-                                            <a class="dropdown-item" href="#"
-                                                @click="openAditivosModal(reporte)">Control de Aditivos</a>
-                                        </li>
-                                        <li :class="reporte.herramienta.length > 0 ? 'realizado' : 'no_realizado'">
-                                            <a class="dropdown-item" href="#"
-                                                @click="openHerramientasModal(reporte)">Control de Herramientas</a>
-                                        </li>
-                                        <li :class="reporte.perforacion.length > 0 ? 'realizado' : 'no_realizado'">
-                                            <a class="dropdown-item" href="#"
-                                                @click="openPerforacionesModal(reporte)">Perforación en Roca</a>
-                                        </li>
-                                        <li :class="reporte.detalle_hora.length > 0 ? 'realizado' : 'no_realizado'">
-                                            <a class="dropdown-item" href="#"
-                                                @click="openDetalleHorasModal(reporte)">Detalle Horas</a>
-                                        </li>
-                                        <li :class="reporte.observacion.length > 0 ? 'realizado' : 'no_realizado'">
-                                            <a class="dropdown-item" href="#"
-                                                @click="openObservacionModal(reporte)">Observaciones</a>
-                                        </li>
-                                    </ul>
+                                </h2>
+                                <div :id="'collapse' + reporte.id" class="accordion-collapse collapse"
+                                    :aria-labelledby="'heading' + reporte.id"
+                                    :data-bs-parent="'#accordionExample' + reporte.id">
+                                    <div class="accordion-body">
+                                        <div class="d-flex justify-content-end">
+                                            <div>
+                                                <button type="button" class="btn btn-warning"
+                                                    @click="openEditarReporteModal(reporte)"><i
+                                                        class="bi bi-pencil-square"></i></button>
+
+                                                <button type="button" class="btn btn-danger"
+                                                    :disabled="loading_pdf[reporte.id]" @click="downloadPDF(reporte)">
+                                                    <span v-if="loading_pdf[reporte.id]">
+                                                        <span class="spinner-border spinner-border-sm" role="status"
+                                                            aria-hidden="true"></span>
+                                                    </span>
+                                                    <span v-else><i class="bi bi-filetype-pdf"></i></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <ul class="list-group list-group-flush">
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Empresa</strong>
+                                                        <span>{{ reporte.empresa }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Sondaje</strong>
+                                                        <span>{{ reporte.sondaje }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+
+                                                        <strong>Fecha</strong>
+                                                        <span>{{ reporte.fecha }}</span>
+
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Sonda</strong>
+                                                        <span>{{ reporte.sonda }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Turno</strong>
+                                                        <span>{{ reporte.turno }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Horas</strong>
+                                                        <span>{{ reporte.horas }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Desde</strong>
+                                                        <span>{{ reporte.desde }}</span>
+                                                    </li>
+
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Hasta</strong>
+                                                        <span>{{ reporte.hasta }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Total</strong>
+                                                        <span>{{ reporte.total }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Adicional</strong>
+                                                        <span>{{ reporte.adicional }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Inclinación</strong>
+                                                        <span>{{ reporte.inclinacion }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Rumbo</strong>
+                                                        <span>{{ reporte.rumbo }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Programa</strong>
+                                                        <span>{{ reporte.programa }}</span>
+                                                    </li>
+                                                    <li
+                                                        class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <strong>Diámetro</strong>
+                                                        <span>{{ reporte.diametro }}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end">
+                                            <button class="btn btn-base-dv" type="button" data-bs-toggle="offcanvas"
+                                                :data-bs-target="'#offcanvasScrolling' + reporte.id"
+                                                :aria-controls="'#offcanvasScrolling' + reporte.id"><i
+                                                    class="bi bi-plus-circle"></i>
+                                                Agregar</button>
+
+
+                                            <div class="offcanvas offcanvas-start" data-bs-scroll="true"
+                                                data-bs-backdrop="false" tabindex="-1"
+                                                :id="'offcanvasScrolling' + reporte.id"
+                                                :aria-labelledby="'offcanvasScrollingLabel' + reporte.id">
+                                                <div class="offcanvas-header">
+                                                    <h5 class="offcanvas-title"
+                                                        :id="'offcanvasScrollingLabel' + reporte.id">{{
+                                                            reporte.proyecto.name }}</h5>
+                                                    <button type="button" class="btn-close text-reset"
+                                                        data-bs-dismiss="offcanvas" aria-label="Close"
+                                                        @click="closeOffcanvas()"></button>
+                                                </div>
+                                                <div class="offcanvas-body">
+                                                    <ul class="list-group list-group-flush">
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <a href="#"
+                                                                class="list-group-item-action text-decoration-none"
+                                                                @click="openHorometroModal(reporte)">Horómetro</a>
+                                                            <i class="bi bi-check2-circle"
+                                                                :class="reporte.horometro.length > 0 ? 'realizado' : 'no_realizado'"></i>
+                                                        </li>
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <a href="#"
+                                                                class="list-group-item-action text-decoration-none"
+                                                                @click="openCoronasEscareadoresModal(reporte)">Control
+                                                                Coronas y
+                                                                Escareadores</a>
+                                                            <i class="bi bi-check2-circle"
+                                                                :class="reporte.corona_escareador.length > 0 ? 'realizado' : 'no_realizado'"></i>
+                                                        </li>
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <a href="#"
+                                                                class="list-group-item-action text-decoration-none"
+                                                                @click="openAditivosModal(reporte)">Control de
+                                                                Aditivos</a>
+                                                            <i class="bi bi-check2-circle"
+                                                                :class="reporte.aditivo.length > 0 ? 'realizado' : 'no_realizado'"></i>
+                                                        </li>
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <a class="list-group-item-action text-decoration-none"
+                                                                href="#" @click="openHerramientasModal(reporte)">Control
+                                                                de
+                                                                Herramientas</a>
+                                                            <i class="bi bi-check2-circle"
+                                                                :class="reporte.herramienta.length > 0 ? 'realizado' : 'no_realizado'"></i>
+                                                        </li>
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <a class="list-group-item-action text-decoration-none"
+                                                                href="#"
+                                                                @click="openPerforacionesModal(reporte)">Perforación en
+                                                                Roca</a>
+                                                            <i class="bi bi-check2-circle"
+                                                                :class="reporte.perforacion.length > 0 ? 'realizado' : 'no_realizado'"></i>
+                                                        </li>
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <a class="list-group-item-action text-decoration-none"
+                                                                href="#" @click="openDetalleHorasModal(reporte)">Detalle
+                                                                Horas</a>
+                                                            <i class="bi bi-check2-circle"
+                                                                :class="reporte.detalle_hora.length > 0 ? 'realizado' : 'no_realizado'"></i>
+                                                        </li>
+                                                        <li
+                                                            class="list-group-item d-flex justify-content-between align-items-center">
+                                                            <a class="list-group-item-action text-decoration-none"
+                                                                href="#"
+                                                                @click="openObservacionModal(reporte)">Observaciones</a>
+                                                            <i class="bi bi-check2-circle"
+                                                                :class="reporte.observacion.length > 0 ? 'realizado' : 'no_realizado'"></i>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </tr>
             </div>
@@ -302,12 +360,13 @@
         <p v-else>No hay reportes.</p>
         <p v-if="errors">{{ errors }}</p>
 
+        <HorometroModal ref="horometroModal" :reporte="selectedReporte" />
         <PaginacionComponent :paginaActual="paginaActual" :totalPaginas="totalPaginas" @cambiar-pagina="cambiarPagina"
             @cambiar-pagina-actual="cambiarPaginaActual" />
         <EditarReporteModal ref="editarReporteModal" :reporte="selectedReporte" :proyectos="proyectos"
             @actualizar-reporte="actualizarReporte" />
 
-        <HorometroModal ref="horometroModal" :reporte="selectedReporte" />
+        
         <CoronasEscareadoresModal ref="coronasEscareadoresModal" :reporte="selectedReporte" />
         <AditivoModal ref="aditivosModal" :reporte="selectedReporte" />
         <HerramientaModal ref="herramientasModal" :reporte="selectedReporte" />
@@ -361,7 +420,7 @@ export default {
                 desde: '',
                 hasta: '',
                 total: '',
-                metros: '',
+                adicional: '',
                 inclinacion: '',
                 rumbo: '',
                 programa: '',
@@ -373,6 +432,16 @@ export default {
             selectedReporte: null,
             paginaActual: 1,
             filasPorPagina: 10,
+
+            modalsState: {
+                horometro: false,
+                coronasEscareadores: false,
+                aditivos: false,
+                herramientas: false,
+                perforaciones: false,
+                detalleHoras: false,
+                observacion: false
+            }
         }
     },
     watch: {
@@ -419,46 +488,79 @@ export default {
             }
         },
         openHorometroModal(reporte) {
+            if (this.modalsState.horometro) return; // Evita abrir si ya está abierto
+            this.cerrarTodosLosModals();
             if (reporte) {
                 this.selectedReporte = { ...reporte };
+                this.modalsState.horometro = true;
                 this.$refs.horometroModal.open();
             }
         },
         openCoronasEscareadoresModal(reporte) {
+            if (this.modalsState.coronasEscareadores) return;
+            this.cerrarTodosLosModals();
             if (reporte) {
                 this.selectedReporte = { ...reporte };
+                this.modalsState.coronasEscareadores = true;
                 this.$refs.coronasEscareadoresModal.open();
             }
         },
         openAditivosModal(reporte) {
+            if (this.modalsState.aditivos) return;
+            this.cerrarTodosLosModals();
             if (reporte) {
                 this.selectedReporte = { ...reporte };
+                this.modalsState.aditivos = true;
                 this.$refs.aditivosModal.open();
             }
         },
         openHerramientasModal(reporte) {
+            if (this.modalsState.herramientas) return;
+            this.cerrarTodosLosModals();
             if (reporte) {
                 this.selectedReporte = { ...reporte };
+                this.modalsState.herramientas = true;
                 this.$refs.herramientasModal.open();
             }
         },
         openPerforacionesModal(reporte) {
+            if (this.modalsState.perforaciones) return;
+            this.cerrarTodosLosModals();
             if (reporte) {
                 this.selectedReporte = { ...reporte };
+                this.modalsState.perforaciones = true;
                 this.$refs.perforacionesModal.open();
             }
         },
         openDetalleHorasModal(reporte) {
+            if (this.modalsState.detalleHoras) return;
+            this.cerrarTodosLosModals();
             if (reporte) {
                 this.selectedReporte = { ...reporte };
+                this.modalsState.detalleHoras = true;
                 this.$refs.detalleHorasModal.open();
             }
         },
         openObservacionModal(reporte) {
+            if (this.modalsState.observacion) return;
+            this.cerrarTodosLosModals();
             if (reporte) {
                 this.selectedReporte = { ...reporte };
+                this.modalsState.observacion = true;
                 this.$refs.observacionModal.open();
             }
+        },
+        cerrarTodosLosModals() {
+            // Cierra todos los modales y reinicia el estado
+            Object.keys(this.modalsState).forEach(modal => {
+                if (this.$refs[`${modal}Modal`]) {
+                    this.$refs[`${modal}Modal`].close();
+                }
+                this.modalsState[modal] = false;
+            });
+        },
+        closeOffcanvas() {
+            this.cerrarTodosLosModals();
         },
         async downloadPDF(reporte) {
             if (reporte) {
@@ -481,7 +583,7 @@ export default {
                     desde: '',
                     hasta: '',
                     total: '',
-                    metros: '',
+                    adicional: '',
                     inclinacion: '',
                     rumbo: '',
                     programa: '',
@@ -506,7 +608,7 @@ export default {
                         reporte.desde = reporte_actualizado.desde;
                         reporte.hasta = reporte_actualizado.hasta;
                         reporte.total = reporte_actualizado.total;
-                        reporte.metros = reporte_actualizado.metros;
+                        reporte.adicional = reporte_actualizado.adicional;
                         reporte.inclinacion = reporte_actualizado.inclinacion;
                         reporte.rumbo = reporte_actualizado.rumbo;
                         reporte.programa = reporte_actualizado.programa;
@@ -544,31 +646,25 @@ export default {
     min-width: 20rem;
 }
 
-.dropdown-menu .no_realizado a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.bi-check2-circle {
+    font-size: 20px;
 }
 
-.dropdown-menu .no_realizado a::after {
-    content: "\F623";
-    font-family: bootstrap-icons !important;
-    font-size: 16px;
-    font-weight: bold;
+.realizado {
+    color: #198754;
+}
+
+.no_realizado {
     color: #dc3545;
 }
 
-.dropdown-menu .realizado a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.offcanvas {
+    z-index: 9999;
 }
 
-.dropdown-menu .realizado a::after {
-    content: "\F26B";
-    font-family: bootstrap-icons !important;
-    font-size: 18px;
-    font-weight: bold;
-    color: #198754
+@media (max-width: 425px) {
+    .offcanvas {
+        z-index: 1045;
+    }
 }
 </style>

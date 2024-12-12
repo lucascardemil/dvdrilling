@@ -16,10 +16,15 @@ class CreateChecklistCondicionesTable extends Migration
         Schema::create('checklist_condiciones', function (Blueprint $table) {
             $table->id();
             $table->boolean('existe');
-            $table->integer('estado');
+            $table->integer('estado')->nullable();
+            $table->string('observacion');
             $table->integer('status');
             $table->unsignedBigInteger('checklist_intervencion_id');
             $table->foreign('checklist_intervencion_id')->references('id')->on('checklist_intervenciones');
+            $table->unsignedBigInteger('checklist_vehiculo_id');
+            $table->foreign('checklist_vehiculo_id')->references('id')->on('checklist_vehiculo');
+            $table->unsignedBigInteger('checklist_vehiculo_detalle_id');
+            $table->foreign('checklist_vehiculo_detalle_id')->references('id')->on('checklist_vehiculo_detalle');
             $table->timestamps();
         });
     }

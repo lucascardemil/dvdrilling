@@ -40,12 +40,12 @@ class ReporteController extends Controller
 
         // Si el rol es 'usuario', filtrar por el user_id
         if ($rol === 'usuario') {
-            $reportes = Reporte::with($relations)->where('user_id', $user->id)->get();
+            $reportes = Reporte::with($relations)->where('user_id', $user->id)->latest()->get();
             return response()->json($reportes);
         }
 
         // Para otros roles, devolver todos los reportes
-        $reportes = Reporte::with($relations)->get();
+        $reportes = Reporte::with($relations)->latest()->get();
         return response()->json($reportes);
     }
 
@@ -66,7 +66,7 @@ class ReporteController extends Controller
             'desde' => 'required|string|max:255',
             'hasta' => 'required|string|max:255',
             'total' => 'required|string|max:255',
-            'metros' => 'required|numeric|min:1|max:9999999999',
+            'adicional' => 'required|numeric|min:1|max:9999999999',
             'inclinacion' => 'required|numeric|min:1|max:9999999999',
             'rumbo' => 'required|numeric|min:1|max:9999999999',
             'programa' => 'required|string|max:255',
@@ -92,7 +92,7 @@ class ReporteController extends Controller
             'desde' => $request->desde,
             'hasta' => $request->hasta,
             'total' => $request->total,
-            'metros' => $request->metros,
+            'adicional' => $request->adicional,
             'inclinacion' => $request->inclinacion,
             'rumbo' => $request->rumbo,
             'programa' => $request->programa,
@@ -116,7 +116,7 @@ class ReporteController extends Controller
             'desde' => 'required|string|max:255',
             'hasta' => 'required|string|max:255',
             'total' => 'required|string|max:255',
-            'metros' => 'required|string|max:255',
+            'adicional' => 'required|string|max:255',
             'inclinacion' => 'required|string|max:255',
             'rumbo' => 'required|string|max:255',
             'programa' => 'required|string|max:255',
@@ -142,7 +142,7 @@ class ReporteController extends Controller
             'desde' => $request->desde,
             'hasta' => $request->hasta,
             'total' => $request->total,
-            'metros' => $request->metros,
+            'adicional' => $request->adicional,
             'inclinacion' => $request->inclinacion,
             'rumbo' => $request->rumbo,
             'programa' => $request->programa,

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChecklistObservacionesTable extends Migration
+class CreateChecklistVehiculoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateChecklistObservacionesTable extends Migration
      */
     public function up()
     {
-        Schema::create('checklist_observaciones', function (Blueprint $table) {
+        Schema::create('checklist_vehiculo', function (Blueprint $table) {
             $table->id();
-            $table->string('observacion');
-            $table->unsignedBigInteger('checklist_intervencion_id');
-            $table->foreign('checklist_intervencion_id')->references('id')->on('checklist_intervenciones');
+            $table->unsignedBigInteger('checklist_id');
+            $table->foreign('checklist_id')->references('id')->on('checklist');
+            $table->string('patente')->nullable();
+            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateChecklistObservacionesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('checklist_observaciones');
+        Schema::dropIfExists('checklist_vehiculo');
     }
 }

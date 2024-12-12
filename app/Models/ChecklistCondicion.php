@@ -15,11 +15,28 @@ class ChecklistCondicion extends Model
         'existe',
         'estado',
         'status',
-        'checklist_intervencion_id'
+        'checklist_intervencion_id',
+        'checklist_vehiculo_id',
+        'checklist_vehiculo_detalle_id'
     ];
 
     public function intervencion()
     {
-        return $this->belongsTo(ChecklistIntervencion::class, 'checklist_intervenciones');
+        return $this->belongsTo(ChecklistIntervencion::class, 'checklist_intervencion_id');
+    }
+
+    public function vehiculo()
+    {
+        return $this->belongsTo(ChecklistVehiculo::class, 'checklist_vehiculo_id');
+    }
+
+    public function detalle()
+    {
+        return $this->belongsTo(ChecklistVehiculoDetalle::class, 'checklist_vehiculo_detalle_id');
+    }
+
+    public function imagenes()
+    {
+        return $this->hasMany(ChecklistObservacion::class);
     }
 }

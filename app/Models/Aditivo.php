@@ -16,6 +16,7 @@ class Aditivo extends Model
         'detalle',
         'status',
         'reporte_id',
+        'tipo_peso'
     ];
 
 

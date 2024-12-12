@@ -27,7 +27,7 @@
 
         <div class="mb-3">
             <label for="coronasEscareadoresDiametro" class="form-label">Diametro</label>
-            <input type="number" min="0" class="form-control" id="coronasEscareadoresDiametro"
+            <input type="text" class="form-control" id="coronasEscareadoresDiametro"
                 v-model="editCoronasEscareadores.diametro"
                 :class="errors_coronasEscareadores ? errors_coronasEscareadores.diametro ? 'is-invalid' : '' : ''"
                 required>
@@ -69,7 +69,7 @@ export default {
                 detalle: null,
                 desde: 0,
                 hasta: 0,
-                diametro: 0,
+                diametro: '',
                 numero_corona: 0
             }
         };

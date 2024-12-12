@@ -18,7 +18,7 @@ class CreateCoronaEscareadorReporteTable extends Migration
             $table->string('detalle');
             $table->integer('desde');
             $table->integer('hasta');
-            $table->integer('diametro');
+            $table->string('diametro');
             $table->integer('numero_corona');
             $table->integer('status');
             $table->unsignedBigInteger('reporte_id');
