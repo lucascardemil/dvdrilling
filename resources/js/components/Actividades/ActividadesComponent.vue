@@ -6,7 +6,9 @@
             <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i class="bi bi-plus-circle"></i>
                 Agregar Actividad</button>
         </div>
-        <div class="table-responsive">
+        
+        <LoadingComponent v-if="loading"></LoadingComponent>
+        <div v-else class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -35,7 +37,6 @@
                             </td>
                         </tr>
                     </template>
-                    <p v-else-if="loading">Cargando...</p>
                     <p v-else>No hay actividades.</p>
                     <p v-if="errors">{{ errors }}</p>
                 </tbody>
@@ -51,12 +52,14 @@
 import actividadMixin from '../../mixins/actividad/actividadMixin';
 import CrearActividadModal from './CrearActividadModal.vue';
 import EditActividadModal from './EditActividadModal.vue';
+import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
     mixins: [actividadMixin],
     components: {
         CrearActividadModal,
-        EditActividadModal
+        EditActividadModal,
+        LoadingComponent
     },
     data() {
         return {

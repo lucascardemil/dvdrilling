@@ -4,7 +4,8 @@
             <h3>Checklist</h3>
         </div>
 
-        <div class="table-responsive">
+        
+        <div v-if="checklist.length > 0" class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -114,6 +115,8 @@
                 </tbody>
             </table>
         </div>
+        <LoadingComponent v-else-if="loading_checklist" />
+        <p v-else>No hay checklist.</p>
 
         <CompletarCheckListModal ref="completarCheckListModal" :completarCheckListProps="completarChecklist"
             :intervenciones="intervenciones" @checklist-completada="checklisCompletada" />
@@ -132,12 +135,14 @@ import usuariosMixin from '../../mixins/usuarios/usuariosMixin';
 import CompletarCheckListModal from './CompletarCheckListModal.vue';
 import matrizChecklistMixin from '../../mixins/checklist/matrizChecklistMixin';
 import VerCheckListCompletadoModal from './VerCheckListCompletadoModal.vue';
+import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
     mixins: [checklistMixin, matrizChecklistMixin, tipoActivoMixin, usuariosMixin],
     components: {
         CompletarCheckListModal,
-        VerCheckListCompletadoModal
+        VerCheckListCompletadoModal,
+        LoadingComponent
     },
     data() {
         return {

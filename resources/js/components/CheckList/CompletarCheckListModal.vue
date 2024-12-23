@@ -399,10 +399,10 @@
                                 </div>
 
                                 <div class="d-flex justify-content-end mt-3"
-                                    v-if="completarCheckListProps.status && !mostrarAgregarObservacion">
+                                    v-if="!mostrarAgregarObservacion">
                                     <button type="button" class="btn btn-base-dv" @click="finalizarCheckList()"
-                                        :disabled="loading_checklist_create">
-                                        <span v-if="loading_checklist_create">
+                                        :disabled="loading_checklist_finish[completarCheckListProps.id]">
+                                        <span v-if="loading_checklist_finish[completarCheckListProps.id]">
                                             <span class="spinner-border spinner-border-sm" role="status"
                                                 aria-hidden="true"></span>
                                             Cargando...</span>
@@ -626,7 +626,7 @@ export default {
                 formData.append('imagen_combustible', this.imagen_combustible);
             }
 
-            const response = await this.finalizarChecklist(formData);
+            const response = await this.finalizarChecklist(formData, this.completarCheckListProps.id);
 
             if (this.errors_finalizar_checklist === null) {
                 this.$notyf.success(response.message);

@@ -5,7 +5,9 @@
             <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i class="bi bi-plus-circle"></i>
                 Agregar Rol</button>
         </div>
-        <div class="table-responsive">
+
+        <LoadingComponent v-if="loading"></LoadingComponent>
+        <div v-else class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -26,7 +28,6 @@
                             </td>
                         </tr>
                     </template>
-                    <p v-else-if="loading">Cargando...</p>
                     <p v-else>No hay roles.</p>
                     <p v-if="errors">{{ errors }}</p>
                 </tbody>
@@ -42,12 +43,14 @@
 import roleMixin from '../../mixins/roles/roleMixin';
 import EditRolModal from './EditRolModal.vue';
 import CrearRolModal from './CrearRolModal.vue';
+import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
     mixins: [roleMixin],
     components: {
         EditRolModal,
-        CrearRolModal
+        CrearRolModal,
+        LoadingComponent
     },
     data() {
         return {

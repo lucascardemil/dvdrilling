@@ -9,7 +9,7 @@
                 </div>
                 <div class="modal-body">
                     <EditMatrizCheckListModal :editMatrizChecklistProps="matrizChecklist" v-if="habilitarEditMatrizChecklist"/>
-                    <div class="table-responsive" v-else>
+                    <div class="table-responsive" v-else-if="matrizChecklistProps.length > 0">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -39,6 +39,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <p v-else>No hay matriz checklist.</p>
                 </div>
                 <div class="modal-footer" v-if="habilitarEditMatrizChecklist">
                     <button type="button" class="btn btn-base-dv" @click="volverListaMatrizCheckList()"><i

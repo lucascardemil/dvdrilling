@@ -5,7 +5,9 @@
             <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i class="bi bi-plus-circle"></i>
                 Agregar Tipo Activo</button>
         </div>
-        <div class="table-responsive">
+
+        <LoadingComponent v-if="loading"></LoadingComponent>
+        <div v-else class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -33,7 +35,6 @@
                             </td>
                         </tr>
                     </template>
-                    <p v-else-if="loading">Cargando...</p>
                     <p v-else>No hay tipos de activo.</p>
                     <p v-if="errors">{{ errors }}</p>
                 </tbody>
@@ -48,12 +49,14 @@
 import tipoActivoMixin from '../../mixins/tipoActivo/tipoActivoMixin';
 import CrearTipoActivoModal from './CrearTipoActivoModal.vue';
 import EditTipoActivoModal from './EditTipoActivoModal.vue';
+import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
     mixins: [tipoActivoMixin],
     components: {
         CrearTipoActivoModal,
-        EditTipoActivoModal
+        EditTipoActivoModal,
+        LoadingComponent
     },
     data() {
         return {

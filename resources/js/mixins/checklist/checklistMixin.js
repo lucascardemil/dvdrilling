@@ -12,7 +12,7 @@ export default {
             loading_checklist_create: false,
             loading_checklist_update: false,
             loading_checklist_delete: false,
-            loading_checklist_finish: false,
+            loading_checklist_finish: [],
             loading_checklist_observacion: false,
             loading_checklist_delete_observacion: [],
             loading_pdf: [],
@@ -29,8 +29,15 @@ export default {
             this.loading_checklist = true;
             this.errors_checklist = null;
             try {
+                // Simular un retraso de 2 segundos
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
                 const response = await axios.get('/checklist/all');
-                this.checklist = response.data;
+                if (response && response.data) {
+                    this.checklist = response.data;
+                } else {
+                    this.errors_checklist = 'Invalid response data';
+                }
             } catch (error) {
                 this.errors_checklist = 'Failed to load checklist';
                 console.error('Error fetching checklist:', error);
@@ -38,6 +45,7 @@ export default {
                 this.loading_checklist = false;
             }
         },
+
 
         async fetchItervenciones(id) {
             this.loading_intervenciones = true;
@@ -280,8 +288,8 @@ export default {
             }
         },
 
-        async finalizarChecklist(data) {
-            this.loading_checklist_finish = true;
+        async finalizarChecklist(data, id) {
+            this.$set(this.loading_checklist_finish, id, true);
             this.errors_finalizar_checklist = null;
             try {
 
@@ -303,7 +311,7 @@ export default {
                 this.errors_finalizar_checklist = 'Failed to load checklist';
                 console.error('Error crear checklist:', error);
             } finally {
-                this.loading_checklist_finish = false;
+                this.$set(this.loading_checklist_finish, id, false);
             }
         },
 
@@ -311,10 +319,10 @@ export default {
             this.$set(this.loading_pdf, check_vehiculo_detalle_id, true);
             try {
                 const response = await axios({
-                    url: '/checklist/pdf', 
+                    url: '/checklist/pdf',
                     method: 'POST',
                     data: { checklist: checklist, check_id: check_id, check_list_vehiculo_id: check_vehiculo_id, check_list_vehiculo_detalle_id: check_vehiculo_detalle_id },
-                    responseType: 'blob'  
+                    responseType: 'blob'
                 });
 
                 const url = window.URL.createObjectURL(response.data, { type: 'application/pdf' });

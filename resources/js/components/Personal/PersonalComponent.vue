@@ -5,6 +5,7 @@
                 Agregar Personal</button>
 
         </div>
+        <LoadingComponent v-if="loading"/>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -39,7 +40,6 @@
                             </td>
                         </tr>
                     </template>
-                    <p v-else-if="loading">Cargando...</p>
                     <p v-else>No hay personal.</p>
                     <p v-if="errors">{{ errors }}</p>
                 </tbody>
@@ -55,12 +55,14 @@ import personalMixin from '../../mixins/personal/personalMixin';
 import CrearPersonalModal from './CrearPersonalModal.vue';
 import EditPersonalModal from './EditPersonalModal.vue';
 import cargoMixin from '../../mixins/cargo/cargoMixin';
+import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
     mixins: [personalMixin, cargoMixin],
     components: {
         CrearPersonalModal,
-        EditPersonalModal
+        EditPersonalModal,
+        LoadingComponent
     },
     data() {
         return {

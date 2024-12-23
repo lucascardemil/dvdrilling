@@ -5,7 +5,8 @@
             <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i class="bi bi-plus-circle"></i>
                 Agregar Proyecto</button>
         </div>
-        <div class="table-responsive">
+        <LoadingComponent v-if="loading"/>
+        <div v-else class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -34,7 +35,6 @@
                             </td>
                         </tr>
                     </template>
-                    <p v-else-if="loading">Cargando...</p>
                     <p v-else>No hay proyectos.</p>
                     <p v-if="errors">{{ errors }}</p>
                 </tbody>
@@ -49,12 +49,14 @@
 import proyectoMixin from '../../mixins/proyecto/proyectoMixin';
 import CrearProyectoModal from './CrearProyectoModal.vue';
 import EditProyectoModal from './EditProyectoModal.vue';
+import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
     mixins: [proyectoMixin],
     components: {
         CrearProyectoModal,
-        EditProyectoModal
+        EditProyectoModal,
+        LoadingComponent
     },
     data() {
         return {

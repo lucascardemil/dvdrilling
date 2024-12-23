@@ -1,5 +1,6 @@
 <template>
-    <div class="modal-reporte modal fade" id="aditivoModal" tabindex="-1" aria-labelledby="aditivoModalLabel" aria-hidden="true">
+    <div class="modal-reporte modal fade" id="aditivoModal" tabindex="-1" aria-labelledby="aditivoModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">

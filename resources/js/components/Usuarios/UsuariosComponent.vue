@@ -5,7 +5,9 @@
             <button type="button" class="btn btn-base-dv" @click="openCrearModal()"><i class="bi bi-plus-circle"></i>
                 Agregar Usuario</button>
         </div>
-        <div class="table-responsive">
+
+        <LoadingComponent v-if="loading"></LoadingComponent>
+        <div v-else class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -43,7 +45,6 @@
                             </td>
                         </tr>
                     </template>
-                    <p v-else-if="loading">Cargando...</p>
                     <p v-else>No hay usuarios.</p>
                     <p v-if="errors">{{ errors }}</p>
                 </tbody>
@@ -60,13 +61,15 @@ import usuariosMixin from '../../mixins/usuarios/usuariosMixin';
 import CrearUsuarioModal from './CrearUsuarioModal.vue';
 import EditUsuarioModal from './EditUsuarioModal.vue';
 import EditPasswordModal from './EditPasswordModal.vue';
+import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
     mixins: [usuariosMixin],
     components: {
         CrearUsuarioModal,
         EditUsuarioModal,
-        EditPasswordModal
+        EditPasswordModal,
+        LoadingComponent
     },
     data() {
         return {

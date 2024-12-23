@@ -45,6 +45,7 @@
             </div>
         </div>
 
+        <LoadingComponent v-if="loading"/>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -72,7 +73,6 @@
                             </td>
                         </tr>
                     </template>
-                    <p v-else-if="loading">Cargando...</p>
                     <p v-else>No hay Activo Asignado.</p>
                     <p v-if="errors">{{ errors }}</p>
                 </tbody>
@@ -90,6 +90,7 @@ import activoMixin from '../../../mixins/activo/activoMixin';
 import asignarActivoMixin from '../../../mixins/recurso/asignarActivoMixin';
 import EliminarAsignarActivoModal from './EliminarAsignarActivoModal.vue';
 import EditAsignarActivoModal from './EditAsignarActivoModal.vue';
+import LoadingComponent from '../../base/LoadingComponent.vue';
 
 export default {
     mixins: [activoMixin, asignarActivoMixin],
@@ -98,7 +99,8 @@ export default {
     },
     components: {
         EliminarAsignarActivoModal,
-        EditAsignarActivoModal
+        EditAsignarActivoModal,
+        LoadingComponent
     },
     data() {
         return {

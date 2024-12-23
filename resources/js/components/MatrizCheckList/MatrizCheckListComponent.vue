@@ -67,8 +67,7 @@
             </div>
         </div>
 
-
-        <div class="table-responsive">
+        <div v-if="checklist.length > 0" class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -103,7 +102,10 @@
                 </tbody>
             </table>
         </div>
+        <LoadingComponent v-else-if="loading_matriz"/>
+        <p v-else>No hay matriz checklist.</p>
 
+        
         <EditCheckListModal ref="editarCheckListModal" :editChecklistProps="editChecklist" />
         <MatrizCheckListModal ref="matrizCheckListModal"
             @listarMatrizChecklist-finalizada="listarMatrizChecklistFinalizada" />
@@ -121,6 +123,7 @@ import EditCheckListModal from '../CheckList/EditarChecklist/EditCheckListModal.
 import MatrizCheckListModal from './MatrizCheckListModal.vue'
 import ListaMatrizCheckListModal from './ListaMatrizCheckListModal.vue';
 import CompletarCheckListModal from '../CheckList/CompletarCheckListModal.vue';
+import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
     mixins: [checklistMixin, matrizChecklistMixin, tipoActivoMixin, usuariosMixin],
@@ -128,7 +131,8 @@ export default {
         MatrizCheckListModal,
         ListaMatrizCheckListModal,
         EditCheckListModal,
-        CompletarCheckListModal
+        CompletarCheckListModal,
+        LoadingComponent
     },
     data() {
         return {

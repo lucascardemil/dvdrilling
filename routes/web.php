@@ -104,6 +104,7 @@ Route::group(['middleware' => ['auth', 'permission:reportes']], function () {
     Route::post('/reportes/store', [App\Http\Controllers\ReporteController::class, 'store']);
     Route::put('/reportes/update/{id}', [App\Http\Controllers\ReporteController::class, 'update']);
     Route::post('/reportes/pdf', [App\Http\Controllers\PdfController::class, 'generarPdfReporte']);
+    Route::put('/reportes/update-status/{id}', [App\Http\Controllers\ReporteController::class, 'update_status']);
 
     Route::get('/horometros/all/{id}', [App\Http\Controllers\HorometroController::class, 'all']);
     Route::post('/horometros/store', [App\Http\Controllers\HorometroController::class, 'store']);

@@ -46,7 +46,8 @@
             </div>
         </div>
 
-        <div class="table-responsive">
+        <LoadingComponent v-if="loading"/>
+        <div v-else class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -73,7 +74,6 @@
                             </td>
                         </tr>
                     </template>
-                    <p v-else-if="loading">Cargando...</p>
                     <p v-else>No hay Personal Asignado.</p>
                     <p v-if="errors">{{ errors }}</p>
                 </tbody>
@@ -91,6 +91,7 @@ import personalMixin from '../../../mixins/personal/personalMixin';
 import asignarPersonalMixin from '../../../mixins/recurso/asignarPersonalMixin';
 import EliminarPersonalModal from './EliminarAsignarPersonalModal.vue';
 import EditAsignarPersonalModal from './EditAsignarPersonalModal.vue';
+import LoadingComponent from '../../base/LoadingComponent.vue';
 
 export default {
     mixins: [personalMixin, asignarPersonalMixin],
@@ -99,7 +100,8 @@ export default {
     },
     components: {
         EliminarPersonalModal,
-        EditAsignarPersonalModal
+        EditAsignarPersonalModal,
+        LoadingComponent
     },
     data() {
         return {

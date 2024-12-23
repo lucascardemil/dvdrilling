@@ -159,28 +159,14 @@
                                         :data-bs-target="'#collapse' + reporte.id" aria-expanded="true"
                                         :aria-controls="'collapse' + reporte.id">
                                         <h5 class="mb-0">{{ reporte.proyecto.name }}</h5>
+                                        <span class="badge rounded-pill bg-primary ms-auto me-2">{{ reporte.status ?
+                                            'Completado' : 'No Completado' }}</span>
                                     </button>
                                 </h2>
                                 <div :id="'collapse' + reporte.id" class="accordion-collapse collapse"
                                     :aria-labelledby="'heading' + reporte.id"
                                     :data-bs-parent="'#accordionExample' + reporte.id">
-                                    <div class="accordion-body">
-                                        <div class="d-flex justify-content-end">
-                                            <div>
-                                                <button type="button" class="btn btn-warning"
-                                                    @click="openEditarReporteModal(reporte)"><i
-                                                        class="bi bi-pencil-square"></i></button>
-
-                                                <button type="button" class="btn btn-danger"
-                                                    :disabled="loading_pdf[reporte.id]" @click="downloadPDF(reporte)">
-                                                    <span v-if="loading_pdf[reporte.id]">
-                                                        <span class="spinner-border spinner-border-sm" role="status"
-                                                            aria-hidden="true"></span>
-                                                    </span>
-                                                    <span v-else><i class="bi bi-filetype-pdf"></i></span>
-                                                </button>
-                                            </div>
-                                        </div>
+                                    <div class="accordion-body p-0">
                                         <div class="row">
                                             <div class="col">
                                                 <ul class="list-group list-group-flush">
@@ -260,7 +246,22 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="d-flex justify-content-end">
+                                        <div class="d-flex justify-content-between p-4">
+                                            <div>
+                                                <button type="button" class="btn btn-warning"
+                                                    @click="openEditarReporteModal(reporte)"><i
+                                                        class="bi bi-pencil-square"></i></button>
+
+                                                <button type="button" class="btn btn-danger"
+                                                    :disabled="loading_pdf[reporte.id]" @click="downloadPDF(reporte)">
+                                                    <span v-if="loading_pdf[reporte.id]">
+                                                        <span class="spinner-border spinner-border-sm" role="status"
+                                                            aria-hidden="true"></span>
+                                                    </span>
+                                                    <span v-else><i class="bi bi-filetype-pdf"></i></span>
+                                                </button>
+                                            </div>
+
                                             <button class="btn btn-base-dv" type="button" data-bs-toggle="offcanvas"
                                                 :data-bs-target="'#offcanvasScrolling' + reporte.id"
                                                 :aria-controls="'#offcanvasScrolling' + reporte.id"><i
@@ -278,7 +279,7 @@
                                                             reporte.proyecto.name }}</h5>
                                                     <button type="button" class="btn-close text-reset"
                                                         data-bs-dismiss="offcanvas" aria-label="Close"
-                                                        @click="closeOffcanvas()"></button>
+                                                        @click="closeOffcanvas(reporte.id)"></button>
                                                 </div>
                                                 <div class="offcanvas-body">
                                                     <ul class="list-group list-group-flush">
@@ -344,6 +345,18 @@
                                                                 :class="reporte.observacion.length > 0 ? 'realizado' : 'no_realizado'"></i>
                                                         </li>
                                                     </ul>
+
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                                        <button class="btn btn-base-dv"
+                                                            :disabled="loading_finish[reporte.id]"
+                                                            @click="finalizarReporte(reporte)">
+                                                            <span v-if="loading_finish[reporte.id]">
+                                                                <span class="spinner-border spinner-border-sm"
+                                                                    role="status" aria-hidden="true"></span>
+                                                            </span>
+                                                            <span v-else>Finalizar <i
+                                                                    class="bi bi-box-arrow-right"></i></span></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -351,12 +364,11 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </tr>
             </div>
         </template>
-        <p v-else-if="loading">Cargando...</p>
+        <LoadingComponent v-else-if="loading" />
         <p v-else>No hay reportes.</p>
         <p v-if="errors">{{ errors }}</p>
 
@@ -366,7 +378,6 @@
         <EditarReporteModal ref="editarReporteModal" :reporte="selectedReporte" :proyectos="proyectos"
             @actualizar-reporte="actualizarReporte" />
 
-        
         <CoronasEscareadoresModal ref="coronasEscareadoresModal" :reporte="selectedReporte" />
         <AditivoModal ref="aditivosModal" :reporte="selectedReporte" />
         <HerramientaModal ref="herramientasModal" :reporte="selectedReporte" />
@@ -377,6 +388,7 @@
 </template>
 
 <script>
+import { Offcanvas } from 'bootstrap';
 import proyectoMixin from '../../mixins/proyecto/proyectoMixin';
 import reporteMixin from '../../mixins/reporte/reporteMixin';
 import actividadMixin from '../../mixins/actividad/actividadMixin';
@@ -392,6 +404,7 @@ import HerramientaModal from './Herramientas/HerramientaModal.vue';
 import PerforacionModal from './Perforacion/PerforacionModal.vue';
 import DetalleHorasModal from './DetalleHoras/DetalleHorasModal.vue';
 import ObservacionModal from './Observacion/ObservacionModal.vue';
+import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
     mixins: [proyectoMixin, reporteMixin, actividadMixin],
@@ -405,7 +418,8 @@ export default {
         PerforacionModal,
         DetalleHorasModal,
         ObservacionModal,
-        EditarReporteModal
+        EditarReporteModal,
+        LoadingComponent
     },
     data() {
         return {
@@ -441,7 +455,8 @@ export default {
                 perforaciones: false,
                 detalleHoras: false,
                 observacion: false
-            }
+            },
+            loading_finish: []
         }
     },
     watch: {
@@ -551,7 +566,6 @@ export default {
             }
         },
         cerrarTodosLosModals() {
-            // Cierra todos los modales y reinicia el estado
             Object.keys(this.modalsState).forEach(modal => {
                 if (this.$refs[`${modal}Modal`]) {
                     this.$refs[`${modal}Modal`].close();
@@ -559,7 +573,12 @@ export default {
                 this.modalsState[modal] = false;
             });
         },
-        closeOffcanvas() {
+        closeOffcanvas(reporte_id) {
+            const myOffcanvas = document.getElementById(`offcanvasScrolling${reporte_id}`);
+            if (myOffcanvas) {
+                const myOffcanvasInstance = Offcanvas.getInstance(myOffcanvas) || new Offcanvas(myOffcanvas)
+                myOffcanvasInstance.hide();
+            }
             this.cerrarTodosLosModals();
         },
         async downloadPDF(reporte) {
@@ -597,9 +616,9 @@ export default {
             if (reporte_actualizado) {
                 this.reportes.forEach(reporte => {
                     if (reporte.id === reporte_actualizado.id) {
-                        reporte.proyecto_id = reporte_actualizado.proyecto_id,
-                            reporte.proyecto = reporte_actualizado.proyecto,
-                            reporte.sondaje = reporte_actualizado.sondaje;
+                        reporte.proyecto_id = reporte_actualizado.proyecto_id;
+                        reporte.proyecto = reporte_actualizado.proyecto;
+                        reporte.sondaje = reporte_actualizado.sondaje;
                         reporte.fecha = reporte_actualizado.fecha;
                         reporte.empresa = reporte_actualizado.empresa;
                         reporte.sonda = reporte_actualizado.sonda;
@@ -630,8 +649,33 @@ export default {
             } else {
                 this.newReporte.total = '';
             }
+        },
+        async finalizarReporte(reporte) {
+            if (
+                reporte.horometro.length > 0 &&
+                reporte.corona_escareador.length > 0 &&
+                reporte.aditivo.length > 0 &&
+                reporte.herramienta.length > 0 &&
+                reporte.perforacion.length > 0 &&
+                reporte.detalle_hora.length > 0 &&
+                reporte.observacion.length > 0
+            ) {
+                const response = await this.actualizarStatusReporte(reporte.id);
+                if (this.errors_reporte === null) {
+                    this.$notyf.success(response.message);
+                    this.closeOffcanvas(reporte.id);
+                }
+            } else {
+                for (const key in reporte) {
+                    if (reporte[key].length === 0) {
+                        const formattedKey = key
+                            .replace(/_/g, " ")
+                            .replace(/\b\w/g, char => char.toUpperCase());
+                        this.$notyf.error(`Falta completar <b>"${formattedKey}"</b>`);
+                    }
+                }
+            }
         }
-
     },
     created() {
         this.fetchReportes();
@@ -642,6 +686,10 @@ export default {
 </script>
 
 <style>
+.accordion-button::after {
+    margin-left: 0px;
+}
+
 .dropdown-menu {
     min-width: 20rem;
 }

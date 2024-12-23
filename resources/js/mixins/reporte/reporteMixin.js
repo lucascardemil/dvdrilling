@@ -7,6 +7,7 @@ export default {
             loading_create: false,
             loading: false,
             loading_pdf: [],
+            loading_finish: [],
             errors_reporte: null
         };
     },
@@ -84,12 +85,12 @@ export default {
             }
         },
 
-        async actualizarStatus(data) {
-            this.loading = true;
+        async actualizarStatusReporte(reporte_id) {
+            this.$set(this.loading_finish, reporte_id, true);
             this.errors_reporte = null;
             try {
-                const response = await axios.put('/reportes/update-status/' + data.reporte_id, {
-                    status: data.status
+                const response = await axios.put('/reportes/update-status/' + reporte_id, {
+                    status: 1
                 });
 
                 if (response.data.errors_reporte) {
@@ -102,7 +103,7 @@ export default {
                 this.errors_reporte = 'Failed to load reporte';
                 console.error('Error actualizar reporte:', error);
             } finally {
-                this.loading = false;
+                this.$set(this.loading_finish, reporte_id, false);
             }
         },
 

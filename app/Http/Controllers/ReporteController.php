@@ -153,4 +153,13 @@ class ReporteController extends Controller
         $updatedReporte = Reporte::with('proyecto')->where('id', '=', $reporte['id'])->first();
         return response()->json(['message' => 'Se actualizó correctamente', 'updated_reporte' => $updatedReporte], 201);
     }
+
+    public function update_status(Request $request, $id)
+    {
+        $reporte = Reporte::findOrFail($id);
+        $reporte->update([
+            'status' => $request->status
+        ]);
+        return response()->json(['message' => 'El estado del reporte se actualizó correctamente', 'reporte' => $reporte], 201);
+    }
 }
