@@ -35,7 +35,6 @@ Route::get('/user/role', [App\Http\Controllers\HomeController::class, 'getUserRo
 Route::group(['middleware' => ['auth', 'permission:proyecto']], function () {
     Route::get('/proyecto', [App\Http\Controllers\ProyectoController::class, 'index'])->name('proyecto.index');
     Route::get('/proyectos/all', [App\Http\Controllers\ProyectoController::class, 'all']);
-    Route::get('/proyectos/all-select', [App\Http\Controllers\ProyectoController::class, 'all_select']);
     Route::post('/proyectos/store', [App\Http\Controllers\ProyectoController::class, 'store']);
     Route::put('/proyectos/update/{id}', [App\Http\Controllers\ProyectoController::class, 'update']);
     Route::put('/proyectos/update-status/{id}', [App\Http\Controllers\ProyectoController::class, 'update_status']);
@@ -68,7 +67,6 @@ Route::group(['middleware' => ['auth', 'permission:activos']], function () {
     Route::get('/activos/buscar-nombre/{nombre?}', [App\Http\Controllers\ActivosController::class, 'buscar_nombre']);
 
     Route::get('/tipo-activos/all', [App\Http\Controllers\TipoActivosController::class, 'all']);
-    Route::get('/tipo-activos/all-select', [App\Http\Controllers\TipoActivosController::class, 'all_select']);
     Route::post('/tipo-activos/store', [App\Http\Controllers\TipoActivosController::class, 'store']);
     Route::put('/tipo-activos/update/{id}', [App\Http\Controllers\TipoActivosController::class, 'update']);
     Route::put('/tipo-activos/update-status/{id}', [App\Http\Controllers\TipoActivosController::class, 'update_status']);
@@ -92,7 +90,6 @@ Route::group(['middleware' => ['auth', 'permission:actividades']], function () {
     Route::get('/actividades', [App\Http\Controllers\ActividadesController::class, 'index'])->name('actividades.index');
 
     Route::get('/actividades/all', [App\Http\Controllers\ActividadesController::class, 'all']);
-    Route::get('/actividades/all-select', [App\Http\Controllers\ActividadesController::class, 'all_select']);
     Route::post('/actividades/store', [App\Http\Controllers\ActividadesController::class, 'store']);
     Route::put('/actividades/update/{id}', [App\Http\Controllers\ActividadesController::class, 'update']);
     Route::put('/actividades/update-status/{id}', [App\Http\Controllers\ActividadesController::class, 'update_status']);
@@ -138,6 +135,9 @@ Route::group(['middleware' => ['auth', 'permission:reportes']], function () {
 
     Route::get('/observaciones/all/{id}', [App\Http\Controllers\ObservacionController::class, 'all']);
     Route::post('/observaciones/store', [App\Http\Controllers\ObservacionController::class, 'store']);
+
+    Route::get('/proyectos/all-select', [App\Http\Controllers\ProyectoController::class, 'all_select']);
+    Route::get('/actividades/all-select', [App\Http\Controllers\ActividadesController::class, 'all_select']);
 });
 
 Route::group(['middleware' => ['auth', 'permission:matriz']], function () {
@@ -181,6 +181,8 @@ Route::group(['middleware' => ['auth', 'permission:checklist']], function () {
     Route::post('/checklist/pdf', [App\Http\Controllers\PdfController::class, 'generarPdfChecklist']);
 
     Route::get('/checklistvehiculos/all', [App\Http\Controllers\ChecklistVehiculoController::class, 'all']);
+
+    Route::get('/tipo-activos/all-select', [App\Http\Controllers\TipoActivosController::class, 'all_select']);
 });
 
 Route::group(['middleware' => ['auth', 'permission:usuarios']], function () {

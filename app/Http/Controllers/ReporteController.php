@@ -27,25 +27,26 @@ class ReporteController extends Controller
     {
         // Verificar si el usuario está autenticado
         $user = Auth::user();
-
+    
         if (!$user) {
             return response()->json(['error' => 'Usuario no autenticado'], 401);
         }
-
+    
         // Obtener el rol del usuario autenticado
-        $rol = $user->getRoleNames()->first(); // Asumiendo que usas spatie/laravel-permission
-
+        $roleNames = $user->getRoleNames();
+        $rol = $roleNames->first(); // Asumiendo que usas spatie/laravel-permission
+    
         // Definir las relaciones a cargar con 'with'
         $relations = ['proyecto', 'horometro', 'corona_escareador', 'aditivo', 'herramienta', 'perforacion', 'detalleHora.actividad', 'observacion'];
-
-        // Si el rol es 'usuario', filtrar por el user_id
-        if ($rol === 'usuario') {
-            $reportes = Reporte::with($relations)->where('user_id', $user->id)->latest()->get();
+    
+        // Si el rol es 'administrador', devolver todos los reportes
+        if ($rol === 'administrador') {
+            $reportes = Reporte::with($relations)->latest()->get();
             return response()->json($reportes);
         }
-
-        // Para otros roles, devolver todos los reportes
-        $reportes = Reporte::with($relations)->latest()->get();
+    
+        // Para otros roles, devolver solo los reportes del usuario autenticado
+        $reportes = Reporte::with($relations)->where('user_id', $user->id)->latest()->get();
         return response()->json($reportes);
     }
 

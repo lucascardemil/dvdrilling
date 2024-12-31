@@ -325,7 +325,7 @@
                                             <td></td>
                                         @endif
 
-                                        {{-- @if (count($categorias[$ca]['intervenciones'][$in]['condiciones'][$co]['imagenes']) > 0)
+                                        @if (count($categorias[$ca]['intervenciones'][$in]['condiciones'][$co]['imagenes']) > 0)
                                             @for ($im = 0; $im < count($categorias[$ca]['intervenciones'][$in]['condiciones'][$co]['imagenes']); $im++)
                                                 @if ($categorias[$ca]['intervenciones'][$in]['condiciones'][$co]['imagenes'][$im]['observacion'] != '')
                                                     <td>{{ $categorias[$ca]['intervenciones'][$in]['condiciones'][$co]['imagenes'][$im]['observacion'] }}
@@ -336,9 +336,9 @@
                                             @endfor
                                         @else
                                             <td></td>
-                                        @endif --}}
+                                        @endif
 
-                                        <td></td>
+                    
                                     @endfor
                                 </tr>
                             @endif
@@ -437,7 +437,9 @@
             </td>
             <td style="text-align: center">
                 <label class="texto">INDIQUE NIVEL DE COMBUSTIBLE AL INICIAR EL TURNO</label>
-                <img src="{{ public_path($imagen_combustible) }}" style="width: 100%; height: 200px;">
+                @if ($imagen_combustible)
+                    <img src="{{ public_path($imagen_combustible) }}" style="width: 100%; height: 200px;">
+                @endif 
             </td>
         </tr>
     </table>

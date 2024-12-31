@@ -29,9 +29,6 @@ export default {
             this.loading_checklist = true;
             this.errors_checklist = null;
             try {
-                // Simular un retraso de 2 segundos
-                await new Promise(resolve => setTimeout(resolve, 2000));
-
                 const response = await axios.get('/checklist/all');
                 if (response && response.data) {
                     this.checklist = response.data;

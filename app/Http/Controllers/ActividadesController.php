@@ -14,7 +14,7 @@ class ActividadesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:actividades');
+        $this->middleware('permission:actividades')->only('index');
     }
 
     public function index()

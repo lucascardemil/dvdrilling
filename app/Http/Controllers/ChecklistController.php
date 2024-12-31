@@ -45,12 +45,6 @@ class ChecklistController extends Controller
         // Definir las relaciones a cargar con 'with'
         $relations = ['tipoactivo', 'matriz', 'categorias.intervenciones.condiciones.imagenes', 'vehiculos.detalles'];
 
-        // Si el rol es 'usuario', filtrar por el user_id
-        if ($rol === 'usuario') {
-            $reportes = Checklist::with($relations)->where('user_id', $user->id)->get();
-            return response()->json($reportes);
-        }
-
         // Para otros roles, devolver todos los reportes
         $reportes = Checklist::with($relations)->get();
         return response()->json($reportes);

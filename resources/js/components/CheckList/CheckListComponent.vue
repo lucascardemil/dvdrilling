@@ -133,12 +133,11 @@ import usuariosMixin from '../../mixins/usuarios/usuariosMixin';
 
 
 import CompletarCheckListModal from './CompletarCheckListModal.vue';
-import matrizChecklistMixin from '../../mixins/checklist/matrizChecklistMixin';
 import VerCheckListCompletadoModal from './VerCheckListCompletadoModal.vue';
 import LoadingComponent from '../base/LoadingComponent.vue';
 
 export default {
-    mixins: [checklistMixin, matrizChecklistMixin, tipoActivoMixin, usuariosMixin],
+    mixins: [checklistMixin, tipoActivoMixin, usuariosMixin],
     components: {
         CompletarCheckListModal,
         VerCheckListCompletadoModal,
@@ -221,7 +220,6 @@ export default {
     },
     created() {
         this.fetchTipoActivosSelect();
-        this.fetchMatrizChecklist();
         this.fetchChecklist();
         this.fetchUserRole();
     }

@@ -67,7 +67,8 @@
             </div>
         </div>
 
-        <div v-if="checklist.length > 0" class="table-responsive">
+        <LoadingComponent v-if="loading_matriz" />
+        <div v-else class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -81,31 +82,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(check, index) in checklist" :key="check.id">
-                        <th>{{ index + 1 }}</th>
-                        <td>{{ check.tipoactivo.name }}</td>
-                        <td>{{ check.matriz.nombre }}</td>
-                        <td>{{ check.marca }}</td>
-                        <td>{{ check.modelo }}</td>
-                        <td>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch"
-                                    :id="'check-' + check.id + '_' + index" v-model="check.status"
-                                    @change="habilitarCheckList(check.id, check.status)">
-                            </div>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-warning"
-                                @click="openEditarModal(check)"><i class="bi bi-pencil-square"></i></button>
-                        </td>
-                    </tr>
+                    <template v-if="checklist.length">
+                        <tr v-for="(check, index) in checklist" :key="check.id">
+                            <th>{{ index + 1 }}</th>
+                            <td>{{ check.tipoactivo.name }}</td>
+                            <td>{{ check.matriz.nombre }}</td>
+                            <td>{{ check.marca }}</td>
+                            <td>{{ check.modelo }}</td>
+                            <td>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch"
+                                        :id="'check-' + check.id + '_' + index" v-model="check.status"
+                                        @change="habilitarCheckList(check.id, check.status)">
+                                </div>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-warning" @click="openEditarModal(check)"><i
+                                        class="bi bi-pencil-square"></i></button>
+                            </td>
+                        </tr>
+                    </template>
+                    <p v-else>No hay matriz checklist.</p>
                 </tbody>
             </table>
         </div>
-        <LoadingComponent v-else-if="loading_matriz"/>
-        <p v-else>No hay matriz checklist.</p>
 
-        
         <EditCheckListModal ref="editarCheckListModal" :editChecklistProps="editChecklist" />
         <MatrizCheckListModal ref="matrizCheckListModal"
             @listarMatrizChecklist-finalizada="listarMatrizChecklistFinalizada" />

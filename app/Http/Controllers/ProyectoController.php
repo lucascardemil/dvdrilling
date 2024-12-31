@@ -13,7 +13,7 @@ class ProyectoController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:proyecto');
+        $this->middleware('permission:proyecto')->only('index');
     }
 
     public function index()
